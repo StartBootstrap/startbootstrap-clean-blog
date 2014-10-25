@@ -1,2 +1,2 @@
-startbootstrap-clea-blog
-========================
+Start Bootstrap - Clean Blog
+=========
