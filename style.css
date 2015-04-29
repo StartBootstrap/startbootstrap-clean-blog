@@ -1,0 +1,18 @@
+/*
+Theme Name: Clean Blog WP
+Theme URI: http://http://startbootstrap.com/template-overviews/clean-blog/
+Author: Ines van Essen
+Author URI: http://www.inesvanessen.nl
+Description: A WordPress version of the Bootstrap templates made by StartBootstrap.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: cleanblog
+
+This theme, like WordPress, is licensed under the GPL.
+*/
+
+/* Import Bootstrap & Clean Blog CSS files */
+@import url('css/bootstrap.css');
+@import url('css/clean-blog.css');
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
