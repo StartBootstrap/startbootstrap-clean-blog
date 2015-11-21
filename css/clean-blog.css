@@ -47,7 +47,6 @@ hr.small {
   border-color: white;
 }
 .navbar-custom {
-  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -65,6 +64,7 @@ hr.small {
 }
 @media only screen and (min-width: 768px) {
   .navbar-custom {
+    position: absolute;
     background: transparent;
     border-bottom: 1px solid transparent;
   }
@@ -87,6 +87,7 @@ hr.small {
 }
 @media only screen and (min-width: 1170px) {
   .navbar-custom {
+    position: absolute;
     -webkit-transition: background-color 0.3s;
     -moz-transition: background-color 0.3s;
     transition: background-color 0.3s;
