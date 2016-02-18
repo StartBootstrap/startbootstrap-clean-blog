@@ -3,6 +3,8 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var bower = bower = require('gulp-bower');
+var minifyCss = require('gulp-minify-css');
+var rename = require('gulp-rename');
 
 var config = {
      bowerDir: './bower_components' ,
@@ -20,13 +22,14 @@ gulp.task('bower', function() { 
 gulp.task('sass', function () {
     return gulp.src(config.sassPath)
         .pipe(sass({
-            // outputStyle: 'compressed',
             includePaths: [
-                 config.bowerDir + '/bootstrap-sass/assets/stylesheets',
-                config.sassPath
+                 config.bowerDir + '/bootstrap-sass/assets/stylesheets'
             ]
         })
         .on('error', sass.logError))
+        .pipe(gulp.dest(config.cssPath))
+        .pipe(minifyCss())
+        .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest(config.cssPath));
 });
 
@@ -39,4 +42,4 @@ gulp.task('watch', function () {
   gulp.task('build', ['bower', 'sass']);
 
 // default commands to be excecuted when using the "gulp" command
-  gulp.task('default', ['bower', 'sass', 'watch']);
+  gulp.task('default', ['build', 'watch']);
