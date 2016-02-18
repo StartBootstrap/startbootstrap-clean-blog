@@ -1,12 +1,13 @@
-@import "variables.less";
-@import "mixins.less";
+@import "bootstrap";
+@import "variables";
+@import "mixins";
 
 // Global Components
 
 body {
-	.serif;
+	@include serif();
 	font-size: 20px;
-	color: @gray-dark;
+	color: $gray-dark;
 }
 
 // -- Typography
@@ -25,15 +26,15 @@ h3,
 h4,
 h5,
 h6 {
-	.sans-serif;
+	@include sans-serif();
 	font-weight: 800;
 }
 
 a {
-	color: @gray-dark;
+	color: $gray-dark;
 	&:hover,
 	&:focus {
-		color: @brand-primary;
+		color: $brand-primary;
 	}
 }
 
@@ -45,7 +46,7 @@ a img {
 }
 
 blockquote {
-	color: @gray;
+	color: $gray;
 	font-style: italic;
 }
 
@@ -64,7 +65,7 @@ hr.small {
 	left: 0;
 	width: 100%;
 	z-index: 3;
-	.sans-serif;
+	@include sans-serif();
 	.navbar-brand {
 		font-weight: 800;
 	}
@@ -86,7 +87,7 @@ hr.small {
 			padding: 20px;
 			&:hover,
 			&:focus {
-				color: @white-faded;
+				color: $white-faded;
 			}
 		}
 		.nav {
@@ -96,7 +97,7 @@ hr.small {
 					padding: 20px;
 					&:hover,
 					&:focus {
-						color: @white-faded;
+						color: $white-faded;
 					}
 				}
 			}
@@ -124,19 +125,19 @@ hr.small {
 			-moz-transition: -moz-transform 0.3s;
 			transition: transform 0.3s;
 			.navbar-brand {
-				color: @gray-dark;
+				color: $gray-dark;
 				&:hover,
 				&:focus {
-					color: @brand-primary;
+					color: $brand-primary;
 				}
 			}
 			.nav {
 				li {
 					a {
-						color: @gray-dark;
+						color: $gray-dark;
 						&:hover,
 						&:focus {
-							color: @brand-primary;
+							color: $brand-primary;
 						}
 					}
 				}
@@ -156,10 +157,10 @@ hr.small {
 // Header
 
 .intro-header {
-	background-color: @gray; 
+	background-color: $gray;
 	background: no-repeat center center; 
 	background-attachment: scroll;
-	.background-cover;
+	@include background-cover();
 	// NOTE: Background images are set within the HTML using inline CSS!
 	margin-bottom: 50px;
 	.site-heading,
@@ -182,7 +183,7 @@ hr.small {
 			font-size: 24px;
 			line-height: 1.1;
 			display: block;
-			.sans-serif;
+			@include sans-serif();
 			font-weight: 300;
 			margin: 10px 0 0;
 		}
@@ -202,13 +203,13 @@ hr.small {
 			display: block;
 		}
 		.subheading {
-			.sans-serif;
+			@include sans-serif();
 			font-size: 24px;
 			margin: 10px 0 30px;
 			font-weight: 600;
 		}
 		.meta {
-			.serif;
+			@include serif();
 			font-style: italic;
 			font-weight: 300;
 			font-size: 20px;
@@ -231,11 +232,11 @@ hr.small {
 
 .post-preview {
 	> a {
-		color: @gray-dark;
+		color: $gray-dark;
 		&:hover,
 		&:focus {
 			text-decoration: none;
-			color: @brand-primary;
+			color: $brand-primary;
 		}
 		> .post-title {
 			font-size: 30px;
@@ -249,16 +250,16 @@ hr.small {
 		}
 	}
 	> .post-meta {
-		color: @gray;
+		color: $gray;
 		font-size: 18px;
 		font-style: italic;
 		margin-top: 0;
 		> a {
 			text-decoration: none;
-			color: @gray-dark;
+			color: $gray-dark;
 			&:hover,
 			&:focus {
-				color: @brand-primary;
+				color: $brand-primary;
 				text-decoration: underline;
 			}
 		}
@@ -311,7 +312,7 @@ footer {
 	position: relative;
 	margin-bottom: 0;
 	padding-bottom: 0.5em;
-	border-bottom: 1px solid @gray-light;
+	border-bottom: 1px solid $gray-light;
 	input,
 	textarea {
 		z-index: 1;
@@ -343,7 +344,7 @@ footer {
 	}
 	&::not(:first-child) {
 		padding-left: 14px;
-		border-left: 1px solid @gray-light;
+		border-left: 1px solid $gray-light;
 	}
 }
 
@@ -356,18 +357,18 @@ footer {
 
 .floating-label-form-group-with-focus {
 	label {
-		color: @brand-primary;
+		color: $brand-primary;
 	}
 }
 
 form .row:first-child .floating-label-form-group {
-	border-top: 1px solid @gray-light;
+	border-top: 1px solid $gray-light;
 }
 
 // Button Styles
 
 .btn {
-	.sans-serif;
+	@include sans-serif();
 	text-transform: uppercase;
 	font-size: 14px;
 	font-weight: 800;
@@ -384,8 +385,8 @@ form .row:first-child .floating-label-form-group {
 .btn-default {
 	&:hover,
 	&:focus {
-		background-color: @brand-primary;
-		border: 1px solid @brand-primary;
+		background-color: $brand-primary;
+		border: 1px solid $brand-primary;
 		color: white;
 	}
 }
@@ -399,7 +400,7 @@ form .row:first-child .floating-label-form-group {
 	li {
 		> a,
 		> span {
-			.sans-serif;
+			@include sans-serif();
 			text-transform: uppercase;
 			font-size: 14px;
 			font-weight: 800;
@@ -412,8 +413,8 @@ form .row:first-child .floating-label-form-group {
 		> a:hover,
 		> a:focus {
 			color: white;
-			background-color: @brand-primary;
-			border: 1px solid @brand-primary;
+			background-color: $brand-primary;
+			border: 1px solid $brand-primary;
 		}
 	}
 
@@ -422,8 +423,8 @@ form .row:first-child .floating-label-form-group {
 		> a:hover,
 		> a:focus,
 		> span {
-			color: @gray;
-			background-color: @gray-dark;
+			color: $gray;
+			background-color: $gray-dark;
 			cursor: not-allowed;
 		}
 	}
@@ -434,13 +435,13 @@ form .row:first-child .floating-label-form-group {
 ::-moz-selection {
 	color: white;
 	text-shadow: none;
-	background: @brand-primary;
+	background: $brand-primary;
 }
 
 ::selection {
 	color: white;
 	text-shadow: none;
-	background: @brand-primary;
+	background: $brand-primary;
 }
 
 img::selection {
@@ -454,5 +455,5 @@ img::-moz-selection {
 }
 
 body {
-	webkit-tap-highlight-color: @brand-primary;
+	webkit-tap-highlight-color: $brand-primary;
 }
