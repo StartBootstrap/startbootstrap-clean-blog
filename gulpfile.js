@@ -18,9 +18,8 @@ var banner = ['/*!\n',
 ].join('');
 
 // Default task
-gulp.task('default', function() {
-    // default tasks here
-});
+// Default task
+gulp.task('default', ['less', 'minify-css', 'minify-js', 'copy']);
 
 // Less task to compile the less files and add the banner
 gulp.task('less', function() {
@@ -102,6 +101,3 @@ gulp.task('dev', ['browserSync', 'less', 'minify-css', 'minify-js'], function() 
     gulp.watch('*.html', browserSync.reload);
     gulp.watch('js/**/*.js', browserSync.reload);
 });
-
-// Build Task
-gulp.task('build', ['less', 'minify-css', 'minify-js', 'copy']);
