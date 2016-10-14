@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Clean Blog - Contact</title>
+    <title>Clean Blog - Interesting Facts</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -58,7 +58,7 @@
                         <a href="post.html">Community Comments</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="Contact.html">Contact</a>
                     </li>
                      <li>
                         <a href="interesting.html">Interesting Facts</a>
@@ -180,9 +180,9 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- Contact Form JavaScript -->
+    <!-- Interesting Facts Form JavaScript -->
     <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+    <script src="js/interesting_facts.js"></script>
 
     <!-- Theme JavaScript -->
     <script src="js/clean-blog.min.js"></script>
