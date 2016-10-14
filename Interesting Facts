@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Clean Blog - Sample Post</title>
+    <title>Clean Blog - Contact</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +48,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                      <li>
+                   <li>
                         <a href="index.html">Home</a>
                     </li>
                     <li>
@@ -72,112 +72,69 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('http://i3.mirror.co.uk/incoming/article2040805.ece/ALTERNATES/s1227b/A-39000-year-old-female-Woolly-mammoth.jpg')">
+    <header class="intro-header" style="background-image: url('http://royalbcmuseum.bc.ca/sites/default/files/styles/basic_page_feature_image/public/images/feature-images/contactus.jpg?itok=Uz-jtGLe')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="post-heading">
-                        <h1>Millions of years ago, giants roamed the earth.</h1>
-                        <h2 class="subheading">Mammoths: Titans of the Ice Age</h2>
-                        <span class="meta">Feel free <a href="#"> to add a post and comment</a> in the contact section</span>
+                    <div class="page-heading">
+                        <h1>Contact Me</h1>
+                        <hr class="small">
+                        <span class="subheading">Have questions? I have answers.</span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Post Content -->
-    <article>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <h2 class="section-heading">Sawyer's Thoughts</h2>
-                    
-                     <a href="#">
-                        <img class="img-responsive" src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAAjAAAAJGRiNTY4YzcwLTU1ZDYtNGE3Zi05NGIyLTg5N2E1YzlhZjc3Nw.jpg" alt="">
-                    </a>
-
-                    <h2 class="section-heading">SEE A WOOLLY MAMMOTH!</h2>
-
-                    <p> Watch out kids! It’s coming right for us! It was very cool to see a Woolly Mammoth the way they used to be when they roamed around Vancouver Island. We were very surprised to find real ice on one of the walls of the exhibit, we thought for sure it was fake… that is, until our 5 year old’s busy hands made contact. Just another place where the museum goes above and beyond to help the exhibits come to life.</p>
-
-                    <a href="#">
-                        <img class="img-responsive" src="http://13929-presscdn-0-51.pagely.netdna-cdn.com/wp-content/uploads/2014/12/Victoria-Museum-Mammoth.jpg" alt="">
-                    </a>
-                    <span class="caption text-muted">Factoid Alert: The oldest and best specimen of a large-mammal fossil ever to be found on Vancouver Island was a 17,000 year old fossilized tooth of a woolly mammoth found on an island beach in the Greater Victoria area.</span>
-
-                    <p>Placeholder text by <a href="http://www.travelingislanders.com">Travelling Islanders</a>. Photographs by <a href="http://13929-presscdn-0-51.pagely.netdna-cdn.com/wp-content/uploads/2014/12/Victoria-Museum-Mammoth.jpg">Travelling Islanders</a>.</p>
-                </div>
-            </div>
-        </div>
-    </article>
-<div class="container">
+    <!-- Main Content -->
+    <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-preview">
-                    <a href="interesting.html">
-                        <h2 class="post-title">
-                            See 40,000-year-old baby mammoth featured in B.C. museum
-                        </h2>
-                        <h3 class="post-subtitle">
-                            "This engaging and interactive look at these magnificent creatures will transport visitors to a time when giants walked among us and humans struggled to survive in a world they had yet to conquer"
-                         <a href="#">
-                        <img class="img-responsive" src="http://www.news1130.com/wp-content/blogs.dir/sites/9/2016/06/20/Mammoths.jpg" alt="">
-                    </a>
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Leeanna McLean</a> on May 29th, 2016</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="interesting.html">
-                        <h2 class="post-title">
-                            Had a lovely time at the musuem the displays were very real I thought the large mammoth was coming for me.
-                        </h2>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Bev C</a> on September 28, 2016</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="interesting.html">
-                        <h2 class="post-title">
-                            Woolly Mammoth
-                        </h2>
-                        <h3 class="post-subtitle">
-                           This is a small museum compare to most I've been to but the Wooly Mammoth exhibition is stunning.
-                         <a href="#">
-                        <img class="img-responsive" src="http://cdn.c.photoshelter.com/img-get2/I00008i7aKFgRJK0/fit=1000x750/GB10697.jpg" alt="">
-                    </a>
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Koehn</a> on September 27, 2016</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="interesting.html">
-                        <h2 class="post-title">
-                            Ask anyone about what they remember from the Royal BC Museum and it’s Woolly, the full-scale woolly mammoth model in the  Natural History Gallery.
-                        </h2>
-                        <h3 class="post-subtitle">
-                           I suppose mammoths resonate like dinosaurs … speak to the child in everybody and unlock this visceral excitement you can’t shake,
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Scott Cooper</a> on Octorber 1st, 2016</p>
-                
-                  <h2 class="section-heading">Making the Mammoth</h2>
-                    
-                    <p>The techniques used to develop the model of the mammoth were developed by Vancouver-based Topographics using such cutting-edge technology as three-dimensional scanning of the maquette into a full size animal. The form was then cut into layers by a computer.</p>
+                <p>Want to get in touch with me? Want to contribute to the blog? Fill out the form below to send me a message and I will try to get back to you within 24 hours!</p>
+                <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
+                <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
+                <!-- NOTE: To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+                <form name="sentMessage" id="contactForm" novalidate>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Name</label>
+                            <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Email Address</label>
+                            <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Phone Number</label>
+                            <input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Message</label>
+                            <textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="success"></div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <button type="submit" class="btn btn-default">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
-                    <p>Richard Gibbs did the taxidermy on Woolly. His deft touch has much to do with the longevity and hyper-realism of the display.</p>
-
-                    <p>“We wanted a really dynamic introduction to the Natural History section, and going back to when the Strait of Juan de Fuca was actually a grassy plain and mammoths would have been very common,” said Gibbs. “The scene could be Victoria, as they are still finding tusks and more in the Butler Brothers pit in central Saanich to this day. The musk ox fur was an obvious choice as they exist in the same environment and many remains have been found along with those of mammoths.”</p>
-
-                    <p>Gibbs notes that hair discovered in permafrost sites obviously changes colour when it has been underground for tens of thousands of years. So the team was working on “best guess” as well as scientific research coming up with the final look of Woolly. Nine hides were needed in total and a enormous amount of labour went into getting the right texture aligned to body placement, the right nape and the right colour. </p>
-
-                    <p>It took a year to complete Woolly, and a great deal of maintenance goes into keeping the replica in tip-top condition as the display is exposed to the open air, dust and other deleterious influences. The size made encasing it in a glass case unwieldy, and also just didn’t seem to fit the look of the scene.</p>
-
-
-                </div>
     <hr>
 
     <!-- Footer -->
