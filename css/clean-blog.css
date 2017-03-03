@@ -40,6 +40,8 @@ blockquote {
 
 #mainNav {
   background-color: white;
+  border-bottom: 1px solid #eeeeee;
+  position: absolute;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
   #mainNav .navbar-brand {
     color: #777777;
