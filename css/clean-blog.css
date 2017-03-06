@@ -1,6 +1,6 @@
 /*!
  * Start Bootstrap - Clean Blog v3.3.7+1 (http://startbootstrap.com/template-overviews/clean-blog)
- * Copyright 2013-2016 Start Bootstrap
+ * Copyright 2013-2017 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 body {
@@ -88,6 +88,13 @@ hr.small {
   .navbar-custom .nav li a:hover,
   .navbar-custom .nav li a:focus {
     color: rgba(255, 255, 255, 0.8);
+  }
+  .navbar-custom .nav li ul.dropdown-menu a {
+    color: #333333;
+  }
+  .navbar-custom .nav li ul.dropdown-menu a:hover,
+  .navbar-custom .nav li ul.dropdown-menu a:focus {
+    color: #0085A1;
   }
 }
 @media only screen and (min-width: 1170px) {
