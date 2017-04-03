@@ -1,0 +1,61 @@
+// Styling for the contact page
+.floating-label-form-group {
+    font-size: 14px;
+    position: relative;
+    margin-bottom: 0;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid $gray-lighter;
+    input,
+    textarea {
+        z-index: 1;
+        position: relative;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        font-size: 1.5em;
+        background: none;
+        box-shadow: none !important;
+        resize: none;
+        @include serif-font;
+        &::-webkit-input-placeholder {
+            @include serif-font;
+            color: $gray-light;
+        }
+    }
+    label {
+        display: block;
+        z-index: 0;
+        position: relative;
+        top: 2em;
+        margin: 0;
+        font-size: 0.85em;
+        line-height: 1.764705882em;
+        vertical-align: middle;
+        vertical-align: baseline;
+        opacity: 0;
+        -webkit-transition: top 0.3s ease, opacity 0.3s ease;
+        -moz-transition: top 0.3s ease, opacity 0.3s ease;
+        -ms-transition: top 0.3s ease, opacity 0.3s ease;
+        transition: top 0.3s ease, opacity 0.3s ease;
+    }
+    .help-block {
+        margin: 15px 0;
+    }
+}
+
+.floating-label-form-group-with-value {
+    label {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+.floating-label-form-group-with-focus {
+    label {
+        color: $theme-primary;
+    }
+}
+
+form .form-group:first-child .floating-label-form-group {
+    border-top: 1px solid $gray-lighter;
+}

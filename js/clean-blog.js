@@ -1,5 +1,7 @@
-// Floating label headings for the contact form
-$(function() {
+(function($) {
+    "use strict"; // Start of use strict
+
+    // Floating label headings for the contact form
     $("body").on("input propertychange", ".floating-label-form-group", function(e) {
         $(this).toggleClass("floating-label-form-group-with-value", !!$(e.target).val());
     }).on("focus", ".floating-label-form-group", function() {
@@ -7,10 +9,8 @@ $(function() {
     }).on("blur", ".floating-label-form-group", function() {
         $(this).removeClass("floating-label-form-group-with-focus");
     });
-});
 
-// Navigation Scripts to Show Header on Scroll-Up
-jQuery(document).ready(function($) {
+    // Show the navbar when the page is scrolled up
     var MQL = 1170;
 
     //primary navigation slide-in effect
@@ -37,4 +37,5 @@ jQuery(document).ready(function($) {
                 this.previousTop = currentTop;
             });
     }
-});
+
+})(jQuery); // End of use strict

@@ -1,0 +1,28 @@
+// Bootstrap overrides for this template
+.btn {
+    @include sans-serif-font;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    border-radius: 0;
+    padding: 15px 25px;
+}
+
+.btn-primary {
+    @include button-variant(white, $theme-primary, $theme-primary);
+}
+
+.btn-lg {
+    font-size: 16px;
+    padding: 25px 35px;
+}
+
+.btn-default {
+    &:hover,
+    &:focus {
+        background-color: $theme-primary;
+        border: 1px solid $theme-primary;
+        color: white;
+    }
+}

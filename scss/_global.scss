@@ -1,0 +1,88 @@
+// Global styling for this template
+body {
+    @include serif-font;
+    font-size: 20px;
+    color: $gray-dark;
+}
+
+p {
+    line-height: 1.5;
+    margin: 30px 0;
+    a {
+        text-decoration: underline;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @include sans-serif-font;
+    font-weight: 800;
+}
+
+a {
+    @include transition-all;
+    color: $gray-dark;
+    &:hover,
+    &:focus {
+        color: $theme-primary;
+    }
+}
+
+a img {
+    &:hover,
+    &:focus {
+        cursor: zoom-in;
+    }
+}
+
+blockquote {
+    color: $gray-light;
+    font-style: italic;
+}
+
+.section-heading {
+    font-size: 36px;
+    margin-top: 60px;
+    font-weight: 700;
+}
+
+.caption {
+    text-align: center;
+    font-size: 14px;
+    padding: 10px;
+    font-style: italic;
+    margin: 0;
+    display: block;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+::-moz-selection {
+    color: white;
+    text-shadow: none;
+    background: $theme-primary;
+}
+
+::selection {
+    color: white;
+    text-shadow: none;
+    background: $theme-primary;
+}
+
+img::selection {
+    color: white;
+    background: transparent;
+}
+
+img::-moz-selection {
+    color: white;
+    background: transparent;
+}
+
+body {
+    -webkit-tap-highlight-color: $theme-primary;
+}
