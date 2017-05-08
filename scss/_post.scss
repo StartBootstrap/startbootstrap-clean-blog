@@ -13,23 +13,23 @@
             margin-bottom: 10px;
         }
         > .post-subtitle {
-            margin: 0;
             font-weight: 300;
+            margin: 0;
             margin-bottom: 10px;
         }
     }
     > .post-meta {
-        color: $gray-light;
         font-size: 18px;
         font-style: italic;
         margin-top: 0;
+        color: $gray-light;
         > a {
             text-decoration: none;
             color: $gray-dark;
             &:hover,
             &:focus {
-                color: $theme-primary;
                 text-decoration: underline;
+                color: $theme-primary;
             }
         }
     }
