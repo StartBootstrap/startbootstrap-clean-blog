@@ -1,10 +1,11 @@
-Configure to support hader/footer in html pages.
-check here on how to configure it. 
-http://httpd.apache.org/docs/2.2/howto/ssi.html44
-
 # [Start Bootstrap](http://startbootstrap.com/) - [Clean Blog](http://startbootstrap.com/template-overviews/clean-blog/)
 
 [Clean Blog](http://startbootstrap.com/template-overviews/clean-blog/) is a stylish, responsive blog theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This theme features a blog homepage, about page, contact page, and an example post page along with a working PHP contact form.
+## Add footer/header html support
+Configure to support hader/footer in html pages.
+check here on how to configure it. 
+http://www.htmlcenter.com/blog/creating-a-headerfooter-to-be-used-on-all-pages/
+http://httpd.apache.org/docs/2.2/howto/ssi.html44
 
 ## Getting Started
 
