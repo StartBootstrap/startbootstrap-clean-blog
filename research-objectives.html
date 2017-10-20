@@ -29,25 +29,34 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+      <a class="navbar-brand" href="index.html">Team Entropy</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fa fa-bars"></i>
-        </button>
+                Menu
+                <i class="fa fa-bars"></i>
+              </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="domain.html">Domain</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="post.html">Sample Post</a>
+            <a class="nav-link" href="milestones.html">Milestones</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="slides.html">Slides</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="documents.html">Documents</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About us</a>
           </li>
         </ul>
       </div>
@@ -75,7 +84,7 @@
         <div class="col-lg-8 col-md-10 mx-auto">
           <h2 class="section-heading">Main Objectives</h2>
 
-          <p>
+          <p style="text-align: justify">
             When it comes to deep learning QA systems there are two broad categories that we can target. There are open datasets such
             as the Allen AI Science and Quiz Bowl datasets, and closed datasets such as the ones provided by Facebook (bAbI)
             [12]. Open QA systems require using the information provided in the dataset as well as any additional available
@@ -83,7 +92,7 @@
             most likely required solution, however for the purposes of this research we have chosen to focus on a closed
             QA system, where the answer to a question would depend on the given dataset.
           </p>
-          <p>
+          <p style="text-align: justify">
             To further narrow down our scope we have chosen to build a question answer system for the medical emergency domain. As a
             case study and proof of concept we plan to implement a QA System that focuses only on answering questions related
             to medical emergency situations and not addressing open domain questions. The scope has been thus narrowed to,
@@ -91,7 +100,7 @@
             allocated time. The corpus will be the ECDS dataset provided by NHS, and the team is currently in the process
             of negotiating with the responsible people to obtain the dataset.
           </p>
-          <p>
+          <p style="text-align: justify">
             The end product would be a system that allows the user to ask medical emergency related questions in natural language form
             and the platform would find the most accurate answer and provide that answer in natural language form as well.
             The idea is to simulate a situation where the user is interacting with a person in the medical profession as
@@ -108,7 +117,7 @@
 
           Figure 2.0 System Architecture
 
-          <p>
+          <p style="text-align: justify">
             In order to achieve the main objective, we have broken it down into four different sub objectives. Each of these sub objectives
             form a critical part of the system and carry out a critical function. They also have deeply integrated deep learning
             techniques in each component, which we have described in great detail in the methodology section. In the next
@@ -116,7 +125,7 @@
           </p>
 
           <h2 class="section-heading">Corpus Preprocessing</h2>
-          <p>
+          <p style="text-align: justify">
             Primary objective of corpus preprocessing is that the preprocessed corpus is the input for training model and the answer
             is extracted through the training model based on the preprocessed corpus. Therefore the preprocessed corpus should
             contain a proper representation of data as it is the input for the training model. Intention behind the corpus
@@ -125,21 +134,25 @@
             similarity of words and mapping the semantic relationship of words.
           </p>
           <h2 class="section-heading">Question Preprocessing</h2>
-          <p>The main objective in this component is to construct a vector space representing the question asked by the user.
-            The vector should be constructed in a way it preserves and maps the semantic relationships of the words in close
-            proximity, in a low dimensional vector space, to achieve that objective we hope to go ahead with an approach
-            known as word embedding coupled with few other approaches addressing the structure and type of a question.</p>
+          <p style="text-align: justify">
+            The main objective in this component is to construct a vector space representing the question asked by the user. The vector
+            should be constructed in a way it preserves and maps the semantic relationships of the words in close proximity,
+            in a low dimensional vector space, to achieve that objective we hope to go ahead with an approach known as word
+            embedding coupled with few other approaches addressing the structure and type of a question.</p>
           <h2 class="section-heading">Deep Neural Network For Answer Extraction</h2>
-          <p>The primary objective of this module is to generate an answer to the pre-processed question by using the structured
-            data available in the pre-processed corpus. The answer is generated and presented only if it exceeds a satisfactory
+          <p style="text-align: justify">
+            The primary objective of this module is to generate an answer to the pre-processed question by using the structured data
+            available in the pre-processed corpus. The answer is generated and presented only if it exceeds a satisfactory
             level of confidence in order to ensure the reliability of the system since the proposed system is expected to
             operate in cases of medical emergencies and the reliability is of paramount importance. The answer generated
             will be in an abstract form and it will be used by the answer generation block in order to generate a meaningful
-            answer.</p>
+            answer.
+          </p>
           <h2 class="section-heading">Answer Generation </h2>
-          <p>Answer generation is a component that is important to ensure that the user can interact with the platform as naturally
-            as possible. It can be considered as a single-turn dialogue based mechanism for the platform. This means when
-            a user asks a question, it will feel like the user is interacting with a real person. The answer the user gets
+          <p style="text-align: justify">
+            Answer generation is a component that is important to ensure that the user can interact with the platform as naturally as
+            possible. It can be considered as a single-turn dialogue based mechanism for the platform. This means when a
+            user asks a question, it will feel like the user is interacting with a real person. The answer the user gets
             must be both factually correct and linguistically and grammatically sound. This component will be handling the
             later part of that. </p>
         </div>
