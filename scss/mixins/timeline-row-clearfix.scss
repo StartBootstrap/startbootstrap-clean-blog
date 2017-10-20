@@ -1,0 +1,10 @@
+@mixin timeline-row-clearfix() {
+  &:before, &:after {
+    content: " ";
+    display: block;
+  }
+
+  &:after {
+    clear: both;
+  }
+}

@@ -1,0 +1,26 @@
+@mixin timeline-responsive-variant(
+  $padding-left-even,
+  $padding-right-even,
+  $padding-left-odd,
+  $padding-right-odd
+) {
+  width: 100%;
+
+  .timeline-item {
+    padding: {
+      left: $padding-left-odd;
+      right: $padding-right-odd;
+    }
+
+    &.timeline-item-right, &:nth-of-type(even):not(.timeline-item-left) {
+      padding: {
+        left: $padding-left-even;
+        right: $padding-right-even;
+      }
+    }
+
+    & .timeline-event {
+      width: 100%;
+    }
+  }
+}

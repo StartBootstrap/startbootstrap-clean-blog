@@ -1,0 +1,90 @@
+@import "functions/desaturated-lighten";
+@import "functions/map-deep-get";
+@import "functions/map-set";
+@import "functions/mutate-colors";
+
+$timeline-single-column-breakpoint: 768px;
+
+$timeline-color-main-bg: #fff;
+
+$timeline-color-gray: #555;
+
+$timeline-colors: (
+        default: $timeline-color-gray,
+        primary: $timeline-color-gray,
+        success: #3F8100,
+        info: #0062A7,
+        warning: #ac7e00,
+        danger: #B71500
+);
+
+$timeline-color-gray-light: #f5f5f5;
+$timeline-color-gray-lighter: desaturated-lighten(map-get($timeline-colors, default));
+
+$timeline-bg-colors: (
+        default: $timeline-color-main-bg,
+        primary: $timeline-color-gray-light,
+        success: #F3F8ED,
+        info: #F0F8FD,
+        warning: #FFF9E9,
+        danger: #FFC4BC
+);
+
+$timeline-desaturated-colors: mutate-colors($timeline-colors, desaturated-lighten);
+
+$timeline-container-paddings: (
+        vertical: 1px,
+        horizontal: 0
+);
+
+$timeline-line: (
+        width: 2px,
+        color: $timeline-color-gray-lighter,
+        styles: (
+                solid: solid,
+                dotted: dotted,
+                dashed: dashed,
+                hidden: none
+        )
+);
+
+$timeline-single-column-line-offset: 42px;
+
+$timeline-item-margin-bottom: 20px;
+$timeline-second-item-margin-top: 40px;
+
+$timeline-item-border-radius: 3px;
+
+$timeline-item-arrow: (
+        sm: (
+                offset-top: 4px,
+                width: 10px
+        ),
+        md: (
+                offset-top: 10px,
+                width: 15px
+        ),
+        lg: (
+                offset-top: 10px,
+                width: 18px
+        )
+);
+
+$timeline-point-border-width: 2px;
+
+$timeline-point-width: 24px;
+$timeline-point-height: $timeline-point-width;
+
+$timeline-point-blank-width: 12px;
+$timeline-point-blank-height: $timeline-point-blank-width;
+
+$timeline-item-width-offset: map-deep-get($timeline-item-arrow, md, width) + 15px;
+$timeline-item-width-offset-single-column: $timeline-single-column-line-offset +
+                                              map-deep-get($timeline-item-arrow, md, width) +
+                                              ($timeline-point-width / 2) +
+                                              3px;
+
+$timeline-item-inner-padding: (
+        vertical: 4px,
+        horizontal: 10px
+);

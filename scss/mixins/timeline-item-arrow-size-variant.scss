@@ -1,0 +1,17 @@
+@mixin timeline-item-arrow-size-variant($top-offset, $arrow-width) {
+  top: $top-offset;
+  right: -$arrow-width;
+
+  border: {
+    top: $arrow-width solid transparent;
+    left: {
+      width: $arrow-width;
+      style: solid;
+    }
+    right: {
+      width: 0;
+      style: solid;
+    }
+    bottom: $arrow-width solid transparent;
+  }
+}

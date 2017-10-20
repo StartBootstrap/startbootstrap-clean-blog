@@ -1,0 +1,28 @@
+@import "timeline-item-arrow-size-variant";
+@import "timeline-item-right-side-position";
+
+@mixin timeline-item-variant($top-offset, $arrow-width) {
+  &.timeline-item-right, &:nth-of-type(even):not(.timeline-item-left) {
+    & > .timeline-event {
+      @include timeline-item-right-side-position($arrow-width);
+    }
+  }
+
+  & > .timeline-event {
+    &:before {
+      @include timeline-item-arrow-size-variant($top-offset, $arrow-width);
+    }
+
+    &:after {
+      @include timeline-item-arrow-size-variant($top-offset + 1px, $arrow-width - 1px);
+    }
+  }
+
+  & > .timeline-point {
+    top: $top-offset + $arrow-width;
+  }
+
+  @at-root .timeline-single-column#{&} > .timeline-event {
+    @include timeline-item-right-side-position($arrow-width);
+  }
+}

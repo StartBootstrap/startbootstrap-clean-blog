@@ -1,0 +1,23 @@
+@mixin timeline-element() {
+  position: relative;
+  float: left;
+  clear: left;
+
+  width: 50%;
+
+  margin-bottom: $timeline-item-margin-bottom;
+
+  &:before, &:after {
+    content: "";
+
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+
+  &:last-child {
+    margin-bottom: 0 !important;
+  }
+}
