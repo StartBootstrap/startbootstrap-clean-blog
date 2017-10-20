@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Clean Blog - Start Bootstrap Theme</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+    rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="css/clean-blog.min.css" rel="stylesheet">
+
+  <link rel='shortcut icon' type='image/x-icon' href='./img/favicon.ico'>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Team Entropy</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+              </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="domain.html">Domain</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="milestones.html">Milestones</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="slides.html">Slides</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="documents.html">Documents</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>Research Objectives</h1>
+            <h2 class="subheading">What are the objectives of this research?</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2 class="section-heading">Main Objectives</h2>
+
+          <p style="text-align: justify">
+            When it comes to deep learning QA systems there are two broad categories that we can target. There are open datasets such
+            as the Allen AI Science and Quiz Bowl datasets, and closed datasets such as the ones provided by Facebook (bAbI)
+            [12]. Open QA systems require using the information provided in the dataset as well as any additional available
+            knowledge. This requires some Information Retrieving techniques. In real world applications this would be the
+            most likely required solution, however for the purposes of this research we have chosen to focus on a closed
+            QA system, where the answer to a question would depend on the given dataset.
+          </p>
+          <p style="text-align: justify">
+            To further narrow down our scope we have chosen to build a question answer system for the medical emergency domain. As a
+            case study and proof of concept we plan to implement a QA System that focuses only on answering questions related
+            to medical emergency situations and not addressing open domain questions. The scope has been thus narrowed to,
+            first, increase the accuracy of answers provided and second, to ensure that the project can be completed in the
+            allocated time. The corpus will be the ECDS dataset provided by NHS, and the team is currently in the process
+            of negotiating with the responsible people to obtain the dataset.
+          </p>
+          <p style="text-align: justify">
+            The end product would be a system that allows the user to ask medical emergency related questions in natural language form
+            and the platform would find the most accurate answer and provide that answer in natural language form as well.
+            The idea is to simulate a situation where the user is interacting with a person in the medical profession as
+            close as possible. The accuracy of the answers will largely depend upon the accuracy of the data in the data
+            set and therefore we cannot guarantee that this will be able to replace an actual medical professional. However
+            the goal in this research is to show that using deep learning techniques we are able to reduce some of the complexities
+            and barriers that are present at the moment and are stopping QA systems from becoming mainstream products. The
+            medical emergency situation was chosen purely out of convenience because of the availability of the dataset.
+            It is only a proof of concept.
+          </p>
+          <p>
+            The overall system architecture would look something like what's shown below:
+          </p>
+
+          Figure 2.0 System Architecture
+
+          <p style="text-align: justify">
+            In order to achieve the main objective, we have broken it down into four different sub objectives. Each of these sub objectives
+            form a critical part of the system and carry out a critical function. They also have deeply integrated deep learning
+            techniques in each component, which we have described in great detail in the methodology section. In the next
+            section we have a brief overview of what each of the sub objectives are supposed to accomplish.
+          </p>
+
+          <h2 class="section-heading">Corpus Preprocessing</h2>
+          <p style="text-align: justify">
+            Primary objective of corpus preprocessing is that the preprocessed corpus is the input for training model and the answer
+            is extracted through the training model based on the preprocessed corpus. Therefore the preprocessed corpus should
+            contain a proper representation of data as it is the input for the training model. Intention behind the corpus
+            preprocessing is the transformation of raw text into a representation of vectors in a low dimensional vector
+            space along with maintaining the words which are similar in close proximity through understanding the contextual
+            similarity of words and mapping the semantic relationship of words.
+          </p>
+          <h2 class="section-heading">Question Preprocessing</h2>
+          <p style="text-align: justify">
+            The main objective in this component is to construct a vector space representing the question asked by the user. The vector
+            should be constructed in a way it preserves and maps the semantic relationships of the words in close proximity,
+            in a low dimensional vector space, to achieve that objective we hope to go ahead with an approach known as word
+            embedding coupled with few other approaches addressing the structure and type of a question.</p>
+          <h2 class="section-heading">Deep Neural Network For Answer Extraction</h2>
+          <p style="text-align: justify">
+            The primary objective of this module is to generate an answer to the pre-processed question by using the structured data
+            available in the pre-processed corpus. The answer is generated and presented only if it exceeds a satisfactory
+            level of confidence in order to ensure the reliability of the system since the proposed system is expected to
+            operate in cases of medical emergencies and the reliability is of paramount importance. The answer generated
+            will be in an abstract form and it will be used by the answer generation block in order to generate a meaningful
+            answer.
+          </p>
+          <h2 class="section-heading">Answer Generation </h2>
+          <p style="text-align: justify">
+            Answer generation is a component that is important to ensure that the user can interact with the platform as naturally as
+            possible. It can be considered as a single-turn dialogue based mechanism for the platform. This means when a
+            user asks a question, it will feel like the user is interacting with a real person. The answer the user gets
+            must be both factually correct and linguistically and grammatically sound. This component will be handling the
+            later part of that. </p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Your Website 2017</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
