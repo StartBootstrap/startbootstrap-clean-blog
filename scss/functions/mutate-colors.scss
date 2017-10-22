@@ -1,0 +1,9 @@
+@function mutate-colors($colors, $mutator) {
+  $mutated-colors: ();
+
+  @each $status, $color in $colors {
+    $mutated-colors: map-set($mutated-colors, $status, call($mutator, $color));
+  }
+
+  @return $mutated-colors;
+}

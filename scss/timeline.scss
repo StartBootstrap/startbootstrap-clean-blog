@@ -1,0 +1,221 @@
+@import "variables";
+
+@import "mixins/timeline-element";
+@import "mixins/timeline-event-variant";
+@import "mixins/timeline-item-variant";
+@import "mixins/timeline-label-variant";
+@import "mixins/timeline-line-variant";
+@import "mixins/timeline-point-color-variant";
+@import "mixins/timeline-point-size-variant";
+@import "mixins/timeline-responsive-variant";
+@import "mixins/timeline-row-clearfix";
+@import "mixins/timeline-single-column";
+
+.timeline {
+  @extend .timeline-line-solid;
+  @include timeline-responsive-variant($timeline-item-width-offset, 0, 0, $timeline-item-width-offset);
+  @include timeline-row-clearfix;
+
+  position: relative;
+
+  padding: map-get($timeline-container-paddings, vertical) map-get($timeline-container-paddings, horizontal);
+
+  list-style: none;
+  font-weight: 300;
+
+  &:before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    width: 50%;
+    height: 100% !important;
+
+    margin-left: map-get($timeline-line, width) / 2;
+
+    border-right: {
+      width: map-get($timeline-line, width);
+      style: solid;
+      color: map-get($timeline-line, color)
+    }
+  }
+
+  &.timeline-single-column {
+    @include timeline-single-column($timeline-single-column-breakpoint);
+  }
+
+  @each $type, $style in map-get($timeline-line, styles) {
+    &.timeline-line-#{$type} {
+      @include timeline-line-variant($style);
+    }
+  }
+
+  & .timeline-item {
+    @extend .timeline-item-arrow-md;
+    @include timeline-element;
+
+    margin-bottom: $timeline-item-margin-bottom;
+
+    &:nth-of-type(2) {
+      margin-top: $timeline-second-item-margin-top;
+    }
+
+    &.timeline-item-left, &.timeline-item-right {
+      @include timeline-item-start-margins(0, $timeline-second-item-margin-top);
+
+      clear: both !important;
+
+      & + .timeline-item:not(.timeline-item-left):not(.timeline-item-right) {
+        clear: both;
+      }
+    }
+
+    &.timeline-item-right, &:nth-of-type(even):not(.timeline-item-left) {
+      float: right;
+      clear: right;
+
+      & > .timeline-point {
+        left: -$timeline-point-width;
+
+        &.timeline-point-blank {
+          left: -$timeline-point-blank-width;
+        }
+      }
+    }
+
+    @each $size, $style in $timeline-item-arrow {
+      &.timeline-item-arrow-#{$size} {
+        @include timeline-item-variant(map-get($style, offset-top), map-get($style, width));
+      }
+    }
+
+    & > .timeline-event {
+      @extend .timeline-event-default;
+
+      position: relative;
+      float: left;
+
+      border-radius: $timeline-item-border-radius;
+
+      @each $status, $color in $timeline-colors {
+        &.timeline-event-#{$status} {
+          @include timeline-event-variant(
+                  map-get($timeline-bg-colors, $status),
+                  map-get($timeline-desaturated-colors, $status),
+                  map-get($timeline-colors, $status)
+          );
+        }
+      }
+
+      &:before, &:after {
+        content: "";
+
+        display: inline-block;
+        position: absolute;
+      }
+
+      & .timeline-heading, & .timeline-body, & .timeline-footer {
+        padding: map-get($timeline-item-inner-padding, verical) map-get($timeline-item-inner-padding, horizontal);
+
+        & p, & ul {
+          margin-bottom: 0;
+        }
+      }
+
+      & .timeline-heading {
+        & h4 {
+          font-weight: 400;
+        }
+      }
+
+      & .timeline-footer {
+        & a {
+          cursor: pointer;
+          text-decoration: none;
+        }
+      }
+
+      & .panel, & .table, & .blankslate {
+        margin: 0;
+
+        border: none;
+        border-radius: inherit;
+
+        overflow: hidden;
+      }
+
+      & .table {
+        & th {
+          border-top: 0;
+        }
+      }
+    }
+
+    & > .timeline-point {
+      @extend .timeline-point-default;
+      @include timeline-point-size-variant($timeline-point-width, $timeline-point-height);
+
+      position: absolute;
+      z-index: 100;
+
+      border: {
+        width: $timeline-point-border-width;
+        style: solid;
+        radius: 100%
+      }
+
+      line-height: $timeline-point-height - ($timeline-point-border-width * 2);
+      text-align: center;
+
+      &.timeline-point-blank {
+        @include timeline-point-size-variant($timeline-point-blank-width, $timeline-point-blank-height);
+        @include timeline-point-color-variant(map-get($timeline-desaturated-colors, default), map-get($timeline-desaturated-colors, default));
+      }
+
+      @each $status, $color in $timeline-colors {
+        &.timeline-point-#{$status} {
+          @include timeline-point-color-variant(map-get($timeline-bg-colors, default), map-get($timeline-desaturated-colors, $status));
+        }
+      }
+    }
+  }
+
+  & .timeline-label {
+    @include timeline-element;
+    @include timeline-item-start-margins(0, $timeline-second-item-margin-top);
+
+    top: 1px;
+
+    width: 100%;
+
+    margin: {
+      left: auto;
+      right: auto;
+    }
+    padding: 0;
+
+    text-align: center;
+
+    @each $status, $color in $timeline-colors {
+      & .label-#{$status} {
+        @include timeline-label-variant(map-get($timeline-desaturated-colors, $status));
+      }
+    }
+  }
+}
+
+@media all and (orientation: portrait) {
+  .timeline {
+    @include timeline-single-column;
+  }
+}
+
+@media (max-width: $timeline-single-column-breakpoint) {
+  .timeline {
+    @include timeline-single-column;
+  }
+}

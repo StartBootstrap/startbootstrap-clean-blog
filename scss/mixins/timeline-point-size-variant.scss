@@ -1,0 +1,12 @@
+@mixin timeline-point-size-variant($width, $height) {
+  right: -$width;
+
+  width: $width;
+  height: $height;
+
+  margin: {
+    top: -($height / 2);
+    left: $width / 2;
+    right: $width / 2;
+  }
+}

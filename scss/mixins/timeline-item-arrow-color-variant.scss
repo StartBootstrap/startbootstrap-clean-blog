@@ -1,0 +1,6 @@
+@mixin timeline-item-arrow-color-variant($color) {
+  border: {
+    left-color: $color;
+    right-color: $color;
+  }
+}

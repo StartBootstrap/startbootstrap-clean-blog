@@ -1,0 +1,56 @@
+@import "../functions/map-deep-get";
+
+@import "timeline-item-right-side-position";
+@import "timeline-item-start-margins";
+@import "timeline-responsive-variant";
+@import "transform-center";
+
+@mixin timeline-single-column($max-width: 100%) {
+  &.timeline {
+    @include timeline-responsive-variant($timeline-item-width-offset-single-column, 0, $timeline-item-width-offset-single-column, 0);
+
+    width: 100%;
+    max-width: $max-width;
+
+    &:before {
+      left: $timeline-single-column-line-offset;
+
+      width: 0;
+
+      margin-left: -(map-get($timeline-line, width) / 2);
+    }
+
+    & .timeline-item {
+      width: 100%;
+
+      margin-bottom: $timeline-item-margin-bottom;
+
+      &:nth-of-type(even) {
+        margin-top: 0;
+      }
+
+      &.timeline-item-left, &.timeline-item-right {
+        @include timeline-item-start-margins;
+      }
+
+      & > .timeline-event {
+        @include timeline-item-right-side-position(map-deep-get($timeline-item-arrow, md, width));
+      }
+
+      & > .timeline-point {
+        @include transform-center;
+
+        left: $timeline-single-column-line-offset !important;
+
+        margin-left: 0;
+      }
+    }
+
+    & .timeline-label {
+      @include timeline-item-start-margins;
+      @include transform-center;
+
+      margin: 0 0 $timeline-item-margin-bottom $timeline-single-column-line-offset;
+    }
+  }
+}
