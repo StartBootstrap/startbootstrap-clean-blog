@@ -1,0 +1,21 @@
+@mixin timeline-item-right-side-position($arrow-width) {
+  float: right !important;
+
+  &:before, &:after {
+    right: auto !important;
+
+    border-left-width: 0 !important;
+  }
+
+  &:before {
+    left: -$arrow-width !important;
+
+    border-right-width: $arrow-width !important;
+  }
+
+  &:after {
+    left: -($arrow-width - 1px) !important;
+
+    border-right-width: $arrow-width - 1px !important;
+  }
+}

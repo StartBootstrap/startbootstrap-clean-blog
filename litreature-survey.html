@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Website - Adaptive QA Platform</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href='css/fonts.css' rel='stylesheet' type='text/css'>
+
+
+  <!-- Custom styles for this template -->
+  <link href="css/clean-blog.min.css" rel="stylesheet">
+
+  <link rel='shortcut icon' type='image/x-icon' href='./img/favicon.ico'>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Team Entropy</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              Menu
+              <i class="fa fa-bars"></i>
+            </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="domain.html">Domain</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="milestones.html">Milestones</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="slides.html">Slides</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="documents.html">Documents</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background: linear-gradient(rgba(0, 0, 0, 0.6),
+  rgba(0, 0, 0, 0.6)), url('img/documents-bg.jpg'); background-size: cover;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>Litreature Survey</h1>
+            <h2 class="subheading">Analysing the litreature available for the QA domain</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p style="text-align: justify">
+            Machine learning is a field of Artificial Intelligence that has been gaining a lot of prominence in the current era. It is
+            specifically to do with building systems that are able to learn by themselves without having to be programmed.
+            Deep learning is a subset of techniques of machine learning. Deep learning allows multiple processing layers
+            to breakdown the given data into smaller parts and learn the representations of these data [1]. Deep learning
+            is the state of the art in areas such as speech recognition, natural language understanding, visual object recognition,
+            etc. Convolutional neural networks have brought many breakthroughs in areas such as processing images, pictures
+            and speech, whereas Recurrent networks have been extremely successful in areas such as processing text and speech.
+          </p>
+
+          <h2 class="section-heading">Lessons from History</h2>
+
+          <p style="text-align: justify">
+            QA is a well researched area from the point of NLP (Natural Language Processing) research. QA has mostly been used to develop
+            intricate dialogue systems such as chat-bots and other systems that mimic human interaction [2]. Traditionally
+            most of these systems use the tried methods of parsing, part-of-speech tagging, etc that come from the domain
+            of NLP research. While there is absolutely nothing wrong with these techniques, they do have their limitations.
+          </p>
+          <p style="text-align: justify">
+            [3] W.A. Woods et al. shows how we can use NLP as a front end for extracting information from a given query and then translate
+            that into a logical query which can then then be converted into a database query language that can be passed
+            into the underlying database management system. In addition to that there needs to be a lexicon that functions
+            as an admissible vocabulary of the knowledge base so that it is possible to filter out unnecessary terminology.
+            The knowledge base is processed to an ontology that breaks it down into classes, relations and functions [4].
+            Natural Language Database Interfaces (NLDBIS) are database systems that allow users to access stored data using
+            natural language requests. Some popular commercial systems are IBM’s LanguageAccess and Q&A from Symantec [5].
+          </p>
+
+          <a href="#">
+                <img class="img-fluid" src="img/computer_lab.jpg" alt="">
+              </a>
+          <span class="caption text-muted">QA is an old research domain that has attracted a lot of attention recently</span>
+
+          <p style="text-align: justify">
+            Information retrieval (IR) is another technique that has been used to address the problem of QA. With IR systems pay attention
+            to the organisation, representation and storage of information artifacts such that when a user makes a query
+            the system is able to to return a document or a collection of artifacts that relate to the query [6]. Recent
+            advances in OCR and other text scanning techniques have meant that it is possible to retrieve passages of text
+            rather than entire documents. However IR is still widely seen as from the document retrieval domain rather than
+            from the QA domain.
+          </p>
+
+          <blockquote class="blockquote">Template based question answering is another technique that has been used for QA</blockquote>
+
+
+          <p style="text-align: justify">
+            Template based question answering is another technique that has been used for QA and is currently being used by the START
+            system which has answered over a million questions since 1993 [7]. START uses natural language annotations to
+            match questions to candidate answers. An annotation will have the structure of ‘subject-relationship-object’
+            and when a user asks a question, the question will be matched to all the available annotation entries at the
+            word level (using synonyms, IS-A, etc) and the structure level. When a successful match is found, the annotation
+            will point to an information segment which will be returned as the answer.
+          </p>
+          <p style="text-align: justify">
+            When new information resources are incorporated into the SMART system, the natural language annotations have to be composed
+            manually [8]. START uses Omnibase as the underlying database system to store information and when the annotation
+            match is found, the database query must be used to retrieve the information. While this system has been relatively
+            successful, it requires a lot of preprocessing which must be done manually.
+          </p>
+
+          <h2 class="section-heading">Our Approach</h2>
+
+          <p style="text-align: justify">
+            Our literature survey has found that the QA domain has an active community of researchers and many different approaches have
+            been tried to tackle this problem. While the problem of QA is a very old one, the origins of the problem can
+            be traced back as far as the 1960’s, using our access to cheaper and better computational power and newer techniques
+            in data processing we believe we can attempt to solve this issue using a different set of tactics. This will
+            be explained in the next section, the research gap.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Team Entropy 2017</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
