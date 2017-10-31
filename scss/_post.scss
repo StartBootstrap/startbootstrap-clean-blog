@@ -1,11 +1,11 @@
 // Styling for the post page
 .post-preview {
   > a {
-    color: $gray-dark;
+    color: $gray-900;
     &:focus,
     &:hover {
       text-decoration: none;
-      color: $theme-primary;
+      color: $primary;
     }
     > .post-title {
       font-size: 30px;
@@ -21,14 +21,14 @@
     font-size: 18px;
     font-style: italic;
     margin-top: 0;
-    color: $gray-light;
+    color: $gray-600;
     > a {
       text-decoration: none;
-      color: $gray-dark;
+      color: $gray-900;
       &:focus,
       &:hover {
         text-decoration: underline;
-        color: $theme-primary;
+        color: $primary;
       }
     }
   }

@@ -1,7 +1,7 @@
 // Global styling for this template
 body {
   font-size: 20px;
-  color: $gray-dark;
+  color: $gray-900;
   @include serif-font;
 }
 
@@ -24,24 +24,17 @@ h6 {
 }
 
 a {
-  color: $gray-dark;
+  color: $gray-900;
   @include transition-all;
   &:focus,
   &:hover {
-    color: $theme-primary;
-  }
-}
-
-a img {
-  &:focus,
-  &:hover {
-    cursor: zoom-in;
+    color: $primary;
   }
 }
 
 blockquote {
   font-style: italic;
-  color: $gray-light;
+  color: $gray-600;
 }
 
 .section-heading {
@@ -62,27 +55,27 @@ blockquote {
 }
 
 ::-moz-selection {
-  color: white;
-  background: $theme-primary;
+  color: $white;
+  background: $primary;
   text-shadow: none;
 }
 
 ::selection {
-  color: white;
-  background: $theme-primary;
+  color: $white;
+  background: $primary;
   text-shadow: none;
 }
 
 img::selection {
-  color: white;
+  color: $white;
   background: transparent;
 }
 
 img::-moz-selection {
-  color: white;
+  color: $white;
   background: transparent;
 }
 
 body {
-  -webkit-tap-highlight-color: $theme-primary;
+  -webkit-tap-highlight-color: $primary;
 }
