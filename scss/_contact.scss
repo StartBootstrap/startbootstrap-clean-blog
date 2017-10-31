@@ -4,7 +4,7 @@
   position: relative;
   margin-bottom: 0;
   padding-bottom: 0.5em;
-  border-bottom: 1px solid $gray-lighter;
+  border-bottom: 1px solid $gray-300;
   input,
   textarea {
     font-size: 1.5em;
@@ -18,7 +18,7 @@
     box-shadow: none !important;
     @include serif-font;
     &::-webkit-input-placeholder {
-      color: $gray-light;
+      color: $gray-600;
       @include serif-font;
     }
   }
@@ -52,9 +52,9 @@
 
 .floating-label-form-group-with-focus {
   label {
-    color: $theme-primary;
+    color: $primary;
   }
 }
 form .form-group:first-child .floating-label-form-group {
-  border-top: 1px solid $gray-lighter;
+  border-top: 1px solid $gray-300;
 }

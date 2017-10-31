@@ -11,7 +11,7 @@
   });
 
   // Show the navbar when the page is scrolled up
-  var MQL = 1170;
+  var MQL = 992;
 
   //primary navigation slide-in effect
   if ($(window).width() > MQL) {
