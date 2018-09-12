@@ -1,5 +1,12 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <ul class="header_navigation">
+        <f:for each="{mainMenu}" as="menuItem">
+           <li class="{f:if(condition:'{menuItem.active}',then:'active')}">
+              <f:link.page pageUid="{menuItem.uid}">{menuItem.title}</f:link.page>
+           </li>
+        </f:for>
+     </ul>
   <div class="container">
     <a class="navbar-brand" href="index.html"><img src="fileadmin/templates/rhenania2018/img/rhenania-logo.gif" height="45"
         width="45" /></a>
