@@ -1,7 +1,6 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <ul class="header_navigation">
-        <f:debug title="title">{mainMenu}</f:debug>
         <f:for each="{mainMenu}" as="menuItem">
            <li class="{f:if(condition:'{menuItem.active}',then:'active')}">
               <f:link.page pageUid="{menuItem.uid}">{menuItem.title}</f:link.page>
