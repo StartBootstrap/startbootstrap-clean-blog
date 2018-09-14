@@ -14,6 +14,31 @@ lib.subtitle = TEXT
 lib.subtitle.1 = subtitle
 
 
+# dynamisch page image background auslesen
+lib.pageBgImg = COA
+lib.pageBgImg {
+  10 = IMG_RESOURCE
+  10.file {
+    import {
+      cObject = TEXT
+      cObject.override {
+        required = 1
+ # slide sets image for all the subpages as well,
+ # overwritten if subpage has it's own image added
+        data = levelmedia: -1, slide
+        wrap = uploads/media/|
+ # gets first image from recources list
+        listNum = 0
+      }
+    }
+ # image manipulation – if 'c' crop is in action
+ # images must be bigger than given width and height
+    width = 1400c
+    height = 540c
+    format = jpg
+    quality = 100
+}       
+
 # new navigation 
 lib.newnav = HMENU
 #lib.newnav.wrap = <ul class="vlist"> | </ul>
