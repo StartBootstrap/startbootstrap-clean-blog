@@ -1,14 +1,8 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <ul class="header_navigation">
-        <f:for each="{mainMenu}" as="menuItem">
-           <li class="{f:if(condition:'{menuItem.active}',then:'active')}">
-              <f:link.page pageUid="{menuItem.uid}">{menuItem.title}</f:link.page>
-           </li>
-        </f:for>
-     </ul>
+    
   <div class="container">
-    <a class="navbar-brand" href="index.html"><img src="fileadmin/templates/rhenania2018/img/rhenania-logo.gif" height="45"
+    <a class="navbar-brand" href="/"><img src="fileadmin/templates/rhenania2018/img/rhenania-logo.gif" height="45"
         width="45" /></a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
       aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,60 +11,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-            <i class="fa fa-home" aria-hidden="true" style="color:#fff"></i> Verein
-          </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Vereinsheim</a>
-            <a class="dropdown-item" href="#">Vorstand</a>
-            <a class="dropdown-item" href="#">Jugendvorstand</a>
-            <a class="dropdown-item" href="#">Sportplatz</a>
-            <a class="dropdown-item" href="#">Chronik</a>
-            <a class="dropdown-item" href="#">Anfahrt</a>
-            <a class="dropdown-item" href="#">Mitglied werden</a>
-            <a class="dropdown-item" href="#">Downloads</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-            <i class="fa fa-universal-access" aria-hidden="true" style="color:#fff"></i> Junioren
-          </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">G-Jugend (Bambini)</a>
-            <a class="dropdown-item" href="#">F-Jugend</a>
-            <a class="dropdown-item" href="#">E-Jugend</a>
-            <a class="dropdown-item" href="#">D-Jugend</a>
-            <a class="dropdown-item" href="#">C-Jugend</a>
-            <a class="dropdown-item" href="#">B-Jugend</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-            <i class="fa fa-universal-access" aria-hidden="true" style="color:#fff"></i> Senioren
-          </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">1. Mannschaft</a>
-            <a class="dropdown-item" href="#">2. Mannschaft</a>
-            <a class="dropdown-item" href="#">3. Mannschaft</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-            <i class="fa fa-universal-access" aria-hidden="true" style="color:#fff"></i> Alte Herren
-          </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Spielplan</a>
-            <a class="dropdown-item" href="#">Spielberichte</a>
-            <a class="dropdown-item" href="#">Nächstes Spiel</a>
-            <a class="dropdown-item" href="#">Fotos</a>
-            <a class="dropdown-item" href="#">AH-Liederbuch</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html"><i class="fa fa-envelope" aria-hidden="true" style="color:#fff"></i>
-            Kontakt</a>
-        </li>
+        {f:cObject(typoscriptObjectPath:'lib.newnav')->f:format.raw()}
       </ul>
     </div>
   </div>
