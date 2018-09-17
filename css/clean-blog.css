@@ -90,6 +90,10 @@ img::-moz-selection {
   color: #343a40;
 }
 
+#mainNav .navbar-brand > img {
+  width: 60px;
+}
+
 #mainNav .navbar-toggler {
   font-size: 12px;
   font-weight: 800;
@@ -103,6 +107,12 @@ img::-moz-selection {
   font-weight: 800;
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+
+@media only screen and (max-width: 992px) {
+  #mainNav .navbar-nav > li.nav-item > a i {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 992px) {
@@ -181,6 +191,7 @@ header.masthead {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  /* put background image into container */
 }
 
 header.masthead .overlay {
@@ -191,6 +202,19 @@ header.masthead .overlay {
   width: 100%;
   background-color: #212529;
   opacity: 0.3;
+}
+
+header.masthead .container {
+  background-image: none;
+}
+
+@media only screen and (min-width: 768px) {
+  header.masthead .container {
+    background-image: url(/fileadmin/templates/rhenania2018/img/rhenania-hinsbeck-2d-logo.gif);
+    background-repeat: no-repeat;
+    background-size: 131px;
+    background-position: right;
+  }
 }
 
 header.masthead .page-heading,
@@ -399,7 +423,6 @@ footer .copyright {
   padding: 15px 25px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  border-radius: 0;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 

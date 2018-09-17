@@ -16,6 +16,17 @@ header.masthead {
     background-color: $gray-900;
     opacity: 0.3;
   }
+  /* put background image into container */
+  .container {
+    background-image: none;
+     @media only screen and (min-width: 768px) {
+      
+      background-image: url(/fileadmin/templates/rhenania2018/img/rhenania-hinsbeck-2d-logo.gif);
+      background-repeat: no-repeat;
+      background-size: 131px;
+      background-position: right;
+    }
+  }
   .page-heading,
   .post-heading,
   .site-heading {

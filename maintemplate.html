@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     
   <div class="container">
-    <a class="navbar-brand" href="/"><img src="/fileadmin/templates/rhenania2018/img/rhenania-hinsbeck-2d-logo.gif" width="100px" height="100px" /></a>
+    <a class="navbar-brand" href="/"><img src="/fileadmin/templates/rhenania2018/img/rhenania-hinsbeck-2d-logo.gif" /></a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
       aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       Menu
@@ -27,6 +27,11 @@
           <span class="subheading">{data.subtitle}</span>
         </div>
       </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            {f:cObject(typoscriptObjectPath:'lib.breadcrump')->f:format.raw()}
+        </div>
     </div>
   </div>
 </header>

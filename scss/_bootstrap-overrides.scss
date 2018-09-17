@@ -5,7 +5,6 @@
   padding: 15px 25px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  border-radius: 0;
   @include sans-serif-font;
 }
 
@@ -41,3 +40,4 @@ a.dropdown-item:hover {
 a.nav-link:hover {
   color: $blue;
 }
+

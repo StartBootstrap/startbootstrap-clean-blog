@@ -28,6 +28,31 @@ lib.headerimage {
     }
 }
 
+     #     <nav aria-label="breadcrumb">
+     #       <ol class="breadcrumb">
+     #         <li class="breadcrumb-item"><a href="#">Home</a></li>
+     #         <li class="breadcrumb-item"><a href="#">Library</a></li>
+     #         <li class="breadcrumb-item active" aria-current="page">Data</li>
+     #       </ol>
+     #     </nav>
+
+# breadcrump menu
+lib.breadcrump = HMENU
+lib.breadcrump.special = rootline
+lib.breadcrump.special.range = 0|4  
+lib.breadcrump {
+    special = rootline
+    special.range = 0|4
+    entryLevel = 0
+    wrap =  <nav aria-label="breadcrumb"><ol class="breadcrumb">|</ol></nav>
+    1 = TMENU
+    1.NO.allWrap =  <li class="breadcrumb-item">|</li>
+    1.NO.ATagTitle.field = abstract // description // title
+    1.NO.allWrap =  <li class="breadcrumb-item active" aria-current="page">|</li>
+    1.NO.ATagTitle.field = abstract // description // title
+
+}
+
 # new navigation 
 lib.newnav = HMENU
 #lib.newnav.wrap = <ul class="vlist"> | </ul>

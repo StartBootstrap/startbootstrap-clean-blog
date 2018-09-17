@@ -7,7 +7,11 @@
   .navbar-brand {
     font-weight: 800;
     color: $gray-800;
+    > img {
+      width: 60px;
+    }
   }
+  
   .navbar-toggler {
     font-size: 12px;
     font-weight: 800;
@@ -22,6 +26,9 @@
         font-weight: 800;
         letter-spacing: 1px;
         text-transform: uppercase;
+        @media only screen and (max-width: 992px) {
+          i { display:none }
+        }
       }
     }
   }
