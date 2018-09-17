@@ -41,3 +41,14 @@ a.nav-link:hover {
   color: $blue;
 }
 
+.breadcrumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: .25rem;
+  font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: .875rem;
+  padding: 0rem 1rem;
+}
+
+li.breadcrumb-item.active::before {
+  content: none;
+}

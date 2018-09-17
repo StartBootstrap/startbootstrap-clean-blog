@@ -46,9 +46,9 @@ lib.breadcrump {
     entryLevel = 0
     wrap =  <nav aria-label="breadcrumb"><ol class="breadcrumb">|</ol></nav>
     1 = TMENU
-    1.NO.allWrap =  <li class="breadcrumb-item">|</li>
+    1.NO.allWrap =  <li class="breadcrumb-item"><i class="fa fa-chevron-right" aria-hidden="true" style="color: #ccc;"></i>|</li>
     1.NO.ATagTitle.field = abstract // description // title
-    1.NO.allWrap =  <li class="breadcrumb-item active" aria-current="page">|</li>
+    1.NO.allWrap =  <li class="breadcrumb-item active" aria-current="page"><i class="fa fa-chevron-right" aria-hidden="true" style="color: #ccc;"></i>|</li>
     1.NO.ATagTitle.field = abstract // description // title
 
 }
