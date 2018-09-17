@@ -10,34 +10,23 @@ lib.copyright {
  10.strftime = %Y
 }
 
-lib.subtitle = TEXT
-lib.subtitle.1 = subtitle
-
-
-# dynamisch page image background auslesen
-lib.pageBgImg = COA
-lib.pageBgImg {
-  10 = IMG_RESOURCE
-  10.file {
-    import {
-      cObject = TEXT
-      cObject.override {
-        required = 1
- # slide sets image for all the subpages as well,
- # overwritten if subpage has it's own image added
+# read image url from media resource of page
+# go upwards in tree if no file found    
+lib.headerimage = FILES
+lib.headerimage {
+    references {
+        table = pages
         data = levelmedia: -1, slide
-        wrap = uploads/media/|
- # gets first image from recources list
-        listNum = 0
-      }
+        fieldName = media
     }
- # image manipulation – if 'c' crop is in action
- # images must be bigger than given width and height
-    width = 1400c
-    height = 540c
-    format = jpg
-    quality = 100
-}       
+    begin = 0
+    maxItems = 1
+    renderObj = TEXT
+    renderObj {
+        data = file:current:publicUrl
+        wrap = background-image:url(/|);
+    }
+}
 
 # new navigation 
 lib.newnav = HMENU
@@ -64,7 +53,7 @@ lib.newnav.1 {
             IFSUB {
                 ATagTitle.field = title
                 ATagParams = class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
-                linkWrap = <i class="fa fa-universal-access" aria-hidden="true" style="color:#fff"></i> |
+                linkWrap = <i class="fa fa-arrow-circle-down" aria-hidden="true" style="color:#fff"></i> |
                 ATagBeforeWrap = 1
                 wrapItemAndSub = <li class="nav-item dropdown">|</li>
             }
@@ -102,12 +91,17 @@ lib.newnav.2 {
             SPC {
                 // no divider, if first menu item on this level (using optionSplit):
                 #wrapItemAndSub = <div class="dropdown-header">|</div> |*| <div class="divider"></div><div class="dropdown-header">|</div>
-                wrapItemAndSub = <div class="dropdown-header">|</div><div class="dropdown-divider"></div>
+                #wrapItemAndSub = <div class="dropdown-header">|</div><div class="dropdown-divider"></div>
+                wrapItemAndSub = <div class="dropdown-header">|</div>
             }
   
 }
 
-
+page.headerData >
+page.headerData = COA
+page.headerData.10 = TEXT
+page.headerData.10.field = title
+page.headerData.10.wrap = <title>SC Rhenania Hinsbeck 1919 e.V. - |</title>
 
 # Main page template begin - using fluidtemplating 
 page = PAGE

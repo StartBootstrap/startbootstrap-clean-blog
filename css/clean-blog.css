@@ -418,3 +418,19 @@ footer .copyright {
   font-size: 16px;
   padding: 25px 35px;
 }
+
+.dropdown-header {
+  padding: .2rem 1.0rem;
+  font-size: .875rem;
+  color: #6c757d;
+  border-top: 1px solid #dee2e6;
+  border-bottom: 1px solid #dee2e6;
+}
+
+a.dropdown-item:hover {
+  background-color: #007bff;
+}
+
+a.nav-link:hover {
+  color: #007bff;
+}
