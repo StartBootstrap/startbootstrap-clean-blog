@@ -31,7 +31,7 @@ a {
 }
 
 a:focus, a:hover {
-  color: #0085A1;
+  color: #0046a1;
 }
 
 blockquote {
@@ -58,13 +58,13 @@ blockquote {
 
 ::-moz-selection {
   color: #fff;
-  background: #0085A1;
+  background: #0046a1;
   text-shadow: none;
 }
 
 ::selection {
   color: #fff;
-  background: #0085A1;
+  background: #0046a1;
   text-shadow: none;
 }
 
@@ -163,13 +163,13 @@ img::-moz-selection {
     color: #212529;
   }
   #mainNav.is-fixed .navbar-brand:focus, #mainNav.is-fixed .navbar-brand:hover {
-    color: #0085A1;
+    color: #0046a1;
   }
   #mainNav.is-fixed .navbar-nav > li.nav-item > a {
     color: #212529;
   }
   #mainNav.is-fixed .navbar-nav > li.nav-item > a:focus, #mainNav.is-fixed .navbar-nav > li.nav-item > a:hover {
-    color: #0085A1;
+    color: #0046a1;
   }
   #mainNav.is-visible {
     /* if the user changes the scrolling direction, we show the header */
@@ -303,7 +303,7 @@ header.masthead .post-heading .meta a {
 
 .post-preview > a:focus, .post-preview > a:hover {
   text-decoration: none;
-  color: #0085A1;
+  color: #0046a1;
 }
 
 .post-preview > a > .post-title {
@@ -331,7 +331,7 @@ header.masthead .post-heading .meta a {
 
 .post-preview > .post-meta > a:focus, .post-preview > .post-meta > a:hover {
   text-decoration: underline;
-  color: #0085A1;
+  color: #0046a1;
 }
 
 @media only screen and (min-width: 768px) {
@@ -395,7 +395,7 @@ header.masthead .post-heading .meta a {
 }
 
 .floating-label-form-group-with-focus label {
-  color: #0085A1;
+  color: #0046a1;
 }
 
 form .form-group:first-child .floating-label-form-group {
@@ -420,21 +420,20 @@ footer .copyright {
 .btn {
   font-size: 14px;
   font-weight: 800;
-  padding: 15px 25px;
   letter-spacing: 1px;
   text-transform: uppercase;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .btn-primary {
-  background-color: #0085A1;
-  border-color: #0085A1;
+  background-color: #0046a1;
+  border-color: #0046a1;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
   color: #fff;
-  background-color: #00657b !important;
-  border-color: #00657b !important;
+  background-color: #00357b !important;
+  border-color: #00357b !important;
 }
 
 .btn-lg {
