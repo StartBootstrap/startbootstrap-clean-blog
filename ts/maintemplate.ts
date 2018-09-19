@@ -122,11 +122,8 @@ lib.newnav.2 {
   
 }
 
-page.headerData >
-page.headerData = COA
-page.headerData.10 = TEXT
-page.headerData.10.field = title
-page.headerData.10.wrap = <title>SC Rhenania Hinsbeck 1919 e.V. - |</title>
+# configs
+config.noPageTitle = 1
 
 # Main page template begin - using fluidtemplating 
 page = PAGE
@@ -168,3 +165,10 @@ page {
 
 page.meta.description.data = page:description
 page.meta.viewport  = width=device-width, initial-scale=1, shrink-to-fit=no
+page.headerData >
+page.headerData = COA
+page.headerData.10 = TEXT
+page.headerData.10.field = title
+page.headerData.10.wrap = <title>SC Rhenania Hinsbeck 1919 e.V. - |</title>
+page.headerData.20 = TEXT
+page.headerData.20.value = <link rel="apple-touch-icon" href="fileadmin/templates/rhenania2018/img/apple-touch-icon.png"/>
