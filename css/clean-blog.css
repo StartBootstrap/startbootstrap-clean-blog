@@ -182,7 +182,7 @@ img::-moz-selection {
 }
 
 header.masthead {
-  margin-bottom: 50px;
+  margin-bottom: 35px;
   background: no-repeat center center;
   background-color: #868e96;
   background-attachment: scroll;
@@ -458,7 +458,7 @@ a.nav-link:hover {
 }
 
 .breadcrumb {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.4);
   border-radius: .25rem;
   font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: .875rem;
