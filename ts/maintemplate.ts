@@ -2,6 +2,18 @@
 # TODO auslagern in separates file!!!      #
 ############################################
 
+# override class for rte table
+lib.parseFunc_RTE {
+    externalBlocks {
+        table.stdWrap.HTMLparser.tags.table.fixAttrib.class {
+            default = table-striped table-hover table-bordered
+            always = 1
+            list >
+        }
+    }
+}
+
+
 # copyright automatically received via php function
 lib.copyright = COA
 lib.copyright {
@@ -19,6 +31,7 @@ lib.headerimage {
         data = levelmedia: -1, slide
         fieldName = media
     }
+    #listNum = rand
     begin = 0
     maxItems = 1
     renderObj = TEXT
@@ -27,7 +40,6 @@ lib.headerimage {
         wrap = background-image:url(/|);
     }
 }
-
      #     <nav aria-label="breadcrumb">
      #       <ol class="breadcrumb">
      #         <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -120,6 +132,48 @@ lib.newnav.2 {
                 wrapItemAndSub = <div class="dropdown-header">|</div>
             }
   
+}
+
+# Create the navigation structure for the third level, currently only 3rd level is supported. 
+# <div class="btn-group">
+#        <button type="button" class="btn btn-primary">Apple</button>
+#        <button type="button" class="btn btn-primary">Samsung</button>
+#        <div class="btn-group">
+#          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+#             Sony
+#          </button>
+#          <div class="dropdown-menu">
+#            <a class="dropdown-item" href="#">Tablet</a>
+#            <a class="dropdown-item" href="#">Smartphone</a>
+#          </div>
+#        </div>
+#      </div>
+
+lib.subnav = HMENU
+#lib.newnav.wrap = <ul class="vlist"> | </ul>
+  # First level menu-object, textual
+  # start in the second level
+lib.subnav.entryLevel = 2 
+lib.subnav.wrap = <div class="btn-group">|</div>
+lib.subnav.1 = TMENU
+lib.subnav.1 {
+  expAll = 1
+ 
+            NO = 1
+            NO {
+                ATagTitle.field = title
+                ATagParams = class="btn btn-primary"
+                stdWrap.wrap = <i class="fa fa-arrow-circle-right" aria-hidden="true" style="color:#fff"></i>&nbsp;|
+                #wrapItemAndSub = <button type="button" class="">|</button>
+            }
+ 
+            CUR < .NO
+            CUR {
+                ATagParams = class="btn btn-primary active"
+                #wrapItemAndSub = <button type="button" class="btn btn-primary active">|</button>
+            }
+ 
+            ACT < .CUR
 }
 
 # configs

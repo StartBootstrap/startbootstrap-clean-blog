@@ -51,3 +51,11 @@ a.nav-link:hover {
 li.breadcrumb-item.active::before {
   content: none;
 }
+
+.table-striped {
+  font-size: 1rem;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+.table-triped td {
+  padding: 1px;
+}

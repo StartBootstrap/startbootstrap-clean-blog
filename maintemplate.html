@@ -17,7 +17,7 @@
 </nav>
 
 <!-- Page Header -->
-<header class="masthead" style="{f:cObject(typoscriptObjectPath: 'lib.headerimage')}">
+<header class="masthead mb-3" style="{f:cObject(typoscriptObjectPath: 'lib.headerimage')}">
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="row">
-        <div class="col-auto">
+        <div class="col-lg-8 col-md-10 mx-auto">
             {f:cObject(typoscriptObjectPath:'lib.breadcrump')->f:format.raw()}
         </div>
     </div>
@@ -38,11 +38,11 @@
 
 <!-- Main Content -->
 <div class="container">
-  <div class="row">
-    <div class="col-auto">
-        
+  <div class="row mb-3">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      {f:cObject(typoscriptObjectPath:'lib.subnav')->f:format.raw()}
     </div>
-</div>
+  </div>
   <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
       <f:format.raw>{contentNormal}</f:format.raw>
