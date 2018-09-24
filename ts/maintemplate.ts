@@ -226,3 +226,35 @@ page.headerData.10.field = title
 page.headerData.10.wrap = <title>SC Rhenania Hinsbeck 1919 e.V. - |</title>
 page.headerData.20 = TEXT
 page.headerData.20.value = <link rel="apple-touch-icon" href="fileadmin/templates/rhenania2018/img/apple-touch-icon.png"/>
+
+# add class to images in tt content
+# Remove some of the div wraps
+tt_content.image.20.imageStdWrap.dataWrap >
+tt_content.image.20.imageStdWrapNoWidth.dataWrap >
+tt_content.image.20.imageColumnStdWrap.dataWrap >
+
+# Redefine the layout switch with only one default case
+tt_content.image.20.layout >
+tt_content.image.20.layout = CASE
+tt_content.image.20.layout.key.field = imageorient
+tt_content.image.20.layout.default = TEXT
+tt_content.image.20.layout.default.value = ###IMAGES### ###TEXT###
+
+# Remove the wrap around the image subtext
+tt_content.textpic.20.text.wrap = |
+
+# Define a new rendering method without wraps
+tt_content.image.20.rendering.noWraps {
+   imageRowStdWrap.dataWrap = |
+   noRowsStdWrap.wrap =
+   oneImageStdWrap.dataWrap = |
+   imgTagStdWrap.wrap = |
+   editIconsStdWrap.wrap = |
+   caption.wrap = |
+}
+
+# Set this as active rendering method
+tt_content.image.20.renderMethod = noWraps
+
+#add custom class to image
+tt_content.image.20.1.params = class="img-fluid img-thumbnail image-responsive"
