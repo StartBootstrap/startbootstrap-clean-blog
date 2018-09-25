@@ -154,7 +154,7 @@ lib.subnav = HMENU
   # First level menu-object, textual
   # start in the second level
 lib.subnav.entryLevel = 2 
-lib.subnav.wrap = <div class="btn-group">|</div>
+#lib.subnav.wrap = <div class="btn-group">|</div>
 lib.subnav.1 = TMENU
 lib.subnav.1 {
   expAll = 1
@@ -162,14 +162,15 @@ lib.subnav.1 {
             NO = 1
             NO {
                 ATagTitle.field = title
-                ATagParams = class="btn btn-primary"
+                ATagParams = class="btn btn-primary mr-1"
                 stdWrap.wrap = <i class="fa fa-arrow-circle-right" aria-hidden="true" style="color:#fff"></i>&nbsp;|
                 #wrapItemAndSub = <button type="button" class="">|</button>
             }
  
             CUR < .NO
             CUR {
-                ATagParams = class="btn btn-primary active"
+                ATagParams = class="btn btn-primary active mr-1"
+                stdWrap.wrap = <i class="fa fa-arrow-circle-down" aria-hidden="true" style="color:#fff"></i>&nbsp;|
                 #wrapItemAndSub = <button type="button" class="btn btn-primary active">|</button>
             }
  
