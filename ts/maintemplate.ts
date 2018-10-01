@@ -258,4 +258,13 @@ tt_content.image.20.rendering.noWraps {
 tt_content.image.20.renderMethod = noWraps
 
 #add custom class to image
-tt_content.image.20.1.params = class="img-fluid img-thumbnail image-responsive"
+tt_content.image.20.1.params.cObject = CASE
+tt_content.image.20.1.params.cObject {
+  key.field = layout
+  default = TEXT
+  default.value = class="img-fluid img-thumbnail image-responsive"
+  1 = TEXT
+  1.value = class="class2"
+  2 = TEXT
+  2.value = class="img-responsive"
+}

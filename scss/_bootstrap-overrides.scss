@@ -30,6 +30,10 @@
   color: #6c757d;
   border-top: 1px solid $gray-300;
   border-bottom: 1px solid $gray-300;
+  background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.08) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.08) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.08) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#11000000',GradientType=0 );
 }
 
 a.dropdown-item:hover {
@@ -59,3 +63,5 @@ li.breadcrumb-item.active::before {
 .table-triped td {
   padding: 1px;
 }
+
+
