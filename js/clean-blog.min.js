@@ -1,5 +1,5 @@
 /*!
- * Start Bootstrap - Clean Blog v5.0.1 (https://startbootstrap.com/template-overviews/clean-blog)
+ * Start Bootstrap - Clean Blog v5.0.2 (https://startbootstrap.com/template-overviews/clean-blog)
  * Copyright 2013-2018 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-clean-blog/blob/master/LICENSE)
  */
