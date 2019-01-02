@@ -1,0 +1,30 @@
+- name: Configure daniellas.tech website
+  hosts: daniellas.tech
+  
+  tasks:
+  - name: Create webroot folder
+    file:
+      path: /usr/share/nginx/daniellas.tech
+      state: directory
+
+  - name: Sync website content
+    copy:
+      src: "{{ item }}"
+      dest: "/usr/share/nginx/daniellas.tech/"
+    with_items:
+      - "../../index.html"
+      - "../../css"
+      - "../../img"
+      - "../../js"
+      
+  - name: Copy Nginx configuration
+    template:
+      src: files/daniellas.tech.conf
+      dest: /etc/nginx/conf.d/
+    notify: Reload Nginx
+           
+  handlers:
+  - name: Reload Nginx
+    service:
+      name: nginx
+      state: reloaded

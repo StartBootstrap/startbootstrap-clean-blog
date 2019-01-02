@@ -1,0 +1,2 @@
+[all]
+daniellas.tech ansible_ssh_user=root ansible_ssh_port=2
