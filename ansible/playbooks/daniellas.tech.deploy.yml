@@ -2,18 +2,28 @@
   hosts: daniellas.tech
   
   tasks:
+  - name: Create folders
+    file:
+      path: "{{ item }}"
+      state: directory
+    with_items:
+      - /usr/share/nginx/daniellas.tech/vendor/fontawesome-free/css
+      - /usr/share/nginx/daniellas.tech/vendor/fontawesome-free/webfonts
+
   - name: Sync website content
     copy:
-      src: "{{ item }}"
-      dest: "/usr/share/nginx/daniellas.tech/"
+      src: "{{ item.src }}"
+      dest: "/usr/share/nginx/daniellas.tech/{{ item.dest }}"
     with_items:
-      - "../../index.html"
-      - "../../about.html"
-      - "../../contact.html"
-      - "../../posts"
-      - "../../css"
-      - "../../img"
-      - "../../js"
-      - "../../vendor/bootstrap/css/bootstrap.min.css"
-      - "../../vendor/fontawesome-free/css/all.min.css"
+      - { src: '../../robots.txt', dest: '' }
+      - { src: '../../sitemap.xml', dest: '' }
+      - { src: '../../index.html', dest: '' }
+      - { src: '../../about.html', dest: '' }
+      - { src: '../../contact.html', dest: '' }
+      - { src: '../../posts', dest: '' }
+      - { src: '../../css', dest: '' }
+      - { src: '../../img', dest: '' }
+      - { src: '../../js', dest: '' }
+      - { src: '../../vendor/fontawesome-free/css/all.min.css', dest: 'vendor/fontawesome-free/css' }
+      - { src: '../../vendor/fontawesome-free/webfonts', dest: 'vendor/fontawesome-free' }
       
