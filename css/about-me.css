@@ -121,8 +121,8 @@
 .education-container ul{
 	margin-top: 15px;
 	margin-bottom: 0px;
-	font-size: 14px;
-	font-weight: 300;
+	font-size: 16px;
+	font-weight: 500;
 	line-height: normal;
 	color: #868e96;
 }
@@ -148,6 +148,10 @@
 
 section {
 	margin-bottom: 60px;
+}
+
+p {
+	margin: 0;
 }
 
 .skillset .item {
