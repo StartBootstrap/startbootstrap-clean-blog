@@ -1,7 +1,7 @@
 (function($) {
 	'use strict';
 
-	var defLineHeight = 20;
+	var defLineHeight = 24;
 	var editorOptions = {
 		readOnly : true,
 		printMargin : false,

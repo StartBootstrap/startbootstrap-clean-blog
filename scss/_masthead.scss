@@ -80,3 +80,10 @@ header.masthead {
     }
   }
 }
+
+header.masthead.sm {
+	.post-heading {
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
+}

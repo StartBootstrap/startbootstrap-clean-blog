@@ -274,6 +274,11 @@ header.masthead .post-heading .meta a {
   }
 }
 
+header.masthead.sm .post-heading {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
 .post-preview > a {
   color: #212529;
 }
