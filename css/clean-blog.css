@@ -92,6 +92,10 @@ em {
   font-weight: bold;
 }
 
+blockquote.note {
+  color: #000;
+}
+
 #mainNav {
   position: absolute;
   border-bottom: 1px solid #e9ecef;
