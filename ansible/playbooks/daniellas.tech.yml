@@ -7,6 +7,9 @@
       path: /usr/share/nginx/daniellas.tech
       state: directory
 
+#  - name: Obtain SSL cert
+#    command: certbot -n certonly --webroot -w /usr/share/nginx/html -d smartup.net.pl --register-unsafely-without-email
+
   - name: Sync website content
     copy:
       src: "{{ item }}"
