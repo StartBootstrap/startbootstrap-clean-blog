@@ -88,6 +88,10 @@ img::-moz-selection {
   background: transparent;
 }
 
+em {
+  font-weight: bold;
+}
+
 #mainNav {
   position: absolute;
   border-bottom: 1px solid #e9ecef;
