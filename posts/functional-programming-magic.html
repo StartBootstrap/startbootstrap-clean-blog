@@ -75,13 +75,14 @@
 					<p>
 						It's not for everyone because people think and solve problems different ways. For some of you, it's natural to think about objects encapsulating some
 						state and communicating with each other. Some of you prefer to think in terms of some data being passed through chain of transformations to get final
-						desired result. Both ways are <em>Turing equivalent</em>, just like <em>Turing Machine</em> and <em>Lambda Calculus</em>. Ultimately, functional programs
+						desired result. Both ways are <em>Turing equivalent</em> , just like <em>Turing Machine</em> and <em>Lambda Calculus</em>. Ultimately, functional programs
 						are merely nice abstraction on top of fast <em>Turing machines</em>.
 					</p>
 					<h2 class="section-heading">But what is functional programming?</h2>
 					<p>This is not an easy question and answer usually depends on whom you ask. Here you find my personal, obviously subjective definition.</p>
-					<h3>Use Pure Functions</h3>
-					<p>Yes, this sounds reasonable, functional programming must have something to do with functions, right?</p>
+					<h3>Program with Pure Functions</h3>
+					<p>Yes, this sounds reasonable, functional programming must have something to do with functions, right? The very first step in learning functional
+						programming is to model the problem in terms of pure functions.</p>
 					<p>What makes function pure?</p>
 					<ul>
 						<li>Pure function takes some value and returns some value only</li>
@@ -120,9 +121,43 @@
 					</p>
 					<blockquote class="note">Whatever programming language you use, just follow pure functions rules to start programming functional way.</blockquote>
 					<h3>Higher order functions</h3>
+					<p>Higher order functions is very simple yet powerful concept. It's just function taking another function as argument or function returning function.</p>
+					<pre><code class="language-java">import java.util.function.Predicate;
+
+// Function taking other function as argument
+Integer filterInt(Predicate&lt;Integer&gt; p, Integer i){
+	return p.test(i) ? i : null;
+}
+</code></pre>
+					<p>
+						<em>filterInt</em> is a higher order function because it accepts <em>java.util.function.Predicate&lt;Integer&gt;</em> as it's argument.
+					</p>
+					<pre><code class="language-java">import java.util.function.Function;
+
+// Function returning function
+Function&lt;Double&gt; sqrt(Double d){
+	return d &lt; 0 ? v -&gt; null : v -&gt; Math.sqrt(v);
+}
+</code></pre>
+					<p>
+						<em>sqrt</em> is a higher order function because it returns <em>java.util.function.Function&lt;Double&gt;</em>.
+					</p>
+					<p>
+						If you'd ask me if given programming language supports functional programming style, my answer would depend on it's capability of treating functions as <em>first
+							class citizen</em>:
+					</p>
+					<ul>
+						<li>can function be passed as an argument to other function</li>
+						<li>can function be returned from function</li>
+						<li>can function be assigned to variable or constant</li>
+					</ul>
+					<blockquote class="note">
+						If above conditions are met, you can program functional way. This is functional programming magic. You can build powerful abstractions using very simple
+						concept of <em>higher order functions</em>
+					</blockquote>
 					<h3>Currying and partial application</h3>
-					<h3>Side effects separation</h3>
 					<h3>Explicit state mutation</h3>
+					<h3>Side effects separation</h3>
 				</div>
 			</div>
 		</div>
