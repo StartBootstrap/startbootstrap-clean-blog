@@ -57,7 +57,6 @@
 					<div class="post-heading text-center">
 						<h1>Functional programming is like magic</h1>
 						<h2 class="subheading">Like every magic, it's difficult and not for everyone</h2>
-						<p>Pragmatic functional programming tutorial for Java developers</p>
 					</div>
 				</div>
 			</div>
@@ -67,17 +66,20 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-md-10 mx-auto">
-					<p class="text-center font-weight-bold">This post is work in progress</p>
+					<p class="text-center font-weight-bold">Pragmatic functional programming tutorial for Java developers</p>
 					<p>
 						Functional programming is difficult. It's building blocks are simple but if you are regular Java developer you need to change your perspective and shift
-						paradigm to learn it. It borrows a lot from <em>Category Theory</em> and developed own jargon difficult to grasp at the beginning.
+						paradigm to learn it. It borrows a lot from <em>Category Theory</em>, developed own jargon difficult to grasp at the beginning, uses recursion and
+						sophisticated data structures extensively, etc.
 					</p>
 					<p>
-						It's not for everyone because people think and solve problems different ways. For some of you, it's natural to think about objects encapsulating some
-						state and communicating with each other. Some of you prefer to think in terms of some data being passed through chain of transformations to get final
-						desired result. Both ways are <em>Turing equivalent</em> , just like <em>Turing Machine</em> and <em>Lambda Calculus</em>. Ultimately, functional programs
-						are merely nice abstraction on top of fast <em>Turing machines</em>.
+						It's not for everyone because people think and solve problems different ways. For some of us, it's natural to think about objects encapsulating some state
+						and communicating with each other. Some of us prefer to think in terms of some data being passed through chain of transformations to get final desired
+						result. Both ways are <em>Turing equivalent</em> (equally powerful), just like <em>Turing Machine</em> and <em>Lambda Calculus</em>. Ultimately,
+						functional programs are merely nice abstraction on top of fast <em>Turing machines</em>.
 					</p>
+					<p>So what's the point? Is it worth to learn at all? Yes, it is. It adds some superpowers to our programming toolkit and I will show you how to use
+						them.</p>
 					<h2 class="section-heading">But what is functional programming?</h2>
 					<p>This is not an easy question and answer usually depends on whom you ask. Here you find my personal, obviously subjective description.</p>
 					<h3>Program with Pure Functions</h3>
@@ -119,7 +121,7 @@
 						only need to invoke it and assert result. There are no surprises, no looking around your code to check whether external variable used by your function is
 						modified by external code.
 					</p>
-					<blockquote class="note">Whatever programming language you use, just follow pure functions rules to start programming functional way.</blockquote>
+					<p class="note">Whatever programming language you use, just follow pure functions rules to start programming functional way.</p>
 					<h3>Higher order functions</h3>
 					<p>Higher order functions is very simple yet powerful concept. It's just function taking another function as argument or function returning function.</p>
 					<pre><code class="language-java">import java.util.function.Predicate;
@@ -151,10 +153,10 @@ Function&lt;Double&gt; sqrt(Double d){
 						<li>can function be returned from function</li>
 						<li>can function be assigned to variable or constant</li>
 					</ul>
-					<blockquote class="note">
+					<p class="note">
 						If above conditions are met, you can program functional way. This is functional programming magic. You can build powerful abstractions using very simple
 						concept of <em>higher order functions</em>
-					</blockquote>
+					</p>
 					<h3>Currying and partial application</h3>
 					<p>TBC</p>
 					<h3>Explicit state mutation</h3>
