@@ -100,6 +100,16 @@ p.note {
   font-style: italic;
 }
 
+pre code {
+  font-size: 15px;
+}
+
+code.language-java {
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+}
+
 #mainNav {
   position: absolute;
   border-bottom: 1px solid #e9ecef;

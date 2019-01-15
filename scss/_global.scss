@@ -87,3 +87,11 @@ blockquote.note {
 p.note {
   font-style: italic;
 }
+
+pre code {
+	font-size: 15px;
+}
+
+code.language-java {
+	tab-size: 2;
+}

@@ -70,7 +70,7 @@
 					<p>
 						Functional programming is difficult. It's building blocks are simple but if you are regular Java developer you need to change your perspective and shift
 						paradigm to learn it. It borrows a lot from <em>Category Theory</em>, developed own jargon difficult to grasp at the beginning, uses recursion and
-						sophisticated data structures extensively, etc.
+						sophisticated data structures extensively.
 					</p>
 					<p>
 						It's not for everyone because people think and solve problems different ways. For some of us, it's natural to think about objects encapsulating some state
@@ -78,13 +78,42 @@
 						result. Both ways are <em>Turing equivalent</em> (equally powerful), just like <em>Turing Machine</em> and <em>Lambda Calculus</em>. Ultimately,
 						functional programs are merely nice abstraction on top of fast <em>Turing machines</em>.
 					</p>
-					<p>So what's the point? Is it worth to learn at all? Yes, it is. It adds some superpowers to our programming toolkit and I will show you how to use
-						them.</p>
+					<p>So what's the point? Is it worth to learn at all? Yes, I believe it is. It adds several superpowers to our programming toolkit and I will show you
+						what these powers are and how to use them.</p>
 					<h2 class="section-heading">But what is functional programming?</h2>
 					<p>This is not an easy question and answer usually depends on whom you ask. Here you find my personal, obviously subjective description.</p>
 					<h3>Program with Pure Functions</h3>
-					<p>Yes, this sounds reasonable, functional programming must have something to do with functions, right? The very first step in learning functional
-						programming is to model the problem in terms of pure functions.</p>
+					<p>This sounds reasonable, functional programming must have something to do with functions, right?</p>
+					<p class="note">The very first step in learning functional programming is to model the problem in terms of pure functions.</p>
+					<p>Instead of doing this:</p>
+					<pre><code class="language-java">class User {
+	private int age;
+	private boolean valid;
+	
+	// Check, whether our user is over expected age
+	// and set internal state accordingly	
+	public void validateAge(int expected) {
+		valid = age >= expected;
+	}
+
+	// Return if user is valid
+	public boolean isValid() {
+		return valid;
+	}
+}</code></pre>
+					<p>Do this:</p>
+					<pre><code class="language-java">class User {
+	private int age;
+	
+	public int getAge() {
+		return age;
+	}
+	
+	// Check if given user age is over expected age
+	public static boolean hasValidAge(int expected, User user) {
+		return user.getAge() >= expected;	
+	}
+}</code></pre>
 					<p>What makes function pure?</p>
 					<ul>
 						<li>Pure function takes some value and returns some value only</li>
@@ -159,9 +188,7 @@ Function&lt;Double&gt; sqrt(Double d){
 					</p>
 					<h3>Currying and partial application</h3>
 					<p>TBC</p>
-					<h3>Explicit state mutation</h3>
-					<p>TBC</p>
-					<h3>Side effects separation</h3>
+					<h3>Side effects separation and explicit state mutation</h3>
 					<p>TBC</p>
 					<h2>What's next?</h2>
 					<p>In next post you will read why it's worth to learn functional programming.</p>
