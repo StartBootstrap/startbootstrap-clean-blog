@@ -86,32 +86,32 @@
 					<p>This sounds reasonable, functional programming must have something to do with functions, right?</p>
 					<p class="note">The very first step in learning functional programming is to model the problem in terms of pure functions.</p>
 					<p>Instead of doing this:</p>
-					<pre><code class="language-java">class User {
+					<pre><code class="language-java">class Player {
 	private int age;
 	private boolean valid;
 	
-	// Check, whether our user is over expected age
+	// Check, whether our player is over expected age
 	// and set internal state accordingly	
 	public void validateAge(int expected) {
 		valid = age >= expected;
 	}
 
-	// Return if user is valid
+	// Return if player is valid
 	public boolean isValid() {
 		return valid;
 	}
 }</code></pre>
 					<p>Do this:</p>
-					<pre><code class="language-java">class User {
+					<pre><code class="language-java">class Player {
 	private int age;
 	
 	public int getAge() {
 		return age;
 	}
 	
-	// Check if given user age is over expected age
-	public static boolean hasValidAge(int expected, User user) {
-		return user.getAge() >= expected;	
+	// Check if given player age is over expected age
+	public static boolean hasValidAge(int expected, Player player) {
+		return player.getAge() >= expected;	
 	}
 }</code></pre>
 					<p>What makes function pure?</p>
@@ -155,23 +155,38 @@
 					<p>Higher order functions is very simple yet powerful concept. It's just function taking another function as argument or function returning function.</p>
 					<pre><code class="language-java">import java.util.function.Predicate;
 
-// Function taking other function as argument
-Integer filterInt(Predicate&lt;Integer&gt; p, Integer i){
-	return p.test(i) ? i : null;
+class Player {
+	private int age;
+	
+	public int getAge() {
+		return age;
+	}
+	
+	// Check player's age using given condition predicate
+	public static boolean hasAge(Predicate&lt;Integer&gt; condition, Player player) {
+		return condition.test(player.getAge());	
+	}
 }
 </code></pre>
 					<p>
-						<em>filterInt</em> is a higher order function because it accepts <em>java.util.function.Predicate&lt;Integer&gt;</em> as it's argument.
+						<em>hasAge</em> is a higher order function because it accepts <em>java.util.function.Predicate&lt;Integer&gt;</em> as it's argument. Predicate is a
+						generic function taking given type argument and returning boolean.
 					</p>
 					<pre><code class="language-java">import java.util.function.Function;
 
-// Function returning function
-Function&lt;Double&gt; sqrt(Double d){
-	return d &lt; 0 ? v -&gt; null : v -&gt; Math.sqrt(v);
-}
-</code></pre>
+class Player {
+	private int age;
+	
+	public int getAge() {
+		return age;
+	}
+	
+	public static Function&lt;Player, String&gt; greetings(Integer minAge) {
+		return p -> p.getAge() >= minAge ? &quot;Welcome&quot; : &quot;Bye&quot;; 
+	}
+}</code></pre>
 					<p>
-						<em>sqrt</em> is a higher order function because it returns <em>java.util.function.Function&lt;Double&gt;</em>.
+						<em>greetings</em> is a higher order function because it returns <em>java.util.function.Function</em>.
 					</p>
 					<p>
 						If you'd ask me if given programming language supports functional programming style, my answer would depend on it's capability of treating functions as <em>first
