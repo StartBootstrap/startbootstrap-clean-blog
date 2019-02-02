@@ -86,6 +86,9 @@ blockquote.note {
 
 p.note {
   font-style: italic;
+  background-color: $gray-300;
+  border-radius: 0.25rem;
+  padding: 1em
 }
 
 pre code {

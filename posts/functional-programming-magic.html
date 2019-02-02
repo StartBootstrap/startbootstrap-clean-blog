@@ -14,8 +14,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
 <link href="../css/clean-blog.min.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js" data-manual></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-java.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.4/fetch.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-12045869-7"></script>
 <script>
 	window.dataLayer = window.dataLayer || [];
@@ -84,109 +86,51 @@
 					<p>This is not an easy question and answer usually depends on whom you ask. Here you find my personal, obviously subjective description.</p>
 					<h3>Program with Pure Functions</h3>
 					<p>This sounds reasonable, functional programming must have something to do with functions, right?</p>
-					<p class="note">The very first step in learning functional programming is to model the problem in terms of pure functions.</p>
-					<p>Instead of doing this:</p>
-					<pre><code class="language-java">class Player {
-	private int age;
-	private boolean valid;
-	
-	// Check, whether our player is over expected age
-	// and set internal state accordingly	
-	public void validateAge(int expected) {
-		valid = age >= expected;
-	}
-
-	// Return if player is valid
-	public boolean isValid() {
-		return valid;
-	}
-}</code></pre>
-					<p>Do this:</p>
-					<pre><code class="language-java">class Player {
-	private int age;
-	
-	public int getAge() {
-		return age;
-	}
-	
-	// Check if given player age is over expected age
-	public static boolean hasValidAge(int expected, Player player) {
-		return player.getAge() >= expected;	
-	}
-}</code></pre>
+					<p class="note">The very first step in learning functional programming is to model the problem solution in terms of pure functions.</p>
+					<p>Instead of mutating objects like here:</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/imp/Player.java"></code></pre>
+					<p>Use functions to provide desired answers without object mutations:</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/fun/Player.java"></code></pre>
+					<p class="note">
+						Here you saw first code examples and might miss <code>private</code> or <code>public</code> modifiers. I did it by purpose to make code shorter. I will
+						often omit getters and setters for the same reason.
+					</p>
 					<p>What makes function pure?</p>
 					<ul>
 						<li>Pure function takes some value and returns some value only</li>
 						<li>Pure function is side effects free</li>
 						<li>Pure function depends only on it's arguments</li>
 					</ul>
-					<pre><code class="language-java">public static Integer inc(Integer v) {
-		return v+1;
-}</code></pre>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Funcs.java" data-format="skip-class"></code></pre>
 					<p>
-						This is nice function, beautiful in it's purity and simplicity. It does only one thing. It takes <em>Integer</em> type argument and returns new <em>Integer</em>
-						number. It doesn't change it's arguments. Actually it can't because <em>java.lang.Integer</em> is immutable. It is side effects free, meaning that no
-						external state is modified, no external variables are assigned. It reads no external variable, all it needs are function's arguments. It is <em>static</em>
-						method, what makes <em>this</em> reference not accessible inside body. It can be non static for your convenience, just don't access <em>this</em> in body.
+						This is nice function, beautiful in it's purity and simplicity. It does only one thing. It takes <code>Integer</code> type argument and returns new <code>Integer</code>
+						number. It doesn't change it's arguments. Actually it can't because <code>java.lang.Integer</code> is immutable. It is side effects free, meaning that no
+						external state is modified, no external variables are assigned. It reads no external variable, all it needs are function's arguments. It is <code>static</code>
+						method, what makes <code>this</code> reference not accessible inside body. It can be non static for your convenience, just don't access <code>this</code>
+						in body.
 					</p>
 					<p>One might argue that it should be:</p>
-					<pre><code class="language-java">public static Integer inc(final Integer v) {
-	return v+1;
-}</code></pre>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/FuncsFinal.java" data-format="skip-class"></code></pre>
 					<p>
-						This <em>final</em> modifier used in argument protects functions's code from assigning argument reference with new value:
+						The <code>final</code> modifier used in argument protects functions's code from assigning argument reference with new value:
 					</p>
-					<pre><code class="language-java">public static Integer inc(final Integer v) {
-	v=0; // This will not compile
-	
-	return v+1;
-}</code></pre>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/FuncsFinalFail.java" data-format="skip-class"></code></pre>
 					<p>
-						But I'm personally not very strict in using <em>final</em> modifiers due to it's verbosity. Just keep your functions small and never ever use arguments
-						reassignments, or use <em>final</em> modifiers and let Java compiler protect you from such smelly practices.
+						But I'm personally not very strict in using <code>final</code> modifiers due to it's verbosity. Just keep your functions small and never ever use
+						arguments reassignments, or use <code>final</code> modifiers and let Java compiler protect you from such smelly practices.
 					</p>
 					<p>
-						<strong>There are very important consequences of function purity.</strong> To understand what it's doing, you only need to see it's body. To test it, you
-						only need to invoke it and assert result. There are no surprises, no looking around your code to check whether external variable used by your function is
-						modified by external code.
+						<strong>There are very important consequences of function purity.</strong> To understand what function is doing, you only need to see it's body. To test
+						it, you only need to invoke it and assert result. There are no surprises, no looking around your code to check whether external variable used by your
+						function is modified by external code.
 					</p>
 					<p class="note">Whatever programming language you use, just follow pure functions rules to start programming functional way.</p>
 					<h3>Higher order functions</h3>
 					<p>Higher order functions is very simple yet powerful concept. It's just function taking another function as argument or function returning function.</p>
-					<pre><code class="language-java">import java.util.function.Predicate;
-
-class Player {
-	private int age;
-	
-	public int getAge() {
-		return age;
-	}
-	
-	// Check player's age using given condition predicate
-	public static boolean hasAge(Predicate&lt;Integer&gt; condition, Player player) {
-		return condition.test(player.getAge());	
-	}
-}
-</code></pre>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/hof/Player.java"></code></pre>
 					<p>
-						<em>hasAge</em> is a higher order function because it accepts <em>java.util.function.Predicate&lt;Integer&gt;</em> as it's argument. Predicate is a
-						generic function taking given type argument and returning boolean.
-					</p>
-					<pre><code class="language-java">import java.util.function.Function;
-
-class Player {
-	private int age;
-	
-	public int getAge() {
-		return age;
-	}
-	
-	public static Function&lt;Player, String&gt; greetings(Integer minAge) {
-		return p -> p.getAge() >= minAge ? &quot;Welcome&quot; : &quot;Bye&quot;; 
-	}
-}</code></pre>
-					<p>
-						<em>greetings</em> is a higher order function because it returns <em>java.util.function.Function</em>.
+						<code>hasAge</code> is a higher order function because it accepts <code>java.util.function.Predicate&lt;Integer&gt;</code> as it's argument. Predicate is
+						a generic function taking given type argument and returning <code>boolean</code>.
 					</p>
 					<p>
 						If you'd ask me if given programming language supports functional programming style, my answer would depend on it's capability of treating functions as <em>first
@@ -240,5 +184,6 @@ class Player {
 	</div>
 	<script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
 	<script src="../js/clean-blog.min.js"></script>
+	<script src="../js/examples.min.js"></script>
 </body>
 </html>
