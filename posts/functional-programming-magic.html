@@ -55,7 +55,7 @@
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-8 col-md-10 mx-auto">
+				<div class="col-md-10 mx-auto">
 					<div class="post-heading text-center">
 						<h1>Functional programming is like magic</h1>
 						<h2 class="subheading">Like every magic, it's difficult and not for everyone</h2>
@@ -67,17 +67,21 @@
 	<article>
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-8 col-md-10 mx-auto">
-					<p class="text-center font-weight-bold">Pragmatic functional programming tutorial for Java developers</p>
+				<div class="col-md-10 mx-auto">
+					<p>This is first part of pragmatic functional programming tutorial for Java developers. It's based on my experience taken from lessons of functional
+						programming in Java I give at work.</p>
+					<p class="text-center">
+						<em>I hope you will enjoy it as much as I did teaching.</em>
+					</p>
 					<p>
 						Functional programming is difficult. It's building blocks are simple but if you are regular Java developer you need to change your perspective and shift
 						paradigm to learn it. It borrows a lot from <em>Category Theory</em>, developed own jargon difficult to grasp at the beginning, uses recursion and
 						sophisticated data structures extensively.
 					</p>
 					<p>
-						It's not for everyone because people think and solve problems different ways. For some of us, it's natural to think about objects encapsulating some state
-						and communicating with each other. Some of us prefer to think in terms of some data being passed through chain of transformations to get final desired
-						result. Both ways are <em>Turing equivalent</em> (equally powerful), just like <em>Turing Machine</em> and <em>Lambda Calculus</em>. Ultimately,
+						It's not for everyone because people think and solve problems in different ways. For some of us, it's natural to think about objects encapsulating some
+						state and communicating with each other. Some of us prefer to think in terms of some data being passed through chain of transformations to get final
+						desired result. Both ways are <em>Turing equivalent</em> (equally powerful), just like <em>Turing Machine</em> and <em>Lambda Calculus</em>. Ultimately,
 						functional programs are merely nice abstraction on top of fast <em>Turing machines</em>.
 					</p>
 					<p>So what's the point? Is it worth to learn at all? Yes, I believe it is. It adds several superpowers to our programming toolkit and I will show you
@@ -89,7 +93,7 @@
 					<p class="note">The very first step in learning functional programming is to model the problem solution in terms of pure functions.</p>
 					<p>Instead of mutating objects like here:</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/imp/Player.java"></code></pre>
-					<p>Use functions to provide desired answers without object mutations:</p>
+					<p>Use pure functions to provide desired answers without object mutations:</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/fun/Player.java"></code></pre>
 					<p class="note">
 						Here you saw first code examples and might miss <code>private</code> or <code>public</code> modifiers. I did it by purpose to make code shorter. I will
@@ -100,6 +104,7 @@
 						<li>Pure function takes some value and returns some value only</li>
 						<li>Pure function is side effects free</li>
 						<li>Pure function depends only on it's arguments</li>
+						<li>Pure function returns the same result if applied to same arguments, always</li>
 					</ul>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Funcs.java" data-format="skip-class"></code></pre>
 					<p>
@@ -116,13 +121,13 @@
 					</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/FuncsFinalFail.java" data-format="skip-class"></code></pre>
 					<p>
-						But I'm personally not very strict in using <code>final</code> modifiers due to it's verbosity. Just keep your functions small and never ever use
-						arguments reassignments, or use <code>final</code> modifiers and let Java compiler protect you from such smelly practices.
+						But I'm personally not very strict in using <code>final</code> modifiers in arguments declaration due to it's verbosity. Just keep your functions small
+						and never ever use arguments reassignments, or use <code>final</code> modifiers and let Java compiler protect you from such smelly practices.
 					</p>
 					<p>
-						<strong>There are very important consequences of function purity.</strong> To understand what function is doing, you only need to see it's body. To test
-						it, you only need to invoke it and assert result. There are no surprises, no looking around your code to check whether external variable used by your
-						function is modified by external code.
+						<em>There are very important consequences of function purity.</em> To understand what function is doing, you only need to see it's body. To test it, you
+						only need to invoke it and assert result. There are no surprises, no looking around your code to check whether external variable used by your function is
+						modified by external code. And last but not least: <em>Referential Transparency</em> - concept I will try to explain in next parts.
 					</p>
 					<p class="note">Whatever programming language you use, just follow pure functions rules to start programming functional way.</p>
 					<h3>Higher order functions</h3>
@@ -145,8 +150,41 @@
 						If above conditions are met, you can program functional way. This is functional programming magic. You can build powerful abstractions using very simple
 						concept of <em>higher order functions</em>
 					</p>
-					<h3>Currying and partial application</h3>
-					<p>TBC</p>
+					<h3>Currying and Partial Application</h3>
+					<p>Currying and partial application are closely related and extremely useful techniques. We use them to manipulate existing functions and construct new
+						functions from existing functions. It's very common and handy that we create new functions from available building blocks. Currying and partial
+						application are conceptually similar to Object Oriented Programming and it's Design Patterns, where basic concepts are inheritance, polymorphism and
+						composition. In OOP we use Design Patterns and in FP we use higher order functions, currying and partial application to construct our code abstractions.</p>
+					<p>
+						Let's look at currying first. The name of this technique is taken from <em>Haskel Curry</em>, American mathematician. The idea is based on the fact:
+					</p>
+					<p class="note">Every pure function taking multiple arguments can be transformed to higher order function taking single argument and returning function
+						taking single argument and ... so on, depending on arguments number of function we curry.</p>
+					<p>
+						Actually, some programming languages like <em>Haskel</em> curry our functions by default.
+					</p>
+					<p>This is simple example of currying:</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/curry/Currying.java"></code></pre>
+					<p>
+						Unfortunately there is no native support of currying in Java so curried form declaration: <code>Function&lt;Integer, Function&lt;Integer,
+							Integer&gt;&gt;</code> looks weird and is difficult to read. Fortunately there are some mitigation techniques I'll show you later. Despite the lack of currying
+						support, it's easy to write generic function transforming any <code>BiFunction</code> to curried form.
+					</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/curry/FunctionsCurry.java"></code></pre>
+					<p>
+						Our <code>curry</code> function is the nice example of higher order function. It takes function as an argument and returns function. You deserve warning
+						now. This is how functional programming code often looks. Please try to understand what's going on in above and following examples and I promise, it will
+						pay of in the near future.
+					</p>
+					<p>
+						If you wonder how currying might me useful, let me show you one example. Many core Java 8 functions expect <code>Function</code> as it's only argument,
+						like <code>map</code> in <code>Optional</code> or <code>Stream</code>.
+					</p>
+					<p>
+						If we have some <code>BiFunction</code> we can curry it and pass to <code>Stream.map()</code> or <code>Optional.map()</code> functions without wrapping it
+						with some private function or using lambda expression.
+					</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/curry/FunctionsCurryExamples.java"></code></pre>
 					<h3>Side effects separation and explicit state mutation</h3>
 					<p>TBC</p>
 					<h2>What's next?</h2>

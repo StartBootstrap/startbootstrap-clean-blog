@@ -24,6 +24,7 @@
       - { src: '../../css', dest: '' }
       - { src: '../../img', dest: '' }
       - { src: '../../js', dest: '' }
+      - { src: '../../src', dest: '' }
       - { src: '../../vendor/fontawesome-free/css/all.min.css', dest: 'vendor/fontawesome-free/css' }
       - { src: '../../vendor/fontawesome-free/webfonts', dest: 'vendor/fontawesome-free' }
       
