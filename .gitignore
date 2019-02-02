@@ -3,6 +3,6 @@ node_modules
 .npmignore
 .project
 .settings/
-.classpath/
+.classpath
 *.retry
 target/
