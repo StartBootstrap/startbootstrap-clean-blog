@@ -6,7 +6,11 @@
 	}
 
 	function isClass(s) {
-		return _.startsWith(s, 'public class');
+		return _.startsWith(s, 'class ') || _.startsWith(s, 'public class ');
+	}
+
+	function isImport(s) {
+		return _.startsWith(s, 'import ');
 	}
 
 	function skipBy(p) {
@@ -29,10 +33,10 @@
 
 	function resolveFormatter(f) {
 		if (f === 'skip-class') {
-			return _.flow(skipBy(isPackage), skipBy(isClass), skipLast);
+			return _.flow(skipBy(isPackage), skipBy(isImport), skipBy(isClass), skipLast);
 		}
 
-		return skipBy(isPackage);
+		return _.flow(skipBy(isPackage), skipBy(isImport));
 	}
 
 	$('pre code').each(function() {

@@ -107,6 +107,10 @@ code.language-java {
   tab-size: 2;
 }
 
+.exc {
+  font-style: italic;
+}
+
 #mainNav {
   position: absolute;
   border-bottom: 1px solid #e9ecef;

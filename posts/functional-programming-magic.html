@@ -71,7 +71,7 @@
 					<p>This is first part of pragmatic functional programming tutorial for Java developers. It's based on my experience taken from lessons of functional
 						programming in Java I give at work.</p>
 					<p class="text-center">
-						<em>I hope you will enjoy it as much as I did teaching.</em>
+						<em>I hope you will enjoy it as much as I do teaching it.</em>
 					</p>
 					<p>
 						Functional programming is difficult. It's building blocks are simple but if you are regular Java developer you need to change your perspective and shift
@@ -87,7 +87,7 @@
 					<p>So what's the point? Is it worth to learn at all? Yes, I believe it is. It adds several superpowers to our programming toolkit and I will show you
 						what these powers are and how to use them.</p>
 					<h2 class="section-heading">But what is functional programming?</h2>
-					<p>This is not an easy question and answer usually depends on whom you ask. Here you find my personal, obviously subjective description.</p>
+					<p>This is not an easy question and answer usually depends on whom you ask. Here below you find basic concepts and techniques description.</p>
 					<h3>Program with Pure Functions</h3>
 					<p>This sounds reasonable, functional programming must have something to do with functions, right?</p>
 					<p class="note">The very first step in learning functional programming is to model the problem solution in terms of pure functions.</p>
@@ -97,15 +97,18 @@
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/fun/Player.java"></code></pre>
 					<p class="note">
 						Here you saw first code examples and might miss <code>private</code> or <code>public</code> modifiers. I did it by purpose to make code shorter. I will
-						often omit getters and setters for the same reason.
+						often omit import declarations , getters and setters for the same reason.
 					</p>
 					<p>What makes function pure?</p>
 					<ul>
 						<li>Pure function takes some value and returns some value only</li>
 						<li>Pure function is side effects free</li>
 						<li>Pure function depends only on it's arguments</li>
-						<li>Pure function returns the same result if applied to same arguments, always</li>
+						<li>Pure function returns the same result if applied to the same arguments, always</li>
 					</ul>
+					<p class="note">
+						Please remember, we say <em>apply function to arguments</em> and not <em>apply arguments to function</em>.
+					</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Funcs.java" data-format="skip-class"></code></pre>
 					<p>
 						This is nice function, beautiful in it's purity and simplicity. It does only one thing. It takes <code>Integer</code> type argument and returns new <code>Integer</code>
@@ -127,7 +130,7 @@
 					<p>
 						<em>There are very important consequences of function purity.</em> To understand what function is doing, you only need to see it's body. To test it, you
 						only need to invoke it and assert result. There are no surprises, no looking around your code to check whether external variable used by your function is
-						modified by external code. And last but not least: <em>Referential Transparency</em> - concept I will try to explain in next parts.
+						modified by external code. And last but not least <em>Referential Transparency</em> - concept I will explain in next parts.
 					</p>
 					<p class="note">Whatever programming language you use, just follow pure functions rules to start programming functional way.</p>
 					<h3>Higher order functions</h3>
@@ -158,19 +161,19 @@
 					<p>
 						Let's look at currying first. The name of this technique is taken from <em>Haskel Curry</em>, American mathematician. The idea is based on the fact:
 					</p>
-					<p class="note">Every pure function taking multiple arguments can be transformed to higher order function taking single argument and returning function
-						taking single argument and ... so on, depending on arguments number of function we curry.</p>
+					<p class="note">Every pure function accepting multiple arguments can be transformed to higher order function taking single argument and returning
+						function taking single argument and returning function taking single argument and ... so on, depending on arguments number of function we curry.</p>
 					<p>
-						Actually, some programming languages like <em>Haskel</em> curry our functions by default.
+						Actually, in some programming languages like <em>Haskel</em> we define our functions in curried form by default.
 					</p>
 					<p>This is simple example of currying:</p>
-					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/curry/Currying.java"></code></pre>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/curry/Currying.java" data-format="skip-class"></code></pre>
 					<p>
 						Unfortunately there is no native support of currying in Java so curried form declaration: <code>Function&lt;Integer, Function&lt;Integer,
 							Integer&gt;&gt;</code> looks weird and is difficult to read. Fortunately there are some mitigation techniques I'll show you later. Despite the lack of currying
 						support, it's easy to write generic function transforming any <code>BiFunction</code> to curried form.
 					</p>
-					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/curry/FunctionsCurry.java"></code></pre>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/curry/FunctionsCurry.java" data-format="skip-class"></code></pre>
 					<p>
 						Our <code>curry</code> function is the nice example of higher order function. It takes function as an argument and returns function. You deserve warning
 						now. This is how functional programming code often looks. Please try to understand what's going on in above and following examples and I promise, it will
@@ -184,7 +187,48 @@
 						If we have some <code>BiFunction</code> we can curry it and pass to <code>Stream.map()</code> or <code>Optional.map()</code> functions without wrapping it
 						with some private function or using lambda expression.
 					</p>
-					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/curry/FunctionsCurryExamples.java"></code></pre>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/curry/FunctionsCurryExamples.java" data-format="skip-class"></code></pre>
+					<p>
+						It's time to tackle partial application now. Do you remember our <code>inc</code> function from previous example? What we did was:
+					</p>
+					<ol>
+						<li>
+							we took available function <code>sum</code> accepting two arguments
+						</li>
+						<li>
+							transformed it to different function by currying it, so we had <code>Function&lt;Integer,Function&ltInteger,Integer&gt;&gt</code>
+						</li>
+						<li>
+							applied our function with value <code>1</code>
+						</li>
+						<li>
+							and finally assigned result: <code>Function&lt;Integer,Integer&gt;</code> to constant
+						</li>
+					</ol>
+					<p>
+						Written code is as terse as <code>curry(sum).apply(1)</code>. Do you see the pattern? Whenever we see the pattern we abstract it. That's what we do as
+						programmers. Since this post is about functional programming, lets abstract partial application into function.
+					</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/partial/Partial.java" data-format="skip-class"></code></pre>
+					<p>
+						I wrote that currying and partial application are closely related because we can write <code>partial</code> function using <code>curry</code> function
+						like in this code:
+					</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/partial/PartialViaCurry.java" data-format="skip-class"></code></pre>
+					<p>
+						You saw the examples of functions transforming other functions like <code>curry</code> or <code>partial</code> and can feel a bit confused. Let me give
+						you some exercises to let you practice and get better intuition in manipulating functions.
+					</p>
+					<p class="exc">
+						Write function transforming any two arguments function into two arguments function with arguments reversed
+						<a data-toggle="collapse" href="#reverse">Show answer</a>
+					</p>
+					<pre class="collapse" id="reverse"><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/exc/Reverse.java"
+						data-format="skip-class"></code></pre>
+					<h3>Functions composition</h3>
+					<p>TBC</p>
+					<h3>Identity</h3>
+					<p>TBC</p>
 					<h3>Side effects separation and explicit state mutation</h3>
 					<p>TBC</p>
 					<h2>What's next?</h2>
