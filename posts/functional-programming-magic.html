@@ -167,13 +167,13 @@
 						Actually, in some programming languages like <em>Haskel</em> we define our functions in curried form by default.
 					</p>
 					<p>This is simple example of currying:</p>
-					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/curry/Currying.java" data-format="skip-class"></code></pre>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Currying.java" data-format="skip-class"></code></pre>
 					<p>
 						Unfortunately there is no native support of currying in Java so curried form declaration: <code>Function&lt;Integer, Function&lt;Integer,
 							Integer&gt;&gt;</code> looks weird and is difficult to read. Fortunately there are some mitigation techniques I'll show you later. Despite the lack of currying
 						support, it's easy to write generic function transforming any <code>BiFunction</code> to curried form.
 					</p>
-					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/curry/FunctionsCurry.java" data-format="skip-class"></code></pre>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/FunctionsCurry.java" data-format="skip-class"></code></pre>
 					<p>
 						Our <code>curry</code> function is the nice example of higher order function. It takes function as an argument and returns function. You deserve warning
 						now. This is how functional programming code often looks. Please try to understand what's going on in above and following examples and I promise, it will
@@ -187,7 +187,7 @@
 						If we have some <code>BiFunction</code> we can curry it and pass to <code>Stream.map()</code> or <code>Optional.map()</code> functions without wrapping it
 						with some private function or using lambda expression.
 					</p>
-					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/curry/FunctionsCurryExamples.java" data-format="skip-class"></code></pre>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/FunctionsCurryExamples.java" data-format="skip-class"></code></pre>
 					<p>
 						It's time to tackle partial application now. Do you remember our <code>inc</code> function from previous example? What we did was:
 					</p>
@@ -196,7 +196,7 @@
 							we took available function <code>sum</code> accepting two arguments
 						</li>
 						<li>
-							transformed it to different function by currying it, so we had <code>Function&lt;Integer,Function&ltInteger,Integer&gt;&gt</code>
+							transformed it to different function by currying it, so we had <code>Function&lt;Integer,Function&lt;Integer,Integer&gt;&gt;</code>
 						</li>
 						<li>
 							applied our function with value <code>1</code>
@@ -209,21 +209,32 @@
 						Written code is as terse as <code>curry(sum).apply(1)</code>. Do you see the pattern? Whenever we see the pattern we abstract it. That's what we do as
 						programmers. Since this post is about functional programming, lets abstract partial application into function.
 					</p>
-					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/partial/Partial.java" data-format="skip-class"></code></pre>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Partial.java" data-format="skip-class"></code></pre>
 					<p>
 						I wrote that currying and partial application are closely related because we can write <code>partial</code> function using <code>curry</code> function
 						like in this code:
 					</p>
-					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/partial/PartialViaCurry.java" data-format="skip-class"></code></pre>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/PartialViaCurry.java" data-format="skip-class"></code></pre>
 					<p>
 						You saw the examples of functions transforming other functions like <code>curry</code> or <code>partial</code> and can feel a bit confused. Let me give
 						you some exercises to let you practice and get better intuition in manipulating functions.
 					</p>
 					<p class="exc">
-						Write function transforming any two arguments function into two arguments function with arguments reversed
-						<a data-toggle="collapse" href="#reverse">Show answer</a>
+						Write function transforming any two arguments function into two arguments function with arguments reversed.
+						<a class="ans" data-toggle="collapse" href="#reverse">Show answer</a>
 					</p>
-					<pre class="collapse" id="reverse"><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/exc/Reverse.java"
+					<pre class="collapse" id="reverse"><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Reverse.java" data-format="skip-class"></code></pre>
+					<p class="exc">
+						Write function currying any two arguments function from the right side.
+						<a class="ans" data-toggle="collapse" href="#curryRight">Show answer</a>
+					</p>
+					<pre class="collapse" id="curryRight"><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/CurryRight.java"
+						data-format="skip-class"></code></pre>
+					<p class="exc">
+						Write function currying any two arguments function from the right using <code>reverse</code> function.
+						<a class="ans" data-toggle="collapse" href="#curryRightReverse">Show answer</a>
+					</p>
+					<pre class="collapse" id="curryRightReverse"><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/CurryRightViaReverse.java"
 						data-format="skip-class"></code></pre>
 					<h3>Functions composition</h3>
 					<p>TBC</p>

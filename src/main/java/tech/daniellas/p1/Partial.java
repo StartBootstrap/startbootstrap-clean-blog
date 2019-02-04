@@ -1,4 +1,4 @@
-package tech.daniellas.p1.partial;
+package tech.daniellas.p1;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;
