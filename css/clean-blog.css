@@ -9,10 +9,6 @@ p {
   margin: 30px 0;
 }
 
-p a {
-  text-decoration: underline;
-}
-
 h1,
 h2,
 h3,
@@ -24,6 +20,7 @@ h6 {
 }
 
 a {
+  text-decoration: underline;
   color: #212529;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;

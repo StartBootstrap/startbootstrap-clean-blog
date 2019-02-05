@@ -4,12 +4,13 @@ class Player {
 	// Note that attributes are final, effectively immutable
 	final String name;
 	final int score;
-
+	
 	Player(String name, int score) {
 		this.name = name;
 		this.score = score;
 	}
-
+	
+	// We return new Player instance with score added
 	static Player addScore(int score, Player player) {
 		return new Player(player.name, player.score + score);
 	}

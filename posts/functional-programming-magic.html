@@ -188,27 +188,28 @@
 						with some private function or using lambda expression.
 					</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/FunctionsCurryExamples.java" data-format="skip-class"></code></pre>
-					<p>
-						It's time to tackle partial application now. Do you remember our <code>inc</code> function from previous example? What we did was:
-					</p>
+					<p>It's time to tackle partial application, but it's too late now. We already covered it. What we did in previous example was:</p>
 					<ol>
 						<li>
 							we took available function <code>sum</code> accepting two arguments
 						</li>
 						<li>
-							transformed it to different function by currying it, so we had <code>Function&lt;Integer,Function&lt;Integer,Integer&gt;&gt;</code>
+							transformed it to different function by currying it, so we created <code>Function&lt;Integer,Function&lt;Integer,Integer&gt;&gt;</code>
 						</li>
 						<li>
 							applied our function with value <code>1</code>
 						</li>
 						<li>
-							and finally assigned result: <code>Function&lt;Integer,Integer&gt;</code> to constant
+							and finally assigned produced <code>Function&lt;Integer,Integer&gt;</code> to constant
 						</li>
 					</ol>
 					<p>
-						Written code is as terse as <code>curry(sum).apply(1)</code>. Do you see the pattern? Whenever we see the pattern we abstract it. That's what we do as
-						programmers. Since this post is about functional programming, lets abstract partial application into function.
+						Written code is as terse as <code>curry(sum).apply(1)</code>.
 					</p>
+					<p class="note">Partial application is the process of transforming multiple arguments function by applying it to less arguments then expected,producing
+						function with arguments number decreased by arguments count we provided. We do this with use of currying.</p>
+					<p>Do you see the pattern? Whenever we see the pattern we abstract it. That's what we do as programmers. Since this post is about functional
+						programming, lets abstract partial application into function.</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Partial.java" data-format="skip-class"></code></pre>
 					<p>
 						I wrote that currying and partial application are closely related because we can write <code>partial</code> function using <code>curry</code> function
@@ -237,7 +238,19 @@
 					<pre class="collapse" id="curryRightReverse"><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/CurryRightViaReverse.java"
 						data-format="skip-class"></code></pre>
 					<h3>Functions composition</h3>
-					<p>TBC</p>
+					<p>Well, here comes my favorite feature of functions. They do compose really well.</p>
+					<blockquote>
+						<p>And how do we solve problems? We decompose bigger problems into smaller problems. If the smaller problems are still too big, we decompose them
+							further, and so on. Finally, we write code that solves all the small problems. And then comes the essence of programming: we compose those pieces of code
+							to create solutions to larger problems. Decomposition wouldn’t make sense if we weren’t able to put the pieces back together.</p>
+						<p>This process of hierarchical decomposition and recomposition is not imposed on us by computers. It reflects the limitations of the human mind. Our
+							brains can only deal with a small number of concepts at a time.</p>
+						<a href="https://bartoszmilewski.com/2014/11/04/category-the-essence-of-composition/" target="_blank">Category Theory for Programmers, Bartosz
+							Milewski</a>
+					</blockquote>
+					<p>I couldn't agree more with above statements. We do decompose and compose objects using object oriented languages or procedures when procedural
+						languages come to play. Ability to compose is the very nature of pure functions, they just accept value ant return value, so we can take any number of
+						functions and chain them in the way, that the result of previous function becomes an input of next function.</p>
 					<h3>Identity</h3>
 					<p>TBC</p>
 					<h3>Side effects separation and explicit state mutation</h3>
