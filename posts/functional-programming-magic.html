@@ -250,7 +250,20 @@
 					</blockquote>
 					<p>I couldn't agree more with above statements. We do decompose and compose objects using object oriented languages or procedures when procedural
 						languages come to play. Ability to compose is the very nature of pure functions, they just accept value ant return value, so we can take any number of
-						functions and chain them in the way, that the result of previous function becomes an input of next function.</p>
+						functions and chain them in the way, that the result of previous function becomes an input of next function. Just like in following example:</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Composition.java" data-format="skip-class"></code></pre>
+					<p>
+						I agree, it's not very useful. Lets look at more realistic example. We have simple task: write function accepting user provided string and convert it to
+						percent format if possible. In case of non-number input, just return <em>0 %</em>.
+					</p>
+					<p>This is our first attempt</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Composition1.java" data-format="skip-class"></code></pre>
+					<p>
+						It looks fine at first glance, but there are some issues in it. It does more than one thing: parses <code>String</code> to <code>BigDecimal</code>,
+						divides result by 100, adds ' %' suffix, handle errors. All those actions are hidden inside function body and can't be reused.
+					</p>
+					<p>Let's decompose it into smaller chunks and compose back to create our final function.</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Composition2.java" data-format="skip-class"></code></pre>
 					<h3>Identity</h3>
 					<p>TBC</p>
 					<h3>Side effects separation and explicit state mutation</h3>
