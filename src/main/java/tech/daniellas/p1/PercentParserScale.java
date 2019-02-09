@@ -13,7 +13,8 @@ import org.junit.Test;
 
 public class PercentParserScale {
 
-	// This parser combines trimming and scaling functionality
+	// This parser combines trimming and scaling functionality using
+	// StringUtils.trim() and NumberUtils.toScaledBigDecimal()
 	Function<String, String> parser = applySafe(NumberUtils::createBigDecimal, ZERO)
 	    .andThen(hundredMultiplier)
 	    // Here we apply scaling function
@@ -30,7 +31,7 @@ public class PercentParserScale {
 		System.out.println(parser.apply(" x "));
 	}
 
-	// Here we use scaling via hundredMultiplier and toSclaedBigDecimal composition
+	// Here we use scaling via hundredMultiplier and toScaledBigDecimal composition
 	Function<String, String> otherParser = applySafe(NumberUtils::createBigDecimal, ZERO)
 	    // Here we apply multiplying and then scaling functions
 	    .andThen(hundredMultiplier
