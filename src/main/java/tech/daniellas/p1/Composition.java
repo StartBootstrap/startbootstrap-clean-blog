@@ -12,6 +12,6 @@ static Integer doub(Integer v) {
 	return v * 2;
 }
 
-// Here we comppose doub and inc functions
+// Here we compose doub and inc functions
 Integer res = inc(doub(1));
 }

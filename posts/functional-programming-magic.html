@@ -81,8 +81,8 @@
 					<p>
 						It's not for everyone because people think and solve problems in different ways. For some of us, it's natural to think about objects encapsulating some
 						state and communicating with each other. Some of us prefer to think in terms of some data being passed through chain of transformations to get final
-						desired result. Both ways are <em>Turing equivalent</em> (equally powerful), just like <em>Turing Machine</em> and <em>Lambda Calculus</em>. Ultimately,
-						functional programs are merely nice abstraction on top of fast <em>Turing machines</em>.
+						desired result. Both ways are <em>Turing equivalent</em> (equally powerful), just like <em>Turing Machine</em> and <em>Lambda Calculus</em> computation
+						models. Ultimately, functional programs are merely nice abstraction on top of fast <em>Turing machines</em>.
 					</p>
 					<p>So what's the point? Is it worth to learn at all? Yes, I believe it is. It adds several superpowers to our programming toolkit and I will show you
 						what these powers are and how to use them.</p>
@@ -173,21 +173,21 @@
 							Integer&gt;&gt;</code> looks weird and is difficult to read. Fortunately there are some mitigation techniques I'll show you later. Despite the lack of currying
 						support, it's easy to write generic function transforming any <code>BiFunction</code> to curried form.
 					</p>
-					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/FunctionsCurry.java" data-format="skip-class"></code></pre>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Curry.java" data-format="skip-class"></code></pre>
 					<p>
 						Our <code>curry</code> function is the nice example of higher order function. It takes function as an argument and returns function. You deserve warning
 						now. This is how functional programming code often looks. Please try to understand what's going on in above and following examples and I promise, it will
 						pay off in the near future.
 					</p>
 					<p>
-						If you wonder how currying might me useful, let me show you one example. Many core Java 8 functions expect <code>Function</code> as it's only argument,
+						If you wonder how currying might be useful, let me show you one example. Many core Java 8 functions expect <code>Function</code> as it's only argument,
 						like <code>map</code> in <code>Optional</code> or <code>Stream</code>.
 					</p>
 					<p>
 						If we have some <code>BiFunction</code> we can curry it and pass to <code>Stream.map()</code> or <code>Optional.map()</code> functions without wrapping it
 						with some private function or using lambda expression.
 					</p>
-					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/FunctionsCurryExamples.java" data-format="skip-class"></code></pre>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/CurryExamples.java" data-format="skip-class"></code></pre>
 					<p>It's time to tackle partial application, but it's too late now. We already covered it. What we did in previous example was:</p>
 					<ol>
 						<li>
@@ -256,14 +256,56 @@
 						I agree, it's not very useful. Lets look at more realistic example. We have simple task: write function accepting user provided string and convert it to
 						percent format if possible. In case of non-number input, just return <em>0 %</em>.
 					</p>
-					<p>This is our first attempt</p>
+					<p>This is our first attempt:</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Composition1.java" data-format="skip-class"></code></pre>
 					<p>
 						It looks fine at first glance, but there are some issues in it. It does more than one thing: parses <code>String</code> to <code>BigDecimal</code>,
-						divides result by 100, adds ' %' suffix, handle errors. All those actions are hidden inside function body and can't be reused.
+						multiplies result by 100, appends ' %' suffix, handle errors. All those actions are hidden inside function body and can't be reused or tested separately.
 					</p>
 					<p>Let's decompose it into smaller chunks and compose back to create our final function.</p>
-					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Composition2.java" data-format="skip-class"></code></pre>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Composition2.java"></code></pre>
+					<p>
+						Well, we have small functions but composing them is the real pain, isn't it? What can we do about this? We can use Java 8 <code>java.util.function.Function</code>
+						and partial application to make them easier to use.
+					</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Composition3.java"></code></pre>
+					<p>I particularly like expressiveness of our functions applications in last lines. It's like some story told:</p>
+					<ul>
+						<li>
+							apply <code>parse</code> safely
+						</li>
+						<li>then multiply by 100</li>
+						<li>then append ' %' string</li>
+						<li>call with '0.5' argument</li>
+					</ul>
+					<p>
+						Let me explain the magic happening in last lines. We use <code>andThen</code> default method of <code>java.util.function.Function</code> interface. This
+						is commented piece of this interface source code:
+					</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Function.java"></code></pre>
+					<p>
+						Whenever we need to apply multiple functions (let's say three functions named <em>f</em>, <em>g</em>, <em>h</em>) one after another like in this
+						pseudocode <code>f(g(h(X x)))</code> , where <code>x</code> is argument of type <code>X</code>, we can use <code>andThen</code> higher order function like
+						here: <code>h.andThen(g).andThen(f).apply(x)</code>.
+					</p>
+					<p>
+						<code>h</code> function's result becomes <code>g</code> function's argument, and <code>g</code> function's result becomes <code>f</code> function's
+						argument.
+					</p>
+					<p>
+						We can apply multiple functions in opposite direction using <code>compose</code> like this: <code>h(g(f(X x)))</code>. Corresponding code would be: <code>h.compose(g).compose(f)</code>.
+					</p>
+					<p>
+						<code>f</code> function's result becomes <code>g</code> function's argument, and <code>g</code> function's result becomes <code>h</code> function's
+						argument. This is our tasks functions composed using <code>compose</code>:
+					</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Composition4.java"></code></pre>
+					<p>Let's get back to our task. Although the way we call our functions looks better (of course only if we get used to this notation), we had to write
+						much more code compared to first version. Fortunately, there is the light ...</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Composition5.java"></code></pre>
+					<p>We didn't have to create our composing functions at the expense of readability. You might ask which way to go then? I would argue that having small
+						generic functions that can be reused to compose other functions is the good approach. There are plenty of reusable functions available in Java Core API or
+						external libraries, they are thoroughly tested and can save a lot of our time.</p>
 					<h3>Identity</h3>
 					<p>TBC</p>
 					<h3>Side effects separation and explicit state mutation</h3>

@@ -6,7 +6,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-class FunctionsCurryExamples {
+class CurryExamples {
 // Curry any BiFunction<A,B,C>
 static <A, B, C> Function<A, Function<B, C>> curry(BiFunction<A, B, C> fun) {
 	return a -> b -> fun.apply(a, b);

@@ -6,7 +6,7 @@
 	}
 
 	function isClass(s) {
-		return _.startsWith(s, 'class ') || _.startsWith(s, 'public class ');
+		return _.startsWith(s, 'class ') || _.startsWith(s, 'public class ') || _.startsWith(s, 'public interface ') || _.startsWith(s, 'interface ');
 	}
 
 	function isImport(s) {

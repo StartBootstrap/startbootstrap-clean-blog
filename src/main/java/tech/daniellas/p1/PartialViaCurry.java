@@ -1,6 +1,6 @@
 package tech.daniellas.p1;
 
-import static tech.daniellas.p1.FunctionsCurry.curry;
+import static tech.daniellas.p1.Curry.curry;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;
