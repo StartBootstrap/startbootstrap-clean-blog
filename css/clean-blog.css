@@ -79,7 +79,7 @@ img::-moz-selection {
   background: transparent;
 }
 
-em {
+em, p.em {
   font-weight: bold;
 }
 

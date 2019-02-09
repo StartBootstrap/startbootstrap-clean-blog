@@ -282,30 +282,50 @@
 						Let me explain the magic happening in last lines. We use <code>andThen</code> default method of <code>java.util.function.Function</code> interface. This
 						is commented piece of this interface source code:
 					</p>
-					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Function.java"></code></pre>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/core/Function.java"></code></pre>
 					<p>
 						Whenever we need to apply multiple functions (let's say three functions named <em>f</em>, <em>g</em>, <em>h</em>) one after another like in this
 						pseudocode <code>f(g(h(X x)))</code> , where <code>x</code> is argument of type <code>X</code>, we can use <code>andThen</code> higher order function like
 						here: <code>h.andThen(g).andThen(f).apply(x)</code>.
 					</p>
-					<p>
+					<p class="note">
 						<code>h</code> function's result becomes <code>g</code> function's argument, and <code>g</code> function's result becomes <code>f</code> function's
 						argument.
 					</p>
 					<p>
-						We can apply multiple functions in opposite direction using <code>compose</code> like this: <code>h(g(f(X x)))</code>. Corresponding code would be: <code>h.compose(g).compose(f)</code>.
+						We can apply multiple functions in opposite direction using <code>compose</code> like this: <code>h(g(f(X x)))</code>. Corresponding code would be: <code>h.compose(g).compose(f).apply(x)</code>.
+					</p>
+					<p class="note">
+						<code>f</code> function's result becomes <code>g</code> function's argument, and <code>g</code> function's result becomes <code>h</code> function's
+						argument.
 					</p>
 					<p>
-						<code>f</code> function's result becomes <code>g</code> function's argument, and <code>g</code> function's result becomes <code>h</code> function's
-						argument. This is our tasks functions composed using <code>compose</code>:
+						These are our task functions combined using <code>compose</code>:
 					</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Composition4.java"></code></pre>
 					<p>Let's get back to our task. Although the way we call our functions looks better (of course only if we get used to this notation), we had to write
 						much more code compared to first version. Fortunately, there is the light ...</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Composition5.java"></code></pre>
-					<p>We didn't have to create our composing functions at the expense of readability. You might ask which way to go then? I would argue that having small
+					<p>
+						We didn't have to create our composing functions at the expense of readability. You might ask which way to go then? I would argue that having small
 						generic functions that can be reused to compose other functions is the good approach. There are plenty of reusable functions available in Java Core API or
-						external libraries, they are thoroughly tested and can save a lot of our time.</p>
+						external libraries, they are thoroughly tested and can save a lot of our time. Such generic functions are called <em>combinators</em> and libraries
+						containing them <em>combinator libraries</em>.
+					</p>
+					<p>
+						Let's practice little bit and solve some simple tasks using only our combinators like <code>partial</code> or <code>applySafe</code>, functions from <em>Java
+							Core API</em> and from <em>Apache Commons Lang</em> library.
+					</p>
+					<p class="exc">
+						Extend our percent parsing function to trim input string before application.
+						<a class="ans" data-toggle="collapse" href="#percentParserTrim">Show answer</a>
+					</p>
+					<pre class="collapse" id="percentParserTrim"><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/PercentParserTrim.java"></code></pre>
+					<p class="exc">
+						Extend our trimming percent parsing function to add two fraction digits.
+						<a class="ans" data-toggle="collapse" href="#percentParserScale">Show answer</a>
+					</p>
+					<pre class="collapse" id="percentParserScale"><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/PercentParserScale.java"></code></pre>
 					<h3>Identity</h3>
 					<p>TBC</p>
 					<h3>Side effects separation and explicit state mutation</h3>

@@ -1,4 +1,4 @@
-package tech.daniellas.p1;
+package tech.daniellas.p1.core;
 
 import java.util.Objects;
 

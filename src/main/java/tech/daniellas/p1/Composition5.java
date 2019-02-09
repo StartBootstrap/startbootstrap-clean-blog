@@ -17,9 +17,9 @@ class Composition5 {
 	}
 	
 	// We can use lambda expressions if we feel that composing parts will never be reused
-	String result = applySafe((String v) -> new BigDecimal(v), BigDecimal.ZERO)
-	    .andThen(n -> n.multiply(BigDecimal.valueOf(100)))
-	    .andThen(n -> n + " %")
+	String result = applySafe((String value) -> new BigDecimal(value), BigDecimal.ZERO)
+	    .andThen(decimal -> decimal.multiply(BigDecimal.valueOf(100)))
+	    .andThen(string -> string + " %")
 	    .apply("0.5");
 
 }
