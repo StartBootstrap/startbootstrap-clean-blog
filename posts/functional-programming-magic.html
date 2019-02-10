@@ -345,6 +345,16 @@
 						And here comes code example with <code>Function.identity()</code>:
 					</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Identity.java"></code></pre>
+					<p>
+						Let's try to optimize our trimming parser naively just to present <code>Function.identity()</code> use. We want to extend our parser to do some cleanup
+						before actual parsing.
+					</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/PercentParserClean.java"></code></pre>
+					<p>
+						This trivial example shows the way we can use <code>Function.identity()</code> to do nothing under some circumstances. And here below is simple trick we
+						can use to compose functions when our starting function is just static method, so no <code>andThen()</code> or <code>compose()</code> method is available.
+					</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/IdentityCompose.java"></code></pre>
 					<h3>Side effects separation and explicit state mutation</h3>
 					<p>TBC</p>
 					<h2>What's next?</h2>

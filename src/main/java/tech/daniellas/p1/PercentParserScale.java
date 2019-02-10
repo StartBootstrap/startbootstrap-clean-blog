@@ -1,10 +1,10 @@
 package tech.daniellas.p1;
 
+import static java.math.BigDecimal.ZERO;
 import static tech.daniellas.p1.Composition3.applySafe;
 import static tech.daniellas.p1.Composition3.hundredMultiplier;
 import static tech.daniellas.p1.Composition3.percentAppender;
 
-import java.math.BigDecimal;
 import java.util.function.Function;
 
 import org.apache.commons.lang3.StringUtils;
@@ -15,7 +15,7 @@ public class PercentParserScale {
 
 	// This parser combines trimming and scaling functionality using
 	// StringUtils.trim() and NumberUtils.toScaledBigDecimal()
-	Function<String, String> parser = applySafe(NumberUtils::createBigDecimal, BigDecimal.ZERO)
+	static Function<String, String> parser = applySafe(NumberUtils::createBigDecimal, ZERO)
 	    .andThen(hundredMultiplier)
 	    // Here we apply scaling function
 	    .andThen(NumberUtils::toScaledBigDecimal)
@@ -33,9 +33,9 @@ public class PercentParserScale {
 		// Prints '0.00 %'
 		System.out.println(parser.apply(" x "));
 	}
-	
+
 	// Here we use scaling via hundredMultiplier and toScaledBigDecimal composition
-	Function<String, String> otherParser = applySafe(NumberUtils::createBigDecimal, BigDecimal.ZERO)
+	static Function<String, String> otherParser = applySafe(NumberUtils::createBigDecimal, ZERO)
 	    // Here we apply multiplying and then scaling functions
 	    .andThen(hundredMultiplier
 	        .andThen(NumberUtils::toScaledBigDecimal))
