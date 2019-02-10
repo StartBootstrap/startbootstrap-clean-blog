@@ -282,7 +282,7 @@
 						Let me explain the magic happening in last lines. We use <code>andThen</code> default method of <code>java.util.function.Function</code> interface. This
 						is commented piece of this interface source code:
 					</p>
-					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/core/Function.java"></code></pre>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/corecompose/Function.java"></code></pre>
 					<p>
 						Whenever we need to apply multiple functions (let's say three functions named <em>f</em>, <em>g</em>, <em>h</em>) one after another like in this
 						pseudocode <code>f(g(h(X x)))</code> , where <code>x</code> is argument of type <code>X</code>, we can use <code>andThen</code> higher order function like
@@ -326,8 +326,25 @@
 						<a class="ans" data-toggle="collapse" href="#percentParserScale">Show answer</a>
 					</p>
 					<pre class="collapse" id="percentParserScale"><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/PercentParserScale.java"></code></pre>
+					<p>Although we have limited number of our programming tools, just higher order functions, partial application and composition, the amount of possible
+						combinations of ways we can structure our code is huge. The only limitation is our imagination ... and Java compiler of course.</p>
 					<h3>Identity</h3>
-					<p>TBC</p>
+					<p>
+						Can you imagine math without concept of zero? I believe you can't. Zero is specialization of neutral element. When neutral element is used in some
+						operation, final result is not affected. Like zero under number addition <code>x + 0 = x</code> or one under multiplication <code>x * 1 = x</code>. The
+						exact type and value of neutral element depends on the context. It can be number in arithmetic operations or function in functions composition. It may
+						seem useless and unnecessary, but there are multiple possible usages of identity element I will write about in next post. This is identity function in
+						Java 8:
+					</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/coreidentity/Function.java"></code></pre>
+					<p>Identity function does nothing more than returning it's argument. When used in functions composition it leaves composed function unchanged:</p>
+					<p class="note">
+						<code>f.andThen(Function.identity()) == f</code> and <code>f.compose(Function.identity()) == f</code>
+					</p>
+					<p>
+						And here comes code example with <code>Function.identity()</code>:
+					</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Identity.java"></code></pre>
 					<h3>Side effects separation and explicit state mutation</h3>
 					<p>TBC</p>
 					<h2>What's next?</h2>

@@ -21,5 +21,4 @@ class Composition5 {
 	    .andThen(decimal -> decimal.multiply(BigDecimal.valueOf(100)))
 	    .andThen(string -> string + " %")
 	    .apply("0.5");
-
 }

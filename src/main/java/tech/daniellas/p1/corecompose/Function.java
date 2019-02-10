@@ -1,4 +1,4 @@
-package tech.daniellas.p1.core;
+package tech.daniellas.p1.corecompose;
 
 import java.util.Objects;
 
