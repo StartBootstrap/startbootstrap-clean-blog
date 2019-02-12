@@ -89,7 +89,11 @@ p.note {
   padding: 1em
 }
 
-pre code {
+pre code span {
+	font-size: 15px;
+}
+
+pre[class*=language-].line-numbers {
 	font-size: 15px;
 }
 

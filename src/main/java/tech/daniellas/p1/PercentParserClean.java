@@ -17,37 +17,43 @@ public class PercentParserClean {
 	// This function returns function removing all occurrences of given patterns
 	// array only if not empty
 	static Function<String, String> patternRemover(String... patterns) {
-		return patterns.length != 0
-		    ? str -> StringUtils.replaceEachRepeatedly(
-		        str,
-		        patterns,
-		        // Here we map all given patterns to empty string and create array of empty
-		        // string with length equal patterns length. This is
-		        // StringUtils.replaceEachRepeatedly function contract, we have to provide
-		        // replacement for every element in search list
-		        Arrays.stream(patterns)
-		            .map(c -> "")
-		            .toArray(String[]::new))
-		    : Function.identity();
+		// If patterns array is empty, return identity function
+		if (patterns.length == 0) {
+			return Function.identity();
+		}
+
+		// Return cleanup function otherwise
+		return str -> StringUtils.replaceEachRepeatedly(
+		    str,
+		    patterns,
+		    // Here we map all given patterns to empty string and create array of empty
+		    // string with length equal patterns length. This is
+		    // StringUtils.replaceEachRepeatedly function contract, we have to provide
+		    // replacement for every element in patterns
+		    Arrays.stream(patterns)
+		        .map(c -> "")
+		        .toArray(String[]::new));
 	}
 
-	// This is parser
-	static Function<String, String> parser = applySafe(NumberUtils::createBigDecimal, ZERO)
+	// This is percent parser
+	static Function<String, String> percentParser = applySafe(NumberUtils::createBigDecimal, ZERO)
 	    .andThen(hundredMultiplier)
 	    .andThen(percentAppender);
 
 	@Test
 	public void shouldRemovePatternsBeforeParse() {
 		// Prints '55.00 %'
-		System.out.println(parser.compose(patternRemover(" ", "\t")).apply("\t0.5 5"));
+		System.out.println(percentParser.compose(patternRemover(" ", "\t"))
+		    .apply("\t0.5 5"));
 
 		// Prints '55.00 %'
-		System.out.println(parser.compose(patternRemover("value is:", " ")).apply("value is: 0.55"));
+		System.out.println(percentParser.compose(patternRemover("value is:", " "))
+		    .apply("value is: 0.55"));
 	}
 
 	@Test
 	public void shouldFailToParse() {
 		// Prints '0 %'
-		System.out.println(parser.compose(patternRemover()).apply("0.5 5"));
+		System.out.println(percentParser.compose(patternRemover()).apply("0.5 5"));
 	}
 }

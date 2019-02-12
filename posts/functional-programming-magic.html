@@ -12,9 +12,11 @@
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet'
 	type='text/css'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
 <link href="../css/clean-blog.min.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js" data-manual></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-java.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.4/fetch.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
@@ -97,7 +99,7 @@
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/fun/Player.java"></code></pre>
 					<p class="note">
 						Here you saw first code examples and might miss <code>private</code> or <code>public</code> modifiers. I did it by purpose to make code shorter. I will
-						often omit import declarations , getters and setters for the same reason.
+						often omit import declarations , getters and setters for the same reason. <em>Please read the code carefully as I will put many explanations there</em>
 					</p>
 					<p>What makes function pure?</p>
 					<ul>
@@ -168,6 +170,10 @@
 					</p>
 					<p>This is simple example of currying:</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Currying.java" data-format="skip-class"></code></pre>
+					<p class="note">
+						This <code class="text-nowrap">a -> b -> = a + b</code> line is just lambda expression equivalent to <span><code class="text-nowrap">Function&lt;A,
+								Function&lt;B, C&gt;&gt;</code></span>. We can nest any number of <code>-></code> in lambdas, this is perfectly legitimate syntax.
+					</p>
 					<p>
 						Unfortunately there is no native support of currying in Java so curried form declaration: <code>Function&lt;Integer, Function&lt;Integer,
 							Integer&gt;&gt;</code> looks weird and is difficult to read. Fortunately there are some mitigation techniques I'll show you later. Despite the lack of currying
@@ -208,8 +214,9 @@
 					</p>
 					<p class="note">Partial application is the process of transforming multiple arguments function by applying it to less arguments then expected,producing
 						function with arguments number decreased by arguments count we provided.</p>
-					<p>Do you see the pattern? Whenever we see the pattern we abstract it. That's what we do as programmers. Since this post is about functional
-						programming, lets abstract partial application into function.</p>
+					<p>
+						Lets abstract partial application of any <code>BiFunction</code> into generic function:
+					</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Partial.java" data-format="skip-class"></code></pre>
 					<p>
 						I wrote that currying and partial application are closely related because we can write <code>partial</code> function using <code>curry</code> function
@@ -245,8 +252,7 @@
 							to create solutions to larger problems. Decomposition wouldn’t make sense if we weren’t able to put the pieces back together.</p>
 						<p>This process of hierarchical decomposition and recomposition is not imposed on us by computers. It reflects the limitations of the human mind. Our
 							brains can only deal with a small number of concepts at a time.</p>
-						<a href="https://bartoszmilewski.com/2014/11/04/category-the-essence-of-composition/" target="_blank">Category Theory for Programmers, Bartosz
-							Milewski</a>
+						<a href="https://bartoszmilewski.com/2014/11/04/category-the-essence-of-composition/">Category Theory for Programmers, Bartosz Milewski</a>
 					</blockquote>
 					<p>I couldn't agree more with above statements. We do decompose and compose objects using object oriented languages or procedures when procedural
 						languages come to play. Ability to compose is the very nature of pure functions, they just accept value ant return value, so we can take any number of
@@ -330,7 +336,7 @@
 						combinations of ways we can structure our code is huge. The only limitation is our imagination ... and Java compiler of course.</p>
 					<h3>Identity</h3>
 					<p>
-						Can you imagine math without concept of zero? I believe you can't. Zero is specialization of neutral element. When neutral element is used in some
+						Can you imagine math without concept of zero? I believe you can't. Zero is the specialization of neutral element. When neutral element is used in some
 						operation, final result is not affected. Like zero under number addition <code>x + 0 = x</code> or one under multiplication <code>x * 1 = x</code>. The
 						exact type and value of neutral element depends on the context. It can be number in arithmetic operations or function in functions composition. It may
 						seem useless and unnecessary, but there are multiple possible usages of identity element I will write about in next post. This is identity function in
@@ -352,11 +358,39 @@
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/PercentParserClean.java"></code></pre>
 					<p>
 						This trivial example shows the way we can use <code>Function.identity()</code> to do nothing under some circumstances. And here below is simple trick we
-						can use to compose functions when our starting function is just static method, so no <code>andThen()</code> or <code>compose()</code> method is available.
+						can use to compose functions when our starting function is just static method, so no <code>andThen()</code> or <code>compose()</code> methods are
+						available.
 					</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/IdentityCompose.java"></code></pre>
 					<h3>Side effects separation and explicit state mutation</h3>
-					<p>TBC</p>
+					<p>
+						Pure functions here, pure functions there, pure functions everywhere. What about writing to file or socket or reading user's input from console? All such
+						<em>side effects</em> are forbidden for pure functions. The way to handle side effects in functional programming is to separate pure code from side
+						effects code. Let's say we write program fragment responsible for casino players verification. We want to print warning if player's name is on dangerous
+						players list or usual message otherwise.
+					</p>
+					<p>This is impure version:</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/SideEffectsImpure.java"></code></pre>
+					<p>It's very tempting but I will not complain about the number of issues in this code. It's time for pure version where we will try to separate pure
+						from side effects code.</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/SideEffectsPure.java"></code></pre>
+					<p>
+						The solution is to not perform side effect but to return side effect performing function from pure code. <code>java.util.function.Consumer</code> is the
+						special function. It accepts single generic argument but returns <code>void</code>. If it returns meaningless value, it's sole purpose is to perform side
+						effects.
+					</p>
+					<p>
+						Our goal was to separate side effects from pure code but we failed. Our <code>verifyPlayer</code> function is still impure, because it returns constants
+						not included in arguments. Let's refactor it.
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/SideEffectsPure2.java"></code></pre>
+					<p>
+						Our <code>verifyPlayer</code> function is pure now but still not perfect. It's arguments list is long and it performs only very specific logic. What if we
+						would like to choose side effect basing on some other condition? We would have to write another function. Not very reusable right? Let's look at the code
+						again and try to abstract it more generic form. The very first thing coming into my mind is the <code>if()</code> condition in line 9. It's just <code>Predicate</code>.
+						We can refactor our function to use predicate.
+					</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/SideEffectsPure3.java"></code></pre>
 					<h2>What's next?</h2>
 					<p>In next post you will read why it's worth to learn functional programming.</p>
 				</div>

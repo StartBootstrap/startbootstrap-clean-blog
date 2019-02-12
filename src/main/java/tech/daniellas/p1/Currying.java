@@ -10,7 +10,7 @@ static BiFunction<Integer, Integer, Integer> sum = (a, b) -> a + b;
 // This is how we call two arguments function
 Integer sumRes = sum.apply(1, 2);
 
-// Curried
+// Curried function, it's returning other function
 static Function<Integer, Function<Integer, Integer>> sumCurr = a -> b -> a + b;
 
 // And this is how we call curried function

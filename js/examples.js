@@ -51,4 +51,4 @@
 		}
 	});
 
-})(jQuery);
+})(jQuery,Prism);

@@ -46,9 +46,6 @@ public class PercentParserScale {
 	public void otherShouldPrintScaled() {
 		// Prints '55.50 %'
 		System.out.println(otherParser.apply(" 0.555 "));
-
-		// Prints '0.00 %'
-		System.out.println(otherParser.apply(" x "));
 	}
 
 	@Test
