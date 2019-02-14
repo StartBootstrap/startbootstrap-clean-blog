@@ -99,7 +99,8 @@
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/fun/Player.java"></code></pre>
 					<p class="note">
 						Here you saw first code examples and might miss <code>private</code> or <code>public</code> modifiers. I did it by purpose to make code shorter. I will
-						often omit import declarations , getters and setters for the same reason. <em>Please read the code carefully as I will put many explanations there</em>
+						often omit import declarations , getters and setters, generic wildcards declarations (<code>&lt;? super A&gt;</code> and <code>&lt;? extends A&gt;</code>)
+						for the same reason. <em>Please read the code carefully as I will put many explanations there</em>
 					</p>
 					<p>What makes function pure?</p>
 					<ul>
@@ -391,6 +392,19 @@
 						We can refactor our function to use predicate.
 					</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/SideEffectsPure3.java"></code></pre>
+					<p>
+						Finally, let's go crazy and make our player handler selection the higher order function for easier use, generic as there is nothing specific to our <code>Player</code>
+						in functions's implementation and let's compose additional handler of dangerous players.
+					</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/SideEffectsPure4.java"></code></pre>
+					<p>
+						We used known techniques to achieve desired result: higher order functions, currying and composition. The only new thing is <code>Consumer&lt;A&gt;</code>
+						composition using <code>andThen()</code> default method.
+					</p>
+					<p>
+						I will leave the answer for question: <em>Why there is no <code>compose()</code> function in <code>java.util.function.Consumer</code> interface?
+						</em> to you dear readers as an exercise.
+					</p>
 					<h2>What's next?</h2>
 					<p>In next post you will read why it's worth to learn functional programming.</p>
 				</div>
