@@ -8,7 +8,7 @@ import org.junit.Test;
 public class SideEffectsImpure {
 
 	// This is our player class
-	class Player {
+	static class Player {
 		final String name;
 
 		Player(String name) {

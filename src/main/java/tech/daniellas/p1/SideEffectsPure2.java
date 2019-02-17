@@ -7,21 +7,22 @@ import java.util.function.Consumer;
 
 import org.junit.Test;
 
-import tech.daniellas.p1.SideEffectsPure.Player;
+import tech.daniellas.p1.SideEffectsImpure.Player;
 
 public class SideEffectsPure2 {
-	// This is pure version accepting 2 side effects handlers and returning one of
-	// them depending on internal logic
+	// This is pure version accepting 2 side effects handlers and returning
+	// Players's consumer calling accept of one of supplied ones
 	static Consumer<Player> verifyPlayer(
 	    Consumer<Player> message,
 	    Consumer<Player> warning,
-	    List<String> dangerousNames,
-	    Player player) {
-		if (dangerousNames.contains(player.name)) {
-			return warning;
-		}
-
-		return message;
+	    List<String> dangerousNames) {
+		return player -> {
+			if (dangerousNames.contains(player.name)) {
+				warning.accept(player);
+			} else {
+				message.accept(player);
+			}
+		};
 	}
 
 	@Test
@@ -32,8 +33,7 @@ public class SideEffectsPure2 {
 		verifyPlayer(
 		    SideEffectsPure::printMessage,
 		    SideEffectsPure::printWarning,
-		    DANGEROUS_NAMES,
-		    player)
+		    DANGEROUS_NAMES)
 		        .accept(player);
 	}
 }

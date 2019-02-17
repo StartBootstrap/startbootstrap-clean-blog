@@ -3,25 +3,34 @@ package tech.daniellas.p1;
 import static tech.daniellas.p1.SideEffectsPure.DANGEROUS_NAMES;
 import static tech.daniellas.p1.SideEffectsPure3.hasName;
 
-import java.util.function.BiFunction;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 import org.junit.Test;
 
-import tech.daniellas.p1.SideEffectsPure.Player;
+import tech.daniellas.p1.SideEffectsImpure.Player;
 
 public class SideEffectsPure4 {
 
 	// This is generic handler selector. It accepts two consumers, truthy and falsy
-	// and returns function accepting predicate plus tested value and returning
-	// consumer - one of provided depending on predicate result.
+	// and returns function accepting predicate.
+	//
+	// Result function returns consumer encapsulating accept call of one of provided
+	// consumers depending on predicate result.
+	//
 	// It's functionally the same as verifyPlayer function from previous example,
 	// just curried and generic.
-	static <A> BiFunction<Predicate<A>, A, Consumer<A>> handlerSelector(
+	static <A> Function<Predicate<A>, Consumer<A>> handlerSelector(
 	    Consumer<A> truthy,
 	    Consumer<A> falsy) {
-		return (predicate, value) -> predicate.test(value) ? truthy : falsy;
+		return condition -> value -> {
+			if (condition.test(value)) {
+				truthy.accept(value);
+			} else {
+				falsy.accept(value);
+			}
+		};
 	}
 
 	// We assign printMessage method reference to Consumer<Player> to make things
@@ -52,9 +61,9 @@ public class SideEffectsPure4 {
 
 		// Here we crate handler selector function
 		handlerSelector(dangerousPlayerHandler, messagePrinter)
-		    // then apply to our name checking predicate and player
-		    .apply(hasName(DANGEROUS_NAMES), player)
-		    // here we have returned player's consumer, so we pass player to be processed
+		    // then apply to our name checking predicate
+		    .apply(hasName(DANGEROUS_NAMES))
+		    // here we returned consumer
 		    .accept(player);
 	}
 }

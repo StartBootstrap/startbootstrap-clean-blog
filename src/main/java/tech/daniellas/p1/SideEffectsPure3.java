@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-import tech.daniellas.p1.SideEffectsPure.Player;
+import tech.daniellas.p1.SideEffectsImpure.Player;
 
 public class SideEffectsPure3 {
 
@@ -14,19 +14,20 @@ public class SideEffectsPure3 {
 		return player -> names.contains(player.name);
 	}
 
-	// This is pure version accepting 2 side effects handlers and Predicate
+	// This is pure version accepting 2 side effects handlers and predicate
 	static Consumer<Player> verifyPlayer(
 	    Consumer<Player> truthy,
 	    Consumer<Player> falsy,
-	    Predicate<Player> condition,
-	    Player player) {
-		// We check condition here
-		if (condition.test(player)) {
-			// It's true so return truthy
-			return truthy;
-		}
-
-		// It's false
-		return falsy;
+	    Predicate<Player> condition) {
+		return player -> {
+			// We check condition here
+			if (condition.test(player)) {
+				// It's true - call truthy
+				truthy.accept(player);
+			} else {
+				// It's false - call falsy
+				falsy.accept(player);
+			}
+		};
 	}
 }

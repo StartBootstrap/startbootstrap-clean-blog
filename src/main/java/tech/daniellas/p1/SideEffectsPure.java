@@ -6,16 +6,9 @@ import java.util.function.Consumer;
 
 import org.junit.Test;
 
+import tech.daniellas.p1.SideEffectsImpure.Player;
+
 public class SideEffectsPure {
-
-	// This is our player class
-	static class Player {
-		final String name;
-
-		Player(String name) {
-			this.name = name;
-		}
-	}
 
 	// This is our dangerous players list
 	static List<String> DANGEROUS_NAMES = Arrays.asList("John Rambo", "Chuck Norris");
@@ -32,12 +25,14 @@ public class SideEffectsPure {
 
 	// This is our verification function. Instead of performing side effect it
 	// returns Consumer<Player> than can be applied to player.
-	static Consumer<Player> verifyPlayer(List<String> dangerousNames, Player player) {
-		if (dangerousNames.contains(player.name)) {
-			return SideEffectsPure::printWarning;
-		}
-
-		return SideEffectsPure::printMessage;
+	static Consumer<Player> verifyPlayer(List<String> dangerousNames) {
+		return player -> {
+			if (dangerousNames.contains(player.name)) {
+				printWarning(player);
+			} else {
+				printMessage(player);
+			}
+		};
 	}
 
 	// This is how we use our verification function, we apply it to given player and
@@ -47,7 +42,7 @@ public class SideEffectsPure {
 		Player player = new Player("John Rambo");
 
 		// Prints warning
-		verifyPlayer(DANGEROUS_NAMES, player).accept(player);
+		verifyPlayer(DANGEROUS_NAMES).accept(player);
 	}
 
 	@Test
@@ -55,6 +50,6 @@ public class SideEffectsPure {
 		Player player = new Player("John Doe");
 
 		// Prints message
-		verifyPlayer(DANGEROUS_NAMES, player).accept(player);
+		verifyPlayer(DANGEROUS_NAMES).accept(player);
 	}
 }

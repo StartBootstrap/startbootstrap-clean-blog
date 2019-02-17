@@ -376,13 +376,16 @@
 						from side effects code.</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/SideEffectsPure.java"></code></pre>
 					<p>
-						The solution is to not perform side effect but to return side effect performing function from pure code. <code>java.util.function.Consumer</code> is the
-						special function. It accepts single generic argument but returns <code>void</code>. If it returns meaningless value, it's sole purpose is to perform side
-						effects.
+						The solution is to not perform side effect but to return side effect performing function from pure code. In above example, we return <code>java.util.function.Consumer&lt;Player&gt;</code>.
+						This is the special function. It accepts single generic argument but returns <code>void</code>. If function returns nothing, it's sole purpose is to
+						perform side effects.
+					</p>
+					<p class="note">
+						Actually, there are some subtlies related to meaning of <code>void</code> and types in general. I'll write about it in next posts.
 					</p>
 					<p>
 						Our goal was to separate side effects from pure code but we failed. Our <code>verifyPlayer</code> function is still impure, because it returns constants
-						not included in arguments. Let's refactor it.
+						not included in arguments. Let's refactor it to not depend on external variables.
 					</p>
 					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/SideEffectsPure2.java"></code></pre>
 					<p>
@@ -392,10 +395,14 @@
 						We can refactor our function to use predicate.
 					</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/SideEffectsPure3.java"></code></pre>
-					<p>
-						Finally, let's go crazy and make our player handler selection the higher order function for easier use, generic as there is nothing specific to our <code>Player</code>
-						in functions's implementation and let's compose additional handler of dangerous players.
-					</p>
+					<p>Finally, we can go further:</p>
+					<ul>
+						<li>make our player handler selection the higher order function for easier use</li>
+						<li>
+							make it generic as there is nothing specific to our <code>Player</code> in functions's implementation
+						</li>
+						<li>compose additional handler of dangerous players</li>
+					</ul>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/SideEffectsPure4.java"></code></pre>
 					<p>
 						We used known techniques to achieve desired result: higher order functions, currying and composition. The only new thing is <code>Consumer&lt;A&gt;</code>
