@@ -10,9 +10,15 @@ public class SideEffectsImpure {
 	// This is our player class
 	static class Player {
 		final String name;
+		final int age;
+
+		Player(String name, int age) {
+			this.name = name;
+			this.age = age;
+		}
 
 		Player(String name) {
-			this.name = name;
+			this(name, 0);
 		}
 	}
 

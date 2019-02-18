@@ -412,6 +412,15 @@
 						I will leave the answer for question: <em>Why there is no <code>compose()</code> function in <code>java.util.function.Consumer</code> interface?
 						</em> to you dear readers as an exercise.
 					</p>
+					<p>If you wonder if all this code splitting into small functions is worth the effort, let me give you some task to solve.</p>
+					<p class="exc">
+						Our program grows as there are new requirements given. There are new player's checks added like age verification, VIP players handling along with
+						additional player's handlers. We know that our Product Owner is considering additional checks and handlers. We want to structure our program to easily
+						handle multiple different cases. We decided to keep conditions and handlers in the list to use it in player's verification code. We need to cover now
+						additional cases: request security assistance for VIP players (we have VIP players list) and warn about players younger than 21 years old.
+						<a class="ans" data-toggle="collapse" href="#sideEffectsCompose">Show answer</a>
+					</p>
+					<pre class="collapse" id="sideEffectsCompose"><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/SideEffectsCompose.java"></code></pre>
 					<h2>What's next?</h2>
 					<p>In next post you will read why it's worth to learn functional programming.</p>
 				</div>

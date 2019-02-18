@@ -41,18 +41,20 @@ public class SideEffectsPure4 {
 	// obvious
 	static Consumer<Player> warningPrinter = SideEffectsPure::printWarning;
 
-	// This is function returning Player consumer sending Kafka message to given
-	// topic
-	static Consumer<Player> kafkaSender(String topic) {
+	// This is function returning Player consumer sending given message to given
+	// Kafka topic
+	static Consumer<Player> kafkaSender(String topic, String message) {
 		return player -> System.out
 		    .println(String.format("Sending Kafka message to topic %s: "
-		        + "WARNING !!! Player %s needs an assistance", topic, player.name));
+		        + message, topic, player.name));
 	}
 
 	// Here we compose two consumers using Consumer.andThen() default method, just
 	// like in Function.andThen()
-	static Consumer<Player> dangerousPlayerHandler = kafkaSender("security")
-	    .andThen(warningPrinter);
+	static Consumer<Player> dangerousPlayerHandler = kafkaSender(
+	    "security",
+	    "Player %s needs an assistance")
+	        .andThen(warningPrinter);
 
 	@Test
 	public void shouldSendMessageAndPrintWarning() {
