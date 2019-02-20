@@ -45,12 +45,14 @@ public class SideEffectsCompose {
 	}
 
 	// This is function returning Player consumer printing given message formatted
+	// including Player's name. We dropped two separate functions 'printMessage' and
+	// 'printWarning' because they were doing the same thing.
 	static Consumer<Player> print(String message) {
 		return player -> System.out.println(String.format(message, player.name));
 	}
 
 	// This is function returning Player consumer sending formatted message to given
-	// topic
+	// Kafka topic
 	static Consumer<Player> kafkaSender(String topic, String message) {
 		return player -> System.out.println(
 		    String.format(
@@ -80,7 +82,9 @@ public class SideEffectsCompose {
 
 	// This is VIP Players handler
 	static Pair<Predicate<Player>, Consumer<Player>> vipPlayersHandler = Pair.pair(
+	    // This is the condition
 	    hasName(VIP_NAMES),
+	    // This is the consumer
 	    securityNotifier
 	        .apply("Security assistance needed for VIP player %s"));
 
@@ -132,6 +136,7 @@ public class SideEffectsCompose {
 	public void shouldHandleVIPPlayer() {
 		Player player = new Player("Barack Obama", 60);
 
+		// Here we will handle VIP player
 		resolveHandler(handlers, player)
 		    .orElse(SideEffectsCompose::nil)
 		    .accept(player);
@@ -141,6 +146,7 @@ public class SideEffectsCompose {
 	public void shouldHandleYoungDangerousPlayer() {
 		Player player = new Player("John Rambo Jr.", 15);
 
+		// Here we will handle dangerous young player
 		resolveHandler(handlers, player)
 		    .orElse(SideEffectsCompose::nil)
 		    .accept(player);

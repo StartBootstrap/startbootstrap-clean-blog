@@ -2,6 +2,7 @@ package tech.daniellas.p1.hof;
 
 import java.util.function.Predicate;
 
+// This is our model extended by age attribute, still immutable
 class Player {
 	final String name;
 	final int score;

@@ -65,7 +65,7 @@ public class SideEffectsPure4 {
 		handlerSelector(dangerousPlayerHandler, messagePrinter)
 		    // then apply to our name checking predicate
 		    .apply(hasName(DANGEROUS_NAMES))
-		    // here we returned consumer
+		    // here we returned consumer and applied it to our player
 		    .accept(player);
 	}
 }

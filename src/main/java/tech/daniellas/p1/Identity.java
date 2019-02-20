@@ -13,7 +13,8 @@ public class Identity {
 	public void andThenIdentityShouldPrintArgumentUnchanged() {
 		// This is our hunderMultiplier function composed with identity() function via
 		// andThen
-		Function<BigDecimal, BigDecimal> composed = hundredMultiplier.andThen(Function.identity());
+		Function<BigDecimal, BigDecimal> composed = hundredMultiplier
+		    .andThen(Function.identity());
 
 		// Prints '100'
 		System.out.println(composed.apply(BigDecimal.ONE));
@@ -23,7 +24,8 @@ public class Identity {
 	public void composeIdentityShouldPrintArgumentUnchanged() {
 		// This is our hunderMultiplier function composed with identity() function via
 		// compose
-		Function<BigDecimal, BigDecimal> composed = hundredMultiplier.compose(Function.identity());
+		Function<BigDecimal, BigDecimal> composed = hundredMultiplier
+		    .compose(Function.identity());
 
 		// Prints '100'
 		System.out.println(composed.apply(BigDecimal.ONE));

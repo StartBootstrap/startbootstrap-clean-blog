@@ -144,7 +144,7 @@
 						a generic function taking given type argument and returning <code>boolean</code>.
 					</p>
 					<p>
-						If you'd ask me if given programming language supports functional programming style, my answer would depend on it's capability of treating functions as <em>first
+						If you'd ask me if some programming language supports functional programming style, my answer would depend on it's capability of treating functions as <em>first
 							class citizen</em>:
 					</p>
 					<ul>
@@ -154,13 +154,14 @@
 					</ul>
 					<p class="note">
 						If above conditions are met, you can program functional way. This is functional programming magic. You can build powerful abstractions using very simple
-						concept of <em>higher order functions</em>
+						concept of <em>higher order functions.</em>
 					</p>
 					<h3>Currying and Partial Application</h3>
 					<p>Currying and partial application are closely related and extremely useful techniques. We use them to manipulate existing functions and construct new
 						functions from existing functions. It's very common and handy that we create new functions from available building blocks. Currying and partial
-						application are conceptually similar to Object Oriented Programming and it's Design Patterns, where basic concepts are inheritance, polymorphism and
-						composition. In OOP we use Design Patterns and in FP we use higher order functions, currying and partial application to construct our code abstractions.</p>
+						application are somehow similar to Design Patterns in Object Oriented Programming. In OOP primitives like inheritance, polymorphism and composition are
+						used to construct higher level abstractions. In OOP we use Design Patterns and in FP we use higher order functions, currying and partial application to
+						construct our code abstractions.</p>
 					<p>
 						Let's look at currying first. The name of this technique is taken from <em>Haskel Curry</em>, American mathematician. The idea is based on the fact:
 					</p>
@@ -170,9 +171,9 @@
 						Actually, in some programming languages like <em>Haskel</em> we define our functions in curried form by default.
 					</p>
 					<p>This is simple example of currying:</p>
-					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Currying.java" data-format="skip-class"></code></pre>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Currying.java" data-format="skip-class"></code></pre>
 					<p class="note">
-						This <code class="text-nowrap">a -> b -> = a + b</code> line is just lambda expression equivalent to <span><code class="text-nowrap">Function&lt;A,
+						This <code class="text-nowrap">a -> b -> = a + b</code> in line 8 is just lambda expression equivalent to <span><code class="text-nowrap">Function&lt;A,
 								Function&lt;B, C&gt;&gt;</code></span>. We can nest any number of <code>-></code> in lambdas, this is perfectly legitimate syntax.
 					</p>
 					<p>
@@ -256,24 +257,29 @@
 						<a href="https://bartoszmilewski.com/2014/11/04/category-the-essence-of-composition/">Category Theory for Programmers, Bartosz Milewski</a>
 					</blockquote>
 					<p>I couldn't agree more with above statements. We do decompose and compose objects using object oriented languages or procedures when procedural
-						languages come to play. Ability to compose is the very nature of pure functions, they just accept value ant return value, so we can take any number of
+						languages come to play. Ability to compose is the very nature of pure functions, they just accept value and return value, so we can take any number of
 						functions and chain them in the way, that the result of previous function becomes an input of next function. Just like in following example:</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Composition.java" data-format="skip-class"></code></pre>
-					<p>
-						I agree, it's not very useful. Lets look at more realistic example. We have simple task: write function accepting user provided string and convert it to
-						percent format if possible. In case of non-number input, just return <em>0 %</em>.
+					<p>I agree, it's not very useful. Lets look at more realistic example. We have simple task:</p>
+					<p class="exc">
+						Write function accepting user provided string and convert it to percent format if possible. In case of non-number input, just return <em>0 %</em>.
 					</p>
 					<p>This is our first attempt:</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Composition1.java" data-format="skip-class"></code></pre>
-					<p>
-						It looks fine at first glance, but there are some issues in it. It does more than one thing: parses <code>String</code> to <code>BigDecimal</code>,
-						multiplies result by 100, appends ' %' suffix, handle errors. All those actions are hidden inside function body and can't be reused or tested separately.
-					</p>
-					<p>Let's decompose it into smaller chunks and compose back to create our final function.</p>
+					<p>It looks fine at first glance, but there are some issues in it. It does more than one thing:</p>
+					<ul>
+						<li>
+							parses <code>String</code> to <code>BigDecimal</code>
+						</li>
+						<li>multiplies result by 100</li>
+						<li>handle errors</li>
+					</ul>
+					<p>All those actions are hidden inside function body and can't be reused or tested separately. Let's decompose it into smaller chunks and compose back
+						to create our final function.</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Composition2.java"></code></pre>
 					<p>
 						Well, we have small functions but composing them is the real pain, isn't it? What can we do about this? We can use Java 8 <code>java.util.function.Function</code>
-						and partial application to make them easier to use.
+						interface features and partial application to make them easier to use.
 					</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Composition3.java"></code></pre>
 					<p>I particularly like the expressiveness of our functions application in last lines. It's like some story told:</p>
@@ -384,14 +390,14 @@
 						Actually, there are some subtlies related to meaning of <code>void</code> and types in general. I'll write about it in next posts.
 					</p>
 					<p>
-						Our goal was to separate side effects from pure code but we failed. Our <code>verifyPlayer</code> function is still impure, because it returns constants
-						not included in arguments. Let's refactor it to not depend on external variables.
+						Our goal was to separate side effects from pure code but we failed. Our <code>verifyPlayer</code> function is still impure, because it access constants
+						not included in arguments - <code>printWarning</code> and <code>printMessage</code> functions. Let's refactor it to not depend on external variables.
 					</p>
 					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/SideEffectsPure2.java"></code></pre>
 					<p>
 						Our <code>verifyPlayer</code> function is pure now but still not perfect. It's arguments list is long and it performs only very specific logic. What if we
 						would like to choose side effect basing on some other condition? We would have to write another function. Not very reusable right? Let's look at the code
-						again and try to abstract it more generic form. The very first thing coming into my mind is the <code>if()</code> condition in line 9. It's just <code>Predicate</code>.
+						again and try to abstract it into more generic form. The very first thing coming into my mind is the <code>if()</code> condition in line 9. It's just <code>Predicate</code>.
 						We can refactor our function to use predicate.
 					</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/SideEffectsPure3.java"></code></pre>
@@ -401,7 +407,7 @@
 						<li>
 							make it generic as there is nothing specific to our <code>Player</code> in functions's implementation
 						</li>
-						<li>compose additional handler of dangerous players</li>
+						<li>compose additional handler of dangerous players, like Kafka messages sending</li>
 					</ul>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/SideEffectsPure4.java"></code></pre>
 					<p>
@@ -409,7 +415,7 @@
 						composition using <code>andThen()</code> default method.
 					</p>
 					<p>
-						I will leave the answer for question: <em>Why there is no <code>compose()</code> function in <code>java.util.function.Consumer</code> interface?
+						I will leave the answer for question: <em>Why there is no <code>compose()</code> in <code>java.util.function.Consumer</code> interface?
 						</em> to you dear readers as an exercise.
 					</p>
 					<p>If you wonder if all this code splitting into small functions is worth the effort, let me give you some task to solve.</p>

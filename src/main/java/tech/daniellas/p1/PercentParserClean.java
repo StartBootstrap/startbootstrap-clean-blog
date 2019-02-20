@@ -1,10 +1,10 @@
 package tech.daniellas.p1;
 
-import static java.math.BigDecimal.ZERO;
 import static tech.daniellas.p1.Composition3.applySafe;
 import static tech.daniellas.p1.Composition3.hundredMultiplier;
 import static tech.daniellas.p1.Composition3.percentAppender;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.function.Function;
 
@@ -36,9 +36,11 @@ public class PercentParserClean {
 	}
 
 	// This is percent parser
-	static Function<String, String> percentParser = applySafe(NumberUtils::createBigDecimal, ZERO)
-	    .andThen(hundredMultiplier)
-	    .andThen(percentAppender);
+	static Function<String, String> percentParser = applySafe(
+	    NumberUtils::createBigDecimal,
+	    BigDecimal.ZERO)
+	        .andThen(hundredMultiplier)
+	        .andThen(percentAppender);
 
 	@Test
 	public void shouldRemovePatternsBeforeParse() {
