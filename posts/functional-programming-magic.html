@@ -173,8 +173,9 @@
 					<p>This is simple example of currying:</p>
 					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Currying.java" data-format="skip-class"></code></pre>
 					<p class="note">
-						This <code class="text-nowrap">a -> b -> = a + b</code> in line 8 is just lambda expression equivalent to <span><code class="text-nowrap">Function&lt;A,
-								Function&lt;B, C&gt;&gt;</code></span>. We can nest any number of <code>-></code> in lambdas, this is perfectly legitimate syntax.
+						This <code class="text-nowrap">a -> b -> = a + b</code> in line <span class="badge badge-secondary">8</span> is just lambda expression equivalent to <span><code
+							class="text-nowrap">Function&lt;A, Function&lt;B, C&gt;&gt;</code></span>. We can nest any number of <code>-></code> in lambdas, this is perfectly legitimate
+						syntax.
 					</p>
 					<p>
 						Unfortunately there is no native support of currying in Java so curried form declaration: <code>Function&lt;Integer, Function&lt;Integer,
@@ -276,7 +277,12 @@
 					</ul>
 					<p>All those actions are hidden inside function body and can't be reused or tested separately. Let's decompose it into smaller chunks and compose back
 						to create our final function.</p>
-					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Composition2.java"></code></pre>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Composition2.java"></code></pre>
+					<p class="note">
+						This is first time we used Java 8 feature: <em>method references</em>. In line <span class="badge badge-secondary">32</span> we used <code>Composition2::parse</code>
+						syntax. Java compiler noticed, that our <code>parse</code> static method signature matched expected first argument type of <code>applySafe</code> and
+						generated valid type from given static method reference: <code>Composition2::parse == Function&lt;String, BigDecimal&gt;</code>
+					</p>
 					<p>
 						Well, we have small functions but composing them is the real pain, isn't it? What can we do about this? We can use Java 8 <code>java.util.function.Function</code>
 						interface features and partial application to make them easier to use.
