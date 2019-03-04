@@ -25,7 +25,7 @@ if(!empty($_POST['user']))   //checking the 'user' name which is from Sign-In.ht
 	}
 	else
 	{
-		$msg="enter correct username and password"; header(''Location:sign-in.php?msg=''.$msg);
+		echo "SORRY... YOU ENTERD WRONG ID AND PASSWORD... PLEASE RETRY...";
 	}
 }
 }
