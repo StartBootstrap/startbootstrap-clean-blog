@@ -1,6 +1,6 @@
 <?php
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'login   ');
+define('DB_NAME', 'login');
 define('DB_USER','root');
 define('DB_PASSWORD','');
 
@@ -15,7 +15,7 @@ function SignIn()
 session_start();   //starting the session for user profile page
 if(!empty($_POST['user']))   //checking the 'user' name which is from Sign-In.html, is it empty or have some text
 {
-	$query = mysql_query("SELECT *  FROM UserName where userName = '$_POST[user]' AND pass = '$_POST[pass]'"));
+	$query = mysql_query("SELECT *  FROM UserName where userName = '$_POST[user]' AND pass = '$_POST[pass]'") or die(mysql_error());
 	$row = mysql_fetch_array($query);
 	if(!empty($row['userName']) AND !empty($row['pass']))
 	{
