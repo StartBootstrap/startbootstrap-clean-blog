@@ -76,6 +76,7 @@ lib.newnav.1 {
             NO = 1
             NO {
                 ATagTitle.field = title
+                ATagParams = class="nav-link" role="button"
                 wrapItemAndSub = <li class="nav-item">|</li>
             }
  
