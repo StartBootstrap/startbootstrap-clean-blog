@@ -150,12 +150,20 @@ lib.newnav.2 {
 #        </div>
 #      </div>
 
+
+#<nav class="nav nav-pills nav-fill">
+ # <a class="btn btn-primary btn-sm nav-item nav-link mr-1 mb-1 active" href="#">Active</a>
+ # <a class="btn btn-primary btn-sm nav-item nav-link mr-1 mb-1" href="#">Link</a>
+ # <a class="btn btn-primary btn-sm nav-item nav-link mr-1 mb-1" href="#">Link</a>
+ # <a class=" btn btn-primary btn-sm nav-item nav-link mr-1 mb-1 disabled" href="#">Disabled</a>
+#</nav>
+
+
 lib.subnav = HMENU
-#lib.newnav.wrap = <ul class="vlist"> | </ul>
   # First level menu-object, textual
   # start in the second level
 lib.subnav.entryLevel = 2 
-#lib.subnav.wrap = <div class="btn-group">|</div>
+lib.subnav.wrap = <nav class="nav nav-pills nav-fill">|</nav>
 lib.subnav.1 = TMENU
 lib.subnav.1 {
   expAll = 1
@@ -163,14 +171,14 @@ lib.subnav.1 {
             NO = 1
             NO {
                 ATagTitle.field = title
-                ATagParams = class="btn btn-primary mr-1"
+                ATagParams = class="btn btn-primary btn-sm nav-item nav-link mr-1 mb-1"
                 stdWrap.wrap = <i class="fa fa-arrow-circle-right" aria-hidden="true" style="color:#fff"></i>&nbsp;|
                 #wrapItemAndSub = <button type="button" class="">|</button>
             }
  
             CUR < .NO
             CUR {
-                ATagParams = class="btn btn-primary active mr-1"
+                ATagParams = class="btn btn-primary btn-sm nav-item nav-link active mr-1 mb-1"
                 stdWrap.wrap = <i class="fa fa-arrow-circle-down" aria-hidden="true" style="color:#fff"></i>&nbsp;|
                 #wrapItemAndSub = <button type="button" class="btn btn-primary active">|</button>
             }

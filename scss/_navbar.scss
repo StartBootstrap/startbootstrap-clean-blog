@@ -26,6 +26,10 @@
         font-weight: 800;
         letter-spacing: 1px;
         text-transform: uppercase;
+        border: 1px solid #e5e5e5;
+        border-radius: 5px;
+        padding: 5px;
+        margin: 1px;
         @media only screen and (max-width: 992px) {
           i { display:none }
         }
