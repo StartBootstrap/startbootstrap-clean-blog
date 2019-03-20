@@ -25,6 +25,14 @@
 		return _.take(lines, lines.length - 2).join('\n');
 	}
 
+	function include(start, end) {
+		return function(s) {
+			var lines = s.split('\n');
+
+			return _.take(_.drop(lines, start - 1), end - start + 2).join('\n');
+		};
+	}
+
 	function setContent(e, f) {
 		return function(c) {
 			e.text(f(c));
@@ -34,6 +42,17 @@
 	function resolveFormatter(f) {
 		if (f === 'skip-class') {
 			return _.flow(skipBy(isPackage), skipBy(isImport), skipBy(isClass), skipLast);
+		}
+		if (f.startsWith('lines ')) {
+			var lines = f.substring(6).split(',');
+
+			return include(lines[0], lines[1]);
+		}
+		if (f === 'full') {
+			return _.identity;
+		}
+		if (f === 'skip-package') {
+			return skipBy(isPackage);
 		}
 
 		return _.flow(skipBy(isPackage), skipBy(isImport));
@@ -51,4 +70,4 @@
 		}
 	});
 
-})(jQuery,Prism);
+})(jQuery, Prism);

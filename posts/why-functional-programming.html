@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Functional Programming, Java">
+<meta name="author" content="Daniel Łaś">
+<title>Daniel Łaś Tech Blog</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet'
+	type='text/css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
+<link href="../css/clean-blog.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js" data-manual></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-java.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.4/fetch.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-12045869-7"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+	gtag('js', new Date());
+	gtag('config', 'UA-12045869-7');
+</script>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+		<div class="container">
+			<a class="navbar-brand" href="../index.html">Home</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+				aria-expanded="false" aria-label="Toggle navigation">
+				Menu <i class="fas fa-bars"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="../index.html">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../about.html">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../contact.html">Contact</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<header class="masthead sm">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 mx-auto">
+					<div class="post-heading text-center">
+						<h1>Functional programming is like magic</h1>
+						<h2 class="subheading">Like every magic, it's difficult and not for everyone</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<article>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 mx-auto">
+					<p>
+						This is second part of pragmatic functional programming tutorial for Java developers. If you read my previous post regarding <a
+							href="functional-programming-magic.html">what functional programming is</a> , well ... <em>I'm glad you are back :)</em> If you didn't, <em>please
+							take a look there</em> as I'm going to write about concepts described previously.
+					</p>
+					<p>We know basic concepts and techniques of functional programming. It's time for some advertising, why it's good to use those techniques and concepts
+						and how they will improve our code.</p>
+					<h1>Parallel computations</h1>
+					<p>
+						If we look at microprocessors parameters historical data, like here: <a href="https://www.karlrupp.net/2018/02/42-years-of-microprocessor-trend-data/">42
+							Years of Microprocessor Trend Data </a> , we can draw interesting conclusions. <a href="https://en.wikipedia.org/wiki/Moore%27s_law">Moore's law</a> still
+						holds as number of transistors grows exponentially. Single thread performance increases slightly. The number of cores increases with a power law.
+					</p>
+					<p>Once we have multiple cores available, it's not the big deal to make our programs concurrent. Just spawn tasks in separate threads and we are done.
+						The real difficulty is in making our programs parallel.</p>
+					<p class="note">
+						There is essential difference between <em>concurrent</em> and <em>parallel</em> programs. <em>Concurrent</em> programs are capable to do different things
+						at the same time, like accepting keyboard input and writing to disk simultaneously. <em>Parallel</em> programs are able to split single task into smaller
+						parts and execute them in the same time on different processor cores or cluster nodes to complete faster, like sorting or computing some value on large
+						dataset.
+					</p>
+					<p>There is difficult task of performing parallel computations at the front of us, to benefit from increasing microprocessors computation power. There
+						are different approaches to parallelism.</p>
+					<h2>Java concurrency model</h2>
+					<p>
+						The traditional approach in Java is to use shared state and protect it against concurrent access. Simply stating: <span class="badge badge-secondary">1</span>
+						we run tasks simultaneously in separate threads, <span class="badge badge-secondary">2</span> every task updates shared state on completion, <span
+							class="badge badge-secondary">3</span> we assure that only one task can update shared state at the same time. We can protect shared state using Java
+						language built in features like <code>synchronized</code> methods and blocks, locking primitives from <code>java.util.concurrent.locks</code> core
+						package. Looks easy and it is indeed ... for simple cases, but believe me, it's rapidly becoming extremely complex for more sophisticated cases. We can
+						make our programs thread safe by synchronizing all shared states, but it makes them serial and our parallelism goes down the drain. We can make our
+						programs more parallel by careful design, but we expose ourselves to multiple dangers like:
+					</p>
+					<ul>
+						<li>race conditions</li>
+						<li>threads starvation, deadlock and similar effects</li>
+						<li>testing difficulties</li>
+						<li>context switching overhead</li>
+					</ul>
+					<p>Above issues produce many bugs, usually occurring in production environments and almost impossible to reproduce and test.</p>
+					<p class="note">
+						According to Murphy's law, <em>If something can go wrong, it will go wrong ... when we are on vacations ... and our sales guys are performing VERY
+							IMPORTANT presentation for VERY IMPORTANT prospect client</em>.
+					</p>
+					<p>This model is difficult, lets consider some other options.</p>
+					<h2>Parallelism in functional programming</h2>
+					<p>
+						In functional programming we use <em>pure functions</em> to construct our programs. It implies no side effects nor shared state, so there is no need for
+						synchronization. There are several fundamental concepts related to parallel computations done functional way.
+					</p>
+					<h3>Divisibility</h3>
+					<p>
+						Before we start to parallelize our computation, we have to answer very important question - <em>Can it be parallelized at all?</em> The answer depends on
+						it's ability to be divided into pieces that can be executed in parallel. The bigger part of program can be parallelized then better. However, there are
+						some theoretical limits described by <a href="https://en.wikipedia.org/wiki/Amdahl%27s_law">Amdahl's law</a>. Deciding if our program is a good candidate
+						for parallelization is sometimes difficult. Usually we have some source of data and run computation on every element from this source. More divisible is
+						the source and more costly is the single element processing, chances are higher that we can benefit from running it in parallel manner. The natural way of
+						splitting computation is to process it recursively.
+					</p>
+					<h3>Lazy evaluation</h3>
+					<p>
+						By <em>lazy evaluation</em> I mean function arguments evaluation. In Java, whenever we pass arguments to function they are evaluated eagerly, before
+						function's body is executed. The good practical example of lazy evaluation is <code>Optional.orElseGet()</code> method. Let's say we have some function
+						returning optional value. In case of empty value returned we want to supply default value, but obtaining it requires some time.
+					</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p2/EagerLazyEvaluation.java" data-format="lines 9,23"></code></pre>
+					<p>
+						If we'll use <code>Optional.orElse()</code> method, default value will be calculated regardless of returned value existence.
+					</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p2/EagerLazyEvaluation.java" data-format="lines 25,29"></code></pre>
+					<p>
+						This is happening because Java evaluates method arguments before it's body is executed. Some programming languages act oppositely, evaluate arguments only
+						when they are required. To fix the issue in our code, we need to use <code>Optional.orElseGet()</code>
+					</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p2/EagerLazyEvaluation.java" data-format="lines 31,40"></code></pre>
+					<p>
+						Our code works as expected now because we pass <code>java.util.function.Supplier</code> to <code>Optional.orElseGet()</code> method. It's still evaluated
+						eagerly but inside method's body there must be <code>Supplier.get()</code> method called to get value we want to use. We can decide if we call this method
+						or not.
+					</p>
+					<h1>Clean Code</h1>
+					<h1></h1>
+				</div>
+			</div>
+		</div>
+	</article>
+	<hr>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-10 mx-auto">
+					<ul class="list-inline text-center">
+						<li class="list-inline-item">
+							<a href="https://www.linkedin.com/in/daniel-las" target="_blank"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i
+									class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+							</span>
+							</a>
+						</li>
+					</ul>
+					<p class="copyright text-muted">
+						Copyright &copy; Daniel Łaś 2019, Look and feel forked from <a href="https://startbootstrap.com/template-overviews/clean-blog/" target="blank">Clean
+							Blog</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+	<div class="alert text-center cookiealert">
+		We use cookies to ensure you get the best experience on our site.
+		<button class="btn btn-primary btn-sm acceptcookies">I agree</button>
+	</div>
+	<script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
+	<script src="../js/clean-blog.min.js"></script>
+	<script src="../js/examples.min.js"></script>
+</body>
+</html>

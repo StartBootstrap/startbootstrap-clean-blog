@@ -13,5 +13,5 @@ static <A, B, C> Function<A, Function<B, C>> curry(BiFunction<A, B, C> fun) {
 static BiFunction<Integer, Integer, Integer> sum = (a, b) -> a + b;
 
 // And here we curry our sum function
-Function<Integer, Function<Integer, Integer>> cumCurr = curry(sum);
+Function<Integer, Function<Integer, Integer>> sumCurr = curry(sum);
 }
