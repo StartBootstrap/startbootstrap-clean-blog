@@ -1,8 +1,4 @@
-############################################
-# TODO auslagern in separates file!!!      #
-############################################
-
-# override class for rte table
+# override class for rte table - scheint nicht zu funktionieren... 
 lib.parseFunc_RTE {
     externalBlocks {
         table.stdWrap.HTMLparser.tags.table.fixAttrib.class {
@@ -196,12 +192,13 @@ page {
     #insertClassesFromRTE = 1
     10 = FLUIDTEMPLATE
     10 {
-        file = fileadmin/templates/rhenania2018/maintemplate.html
+        file = fileadmin/templates/rhenania2018/layout/mainlayout.html
+        partialRootPath     = fileadmin/templates/rhenania2018/partials/
+        layoutRootPath      = fileadmin/templates/rhenania2018/layout/    
         variables {
-           contentNormal < styles.content.get        
-        }
-        partialRootPath     = fileadmin/templates/rhenania2018/partial/
-        layoutRootPath      = fileadmin/templates/rhenania2018/layout/          
+            contentNormal < styles.content.get
+            contentNormal.select.where = colPos = 0        
+         }      
     }  
     
     includeCSS {
@@ -226,6 +223,17 @@ page {
          customjs = fileadmin/templates/rhenania2018/js/clean-blog.min.js
     }
 }
+
+# map the backend layout to the template
+page.10.file.stdWrap.cObject = CASE
+page.10.file.stdWrap.cObject {
+    key.data = levelfield:-1, backend_layout_next_level, slide
+    key.override.field = backend_layout
+    
+    default = TEXT
+    default.value = fileadmin/templates/rhenania2018/maintemplate.html
+}
+
 
 page.meta.description.data = page:description
 page.meta.viewport  = width=device-width, initial-scale=1, shrink-to-fit=no

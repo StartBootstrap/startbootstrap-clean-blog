@@ -1,93 +1,15 @@
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    
-  <div class="container">
-    <a class="navbar-brand" href="/"><img src="/fileadmin/templates/rhenania2018/img/rhenania-hinsbeck-vektor.svg" alt="home"/></a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      Menu
-      <i class="fa fa-bars"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        {f:cObject(typoscriptObjectPath:'lib.newnav')->f:format.raw()}
-      </ul>
-    </div>
+<f:layout name="mainlayout" />
+<f:section name="content">
+<div class="row mb-3">
+  <div class="col-lg-8 col-md-10 mx-auto">
+    {f:cObject(typoscriptObjectPath:'lib.subnav')->f:format.raw()}
   </div>
-</nav>
-
-<!-- Page Header -->
-<header class="masthead mb-3" style="{f:cObject(typoscriptObjectPath: 'lib.headerimage')}">
-  <div class="overlay"></div>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="site-heading">
-          <h1> {data.title}</h1>
-          <span class="subheading">{data.subtitle}</span>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-            {f:cObject(typoscriptObjectPath:'lib.breadcrump')->f:format.raw()}
-        </div>
-    </div>
-  </div>
-</header>
-
-<!-- Main Content -->
-<div class="container">
-  <div class="row mb-3">
-    <div class="col-lg-8 col-md-10 mx-auto">
-      {f:cObject(typoscriptObjectPath:'lib.subnav')->f:format.raw()}
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
-      <f:format.raw>{contentNormal}</f:format.raw>
-<!--
-      <div class="post-preview">
-        <a href="post.html">
-          <h2 class="post-title">
-            test
-          </h2>
-          <h3 class="post-subtitle">
-            test subtitle
-          </h3>
-        </a>
-        <p class="post-meta">Posted by
-          <a href="#">goto</a>
-          on September 24, 2018</p>
-      </div>
-    -->
-      <!-- Pager -->
-      <div class="clearfix">
-       
-      </div>
+</div>
+<div class="row">
+  <div class="col-lg-8 col-md-10 mx-auto">
+    <f:format.raw>{contentNormal}</f:format.raw>
+    <div class="clearfix">      
     </div>
   </div>
 </div>
-
-<hr>
-
-<!-- Footer -->
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <ul class="list-inline text-center">
-          <li class="list-inline-item">
-            <a href="https://www.facebook.com/rhenania.hinsbeck">
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-        </ul>
-        <p class="copyright text-muted">Copyright &copy; SC Rhenania Hinsbeck 1919 e.V. {f:cObject(typoscriptObjectPath:'lib.copyright')->f:format.raw()}</p>
-      </div>
-    </div>
-  </div>
-</footer>
+</f:section>
