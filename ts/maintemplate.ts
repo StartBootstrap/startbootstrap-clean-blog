@@ -167,14 +167,14 @@ lib.subnav.1 {
             NO = 1
             NO {
                 ATagTitle.field = title
-                ATagParams = class="btn btn-primary btn-sm nav-item nav-link mr-1 mb-1"
+                ATagParams = class="btn btn-outline-dark btn-sm nav-item nav-link mr-1 mb-1"
                 stdWrap.wrap = <i class="fa fa-arrow-circle-right" aria-hidden="true" style="color:#fff"></i>&nbsp;|
                 #wrapItemAndSub = <button type="button" class="">|</button>
             }
  
             CUR < .NO
             CUR {
-                ATagParams = class="btn btn-primary btn-sm nav-item nav-link active mr-1 mb-1"
+                ATagParams = class="btn btn-outline-dark btn-sm nav-item nav-link active mr-1 mb-1"
                 stdWrap.wrap = <i class="fa fa-arrow-circle-down" aria-hidden="true" style="color:#fff"></i>&nbsp;|
                 #wrapItemAndSub = <button type="button" class="btn btn-primary active">|</button>
             }
@@ -192,9 +192,9 @@ page {
     #insertClassesFromRTE = 1
     10 = FLUIDTEMPLATE
     10 {
-        file = fileadmin/templates/rhenania2018/layout/mainlayout.html
+        file = fileadmin/templates/rhenania2018/layouts/mainlayout.html
         partialRootPath     = fileadmin/templates/rhenania2018/partials/
-        layoutRootPath      = fileadmin/templates/rhenania2018/layout/    
+        layoutRootPath      = fileadmin/templates/rhenania2018/layouts/    
         variables {
             contentNormal < styles.content.get
             contentNormal.select.where = colPos = 0
