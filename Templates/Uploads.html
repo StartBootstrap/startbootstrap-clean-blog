@@ -1,0 +1,45 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+
+	<f:if condition="{files}">
+		<ul class="ce-uploads">
+			<f:for each="{files}" as="file" iteration="fileIterator">
+				<li>
+					<f:if condition="{data.uploads_type} == 1">
+						<img src="{f:uri.resource(path: 'Icons/FileIcons/{file.extension}.gif', extensionName: 'frontend')}" alt="">
+					</f:if>
+					<f:if condition="{data.uploads_type} == 2">
+						<f:if condition="{file.type} > 1">
+							<f:if condition="{f:uri.image(src: 'file:{f:if(condition: file.originalFile, then: \'file:{file.originalFile.uid}\', else: \'file:{file.uid}\')}')} != '/'">
+								<f:then>
+									<a href="{file.publicUrl}" {f:if(condition:data.target,then: ' target="{data.target}"')}{f:if(condition: file.title, then: ' title="{file.title}"')}>
+										<f:media file="{file}" width="150" alt="{file.properties.alternative}" />
+									</a>
+								</f:then>
+								<f:else>
+									<img src="{f:uri.resource(path: 'Icons/FileIcons/{file.extension}.gif', extensionName: 'frontend')}" alt="">
+								</f:else>
+							</f:if>
+						</f:if>
+					</f:if>
+					<div>
+						<a href="{file.publicUrl}" {f:if(condition:data.target,then: ' target="{data.target}"')}{f:if(condition: file.title, then: ' title="{file.title}"')}>
+							<span class="ce-uploads-fileName">{f:if(condition: file.properties.title, then: file.properties.title, else: file.name) -> f:format.htmlspecialchars()}</span>
+						</a>
+						<f:if condition="{file.properties.description}">
+							<f:if condition="{data.uploads_description}">
+								<span class="ce-uploads-description">{file.properties.description}</span>
+							</f:if>
+						</f:if>
+						<f:if condition="{data.filelink_size}">
+							<span class="ce-uploads-filesize"><f:format.bytes value="{file.properties.size}" /></span>
+						</f:if>
+					</div>
+				</li>
+			</f:for>
+		</ul>
+	</f:if>
+
+</f:section>
+</html>

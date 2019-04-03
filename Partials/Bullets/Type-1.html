@@ -1,0 +1,9 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{bullets}">
+	<ol class="ce-bullets">
+	<f:for each="{bullets}" as="bullet">
+		<li>{bullet}</li>
+	</f:for>
+	</ol>
+</f:if>
+</html>

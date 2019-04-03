@@ -1,0 +1,98 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{rowIterator.isFirst}">
+	<f:then>
+		<f:if condition="{data.table_header_position} == 1">
+			<f:then>
+				<th>
+			</f:then>
+			<f:else>
+				<f:if condition="{columnIterator.isFirst}">
+					<f:then>
+						<f:if condition="{data.table_header_position} == 2">
+							<f:then>
+								<th>
+							</f:then>
+							<f:else>
+								<td>
+							</f:else>
+						</f:if>
+					</f:then>
+					<f:else>
+						<td>
+					</f:else>
+				</f:if>
+			</f:else>
+		</f:if>
+	</f:then>
+	<f:else>
+		<f:if condition="{columnIterator.isFirst}">
+			<f:then>
+				<f:if condition="{data.table_header_position} == 2">
+					<f:then>
+						<th>
+					</f:then>
+					<f:else>
+						<td>
+					</f:else>
+				</f:if>
+			</f:then>
+			<f:else>
+				<td>
+			</f:else>
+		</f:if>
+	</f:else>
+</f:if>
+
+<f:if condition="{cell}">
+	<f:then>
+		<f:format.nl2br>{cell}</f:format.nl2br>
+	</f:then>
+	<f:else>
+		&nbsp;
+	</f:else>
+</f:if>
+
+<f:if condition="{rowIterator.isFirst}">
+	<f:then>
+		<f:if condition="{data.table_header_position} == 1">
+			<f:then>
+				</th>
+			</f:then>
+			<f:else>
+				<f:if condition="{columnIterator.isFirst}">
+					<f:then>
+						<f:if condition="{data.table_header_position} == 2">
+							<f:then>
+								</th>
+							</f:then>
+							<f:else>
+								</td>
+							</f:else>
+						</f:if>
+					</f:then>
+					<f:else>
+						</td>
+					</f:else>
+				</f:if>
+			</f:else>
+		</f:if>
+	</f:then>
+	<f:else>
+		<f:if condition="{columnIterator.isFirst}">
+			<f:then>
+				<f:if condition="{data.table_header_position} == 2">
+					<f:then>
+						</th>
+					</f:then>
+					<f:else>
+						</td>
+					</f:else>
+				</f:if>
+			</f:then>
+			<f:else>
+				</td>
+			</f:else>
+		</f:if>
+	</f:else>
+</f:if>
+</html>

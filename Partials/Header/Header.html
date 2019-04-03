@@ -1,0 +1,48 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{header}">
+	<f:switch expression="{layout}">
+		<f:case value="1">
+			<h1 class="{positionClass}">
+				<f:link.typolink parameter="{link}">{header}</f:link.typolink>
+			</h1>
+		</f:case>
+		<f:case value="2">
+			<h2 class="{positionClass}">
+				<f:link.typolink parameter="{link}">{header}</f:link.typolink>
+			</h2>
+		</f:case>
+		<f:case value="3">
+			<h3 class="{positionClass}">
+				<f:link.typolink parameter="{link}">{header}</f:link.typolink>
+			</h3>
+		</f:case>
+		<f:case value="4">
+			<h4 class="{positionClass}">
+				<f:link.typolink parameter="{link}">{header}</f:link.typolink>
+			</h4>
+		</f:case>
+		<f:case value="5">
+			<h5 class="{positionClass}">
+				<f:link.typolink parameter="{link}">{header}</f:link.typolink>
+			</h5>
+		</f:case>
+		<f:case value="6">
+			<h6 class="{positionClass}">
+				<f:link.typolink parameter="{link}">{header}</f:link.typolink>
+			</h6>
+		</f:case>
+		<f:case value="100">
+			<f:comment> -- do not show header -- </f:comment>
+		</f:case>
+		<f:defaultCase>
+			<f:if condition="{default}">
+				<f:render partial="Header/Header" arguments="{
+					header: header,
+					layout: default,
+					positionClass: positionClass,
+					link: link}" />
+			</f:if>
+		</f:defaultCase>
+	</f:switch>
+</f:if>
+</html>

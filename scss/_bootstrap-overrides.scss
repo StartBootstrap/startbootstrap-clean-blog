@@ -64,4 +64,19 @@ li.breadcrumb-item.active::before {
   padding: 1px;
 }
 
+a.btn.btn-outline-dark.btn-sm.nav-item.nav-link.active.mr-1.mb-1 > i {
+  color: $white !important;
+}
+
+a.btn.btn-outline-dark.btn-sm.nav-item.nav-link.active.mr-1.mb-1:hover > i {
+  color: $white !important;
+}
+
+a.btn.btn-outline-dark.btn-sm.nav-item.nav-link.mr-1.mb-1:hover > i {
+  color: $gray-300 !important;
+}
+
+
+
+
 

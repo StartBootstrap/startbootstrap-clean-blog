@@ -54,9 +54,9 @@ lib.breadcrump {
     entryLevel = 0
     wrap =  <nav aria-label="breadcrumb"><ol class="breadcrumb">|</ol></nav>
     1 = TMENU
-    1.NO.allWrap =  <li class="breadcrumb-item"><i class="fa fa-chevron-right" aria-hidden="true" style="color: #ccc;"></i>|</li>
+    1.NO.allWrap =  <li class="breadcrumb-item"><i class="fa fa-chevron-right text-light" aria-hidden="true"></i>|</li>
     1.NO.ATagTitle.field = abstract // description // title
-    1.NO.allWrap =  <li class="breadcrumb-item active" aria-current="page"><i class="fa fa-chevron-right" aria-hidden="true" style="color: #ccc;"></i>|</li>
+    1.NO.allWrap =  <li class="breadcrumb-item active" aria-current="page"><i class="fa fa-chevron-right text-light" aria-hidden="true"></i>|</li>
     1.NO.ATagTitle.field = abstract // description // title
 
 }
@@ -87,7 +87,7 @@ lib.newnav.1 {
             IFSUB {
                 ATagTitle.field = title
                 ATagParams = class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
-                linkWrap = <i class="fa fa-arrow-circle-down" aria-hidden="true" style="color:#fff"></i> |
+                linkWrap = <i class="fa fa-arrow-circle-down text-light" aria-hidden="true"></i> |
                 ATagBeforeWrap = 1
                 wrapItemAndSub = <li class="nav-item dropdown">|</li>
             }
@@ -168,14 +168,14 @@ lib.subnav.1 {
             NO {
                 ATagTitle.field = title
                 ATagParams = class="btn btn-outline-dark btn-sm nav-item nav-link mr-1 mb-1"
-                stdWrap.wrap = <i class="fa fa-arrow-circle-right" aria-hidden="true" style="color:#fff"></i>&nbsp;|
+                stdWrap.wrap = <i class="fa fa-arrow-circle-right text-dark" aria-hidden="true"></i>&nbsp;|
                 #wrapItemAndSub = <button type="button" class="">|</button>
             }
  
             CUR < .NO
             CUR {
                 ATagParams = class="btn btn-outline-dark btn-sm nav-item nav-link active mr-1 mb-1"
-                stdWrap.wrap = <i class="fa fa-arrow-circle-down" aria-hidden="true" style="color:#fff"></i>&nbsp;|
+                stdWrap.wrap = <i class="fa fa-arrow-circle-down text-dark" aria-hidden="true"></i>&nbsp;|
                 #wrapItemAndSub = <button type="button" class="btn btn-primary active">|</button>
             }
  
@@ -192,9 +192,9 @@ page {
     #insertClassesFromRTE = 1
     10 = FLUIDTEMPLATE
     10 {
-        file = fileadmin/templates/rhenania2018/layouts/mainlayout.html
-        partialRootPath     = fileadmin/templates/rhenania2018/partials/
-        layoutRootPath      = fileadmin/templates/rhenania2018/layouts/    
+        file = fileadmin/templates/rhenania2018/Layouts/mainlayout.html
+        partialRootPath     = fileadmin/templates/rhenania2018/Partials/
+        layoutRootPath      = fileadmin/templates/rhenania2018/Layouts/    
         variables {
             contentNormal < styles.content.get
             contentNormal.select.where = colPos = 0

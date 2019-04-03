@@ -1,0 +1,18 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{bullets}">
+	<dl class="ce-bullets">
+	<f:for each="{bullets}" as="definitionListItem">
+		<f:for each="{definitionListItem}" as="termDescription" iteration="termDescriptionIterator">
+			<f:if condition="{termDescriptionIterator.isFirst}">
+				<f:then>
+					<dt>{termDescription}</dt>
+				</f:then>
+				<f:else>
+					<dd>{termDescription}</dd>
+				</f:else>
+			</f:if>
+		</f:for>
+	</f:for>
+	</dl>
+</f:if>
+</html>

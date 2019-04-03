@@ -1,0 +1,55 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:spaceless>
+	<f:if condition="{data.frame_class} != none">
+		<f:then>
+
+			<div id="c{data.uid}" class="frame frame-{data.frame_class} frame-type-{data.CType} frame-layout-{data.layout}{f:if(condition: data.space_before_class, then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, then: ' frame-space-after-{data.space_after_class}')}">
+				<f:if condition="{data._LOCALIZED_UID}">
+					<a id="c{data._LOCALIZED_UID}"></a>
+				</f:if>
+				<f:render section="Before" optional="true">
+					<f:render partial="DropIn/Before/All" arguments="{_all}" />
+				</f:render>
+				<f:render section="Header" optional="true">
+					<f:render partial="Header/All" arguments="{_all}" />
+				</f:render>
+				<f:render section="Main" optional="true" />
+				<f:render section="Footer" optional="true">
+					<f:render partial="Footer/All" arguments="{_all}" />
+				</f:render>
+				<f:render section="After" optional="true">
+					<f:render partial="DropIn/After/All" arguments="{_all}" />
+				</f:render>
+			</div>
+
+		</f:then>
+		<f:else>
+
+			<a id="c{data.uid}"></a>
+			<f:if condition="{data._LOCALIZED_UID}">
+				<a id="c{data._LOCALIZED_UID}"></a>
+			</f:if>
+			<f:if condition="{data.space_before_class}">
+				<div class="frame-space-before-{data.space_before_class}"></div>
+			</f:if>
+			<f:render section="Before" optional="true">
+				<f:render partial="DropIn/Before/All" arguments="{_all}" />
+			</f:render>
+			<f:render section="Header" optional="true">
+				<f:render partial="Header/All" arguments="{_all}" />
+			</f:render>
+			<f:render section="Main" optional="true" />
+			<f:render section="Footer" optional="true">
+				<f:render partial="Footer/All" arguments="{_all}" />
+			</f:render>
+			<f:render section="After" optional="true">
+				<f:render partial="DropIn/After/All" arguments="{_all}" />
+			</f:render>
+			<f:if condition="{data.space_after_class}">
+				<div class="frame-space-after-{data.space_after_class}"></div>
+			</f:if>
+
+		</f:else>
+	</f:if>
+</f:spaceless>
+</html>
