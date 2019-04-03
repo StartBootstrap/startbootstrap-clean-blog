@@ -197,7 +197,11 @@ page {
         layoutRootPath      = fileadmin/templates/rhenania2018/layout/    
         variables {
             contentNormal < styles.content.get
-            contentNormal.select.where = colPos = 0        
+            contentNormal.select.where = colPos = 0
+            contentLeft < styles.content.get
+            contentLeft.select.where = colPos = 1
+            contentRight < styles.content.get
+            contentRight.select.where = colPos = 2      
          }      
     }  
     
@@ -232,6 +236,12 @@ page.10.file.stdWrap.cObject {
     
     default = TEXT
     default.value = fileadmin/templates/rhenania2018/maintemplate.html
+    2 = TEXT
+    2.value = fileadmin/templates/rhenania2018/maintemplate.html
+    3 = TEXT
+    3.value = fileadmin/templates/rhenania2018/maintemplate_2_cols.html
+    4 = TEXT
+    4.value = fileadmin/templates/rhenania2018/maintemplate_3_cols.html
 }
 
 
