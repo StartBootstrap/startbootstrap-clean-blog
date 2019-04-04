@@ -1,0 +1,30 @@
+<f:layout name="mainlayout" />
+<f:section name="content">
+ <div class="row mb-3">
+    <div class="col-lg-12 col-md-12 mx-auto">
+      {f:cObject(typoscriptObjectPath:'lib.subnav')->f:format.raw()}
+    </div>
+  </div>
+  <div class="row">
+        <div class="col-lg-12 col-md-12 mx-auto">
+                <f:format.raw>{contentTop}</f:format.raw>
+        </div>
+      </div>
+  <div class="row">
+    <div class="col-lg-12 col-md-12 mx-auto">
+      <div class="row"> 
+            <div class="col-lg-4 col-md-4 mx-auto border-right">
+                    <f:format.raw>{contentLeft}</f:format.raw>
+            </div>    
+            <div class="col-lg-4 col-md-4 mx-auto">
+                    <f:format.raw>{contentNormal}</f:format.raw>
+            </div>
+            <div class="col-lg-4 col-md-4 mx-auto border-left">
+                    <f:format.raw>{contentRight}</f:format.raw>
+            </div>
+      </div>  
+      <div class="clearfix">      
+      </div>
+    </div>
+  </div>
+</f:section>

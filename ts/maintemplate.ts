@@ -202,7 +202,9 @@ page {
             contentLeft < styles.content.get
             contentLeft.select.where = colPos = 1
             contentRight < styles.content.get
-            contentRight.select.where = colPos = 2      
+            contentRight.select.where = colPos = 2    
+            contentTop < styles.content.get
+            contentTop.select.where = colPos = 3
          }      
     }  
     
@@ -243,6 +245,10 @@ page.10.file.stdWrap.cObject {
     3.value = fileadmin/templates/rhenania2018/maintemplate_2_cols.html
     4 = TEXT
     4.value = fileadmin/templates/rhenania2018/maintemplate_3_cols.html
+    5 = TEXT
+    5.value = fileadmin/templates/rhenania2018/maintemplate_3_cols_same_size.html
+    6 = TEXT
+    6.value = fileadmin/templates/rhenania2018/maintemplate_3_cols_same_size_banner.html
 }
 
 # change the default fluid templates (needed for customizing output!)
