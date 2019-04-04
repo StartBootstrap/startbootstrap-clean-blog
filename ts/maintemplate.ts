@@ -52,7 +52,7 @@ lib.breadcrump {
     special = rootline
     special.range = 0|4
     entryLevel = 0
-    wrap =  <nav aria-label="breadcrumb"><ol class="breadcrumb">|</ol></nav>
+    wrap =  <nav aria-label="breadcrumb shadow"><ol class="breadcrumb">|</ol></nav>
     1 = TMENU
     1.NO.allWrap =  <li class="breadcrumb-item"><i class="fa fa-chevron-right text-light" aria-hidden="true"></i>|</li>
     1.NO.ATagTitle.field = abstract // description // title
@@ -131,6 +131,7 @@ lib.newnav.2 {
   
 }
 
+
 # Create the navigation structure for the third level, currently only 3rd level is supported. 
 # <div class="btn-group">
 #        <button type="button" class="btn btn-primary">Apple</button>
@@ -167,14 +168,14 @@ lib.subnav.1 {
             NO = 1
             NO {
                 ATagTitle.field = title
-                ATagParams = class="btn btn-outline-dark btn-sm nav-item nav-link mr-1 mb-1"
+                ATagParams = class="btn btn-outline-dark btn-sm nav-item nav-link mr-1 mb-1 shadow"
                 stdWrap.wrap = <i class="fa fa-arrow-circle-right text-dark" aria-hidden="true"></i>&nbsp;|
                 #wrapItemAndSub = <button type="button" class="">|</button>
             }
  
             CUR < .NO
             CUR {
-                ATagParams = class="btn btn-outline-dark btn-sm nav-item nav-link active mr-1 mb-1"
+                ATagParams = class="btn btn-outline-dark btn-sm nav-item nav-link active mr-1 mb-1 shadow"
                 stdWrap.wrap = <i class="fa fa-arrow-circle-down text-dark" aria-hidden="true"></i>&nbsp;|
                 #wrapItemAndSub = <button type="button" class="btn btn-primary active">|</button>
             }
@@ -244,6 +245,19 @@ page.10.file.stdWrap.cObject {
     4.value = fileadmin/templates/rhenania2018/maintemplate_3_cols.html
 }
 
+# change the default fluid templates (needed for customizing output!)
+lib.contentElement {
+   templateRootPaths {
+      200 = fileadmin/templates/rhenania2018/Templates/
+   }
+   partialRootPaths {
+      200 = fileadmin/templates/rhenania2018/Partials/
+   }
+   layoutRootPaths {
+      200 = fileadmin/templates/rhenania2018/Layouts/
+   }
+}
+
 
 page.meta.description.data = page:description
 page.meta.viewport  = width=device-width, initial-scale=1, shrink-to-fit=no
@@ -255,43 +269,3 @@ page.headerData.10.wrap = <title>SC Rhenania Hinsbeck 1919 e.V. - |</title>
 page.headerData.20 = TEXT
 page.headerData.20.value = <link rel="apple-touch-icon" href="fileadmin/templates/rhenania2018/img/apple-touch-icon.png"/>
 
-# add class to images in tt content
-# Remove some of the div wraps
-tt_content.image.20.imageStdWrap.dataWrap >
-tt_content.image.20.imageStdWrapNoWidth.dataWrap >
-tt_content.image.20.imageColumnStdWrap.dataWrap >
-
-# Redefine the layout switch with only one default case
-tt_content.image.20.layout >
-tt_content.image.20.layout = CASE
-tt_content.image.20.layout.key.field = imageorient
-tt_content.image.20.layout.default = TEXT
-tt_content.image.20.layout.default.value = ###IMAGES### ###TEXT###
-
-# Remove the wrap around the image subtext
-tt_content.textpic.20.text.wrap = |
-
-# Define a new rendering method without wraps
-tt_content.image.20.rendering.noWraps {
-   imageRowStdWrap.dataWrap = |
-   noRowsStdWrap.wrap =
-   oneImageStdWrap.dataWrap = |
-   imgTagStdWrap.wrap = |
-   editIconsStdWrap.wrap = |
-   caption.wrap = |
-}
-
-# Set this as active rendering method
-tt_content.image.20.renderMethod = noWraps
-
-#add custom class to image
-tt_content.image.20.1.params.cObject = CASE
-tt_content.image.20.1.params.cObject {
-  key.field = layout
-  default = TEXT
-  default.value = class="img-fluid img-thumbnail image-responsive"
-  1 = TEXT
-  1.value = class="class2"
-  2 = TEXT
-  2.value = class="img-responsive"
-}
