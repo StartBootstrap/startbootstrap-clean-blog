@@ -76,3 +76,22 @@ Copyright 2013-2018 Blackrock Digital LLC. Code released under the [MIT](https:/
 
 ## Links to image sources
 <a href="https://www.freepik.com/free-photos-vectors/football">Football vector created by freepik - www.freepik.com</a> 
+
+
+## Change text for content item from tt_content
+
+Add this into Page-TS config of the root page
+
+```
+TCEFORM {
+    tt_content {
+        layout {
+            altLabels {
+                0 = Karten Design
+                1 = Alternatives Design
+            }
+            removeItems = 2, 3, 4, 5
+        }
+    }
+}
+```
