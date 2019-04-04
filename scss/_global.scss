@@ -7,9 +7,6 @@ body {
 
 p {
   line-height: 1.5;
-  a {
-    text-decoration: underline;
-  }
 }
 
 h1,
@@ -42,6 +39,7 @@ a {
   &:hover {
     color: $primary;
   }
+  text-decoration: underline;
 }
 
 blockquote {

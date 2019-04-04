@@ -249,6 +249,9 @@ page.10.file.stdWrap.cObject {
     5.value = fileadmin/templates/rhenania2018/maintemplate_3_cols_same_size.html
     6 = TEXT
     6.value = fileadmin/templates/rhenania2018/maintemplate_3_cols_same_size_banner.html
+    #7 = TEXT
+    #7.value = fileadmin/templates/rhenania2018/maintemplate_3_cols_same_size_banner_jumbo_footer.html
+
 }
 
 # change the default fluid templates (needed for customizing output!)

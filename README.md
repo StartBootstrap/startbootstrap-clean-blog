@@ -95,3 +95,21 @@ TCEFORM {
     }
 }
 ```
+
+## Fluid Styled content überschreiben
+
+https://www.programmier-tipps.de/2017/12/14/fluid-styled-content-templates-ueberschreiben/ 
+
+```
+lib.contentElement {
+   templateRootPaths {
+      100 = fileadmin/template/Resources/Private/Templates/
+   }
+   partialRootPaths {
+      100 = fileadmin/template/Resources/Private/Partials/
+   }
+   layoutRootPaths {
+      100 = fileadmin/template/Resources/Private/Layouts/
+   }
+}
+```

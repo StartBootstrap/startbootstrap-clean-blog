@@ -8,10 +8,6 @@ p {
   line-height: 1.5;
 }
 
-p a {
-  text-decoration: underline;
-}
-
 h1,
 h2,
 h3,
@@ -43,6 +39,7 @@ a {
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
+  text-decoration: underline;
 }
 
 a:focus, a:hover {
@@ -118,6 +115,7 @@ img::-moz-selection {
 }
 
 #mainNav .navbar-nav > li.nav-item > a {
+  text-decoration: none;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 1px;
@@ -147,6 +145,7 @@ img::-moz-selection {
     color: rgba(255, 255, 255, 0.8);
   }
   #mainNav .navbar-nav > li.nav-item > a {
+    text-decoration: none;
     padding: 10px 20px;
     color: #fff;
     border: none;
@@ -522,4 +521,12 @@ a.btn.btn-outline-dark.btn-sm.nav-item.nav-link.active.mr-1.mb-1:hover > i {
 
 a.btn.btn-outline-dark.btn-sm.nav-item.nav-link.mr-1.mb-1:hover > i {
   color: #dee2e6 !important;
+}
+
+a.dropdown-item {
+  text-decoration: none;
+}
+
+.breadcrumb a {
+  text-decoration: none;
 }
