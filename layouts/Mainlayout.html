@@ -17,7 +17,7 @@
       </nav>
       
       <!-- Page Header -->
-      <header class="masthead mb-3" style="{f:cObject(typoscriptObjectPath: 'lib.headerimage')}">
+      <header class="masthead mb-0" style="{f:cObject(typoscriptObjectPath: 'lib.headerimage')}">
         <div class="overlay"></div>
         <div class="container">
           <div class="row">
@@ -37,10 +37,8 @@
       </header>
       
       <!-- Main Content -->
-      <div class="container">
-            <f:render section="content" />
-      </div>
       
+      <f:render section="content" />
       <hr>
       
       <!-- Footer -->
