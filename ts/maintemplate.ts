@@ -257,6 +257,8 @@ page.10.file.stdWrap.cObject {
     6.value = fileadmin/templates/rhenania2018/maintemplate_3_cols_same_size_banner.html
     7 = TEXT
     7.value = fileadmin/templates/rhenania2018/maintemplate_3_cols_same_size_banner_jumbo_footer.html
+    8 = TEXT
+    8.value = fileadmin/templates/rhenania2018/maintemplate_2_cols_banner_jumbo_footer.html
 
 }
 
