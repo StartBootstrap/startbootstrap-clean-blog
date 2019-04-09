@@ -6,15 +6,18 @@
 				header: data.header,
 				layout: data.header_layout,
 				positionClass: '{f:if(condition: data.header_position, then: \'ce-headline-{data.header_position}\')}',
+				headerClass : headerClass,
 				link: data.header_link,
 				default: settings.defaultHeaderType}" />
 			<f:render partial="Header/SubHeader" arguments="{
 				subheader: data.subheader,
 				layout: data.header_layout,
 				positionClass: '{f:if(condition: data.header_position, then: \'ce-headline-{data.header_position}\')}',
+				headerClass : headerClass,
 				default: settings.defaultHeaderType}" />
 			<f:render partial="Header/Date" arguments="{
 				date: data.date,
+				headerClass : headerClass,
 				positionClass: '{f:if(condition: data.header_position, then: \'ce-headline-{data.header_position}\')}'}" />
 		</header>
 	</f:if>

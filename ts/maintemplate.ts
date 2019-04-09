@@ -232,6 +232,8 @@ page {
          jquery.forceOnTop = 1 
          bootstrap = fileadmin/templates/rhenania2018/vendor/bootstrap/js/bootstrap.bundle.min.js
          customjs = fileadmin/templates/rhenania2018/js/clean-blog.min.js
+         # http will be blocked
+         fussballde = https://www.fussball.de/static/layout/fbde2/egm//js/widget2.js
     }
 }
 
