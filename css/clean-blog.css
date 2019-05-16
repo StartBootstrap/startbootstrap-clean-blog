@@ -61,10 +61,21 @@ blockquote {
   border-bottom-left-radius: 5px;
 }
 
+::-moz-selection {
+  color: #fff;
+  background: #0085A1;
+  text-shadow: none;
+}
+
 ::selection {
   color: #fff;
   background: #0085A1;
   text-shadow: none;
+}
+
+img::-moz-selection {
+  color: #fff;
+  background: transparent;
 }
 
 img::selection {
