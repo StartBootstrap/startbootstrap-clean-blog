@@ -77,7 +77,7 @@
 					</p>
 					<p>We know basic concepts and techniques of functional programming. It's time for some advertising, why it's good to use those techniques and concepts
 						and how they will improve our code.</p>
-					<h1>Concurrent and parallel computations</h1>
+					<h1>Parallel computations</h1>
 					<p>
 						If we look at microprocessors parameters historical data, like here:
 						<a href="https://www.karlrupp.net/2018/02/42-years-of-microprocessor-trend-data/">42 Years of Microprocessor Trend Data </a>
@@ -120,11 +120,13 @@
 					<h2>Parallelism in functional programming</h2>
 					<p>
 						In functional programming we use <em>pure functions</em> to construct our programs. It implies no side effects nor shared state, so there is no need for
-						synchronization. We can safely run parallel computation because there is no need for shared state synchronization.
+						synchronization. There are several fundamental concepts related to parallel computations done functional way.
 					</p>
+					<h3>Divisibility</h3>
 					<p>
 						Before we start to parallelize our computation, we have to answer very important question - <em>Can it be parallelized at all?</em>
 					</p>
+					<p class="note">To be precise, divisibility feature is crucial to parallel computation in general, not only done functional way.</p>
 					<p>
 						The answer depends on it's ability to be divided into pieces that can be executed in parallel. The bigger part of program can be parallelized then better.
 						However, there are some theoretical limits described by
@@ -134,97 +136,45 @@
 						running it in parallel manner. However we split our job, either recursively or by some collection division, we need to take care of available parallelism
 						level determined by number of cores or nodes.
 					</p>
-					<p>Let's make our hands dirty and write parallel program. The simplest case of parallel computation is:</p>
-					<p class="note">we have data set, we want to perform some long running calculation on every element from set and finally receive transformed data set
-						of the same length as input data set.</p>
-					<p>Like for example fractals generation.</p>
-					<p class="text-center">
-						<img src="../img/mandelbrot.png" />
+					<h3>Lazy evaluation</h3>
+					<p>
+						By <em>lazy evaluation</em> I mean function arguments evaluation. In Java, whenever we pass arguments to function they are evaluated eagerly, before
+						function's body is executed. The good practical example of lazy evaluation is <code>Optional.orElseGet()</code> method. Let's say we have some function
+						returning optional value. In case of empty value returned we want to supply default value, but obtaining it requires some time.
+					</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p2/EagerLazyEvaluation.java" data-format="lines 9,23"></code></pre>
+					<p>
+						If we'll use <code>Optional.orElse()</code> method, default value will be calculated regardless of returned value existence.
+					</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p2/EagerLazyEvaluation.java" data-format="lines 25,29"></code></pre>
+					<p>
+						This is happening because Java evaluates method arguments before it's body is executed. Some programming languages act oppositely, evaluate arguments only
+						when they are required. To fix the issue in our code, we need to use <code>Optional.orElseGet()</code>
+					</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p2/EagerLazyEvaluation.java" data-format="lines 31,41"></code></pre>
+					<p>
+						Our code works as expected now because we pass <code>java.util.function.Supplier</code> to <code>Optional.orElseGet()</code> method. It's still evaluated
+						eagerly but inside method's body there must be <code>Supplier.get()</code> method called to get value we want to use. We can decide if we call this method
+						or not.
 					</p>
 					<p>
-						Above image is the fractal generated using
-						<a href="https://en.wikipedia.org/wiki/Mandelbrot_set">Mandelbrot's</a>
-						formula. To generate fractal we perform some iterative algorithm for every point in the image and set it's color depending on algorithm result.
+						How lazy evaluation applies to parallel computations? Well, it fits perfectly. During parallel computation we split our problem, delegate it's components
+						resolution to be processed in parallel, either wait for partial results or are notified when they arrives and finally combine them into single result.
+						Awaiting some result is well abstracted by <code>java.util.concurrent.Future</code> class. Let's look at it's <code>get()</code> method:
 					</p>
-					<pre class="line-numbers"><code class="language-java" data-src="../src/test/java/tech/daniellas/p2/MandelbrotTest.java"></code></pre>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p2/Future.java" data-format="lines 6,6"></code></pre>
 					<p>
-						If you want to look at <code>Point</code> class and <code>mandelbrot</code> function,
-						<a class="ans" data-toggle="collapse" href="#mandelbrot">click here</a>
-						.
+						and compare to <code>java.util.function.Supplier</code> interface:
 					</p>
-					<pre class="collapse" id="mandelbrot"><code class="language-java" data-src="../src/main/java/tech/daniellas/p2/Mandelbrot.java"></code></pre>
-					<ul>
-						<li>
-							Interesting code starts at line <span class="badge badge-secondary">7</span> where we create list of <code>Point</code> type objects representing image
-							of given width and height. If you don't entirely understand what's going on there, don't worry, it's just Java Streams way to create nested loops.
-						</li>
-						<li>
-							The main part starts at line <span class="badge badge-secondary">14</span>, where we create <code>Stream</code> from the points list and process it in
-							parallel (thanks to <code>parallel</code> stream operator used in line <span class="badge badge-secondary">15</span>) applying pure <code>mandelbrot</code>
-							function (in line <span class="badge badge-secondary">16</span>) to every point from list. <code>mandelbrot</code> function is pure regardless of it's
-							internal imperative implementation, because all side effects are enclosed within function scope. All the labor of splitting the list, submitting tasks to
-							thread pool and gathering results is done by great Java Stream framework.
-						</li>
-						<li>
-							Since we don't care about ordering we perform side effect using <code>forEach</code> operator at line <span class="badge badge-secondary">17</span>. We
-							don't have to care about image object synchronization because <code>BufferedImage</code> just an array and we write color value to different array cells.
-						</li>
-					</ul>
-					<p class="note">
-						We are safe to do parallel computation writing just several lines of code thanks to very simple and extremely important fact: our mapping function is <strong>pure</strong>.
-					</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p2/Supplier.java" data-format="lines 4,4"></code></pre>
 					<p>
-						It was easy, but what about another use case: we have large data set and want to calculate single result from it, like sum or mean? Can we do this in
-						parallel? Here comes the to the rescue very abstract beast named <strong>Monoid</strong>. I'll provide short description here and will write separate post
-						about Monoid as this concept truly deserves it.
+						The only difference is that <code>Future.get()</code> throws exceptions in case of interruption or failure.
 					</p>
+					<p class="note">Lazy evaluation concept is inevitable when we run parallel computation.</p>
 					<h3>Monoids</h3>
-					<p class="note">Monoid is a type, associative binary operation and neutral element called identity.</p>
-					<p>
-						Integer addition together with 0 forms Monoid. The type is <code>java.lang.Integer</code>. The binary operation is addition: <code>a + b = c</code>. We
-						name it binary because it operates on two arguments - it's just <code>java.util.function.BiFunction&lt;T,T,T&gt;</code> or specialized <code>java.util.function.BinaryOperator&lt;T&gt;</code>.
-						It's associative because it's insensitive to parentheses when composed with higher number of arguments: <code>a + (b + c) == (a + b) + c</code>.
-						Addition's identity element is 0, because: <code>a + 0 == a</code>. There are three laws Monoid must obey. I'll write about them in details in dedicated
-						post, here is just the list: Left identity law, Right identity law and Associativity law. The most important fact in the context of parallel computations
-						is:
-					</p>
-					<p class="note">If our computation forms Monoid, it's safe to run it in parallel.</p>
-					<p>Here below is integer addition Monoid in action.</p>
-					<pre class="line-numbers"><code class="language-java" data-src="../src/test/java/tech/daniellas/p2/AdditionMonoidTest.java"></code></pre>
-					<ul>
-						<li>
-							In line <span class="badge badge-secondary">4</span> we start our data set construction.
-						</li>
-						<li>
-							In line <span class="badge badge-secondary">9</span> we make our stream parallel.
-						</li>
-						<li>
-							Finally we use Monoid in <code>reduce</code> stream operator in line <span class="badge badge-secondary">9</span>, providing identity element equal 0 and
-							<code>Integer::sum</code> as binary associative operation.
-						</li>
-					</ul>
-					<p>
-						As you can see, Java 8 introduced concept of Monoid. If you don't believe me, take a look at <code>reduce</code> operator JavaDoc documentation. Do I need
-						to emphasize that our binary operation must be pure function?
-					</p>
-					<h2>What about functional concurrency?</h2>
-					<p>
-						There is something very useful in regards of concurrency, ubiquitous and very simple. This is <strong>Monad</strong>. I know two <i>functional</i> jokes,
-						this is first one:
-					</p>
-					<blockquote>
-						<p>A monad is just a monoid in the category of endofunctors.</p>
-					</blockquote>
-					<p>If you think it's not funny, you can always blame my sense of humor.</p>
-					<p>I will write more about Monads in next posts as Mondas, being Monoids also deserve it but here I'll just shed some light on Monads.</p>
-					<p>
-						Monads are ubiquitous, they were even introduced in Java with version 8: <code>Optional</code>, <code>Stream</code> and <code>CompletableFuture</code> are
-						all Monads. One of Monad's powers lies in the fact that we use them always in the same way. Once we grasp the concept, many problems solutions become
-						obvious. <code>CompletableFuture</code> is not an exception, we can use it to compose concurrent computations and test them in deterministic way.
-					</p>
+					<h3>Monads</h3>
 					<h1>Clean Code</h1>
-					<h1>Testability</h1>
-					<h1>Referential transparency</h1>
+					<h1></h1>
 				</div>
 			</div>
 		</div>

@@ -30,13 +30,13 @@ public void shouldEvaluateEagerly() {
 
 @Test
 public void shouldNotEvaluate() {
-	// We get some optional, so 'defaultValue' supplier is not called  
-	find(1).orElseGet(EagerLazyEvaluation::defaultValue);
+	// We get some optional, so 'defaultValue' supplier is not called
+	find(1).orElseGet(() -> defaultValue());
 }
 
 @Test
 public void shouldEvaluateLazily() {
-	// We get empty optional, so 'defaultValue' supplier is called  
-	find(0).orElseGet(EagerLazyEvaluation::defaultValue);
+	// We get empty optional, so 'defaultValue' supplier is called
+	find(0).orElseGet(() -> defaultValue());
 }
 }

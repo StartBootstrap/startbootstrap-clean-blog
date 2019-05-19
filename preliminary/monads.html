@@ -215,13 +215,21 @@
 					<blockquote>
 						<p>A monad is just a monoid in the category of endofunctors.</p>
 					</blockquote>
-					<p>If you think it's not funny, you can always blame my sense of humor.</p>
-					<p>I will write more about Monads in next posts as Mondas, being Monoids also deserve it but here I'll just shed some light on Monads.</p>
+					<p>If you think it's not funny, you can always blame my sense of humor. I will write more about Monads in next posts as Mondas, being Monoids also
+						deserve it but here I'll just shed some light on Monads.</p>
 					<p>
 						Monads are ubiquitous, they were even introduced in Java with version 8: <code>Optional</code>, <code>Stream</code> and <code>CompletableFuture</code> are
-						all Monads. One of Monad's powers lies in the fact that we use them always in the same way. Once we grasp the concept, many problems solutions become
-						obvious. <code>CompletableFuture</code> is not an exception, we can use it to compose concurrent computations and test them in deterministic way.
+						all Monads. Monads are simple, because to be Monad, we need to satisfy three laws: Left identity law, Right identity law and Associativity law. Yes, the
+						same as for Monoid but on different level of abstraction. We can look at Monads from different perspective:
 					</p>
+					<p class="note">
+						Monad is the container of generic type with factory method used for it's construction and additionally <code>flatMap</code> method.
+					</p>
+					<ul>
+						<li>
+							<code>Optional&lt;T&gt;</code> - with <code>of()</code> and <code>flatMap()</code>
+						</li>
+					</ul>
 					<h1>Clean Code</h1>
 					<h1>Testability</h1>
 					<h1>Referential transparency</h1>
