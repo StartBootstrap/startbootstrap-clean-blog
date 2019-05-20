@@ -171,12 +171,12 @@
 						</li>
 					</ul>
 					<p class="note">
-						We are safe to do parallel computation writing just several lines of code thanks to very simple and extremely important fact: our mapping function is <strong>pure</strong>.
+						We are safe to do parallel computation writing just several lines of code thanks to very simple and extremely important fact: our mapping function is <em>pure</em>.
 					</p>
 					<p>
 						It was easy, but what about another use case: we have large data set and want to calculate single result from it, like sum or mean? Can we do this in
-						parallel? Here comes the to the rescue very abstract beast named <strong>Monoid</strong>. I'll provide short description here and will write separate post
-						about Monoid as this concept truly deserves it.
+						parallel? Here comes the to the rescue very abstract beast named <em>Monoid</em>. I'll provide short description here and will write separate post about
+						Monoid as this concept truly deserves it.
 					</p>
 					<h3>Monoids</h3>
 					<p class="note">Monoid is a type, associative binary operation and neutral element called identity.</p>
@@ -185,8 +185,8 @@
 						name it binary because it operates on two arguments - it's just <code>java.util.function.BiFunction&lt;T,T,T&gt;</code> or specialized <code>java.util.function.BinaryOperator&lt;T&gt;</code>.
 						It's associative because it's insensitive to parentheses when composed with higher number of arguments: <code>a + (b + c) == (a + b) + c</code>.
 						Addition's identity element is 0, because: <code>a + 0 == a</code>. There are three laws Monoid must obey. I'll write about them in details in dedicated
-						post, here is just the list: Left identity law, Right identity law and Associativity law. The most important fact in the context of parallel computations
-						is:
+						post, here is just the list: <em>Left identity</em>, <em>Right identity</em> and <em>Associativity</em> law. The most important fact in the context of
+						parallel computations is:
 					</p>
 					<p class="note">If our computation forms Monoid, it's safe to run it in parallel.</p>
 					<p>Here below is integer addition Monoid in action.</p>
@@ -209,8 +209,8 @@
 					</p>
 					<h2>What about functional concurrency?</h2>
 					<p>
-						There is something very useful in regards of concurrency, ubiquitous and very simple. This is <strong>Monad</strong>. I know two <i>functional</i> jokes,
-						this is first one:
+						There is something very useful in regards of concurrency, ubiquitous and very simple. This is <em>Monad</em>. I know two "functional" jokes, this is first
+						one:
 					</p>
 					<blockquote>
 						<p>A monad is just a monoid in the category of endofunctors.</p>
@@ -218,10 +218,45 @@
 					<p>If you think it's not funny, you can always blame my sense of humor.</p>
 					<p>I will write more about Monads in next posts as Mondas, being Monoids also deserve it but here I'll just shed some light on Monads.</p>
 					<p>
-						Monads are ubiquitous, they were even introduced in Java with version 8: <code>Optional</code>, <code>Stream</code> and <code>CompletableFuture</code> are
+						Monads are ubiquitous, they are present in Java starting from version 8: <code>Optional</code>, <code>Stream</code> and <code>CompletableFuture</code> are
 						all Monads. One of Monad's powers lies in the fact that we use them always in the same way. Once we grasp the concept, many problems solutions become
-						obvious. <code>CompletableFuture</code> is not an exception, we can use it to compose concurrent computations and test them in deterministic way.
+						obvious.
 					</p>
+					<p>
+						For example, we use <code>Optional.of()</code> or <code>Optional.empty()</code> to create either <code>Optional</code> with some value in it or empty.
+						Then we use <code>Optional.flatMap()</code> to transform it's value using function also returning <code>Optional</code>.
+					</p>
+					<pre><code class="language-java" data-src="../src/test/java/tech/daniellas/p2/monads/OptionalTest.java"></code></pre>
+					<p>
+						We use <code>CompletableFuture</code> to compose computations where result may be available in the future or not at all. <code>CompletableFuture.supplyAsync()</code>
+						acts as <code>Optional.of()</code> and <code>CompletableFuture.thenCompose()</code> plays the same role as <code>Optional.flatMap()</code>.
+					</p>
+					<pre><code class="language-java" data-src="../src/test/java/tech/daniellas/p2/monads/CompletableFutureTest.java"></code></pre>
+					<p>
+						Let's compare <code>Optional.flatMap()</code> and <code>CompletableFuture.thenCompose()</code> signatures (without <em>public</em> modifiers):
+					</p>
+					<pre><code class="language-java" data-format="lines 7,7" data-src="../src/main/java/tech/daniellas/p2/OptionalSign.java"></code></pre> <pre><code
+						class="language-java" data-format="lines 8,9" data-src="../src/main/java/tech/daniellas/p2/CompletableFutureSign.java"></code></pre>
+					<p>If we'll look closely at both signatures, similarity will become obvious. Both methods return Monad and take as an argument function accepting
+						contained value and returning Monad as well. Existence of such method is one of Monads core features.</p>
+					<p>
+						The point here is that we really use Monads the same way - we safely compose multiple computations. In our examples, <code>Optional</code> is the guard
+						against null values, where <code>ComplatableFuture</code> protects us from performing computations on data that has never arrived due to some error, by
+						executing consecutive computations only when data becomes available.
+					</p>
+					<p>
+						It's time for real icing on the cake in regards of concurrent computations done monadic way with <code>CompletableFuture</code>. We all know how difficult
+						to test asynchronous code even when underlying services are mocked. Hopefully, most of <code>CompletableFuture</code> methods are overloaded and accept
+						additional argument of type: <code>java.util.concurrent.Executor</code>. <code>Executor</code> is simple functional interface:
+					</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p2/Executor.java"></code></pre>
+					<p>
+						We can use overloaded <code>CompletableFuture</code> methods and provide custom <code>Executor</code> implementation executing in current thread for
+						testing:
+					</p>
+					<pre><code class="language-java" data-src="../src/test/java/tech/daniellas/p2/monads/CompletableFutureWithSameThreadExecutorTest.java"></code></pre>
+					<p class="note">The very nature of Monads gives us guarantee that our concurrent computations will execute the same way as when executed in test
+						environment.</p>
 					<h1>Clean Code</h1>
 					<h1>Testability</h1>
 					<h1>Referential transparency</h1>
