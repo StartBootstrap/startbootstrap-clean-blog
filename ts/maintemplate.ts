@@ -160,7 +160,8 @@ lib.subnav = HMENU
   # First level menu-object, textual
   # start in the second level
 lib.subnav.entryLevel = 2 
-lib.subnav.wrap = <nav class="nav nav-pills nav-fill">|</nav>
+lib.subnav.stdWrap.wrap = <nav class="nav nav-pills nav-fill">|</nav>
+lib.subnav.stdWrap.required = 1
 lib.subnav.1 = TMENU
 lib.subnav.1 {
   expAll = 1
