@@ -10,16 +10,6 @@
 #  - name: Obtain SSL cert
 #    command: certbot -n certonly --webroot -w /usr/share/nginx/html -d smartup.net.pl --register-unsafely-without-email
 
-  - name: Sync website content
-    copy:
-      src: "{{ item }}"
-      dest: "/usr/share/nginx/daniellas.tech/"
-    with_items:
-      - "../../index.html"
-      - "../../css"
-      - "../../img"
-      - "../../js"
-      
   - name: Copy Nginx configuration
     template:
       src: files/daniellas.tech.conf
