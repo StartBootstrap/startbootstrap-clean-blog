@@ -1,0 +1,4 @@
+addTwo(1) = 
+increment(increment(1)) =
+increment(2) =
+3

@@ -1,0 +1,17 @@
+For number input:
+
+percentParser("0.5") =
+append(multiply(applySafe(createBigDecimal("0.5"),0),100)," %") =
+append(multiply(applySafe(0.5,0),100)," %") =
+append(multiply(0.5,100)," %") =
+append(50.0," %") =
+"50.0 %"
+
+For non-number input:
+
+percentParser("x") =
+append(multiply(applySafe(createBigDecimal("x"),0),100)," %") =
+append(multiply(applySafe(exception,0),100)," %") =
+append(multiply(0,100)," %") =
+append(0," %") =
+"0 %"
