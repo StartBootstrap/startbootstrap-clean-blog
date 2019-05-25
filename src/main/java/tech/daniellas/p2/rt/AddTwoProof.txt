@@ -1,4 +1,5 @@
-addTwo(1) = 
-increment(increment(1)) =
-increment(2) =
-3
+addTwo(x) = 
+increment(increment(x)) =
+increment(x + 1) =
+x + 1 + 1 =
+x + 2

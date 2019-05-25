@@ -344,7 +344,7 @@
 						discussions. Referentially transparent code is much easier to reason about than imperative code with side effects. What's better, referentially
 						transparent program can be proved using <em>Equational reasoning</em>. If you have ever been solving equations in school you are already familiar with
 						this technique idea. During equational reasoning, we analyse the program or function result for given input by gradually replacing every expression and
-						function with result thus reducing the code to very simple equality expression. Let's try to prove some code using equational reasoning.
+						functions with result thus reducing the code to very simple equality expression. Let's try to prove some code using equational reasoning.
 					</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p2/rt/AddTwoProof.java"></code></pre>
 					<p>Above assertions chain can be written on piece of paper:</p>
@@ -357,11 +357,12 @@
 						Write function accepting user provided string and convert it to percent format if possible. In case of non-number input, just return <em>0 %</em>.
 					</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p2/rt/PercentParserProof.java"></code></pre>
-					<p>And the same in form of equations:</p>
-					<pre><code data-src="../src/main/java/tech/daniellas/p2/rt/PercentParserProof.txt"></code></pre>
+					<p>And the same in form of equation:</p>
+					<pre class="line-numbers"><code data-src="../src/main/java/tech/daniellas/p2/rt/PercentParserProof.txt"></code></pre>
 					<p>
-						This time we had to evaluate two equations because there are two possible outputs of <code>createBigDecimal()</code> function: either parsed number or 0
-						in case of non number string provided as the argument. Our common sense let us reason that this should be enough.
+						This time we had two branches because there are two possible outputs of <code>createBigDecimal()</code> function: either <em>x</em> parsed to number or
+						0 in case of non number string provided as the argument. It's not formal proof but I hope that notation <em>(x or 0)</em> that appeared first time in line
+						<span class="badge badge-secondary">3</span> is understandable for you. Our common sense let us reason that this should be enough.
 					</p>
 					<p>Usually we don't do this in form of tests or written equations but we do it in our minds all the time. In case of side effects embedded in our
 						functions, the number of possible branches to analyse or test would grow and reasoning about the code would become much more difficult.</p>

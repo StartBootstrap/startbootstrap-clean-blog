@@ -16,7 +16,7 @@ public class PercentParserProof {
 	 *          to apply
 	 * @param def
 	 *          value to return in case of failure
-	 * @return either fun application result or default value
+	 * @return either fun result or default value
 	 */
 	static <A, B> Function<A, B> applySafe(Function<A, B> fun, B def) {
 		return value -> {
@@ -33,37 +33,37 @@ public class PercentParserProof {
 	static Function<String, String> percentParser = applySafe(
 	    NumberUtils::createBigDecimal, BigDecimal.ZERO)
 	        .andThen(number -> number.multiply(new BigDecimal(100)))
-	        .andThen(string -> string + " %");
+	        .andThen(number -> number + " %");
 
 	// Here we prove correctness for number input
 	@Test
 	public void numbersProof() {
 		// Our input value
-		String inputValue = "0.5";
+		String x = "0.5";
 
 		// Apply percentParser to inputValue
-		Assertions.assertThat(percentParser.apply(inputValue))
+		Assertions.assertThat(percentParser.apply(x))
 		    .isEqualTo(
 		        // Full implementation
 		        applySafe(NumberUtils::createBigDecimal, BigDecimal.ZERO)
 		            .andThen(number -> number.multiply(new BigDecimal(100)))
-		            .andThen(string -> string + " %")
-		            .apply(inputValue))
+		            .andThen(number -> number + " %")
+		            .apply(x))
 		    .isEqualTo(
 		        // Replace applySafe with result
 		        Function.<BigDecimal>identity()
 		            .andThen(number -> number.multiply(new BigDecimal(100)))
-		            .andThen(string -> string + " %")
-		            .apply(new BigDecimal("0.5")))
+		            .andThen(number -> number + " %")
+		            .apply(new BigDecimal(x)))
 		    .isEqualTo(
 		        // Replace multiplication with result
 		        Function.identity()
-		            .andThen(string -> string + " %")
-		            .apply(new BigDecimal("50.0")))
+		            .andThen(number -> number + " %")
+		            .apply(new BigDecimal(x).multiply(new BigDecimal(100))))
 		    .isEqualTo(
 		        // Replace string append with result
 		        Function.identity()
-		            .apply("50.0 %"))
+		            .apply(new BigDecimal(x).multiply(new BigDecimal(100))) + " %")
 		    // Replace with final result
 		    .isEqualTo("50.0 %");
 	}
@@ -72,31 +72,31 @@ public class PercentParserProof {
 	@Test
 	public void nonNumbersProof() {
 		// Our input value
-		String inputValue = "x";
+		String x = "x";
 
 		// Apply percentParser to inputValue
-		Assertions.assertThat(percentParser.apply(inputValue))
+		Assertions.assertThat(percentParser.apply(x))
 		    .isEqualTo(
 		        // Full implementation
 		        applySafe(NumberUtils::createBigDecimal, BigDecimal.ZERO)
 		            .andThen(number -> number.multiply(new BigDecimal(100)))
-		            .andThen(string -> string + " %")
-		            .apply(inputValue))
+		            .andThen(number -> number + " %")
+		            .apply(x))
 		    .isEqualTo(
 		        // Replace applySafe with result
 		        Function.<BigDecimal>identity()
 		            .andThen(number -> number.multiply(new BigDecimal(100)))
-		            .andThen(string -> string + " %")
+		            .andThen(number -> number + " %")
 		            .apply(new BigDecimal("0")))
 		    .isEqualTo(
 		        // Replace multiplication with result
 		        Function.identity()
-		            .andThen(string -> string + " %")
-		            .apply(new BigDecimal("0")))
+		            .andThen(number -> number + " %")
+		            .apply(new BigDecimal("0").multiply(new BigDecimal(100))))
 		    .isEqualTo(
 		        // Replace string append with result
 		        Function.identity()
-		            .apply("0 %"))
+		            .apply(new BigDecimal("0").multiply(new BigDecimal(100)) + " %"))
 		    // Replace with final result
 		    .isEqualTo("0 %");
 	}
