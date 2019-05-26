@@ -1,0 +1,23 @@
+- name: Configure daniellas.tech website
+  hosts: daniellas.tech
+  
+  tasks:
+  - name: Create webroot folder
+    file:
+      path: /usr/share/nginx/daniellas.tech
+      state: directory
+
+#  - name: Obtain SSL cert
+#    command: certbot -n certonly --webroot -w /usr/share/nginx/html -d smartup.net.pl --register-unsafely-without-email
+
+  - name: Copy Nginx configuration
+    template:
+      src: files/daniellas.tech.conf
+      dest: /etc/nginx/conf.d/
+    notify: Reload Nginx
+           
+  handlers:
+  - name: Reload Nginx
+    service:
+      name: nginx
+      state: restarted
