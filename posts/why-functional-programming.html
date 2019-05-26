@@ -175,8 +175,8 @@
 					</p>
 					<p>
 						It was easy, but what about another use case: we have large data set and want to calculate single result from it, like sum or mean? Can we do this in
-						parallel? Here comes the to the rescue very abstract beast named <em>Monoid</em>. I'll provide short description here and will write separate post about
-						Monoid as this concept truly deserves it.
+						parallel? Here comes to the rescue very abstract and handy beast named <em>Monoid</em>. I'll provide short Monoid description here and will write separate
+						post about Monoid as this concept truly deserves it.
 					</p>
 					<h3>Monoids</h3>
 					<p class="note">Monoid is a type, associative binary operation and neutral element called identity.</p>
@@ -360,9 +360,9 @@
 					<p>And the same in form of equation:</p>
 					<pre class="line-numbers"><code data-src="../src/main/java/tech/daniellas/p2/rt/PercentParserProof.txt"></code></pre>
 					<p>
-						This time we had two branches because there are two possible outputs of <code>createBigDecimal()</code> function: either <em>x</em> parsed to number or
-						0 in case of non number string provided as the argument. It's not formal proof but I hope that notation <em>(x || 0)</em> that appeared first time in line
-						<span class="badge badge-secondary">3</span> is understandable for you. Our common sense let us reason that this should be enough.
+						This time we had two branches because there are two possible outputs of <code>createBigDecimal()</code> function: either <em>x</em> parsed to number or 0
+						in case of non number string provided as the argument. It's not formal proof but I hope that notation <em>(x || 0)</em> that appeared first time in line <span
+							class="badge badge-secondary">3</span> is understandable for you. Our common sense let us reason that this should be enough.
 					</p>
 					<p>Usually we don't do this in form of tests or written equations but we do it in our minds all the time. In case of side effects embedded in our
 						functions, the number of possible branches to analyse or test would grow and reasoning about the code would become much more difficult.</p>
