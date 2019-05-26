@@ -30,10 +30,10 @@ public class SumBenchmark {
 		    .warmupIterations(2)
 		    .warmupTime(new TimeValue(1, TimeUnit.SECONDS))
 		    .forks(1)
-		    .measurementIterations(1)
+		    .measurementIterations(2)
 		    .measurementTime(new TimeValue(1, TimeUnit.SECONDS))
-		    .result("target/benchmark-streams.csv")
-		    .resultFormat(ResultFormatType.CSV)
+		    .result("data/benchmark-streams.json")
+		    .resultFormat(ResultFormatType.JSON)
 		    .build();
 
 		new Runner(options).run();
@@ -87,19 +87,6 @@ public class SumBenchmark {
 	public int sumViaParallelStreamCollect(Params params) {
 		return params.list.parallelStream()
 		    .collect(Collectors.summingInt(i -> i));
-	}
-
-	@Benchmark
-	public int sumViaIntStreamSum(Params params) {
-		return IntStream.range(0, params.size)
-		    .sum();
-	}
-
-	@Benchmark
-	public int sumViaParallelIntStreamSum(Params params) {
-		return IntStream.range(0, params.size)
-		    .parallel()
-		    .sum();
 	}
 
 }
