@@ -24,10 +24,17 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+{
   font-weight: 800;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #000000;
+}
+
+h6{
+  font-weight: 400;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #000000;
+  font-size: 85%;
 }
 
 a {
@@ -426,18 +433,19 @@ footer .copyright {
  * for the first page slideshow of images
  */
 
-.carousel-item {
-  margin-top: 5%;
-  margin-right: 5%;
-  height: 95vh;
-  min-height: 350px;
-  background: no-repeat center center scroll;
-  -webkit-background-size: 100%;
-  -moz-background-size: 100%;
-  -o-background-size: 100%;
-  background-size: 90%;
-  background-position: center;
-}
+ .carousel-item {
+   margin-top: 5%;
+   /*margin-right: 5%*/
+   height: 93vh;
+   min-height: 350px;
+   background: no-repeat center center scroll;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+ }
+
+
 
 .img {
   height: 100%;
