@@ -10,8 +10,12 @@ document.getElementById("mainNav").innerHTML =
    '<div class="collapse navbar-collapse" id="navbarResponsive">'+
      '<ul class="navbar-nav ml-auto">'+
 
+     '<li class="nav-item dropdown">'+
+       '<a class="nav-link" href="post.html" >Service</a>'+
+     '</li>'+
+
        '<li class="nav-item dropdown">'+
-         '<a class="nav-link" href="post.html" >Writing</a>'+
+         '<a class="nav-link" href="writing.html" >Writing</a>'+
        '</li>'+
 
 
