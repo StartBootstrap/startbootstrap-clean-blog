@@ -11,7 +11,7 @@ document.getElementById("mainNav").innerHTML =
      '<ul class="navbar-nav ml-auto">'+
 
      '<li class="nav-item dropdown">'+
-       '<a class="nav-link" href="post.html" >Service</a>'+
+       '<a class="nav-link" href="service.html" >Service</a>'+
      '</li>'+
 
        '<li class="nav-item dropdown">'+
@@ -35,7 +35,7 @@ document.getElementById("footer").innerHTML =
           '</a>'+
         '</li>'+
         '<li class="list-inline-item">'+
-          '<a href="https://www.facebook.com/maeganjong">'+
+          '<a href="https://www.facebook.com/maeganjong" target="_blank">'+
           '  <span class="fa-stack fa-lg">'+
           '    <i class="fas fa-circle fa-stack-2x"></i>'+
           '    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>'+
@@ -43,7 +43,7 @@ document.getElementById("footer").innerHTML =
           '</a>'+
         '</li>'+
         '<li class="list-inline-item">'+
-        '  <a href="https://github.com/maeganjong">'+
+        '  <a href="https://github.com/maeganjong" target="_blank">'+
         '    <span class="fa-stack fa-lg">'+
         '      <i class="fas fa-circle fa-stack-2x"></i>'+
         '      <i class="fab fa-github fa-stack-1x fa-inverse"></i>'+
@@ -51,7 +51,7 @@ document.getElementById("footer").innerHTML =
           '</a>'+
         '</li>'+
         '<li class="list-inline-item">'+
-        '  <a href="https://www.linkedin.com/in/maegan-jong/">'+
+        '  <a href="https://www.linkedin.com/in/maegan-jong/" target="_blank">'+
         '    <span class="fa-stack fa-lg">'+
         '      <i class="fas fa-circle fa-stack-2x"></i>'+
         '      <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>'+

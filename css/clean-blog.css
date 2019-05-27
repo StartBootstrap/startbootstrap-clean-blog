@@ -12,7 +12,7 @@ body {
 
 p {
   line-height: 1.5;
-  margin: 30px 0;
+  margin-bottom: 25px;
 }
 
 p a {
@@ -208,15 +208,15 @@ header.masthead .overlay {
 header.masthead .page-heading,
 header.masthead .post-heading,
 header.masthead .site-heading {
-  padding: 125px 0 50px;
-  color: white;
+  padding: 100px 0 50px;
+  color: black;
 }
 
 @media only screen and (min-width: 768px) {
   header.masthead .page-heading,
   header.masthead .post-heading,
   header.masthead .site-heading {
-    padding: 100px 0;
+    padding: 90px 0;
   }
 }
 
@@ -452,6 +452,13 @@ footer .copyright {
   width: 75%;
   background-position: center;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
+}
+
+/*IMAGE SHOULD BE any width by ~600*/
+.img-fluid{max-width:100%;height:auto;}
+
+.text{
+  margin-left: 20px;
+  margin-top: 0em;
 }
