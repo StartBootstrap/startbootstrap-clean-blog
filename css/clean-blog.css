@@ -11,6 +11,7 @@ body {
 }
 
 p {
+  font-size:.8em;
   line-height: 1.5;
   margin-bottom: 25px;
 }
@@ -24,18 +25,14 @@ h2,
 h3,
 h4,
 h5,
+h6
 {
   font-weight: 800;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #000000;
 }
 
-h6{
-  font-weight: 400;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #000000;
-  font-size: 85%;
-}
+
 
 a {
   color: #212529;
@@ -69,11 +66,11 @@ blockquote {
   border-bottom-left-radius: 5px;
 }
 
-::-moz-selection {
+/*::-moz-selection {
   color: #fff;
   background: #0085A1;
   text-shadow: none;
-}
+}*/
 
 ::selection {
   color: #fff;
@@ -81,10 +78,6 @@ blockquote {
   text-shadow: none;
 }
 
-img::-moz-selection {
-  color: #fff;
-  background: transparent;
-}
 
 img::selection {
   color: #fff;
@@ -208,7 +201,7 @@ header.masthead .overlay {
 header.masthead .page-heading,
 header.masthead .post-heading,
 header.masthead .site-heading {
-  padding: 100px 0 50px;
+  padding: 50px 0 20px;
   color: black;
 }
 
@@ -216,7 +209,7 @@ header.masthead .site-heading {
   header.masthead .page-heading,
   header.masthead .post-heading,
   header.masthead .site-heading {
-    padding: 90px 0;
+    padding: 40px 0;
   }
 }
 
@@ -266,7 +259,7 @@ header.masthead .post-heading .subheading {
 }
 
 header.masthead .post-heading .meta {
-  font-size: 20px;
+  font-size: 2em;
   font-weight: 300;
   font-style: italic;
   font-family: 'Lora', 'Times New Roman', serif;
@@ -298,6 +291,7 @@ header.masthead .post-heading .meta a {
   font-size: 30px;
   margin-top: 30px;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .post-preview > a > .post-subtitle {
@@ -404,13 +398,16 @@ footer .copyright {
   text-align: center;
 }
 
+
 .btn {
-  font-size: 14px;
+
   font-weight: 800;
   padding: 15px 25px;
   letter-spacing: 1px;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   border-radius: 0;
+  color: #000000;
+  font-size: 85%;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -461,4 +458,29 @@ footer .copyright {
 .text{
   margin-left: 20px;
   margin-top: 0em;
+  font-size: 1em;
+}
+
+.title{
+  font-weight: 800;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #000000;
+}
+
+.servicetitle{
+  font-weight: 800;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #000000;
+  text-align: center;
+}
+.content {
+  font-size: 20px;
+}
+
+.rightnav {
+  margin-right: 30px;
+}
+
+.leftnav {
+  margin-left: 30px;
 }

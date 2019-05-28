@@ -62,3 +62,8 @@ document.getElementById("footer").innerHTML =
       '</div>'+
   '</div>'+
 '</div>';
+
+
+$(document).ready(function(){
+   $('#about').slideDown();
+});
