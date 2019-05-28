@@ -1,28 +1,23 @@
-// // function to find all the blog posts
-// function search_post() {
-// 	var glob = require("glob")
+var repeat = require('repeat-string');
+var fs = require('fs');
+var path = require('path');
 
-// 	// search all files ending with html and return the file name
-// 	glob("posts/*.html", {realpath: false, nodir: true}, function (er, files) {
-// 		// files is an array of filenames.
-// 		// If the `nonull` option is set, and nothing
-// 		// was found, then files is ["**/*.js"]
-// 		// er is an error object or null.
+var htmls = search_post();
+console.log('\n');
+console.log(htmls);
 
-// 		for (file of files){
-// 			console.log(file) // filename with relative path
-// 			file = file.substring(9,file.length-1) // file name, remove relative path
-// 		// console.log(file)
+function search_post() {
+	var files = fs.readdirSync("./posts/");
+	var htmls = [];
 
-// 		}
-	
-// 		console.log(files);
-// 		console.log(files.length)
+	for(var i in files) {
+		console.log(files[i]);
+   		if(path.extname(files[i]) === ".html") {
+    	   //do something
+	       console.log("find one html");
+	       htmls.push(files[i]);
+   		}
+   	}
 
-// 		return files.length;
-		
-// 	})
-// }
-
-// l = search_post(); 
-// console.log(l);
+   	return htmls;
+}
