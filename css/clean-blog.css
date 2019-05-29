@@ -11,9 +11,10 @@ body {
 }
 
 p {
-  font-size:.8em;
+
   line-height: 1.5;
   margin-bottom: 25px;
+
 }
 
 p a {
@@ -180,7 +181,7 @@ img::-moz-selection {
 
 /* edit the page header and how much of a bottom margin*/
 header.masthead {
-  margin-bottom: 0px;
+  margin-bottom: 50px;
   background: no-repeat center center;
   background-color: #ffffff;
   background-attachment: scroll;
@@ -192,17 +193,17 @@ header.masthead .overlay {
   position: absolute;
   top: 0;
   left: 0;
-  height: 0%;
+  height: 100%;
   width: 100%;
   background-color: #212529;
-  opacity: 0.5;
+  opacity: 0;
 }
 
 /*edits the space between the top and the navbar*/
 header.masthead .page-heading,
 header.masthead .post-heading,
 header.masthead .site-heading {
-  padding: 50px 0 20px;
+  padding: 200px 0 150px;
   color: black;
 }
 
@@ -211,7 +212,7 @@ header.masthead .site-heading {
   header.masthead .page-heading,
   header.masthead .post-heading,
   header.masthead .site-heading {
-    padding: 40px 0;
+    padding: 200px 0;
   }
 }
 
@@ -239,7 +240,7 @@ header.masthead .site-heading .subheading {
 @media only screen and (min-width: 768px) {
   header.masthead .page-heading h1,
   header.masthead .site-heading h1 {
-    font-size: 50px;
+    font-size: 80px;
   }
 }
 
@@ -261,7 +262,7 @@ header.masthead .post-heading .subheading {
 }
 
 header.masthead .post-heading .meta {
-  font-size: 2em;
+  font-size: 20px;
   font-weight: 300;
   font-style: italic;
   font-family: 'Lora', 'Times New Roman', serif;
@@ -492,7 +493,7 @@ footer .copyright {
   top: 45%;
   right: 0px;
   width: 45%;
-  height: 10%;
+  height: 8%;
   background-color: #0085A1;
   color: white;
   padding-left: 20px;
@@ -514,7 +515,7 @@ footer .copyright {
   top: 60%;
   left: 0px;
   width: 30%;
-  height: 10%;
+  height: 8%;
   background-color: #0085A1;
   color: white;
   padding-left: 20px;
@@ -537,7 +538,7 @@ footer .copyright {
   top: 10%;
   left: 0px;
   width: 45%;
-  height: 10%;
+  height: 8%;
   background-color: #0085A1;
   color: white;
   padding-left: 20px;
@@ -559,7 +560,7 @@ footer .copyright {
   top: 10%;
   left: 0px;
   width: 30%;
-  height: 10%;
+  height: 8%;
   background-color: #0085A1;
   color: white;
   /*padding to align the text*/
@@ -582,7 +583,7 @@ footer .copyright {
   top: 25%;
   left: 0px;
   width: 40%;
-  height: 10%;
+  height: 8%;
   /*background-color: #0085A1;*/
   color: white;
   padding-left: 40px;
@@ -597,4 +598,8 @@ footer .copyright {
   vertical-align: baseline;
   font-size: 4em;
 
+}
+
+.below-nav {
+  margin-top: 5%;
 }
