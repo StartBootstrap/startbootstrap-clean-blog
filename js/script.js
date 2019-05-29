@@ -68,21 +68,21 @@ document.getElementById("footer").innerHTML =
 
 $("about.html").ready(function(){
     $("#about").fadeIn(1000);
-    $("#face").fadeIn(1000);
-    $("#bio").fadeIn(1000);
-    $("#award").fadeIn(1000);
+    $("#face").fadeIn(2000);
+    $("#bio").fadeIn(2000);
+    $("#award").fadeIn(2000);
 
 });
 
 $("index.html").ready(function(){
-
-    $("#carouselExampleIndicators").fadeIn(1000);
+    $("#index").fadeIn(1000);
+    $("#carouselExampleIndicators").fadeIn(1500);
 });
 
 $("service.html").ready(function(){
-
-    $("#proj1").fadeIn(1000);
-    $("#proj2").fadeIn(1500);
-    $("#proj3").fadeIn(2000);
+    $("#service").fadeIn(1000);
+    $("#proj1").fadeIn(1500);
+    $("#proj2").fadeIn(2000);
+    $("#proj3").fadeIn(2500);
 
 });
