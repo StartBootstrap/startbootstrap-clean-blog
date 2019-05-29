@@ -192,7 +192,7 @@ header.masthead {
 header.masthead .overlay {
   position: absolute;
   top: 0;
-  left: 0;
+: 0;
   height: 100%;
   width: 100%;
   background-color: #212529;
@@ -208,7 +208,7 @@ header.masthead .site-heading {
 }
 
 /*edits the space between the top and the navbar*/
-@media only screen and (min-width: 768px) {
+ only screen and (min-width: 768px) {
   header.masthead .page-heading,
   header.masthead .post-heading,
   header.masthead .site-heading {
@@ -242,6 +242,16 @@ header.masthead .site-heading .subheading {
   header.masthead .site-heading h1 {
     font-size: 80px;
   }
+}
+
+.below-nav {
+  margin-top: 5%;
+}
+
+only screen and (min-width: 768px) {
+ .below-nav {
+   padding: 100px 0;
+ }
 }
 
 header.masthead .post-heading h1 {
@@ -493,21 +503,7 @@ footer .copyright {
   top: 45%;
   right: 0px;
   width: 45%;
-  height: 8%;
-  background-color: #0085A1;
-  color: white;
-  padding-left: 20px;
-  padding-right: 20px;
-  background: rgba(0, 133, 161, 0.6);
 
-
-  font-weight: 100;
-  font-family: 'Abel', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #ffffff;
-  text-align: center;
-  margin: auto;
-  vertical-align: baseline;
-  font-size: 4em;
 }
 
 .c211text-block {
@@ -515,21 +511,6 @@ footer .copyright {
   top: 60%;
   left: 0px;
   width: 30%;
-  height: 8%;
-  background-color: #0085A1;
-  color: white;
-  padding-left: 20px;
-  padding-right: 20px;
-  background: rgba(0, 133, 161, 0.6);
-
-
-  font-weight: 100;
-  font-family: 'Abel', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #ffffff;
-  text-align: center;
-  margin: auto;
-  vertical-align: baseline;
-  font-size: 4em;
 
 }
 
@@ -538,20 +519,7 @@ footer .copyright {
   top: 10%;
   left: 0px;
   width: 45%;
-  height: 8%;
-  background-color: #0085A1;
-  color: white;
-  padding-left: 20px;
-  padding-right: 20px;
-  background: rgba(0, 133, 161, 0.6);
 
-  font-weight: 100;
-  font-family: 'Abel', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #ffffff;
-  text-align: center;
-  margin: auto;
-  vertical-align: baseline;
-  font-size: 4em;
 
 }
 
@@ -560,21 +528,7 @@ footer .copyright {
   top: 10%;
   left: 0px;
   width: 30%;
-  height: 8%;
-  background-color: #0085A1;
-  color: white;
-  /*padding to align the text*/
-  padding-left: 40px;
-  padding-right: 20px;
-  background: rgba(0, 133, 161, 0.6);
 
-  font-weight: 100;
-  font-family: 'Abel', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #ffffff;
-  text-align: left;
-  margin: auto;
-  vertical-align: baseline;
-  font-size: 4em;
 
 }
 
@@ -583,8 +537,12 @@ footer .copyright {
   top: 25%;
   left: 0px;
   width: 40%;
-  height: 8%;
+
   /*background-color: #0085A1;*/
+}
+
+.text-block{
+  height: 8%;
   color: white;
   padding-left: 40px;
   padding-right: 20px;
@@ -597,9 +555,10 @@ footer .copyright {
 
   vertical-align: baseline;
   font-size: 4em;
-
 }
 
-.below-nav {
-  margin-top: 5%;
+@media only screen and (min-width: 768px) {
+  .text-block{
+    font-size: 55px;
+  }
 }
