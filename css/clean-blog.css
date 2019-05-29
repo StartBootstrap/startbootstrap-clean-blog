@@ -497,6 +497,7 @@ footer .copyright {
   color: white;
   padding-left: 20px;
   padding-right: 20px;
+  background: rgba(0, 133, 161, 0.6);
 
 
   font-weight: 100;
@@ -518,6 +519,7 @@ footer .copyright {
   color: white;
   padding-left: 20px;
   padding-right: 20px;
+  background: rgba(0, 133, 161, 0.6);
 
 
   font-weight: 100;
@@ -540,7 +542,7 @@ footer .copyright {
   color: white;
   padding-left: 20px;
   padding-right: 20px;
-
+  background: rgba(0, 133, 161, 0.6);
 
   font-weight: 100;
   font-family: 'Abel', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -556,18 +558,19 @@ footer .copyright {
   position: absolute;
   top: 10%;
   left: 0px;
-  width: 35%;
+  width: 30%;
   height: 10%;
   background-color: #0085A1;
   color: white;
-  padding-left: 20px;
+  /*padding to align the text*/
+  padding-left: 40px;
   padding-right: 20px;
-
+  background: rgba(0, 133, 161, 0.6);
 
   font-weight: 100;
   font-family: 'Abel', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #ffffff;
-  text-align: center;
+  text-align: left;
   margin: auto;
   vertical-align: baseline;
   font-size: 4em;
@@ -580,17 +583,17 @@ footer .copyright {
   left: 0px;
   width: 40%;
   height: 10%;
-  background-color: #0085A1;
+  /*background-color: #0085A1;*/
   color: white;
-  padding-left: 20px;
+  padding-left: 40px;
   padding-right: 20px;
-
+  background: rgba(0, 133, 161, 0.6);
 
   font-weight: 100;
   font-family: 'Abel', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #ffffff;
-  text-align: center;
-  margin: auto;
+  text-align: left;
+
   vertical-align: baseline;
   font-size: 4em;
 
