@@ -59,11 +59,30 @@ document.getElementById("footer").innerHTML =
           '</a>'+
         '</li>'+
       '</ul>'+
+
+      '<p class="copyright text-muted" style= "margin-top: 1em;">Created by Maegan Jong &copy; 2019</p>'+
       '</div>'+
   '</div>'+
 '</div>';
 
 
-$(document).ready(function(){
-   $('#about').slideDown();
+$("about.html").ready(function(){
+    $("#about").fadeIn(1000);
+    $("#face").fadeIn(1000);
+    $("#bio").fadeIn(1000);
+    $("#award").fadeIn(1000);
+
+});
+
+$("index.html").ready(function(){
+
+    $("#carouselExampleIndicators").fadeIn(1000);
+});
+
+$("service.html").ready(function(){
+
+    $("#proj1").fadeIn(1000);
+    $("#proj2").fadeIn(1500);
+    $("#proj3").fadeIn(2000);
+
 });
