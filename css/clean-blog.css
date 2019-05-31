@@ -116,6 +116,11 @@ code.language-java {
   display: block;
 }
 
+table.benchmark {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12pt;
+}
+
 #mainNav {
   position: absolute;
   border-bottom: 1px solid #e9ecef;

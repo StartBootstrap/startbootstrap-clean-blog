@@ -1,0 +1,1204 @@
+[
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.IntegerSumBenchmark.collect",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 10,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "1000"
+        },
+        "primaryMetric" : {
+            "score" : 0.8853546711148208,
+            "scoreError" : 0.04713616341362638,
+            "scoreConfidence" : [
+                0.8382185077011944,
+                0.9324908345284472
+            ],
+            "scorePercentiles" : {
+                "0.0" : 0.8657187367181853,
+                "50.0" : 0.8739411051932638,
+                "90.0" : 0.9625150239948546,
+                "95.0" : 0.9694403121574086,
+                "99.0" : 0.9694403121574086,
+                "99.9" : 0.9694403121574086,
+                "99.99" : 0.9694403121574086,
+                "99.999" : 0.9694403121574086,
+                "99.9999" : 0.9694403121574086,
+                "100.0" : 0.9694403121574086
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    0.8845888143172776,
+                    0.8657187367181853,
+                    0.8749074411036558,
+                    0.9001874305318682,
+                    0.8710723080447076,
+                    0.8729747692828719,
+                    0.8709115681386153,
+                    0.8677905172772834,
+                    0.9694403121574086,
+                    0.8759548135763339
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.IntegerSumBenchmark.collect",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 10,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "10000"
+        },
+        "primaryMetric" : {
+            "score" : 45.77891104162328,
+            "scoreError" : 1.7768534380059882,
+            "scoreConfidence" : [
+                44.002057603617295,
+                47.55576447962927
+            ],
+            "scorePercentiles" : {
+                "0.0" : 44.97258293988039,
+                "50.0" : 45.259798338794724,
+                "90.0" : 48.55186068161933,
+                "95.0" : 48.77507719691798,
+                "99.0" : 48.77507719691798,
+                "99.9" : 48.77507719691798,
+                "99.99" : 48.77507719691798,
+                "99.999" : 48.77507719691798,
+                "99.9999" : 48.77507719691798,
+                "100.0" : 48.77507719691798
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    46.2415174071848,
+                    48.77507719691798,
+                    46.542912043931494,
+                    45.25137566736042,
+                    44.97258293988039,
+                    45.26822101022902,
+                    45.23221563927457,
+                    45.31707933846851,
+                    45.18719423485293,
+                    45.00093493813274
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.IntegerSumBenchmark.collect",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 10,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "100000"
+        },
+        "primaryMetric" : {
+            "score" : 455.35257744095844,
+            "scoreError" : 1.8242428712897092,
+            "scoreConfidence" : [
+                453.52833456966874,
+                457.17682031224814
+            ],
+            "scorePercentiles" : {
+                "0.0" : 453.4842171350861,
+                "50.0" : 455.31217032726386,
+                "90.0" : 456.8307684931507,
+                "95.0" : 456.838297260274,
+                "99.0" : 456.838297260274,
+                "99.9" : 456.838297260274,
+                "99.99" : 456.838297260274,
+                "99.999" : 456.838297260274,
+                "99.9999" : 456.838297260274,
+                "100.0" : 456.838297260274
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    454.8368553888131,
+                    455.1784613284804,
+                    454.7990827272727,
+                    453.64418820861675,
+                    456.838297260274,
+                    455.9434899726527,
+                    456.7630095890411,
+                    455.44587932604736,
+                    453.4842171350861,
+                    456.5922934732999
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.IntegerSumBenchmark.collect",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 10,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "1000000"
+        },
+        "primaryMetric" : {
+            "score" : 4864.224715608429,
+            "scoreError" : 21.140981913712924,
+            "scoreConfidence" : [
+                4843.083733694716,
+                4885.365697522141
+            ],
+            "scorePercentiles" : {
+                "0.0" : 4843.542251207729,
+                "50.0" : 4865.3232160194175,
+                "90.0" : 4889.527378572105,
+                "95.0" : 4890.783873170732,
+                "99.0" : 4890.783873170732,
+                "99.9" : 4890.783873170732,
+                "99.99" : 4890.783873170732,
+                "99.999" : 4890.783873170732,
+                "99.9999" : 4890.783873170732,
+                "100.0" : 4890.783873170732
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    4870.527286407767,
+                    4843.542251207729,
+                    4863.884514563107,
+                    4854.340463768116,
+                    4849.926004830918,
+                    4866.761917475728,
+                    4878.218927184466,
+                    4890.783873170732,
+                    4856.062757281554,
+                    4868.1991601941745
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.IntegerSumBenchmark.collectParallel",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 10,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "1000"
+        },
+        "primaryMetric" : {
+            "score" : 25.89198274674906,
+            "scoreError" : 0.2789598869170648,
+            "scoreConfidence" : [
+                25.613022859831997,
+                26.170942633666126
+            ],
+            "scorePercentiles" : {
+                "0.0" : 25.600826703527364,
+                "50.0" : 25.882299175007304,
+                "90.0" : 26.182656772714147,
+                "95.0" : 26.183820635668656,
+                "99.0" : 26.183820635668656,
+                "99.9" : 26.183820635668656,
+                "99.99" : 26.183820635668656,
+                "99.999" : 26.183820635668656,
+                "99.9999" : 26.183820635668656,
+                "100.0" : 26.183820635668656
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    25.84226715071962,
+                    25.92440543833273,
+                    26.183820635668656,
+                    25.600826703527364,
+                    26.17218200612357,
+                    25.795353589022724,
+                    25.966060156817946,
+                    25.72575517028501,
+                    25.78682541769802,
+                    25.92233119929499
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.IntegerSumBenchmark.collectParallel",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 10,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "10000"
+        },
+        "primaryMetric" : {
+            "score" : 148.72592307465757,
+            "scoreError" : 0.5757209071889108,
+            "scoreConfidence" : [
+                148.15020216746865,
+                149.3016439818465
+            ],
+            "scorePercentiles" : {
+                "0.0" : 148.38625994065282,
+                "50.0" : 148.60168387107137,
+                "90.0" : 149.54892301990492,
+                "95.0" : 149.60583275991024,
+                "99.0" : 149.60583275991024,
+                "99.9" : 149.60583275991024,
+                "99.99" : 149.60583275991024,
+                "99.999" : 149.60583275991024,
+                "99.9999" : 149.60583275991024,
+                "100.0" : 149.60583275991024
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    148.60727236255573,
+                    148.59609537958698,
+                    148.7521295359905,
+                    149.60583275991024,
+                    148.38625994065282,
+                    148.38769421364987,
+                    148.45132640641236,
+                    148.93855234549517,
+                    148.49733244246474,
+                    149.03673535985695
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.IntegerSumBenchmark.collectParallel",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 10,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "100000"
+        },
+        "primaryMetric" : {
+            "score" : 1025.4267791679558,
+            "scoreError" : 17.20948727597908,
+            "scoreConfidence" : [
+                1008.2172918919767,
+                1042.6362664439348
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1007.8347029204431,
+                "50.0" : 1030.0183704455972,
+                "90.0" : 1040.368265064241,
+                "95.0" : 1040.8051352757543,
+                "99.0" : 1040.8051352757543,
+                "99.9" : 1040.8051352757543,
+                "99.99" : 1040.8051352757543,
+                "99.999" : 1040.8051352757543,
+                "99.9999" : 1040.8051352757543,
+                "100.0" : 1040.8051352757543
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    1011.1513858585859,
+                    1007.8347029204431,
+                    1012.8937975708502,
+                    1021.5881695607764,
+                    1031.2837783505154,
+                    1036.4364331606218,
+                    1030.5251462409888,
+                    1032.2376480908154,
+                    1040.8051352757543,
+                    1029.5115946502058
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.IntegerSumBenchmark.collectParallel",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 10,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "1000000"
+        },
+        "primaryMetric" : {
+            "score" : 10823.2487166627,
+            "scoreError" : 561.7086868794229,
+            "scoreConfidence" : [
+                10261.540029783277,
+                11384.957403542123
+            ],
+            "scorePercentiles" : {
+                "0.0" : 10495.44259375,
+                "50.0" : 10640.025514333707,
+                "90.0" : 11486.30990750958,
+                "95.0" : 11515.881620689655,
+                "99.0" : 11515.881620689655,
+                "99.9" : 11515.881620689655,
+                "99.99" : 11515.881620689655,
+                "99.999" : 11515.881620689655,
+                "99.9999" : 11515.881620689655,
+                "100.0" : 11515.881620689655
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    10495.44259375,
+                    10496.508791666667,
+                    10507.227885416667,
+                    10545.535515789474,
+                    10574.260305263158,
+                    11094.731505494505,
+                    11515.881620689655,
+                    11076.943736263736,
+                    11220.16448888889,
+                    10705.790723404256
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.IntegerSumBenchmark.forEach",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 10,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "1000"
+        },
+        "primaryMetric" : {
+            "score" : 0.8526370344086697,
+            "scoreError" : 0.017436644107540217,
+            "scoreConfidence" : [
+                0.8352003903011295,
+                0.8700736785162099
+            ],
+            "scorePercentiles" : {
+                "0.0" : 0.8438784124717965,
+                "50.0" : 0.8473140237409742,
+                "90.0" : 0.8799768493814738,
+                "95.0" : 0.8822813607139328,
+                "99.0" : 0.8822813607139328,
+                "99.9" : 0.8822813607139328,
+                "99.99" : 0.8822813607139328,
+                "99.999" : 0.8822813607139328,
+                "99.9999" : 0.8822813607139328,
+                "100.0" : 0.8822813607139328
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    0.8460538003542926,
+                    0.8468838828828295,
+                    0.8467904440402891,
+                    0.8563102891151366,
+                    0.8456479563493573,
+                    0.8438784124717965,
+                    0.8515437861706013,
+                    0.8592362473893429,
+                    0.8822813607139328,
+                    0.8477441645991189
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.IntegerSumBenchmark.forEach",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 10,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "10000"
+        },
+        "primaryMetric" : {
+            "score" : 9.29057807676552,
+            "scoreError" : 0.0513579870380966,
+            "scoreConfidence" : [
+                9.239220089727423,
+                9.341936063803617
+            ],
+            "scorePercentiles" : {
+                "0.0" : 9.255004821217057,
+                "50.0" : 9.282261626831044,
+                "90.0" : 9.36129945460813,
+                "95.0" : 9.366719668093316,
+                "99.0" : 9.366719668093316,
+                "99.9" : 9.366719668093316,
+                "99.99" : 9.366719668093316,
+                "99.999" : 9.366719668093316,
+                "99.9999" : 9.366719668093316,
+                "100.0" : 9.366719668093316
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    9.286390826369544,
+                    9.366719668093316,
+                    9.312517533241461,
+                    9.268774162457717,
+                    9.30238466618301,
+                    9.310540495252281,
+                    9.269608078299072,
+                    9.278132427292546,
+                    9.255004821217057,
+                    9.255708089249193
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.IntegerSumBenchmark.forEach",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 10,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "100000"
+        },
+        "primaryMetric" : {
+            "score" : 150.06767269544918,
+            "scoreError" : 3.7918280744498145,
+            "scoreConfidence" : [
+                146.27584462099935,
+                153.859500769899
+            ],
+            "scorePercentiles" : {
+                "0.0" : 147.96051183431953,
+                "50.0" : 148.75390878085378,
+                "90.0" : 154.3652094902015,
+                "95.0" : 154.42960182183108,
+                "99.0" : 154.42960182183108,
+                "99.9" : 154.42960182183108,
+                "99.99" : 154.42960182183108,
+                "99.999" : 154.42960182183108,
+                "99.9999" : 154.42960182183108,
+                "100.0" : 154.42960182183108
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    149.8365854681648,
+                    148.48926039192398,
+                    147.96051183431953,
+                    153.78567850553506,
+                    154.42960182183108,
+                    152.44092211553118,
+                    148.87457933908902,
+                    148.63323822261853,
+                    148.00172240307782,
+                    148.22462685240072
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.IntegerSumBenchmark.forEach",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 10,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "1000000"
+        },
+        "primaryMetric" : {
+            "score" : 1999.290706337129,
+            "scoreError" : 13.31361620165804,
+            "scoreConfidence" : [
+                1985.977090135471,
+                2012.604322538787
+            ],
+            "scorePercentiles" : {
+                "0.0" : 1983.8279643564356,
+                "50.0" : 1997.011950016302,
+                "90.0" : 2011.9672305220884,
+                "95.0" : 2012.1813795180724,
+                "99.0" : 2012.1813795180724,
+                "99.9" : 2012.1813795180724,
+                "99.99" : 2012.1813795180724,
+                "99.999" : 2012.1813795180724,
+                "99.9999" : 2012.1813795180724,
+                "100.0" : 2012.1813795180724
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    1998.6008163672655,
+                    1993.7005776892431,
+                    2008.2107975951903,
+                    2001.78571,
+                    1983.8279643564356,
+                    2012.1813795180724,
+                    1994.7167330677291,
+                    1994.4201115537849,
+                    2010.039889558233,
+                    1995.4230836653387
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.IntegerSumBenchmark.reduce",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 10,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "1000"
+        },
+        "primaryMetric" : {
+            "score" : 5.832598443219263,
+            "scoreError" : 0.5521640038040811,
+            "scoreConfidence" : [
+                5.280434439415182,
+                6.384762447023344
+            ],
+            "scorePercentiles" : {
+                "0.0" : 5.375047872654869,
+                "50.0" : 5.87110713789704,
+                "90.0" : 6.405453962634898,
+                "95.0" : 6.428208927308953,
+                "99.0" : 6.428208927308953,
+                "99.9" : 6.428208927308953,
+                "99.99" : 6.428208927308953,
+                "99.999" : 6.428208927308953,
+                "99.9999" : 6.428208927308953,
+                "100.0" : 6.428208927308953
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    5.941649574934503,
+                    6.428208927308953,
+                    5.441066763504214,
+                    5.375047872654869,
+                    5.871353778597049,
+                    6.200659280568403,
+                    6.165770233280726,
+                    5.87086049719703,
+                    5.413496776672964,
+                    5.617870727473923
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.IntegerSumBenchmark.reduce",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 10,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "10000"
+        },
+        "primaryMetric" : {
+            "score" : 55.443181258157345,
+            "scoreError" : 6.888935744777332,
+            "scoreConfidence" : [
+                48.55424551338001,
+                62.33211700293468
+            ],
+            "scorePercentiles" : {
+                "0.0" : 49.09136090114852,
+                "50.0" : 54.55177783963329,
+                "90.0" : 65.73556592159301,
+                "95.0" : 66.53918846460884,
+                "99.0" : 66.53918846460884,
+                "99.9" : 66.53918846460884,
+                "99.99" : 66.53918846460884,
+                "99.999" : 66.53918846460884,
+                "99.9999" : 66.53918846460884,
+                "100.0" : 66.53918846460884
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    49.09136090114852,
+                    55.03945173893903,
+                    55.279694135853646,
+                    66.53918846460884,
+                    53.42176471530819,
+                    54.06410394032755,
+                    53.488387593582885,
+                    58.50296303445049,
+                    55.5667935,
+                    53.43810455735428
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.IntegerSumBenchmark.reduce",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 10,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "100000"
+        },
+        "primaryMetric" : {
+            "score" : 585.3041865098091,
+            "scoreError" : 57.02986413395939,
+            "scoreConfidence" : [
+                528.2743223758498,
+                642.3340506437685
+            ],
+            "scorePercentiles" : {
+                "0.0" : 549.8855937328202,
+                "50.0" : 575.4657610086847,
+                "90.0" : 656.0314277264965,
+                "95.0" : 658.2245467105263,
+                "99.0" : 658.2245467105263,
+                "99.9" : 658.2245467105263,
+                "99.99" : 658.2245467105263,
+                "99.999" : 658.2245467105263,
+                "99.9999" : 658.2245467105263,
+                "100.0" : 658.2245467105263
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    549.8855937328202,
+                    554.2821318559556,
+                    658.2245467105263,
+                    592.11144852071,
+                    557.6192140468228,
+                    554.7036856984479,
+                    597.9645355648536,
+                    636.293356870229,
+                    558.8200734966592,
+                    593.137278601067
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.IntegerSumBenchmark.reduce",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 10,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "1000000"
+        },
+        "primaryMetric" : {
+            "score" : 5890.610417449852,
+            "scoreError" : 464.54746199686423,
+            "scoreConfidence" : [
+                5426.062955452988,
+                6355.157879446717
+            ],
+            "scorePercentiles" : {
+                "0.0" : 5528.804756906077,
+                "50.0" : 5915.239837347313,
+                "90.0" : 6310.915282389938,
+                "95.0" : 6310.979389937107,
+                "99.0" : 6310.979389937107,
+                "99.9" : 6310.979389937107,
+                "99.99" : 6310.979389937107,
+                "99.999" : 6310.979389937107,
+                "99.9999" : 6310.979389937107,
+                "100.0" : 6310.979389937107
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    5629.003117977528,
+                    6110.3562865853655,
+                    6310.979389937107,
+                    5528.804756906077,
+                    6057.029307228916,
+                    5975.661686390533,
+                    5854.817988304094,
+                    6310.338314465409,
+                    5550.654193370166,
+                    5578.459133333334
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.IntegerSumBenchmark.reduceParallel",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 10,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "1000"
+        },
+        "primaryMetric" : {
+            "score" : 16.666786351366774,
+            "scoreError" : 0.21937824524438357,
+            "scoreConfidence" : [
+                16.447408106122392,
+                16.886164596611156
+            ],
+            "scorePercentiles" : {
+                "0.0" : 16.423929024205997,
+                "50.0" : 16.664185719136757,
+                "90.0" : 16.92566377946752,
+                "95.0" : 16.939192256228722,
+                "99.0" : 16.939192256228722,
+                "99.9" : 16.939192256228722,
+                "99.99" : 16.939192256228722,
+                "99.999" : 16.939192256228722,
+                "99.9999" : 16.939192256228722,
+                "100.0" : 16.939192256228722
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    16.423929024205997,
+                    16.513653204101516,
+                    16.803907488616698,
+                    16.754327470097497,
+                    16.652551916480736,
+                    16.939192256228722,
+                    16.61723711888344,
+                    16.607657788110263,
+                    16.6795877251501,
+                    16.67581952179278
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.IntegerSumBenchmark.reduceParallel",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 10,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "10000"
+        },
+        "primaryMetric" : {
+            "score" : 35.78951415036117,
+            "scoreError" : 0.30879741495203855,
+            "scoreConfidence" : [
+                35.48071673540913,
+                36.09831156531321
+            ],
+            "scorePercentiles" : {
+                "0.0" : 35.417916955875064,
+                "50.0" : 35.82634188924571,
+                "90.0" : 36.06852640276882,
+                "95.0" : 36.07964541847042,
+                "99.0" : 36.07964541847042,
+                "99.9" : 36.07964541847042,
+                "99.99" : 36.07964541847042,
+                "99.999" : 36.07964541847042,
+                "99.9999" : 36.07964541847042,
+                "100.0" : 36.07964541847042
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    35.76062883501395,
+                    35.70471568312448,
+                    35.91884456256285,
+                    35.582183043973245,
+                    35.89205494347748,
+                    35.96845526145436,
+                    35.63889641164523,
+                    35.417916955875064,
+                    35.93180038801466,
+                    36.07964541847042
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.IntegerSumBenchmark.reduceParallel",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 10,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "100000"
+        },
+        "primaryMetric" : {
+            "score" : 205.86758555471906,
+            "scoreError" : 3.9793076410427766,
+            "scoreConfidence" : [
+                201.8882779136763,
+                209.84689319576182
+            ],
+            "scorePercentiles" : {
+                "0.0" : 201.68600867110305,
+                "50.0" : 205.38324385957625,
+                "90.0" : 209.82626616426236,
+                "95.0" : 209.9004442812172,
+                "99.0" : 209.9004442812172,
+                "99.9" : 209.9004442812172,
+                "99.99" : 209.9004442812172,
+                "99.999" : 209.9004442812172,
+                "99.9999" : 209.9004442812172,
+                "100.0" : 209.9004442812172
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    208.6717316920509,
+                    209.9004442812172,
+                    205.05804571545715,
+                    205.70844200369535,
+                    203.32211181134377,
+                    205.77066344373586,
+                    204.76822169907882,
+                    209.15866311166874,
+                    201.68600867110305,
+                    204.6315231178396
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.IntegerSumBenchmark.reduceParallel",
+        "mode" : "avgt",
+        "threads" : 1,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 5,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 10,
+        "measurementTime" : "1 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "1000000"
+        },
+        "primaryMetric" : {
+            "score" : 2937.3469758045153,
+            "scoreError" : 44.09630847452846,
+            "scoreConfidence" : [
+                2893.2506673299868,
+                2981.443284279044
+            ],
+            "scorePercentiles" : {
+                "0.0" : 2899.701211594203,
+                "50.0" : 2941.739028243057,
+                "90.0" : 2985.6778375342224,
+                "95.0" : 2988.433328358209,
+                "99.0" : 2988.433328358209,
+                "99.9" : 2988.433328358209,
+                "99.99" : 2988.433328358209,
+                "99.999" : 2988.433328358209,
+                "99.9999" : 2988.433328358209,
+                "100.0" : 2988.433328358209
+            },
+            "scoreUnit" : "us/op",
+            "rawData" : [
+                [
+                    2953.402371681416,
+                    2988.433328358209,
+                    2899.701211594203,
+                    2960.878420118343,
+                    2901.152315942029,
+                    2929.550692982456,
+                    2946.107261764706,
+                    2903.824443478261,
+                    2937.3707947214075,
+                    2953.04891740413
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    }
+]
+
+

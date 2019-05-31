@@ -107,3 +107,8 @@ code.language-java {
 		display: block;
 	}
 }
+
+table.benchmark {
+  @include sans-serif-font;
+  font-size: 12pt;
+}

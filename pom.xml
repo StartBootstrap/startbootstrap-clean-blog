@@ -40,6 +40,12 @@
 		</dependency>
 
 		<dependency>
+			<groupId>io.vavr</groupId>
+			<artifactId>vavr</artifactId>
+			<version>0.10.0</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>1.7.25</version>
@@ -130,6 +136,7 @@
 					</dependency>
 				</dependencies>
 				<configuration>
+					<argLine>-Xms2G -Xmx2G -XX:+UseG1GC</argLine>
 					<excludes>
 						<exclude>**/*ITest.java</exclude>
 						<exclude>**/*IPTest.java</exclude>
