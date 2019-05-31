@@ -25,6 +25,14 @@
 		<link href="css/clean-blog.min.css" rel="stylesheet">
 
 	</head>
+	<style type="text/css">
+		kbd {
+			background-color: #0085a1;
+			/*font-size: 12px;
+			font-weight: 800;
+		  	font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;*/
+		}
+	</style>
 
 	<body>
 
@@ -54,22 +62,21 @@
 				<!-- Blog Entries Column -->
 				<div class="col-md-8">
 
-					<h1 class="my-4">Blog Posts
+					<h1 class="my-4" id="blog-title">Blog Posts
 						<!-- <small>Secondary Text</small> -->
 					</h1>
 
-					<div id="card-list-placeholder">
-          					<h5 class="title" id="loading-txt">Loading...</h4>
-					</div>
+					<div id="card-list-placeholder"></div>
 
 					<!-- Pagination -->
-					<ul class="pagination justify-content-center mb-4">
-						<li class="page-item">
-							<a class="page-link" href="#">&larr; Older</a>
+					<ul class="pagination justify-content-center mb-4" id="paginator">
+						<div id="paginator-placeholder"></div>
+						<!-- <li class="page-item" id="older_button">
+							<a class="page-link" href="javascript:older_blog()">&larr; Older</a>
 						</li>
-						<li class="page-item disabled">
-							<a class="page-link" href="#">Newer &rarr;</a>
-						</li>
+						<li class="page-item" id="newer_button">
+							<a class="page-link" href="javascript:newer_blog()">Newer &rarr;</a>
+						</li> -->
 					</ul>
 
 				</div>
@@ -82,9 +89,9 @@
 						<h5 class="card-header">Search</h5>
 						<div class="card-body">
 							<div class="input-group mb-3">
-								<input type="text" class="form-control" placeholder="Search for ...">
+								<input type="text" class="form-control" placeholder="Search for ..." name="search-input" onkeyup="javascript:on_keyup(event)">
 								<div class="input-group-append">
-									<button class="icon"><i class="fa fa-search"></i></button>
+									<button class="icon" name="search-btn" onclick="javascript:on_search(document.getElementsByName('search-input')[0].value)"><i class="fa fa-search"></i></button>
 								</div>
 							</div>
 						</div>
@@ -98,26 +105,26 @@
 								<div class="col-lg-6">
 									<ul class="list-unstyled mb-0">
 										<li>
-											<a href="#">Web Design</a>
+											<a href='javascript:on_tag("Web Design")'>Web Design</a>
 										</li>
 										<li>
-											<a href="#">HTML</a>
+											<a href='javascript:on_tag("HTML")'>HTML</a>
 										</li>
 										<li>
-											<a href="#">Freebies</a>
+											<a href='javascript:on_tag("lalala")'>lalala</a>
 										</li>
 									</ul>
 								</div>
 								<div class="col-lg-6">
 									<ul class="list-unstyled mb-0">
 										<li>
-											<a href="#">JavaScript</a>
+											<a href='javascript:on_tag("JavaScript")'>JavaScript</a>
 										</li>
 										<li>
-											<a href="#">CSS</a>
+											<a href='javascript:on_tag("CSS")'>CSS</a>
 										</li>
 										<li>
-											<a href="#">Tutorials</a>
+											<a href='javascript:on_tag("Tutorials")'>Tutorials</a>
 										</li>
 									</ul>
 								</div>
@@ -182,7 +189,7 @@
 		</script>
 
 		<!-- Posts -->
-		<script src="js/blog-bundle.js"></script>
+		<script src="js/blog-bundle.min.js"></script>
 
 	</body>
 
