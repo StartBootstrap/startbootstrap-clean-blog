@@ -54,7 +54,7 @@ public class DoubleCalculationBenchmark extends BenchmarkBase {
 	}
 
 	@Benchmark
-	public Double reduceParallel(Params params) {
+	public Double reducePar(Params params) {
 		return params.items.parallelStream()
 		    .map(calculation)
 		    .reduce(0d, Double::sum);
@@ -68,7 +68,7 @@ public class DoubleCalculationBenchmark extends BenchmarkBase {
 	}
 
 	@Benchmark
-	public Double collectParallel(Params params) {
+	public Double collectPar(Params params) {
 		return params.items.parallelStream()
 		    .map(calculation)
 		    .collect(Collectors.summingDouble(i -> i));

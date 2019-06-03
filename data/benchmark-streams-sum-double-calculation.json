@@ -2,57 +2,59 @@
     {
         "jmhVersion" : "1.21",
         "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.collect",
-        "mode" : "avgt",
+        "mode" : "thrpt",
         "threads" : 1,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
         ],
         "jdkVersion" : "1.8.0_201",
         "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
         "vmVersion" : "25.201-b09",
-        "warmupIterations" : 5,
-        "warmupTime" : "1 s",
+        "warmupIterations" : 3,
+        "warmupTime" : "5 s",
         "warmupBatchSize" : 1,
         "measurementIterations" : 10,
-        "measurementTime" : "1 s",
+        "measurementTime" : "5 s",
         "measurementBatchSize" : 1,
         "params" : {
             "size" : "1000"
         },
         "primaryMetric" : {
-            "score" : 102.56599281121422,
-            "scoreError" : 9.14638882299644,
+            "score" : 10005.931783193524,
+            "scoreError" : 77.63187582785945,
             "scoreConfidence" : [
-                93.41960398821777,
-                111.71238163421066
+                9928.299907365665,
+                10083.563659021384
             ],
             "scorePercentiles" : {
-                "0.0" : 98.5210530929866,
-                "50.0" : 99.93801672592798,
-                "90.0" : 117.09082663250206,
-                "95.0" : 118.30380354819633,
-                "99.0" : 118.30380354819633,
-                "99.9" : 118.30380354819633,
-                "99.99" : 118.30380354819633,
-                "99.999" : 118.30380354819633,
-                "99.9999" : 118.30380354819633,
-                "100.0" : 118.30380354819633
+                "0.0" : 9908.053027909406,
+                "50.0" : 10006.869209066226,
+                "90.0" : 10072.248795847838,
+                "95.0" : 10073.757010564963,
+                "99.0" : 10073.757010564963,
+                "99.9" : 10073.757010564963,
+                "99.99" : 10073.757010564963,
+                "99.999" : 10073.757010564963,
+                "99.9999" : 10073.757010564963,
+                "100.0" : 10073.757010564963
             },
-            "scoreUnit" : "us/op",
+            "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    106.17403439125358,
-                    118.30380354819633,
-                    99.93062363872515,
-                    103.99288656685381,
-                    98.8385999604704,
-                    99.70190649920255,
-                    101.24050804737321,
-                    99.01110255394971,
-                    99.94540981313081,
-                    98.5210530929866
+                    9944.089806051408,
+                    9991.774230516488,
+                    10073.757010564963,
+                    10019.72002773187,
+                    9908.053027909406,
+                    9991.820368778544,
+                    9994.018390400584,
+                    10033.065042110344,
+                    10044.345064477919,
+                    10058.674863393715
                 ]
             ]
         },
@@ -62,57 +64,59 @@
     {
         "jmhVersion" : "1.21",
         "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.collect",
-        "mode" : "avgt",
+        "mode" : "thrpt",
         "threads" : 1,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
         ],
         "jdkVersion" : "1.8.0_201",
         "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
         "vmVersion" : "25.201-b09",
-        "warmupIterations" : 5,
-        "warmupTime" : "1 s",
+        "warmupIterations" : 3,
+        "warmupTime" : "5 s",
         "warmupBatchSize" : 1,
         "measurementIterations" : 10,
-        "measurementTime" : "1 s",
+        "measurementTime" : "5 s",
         "measurementBatchSize" : 1,
         "params" : {
             "size" : "10000"
         },
         "primaryMetric" : {
-            "score" : 1045.6321464433179,
-            "scoreError" : 51.00947582628921,
+            "score" : 999.7427764537515,
+            "scoreError" : 2.998483498285828,
             "scoreConfidence" : [
-                994.6226706170287,
-                1096.641622269607
+                996.7442929554657,
+                1002.7412599520374
             ],
             "scorePercentiles" : {
-                "0.0" : 1007.969110775428,
-                "50.0" : 1035.8397460949554,
-                "90.0" : 1103.517322342061,
-                "95.0" : 1105.2644707182321,
-                "99.0" : 1105.2644707182321,
-                "99.9" : 1105.2644707182321,
-                "99.99" : 1105.2644707182321,
-                "99.999" : 1105.2644707182321,
-                "99.9999" : 1105.2644707182321,
-                "100.0" : 1105.2644707182321
+                "0.0" : 996.0335018445915,
+                "50.0" : 999.6156206918872,
+                "90.0" : 1002.1412466520626,
+                "95.0" : 1002.1627572087558,
+                "99.0" : 1002.1627572087558,
+                "99.9" : 1002.1627572087558,
+                "99.99" : 1002.1627572087558,
+                "99.999" : 1002.1627572087558,
+                "99.9999" : 1002.1627572087558,
+                "100.0" : 1002.1627572087558
             },
-            "scoreUnit" : "us/op",
+            "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    1074.8134120171674,
-                    1038.1973599585062,
-                    1012.181649140546,
-                    1087.7929869565216,
-                    1033.4821322314049,
-                    1007.969110775428,
-                    1025.083067622951,
-                    1054.5166174920969,
-                    1105.2644707182321,
-                    1017.0206575203252
+                    996.0335018445915,
+                    999.8313006642678,
+                    1001.2635476034799,
+                    1002.1627572087558,
+                    998.9439904091905,
+                    997.6430894977121,
+                    999.3999407195067,
+                    1001.3626798137409,
+                    1001.9476516418238,
+                    998.839305134447
                 ]
             ]
         },
@@ -122,57 +126,59 @@
     {
         "jmhVersion" : "1.21",
         "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.collect",
-        "mode" : "avgt",
+        "mode" : "thrpt",
         "threads" : 1,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
         ],
         "jdkVersion" : "1.8.0_201",
         "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
         "vmVersion" : "25.201-b09",
-        "warmupIterations" : 5,
-        "warmupTime" : "1 s",
+        "warmupIterations" : 3,
+        "warmupTime" : "5 s",
         "warmupBatchSize" : 1,
         "measurementIterations" : 10,
-        "measurementTime" : "1 s",
+        "measurementTime" : "5 s",
         "measurementBatchSize" : 1,
         "params" : {
             "size" : "100000"
         },
         "primaryMetric" : {
-            "score" : 10202.824042238713,
-            "scoreError" : 92.95317338333663,
+            "score" : 96.87553070661679,
+            "scoreError" : 0.9639957708635312,
             "scoreConfidence" : [
-                10109.870868855376,
-                10295.77721562205
+                95.91153493575325,
+                97.83952647748032
             ],
             "scorePercentiles" : {
-                "0.0" : 10105.269151515151,
-                "50.0" : 10201.186532828284,
-                "90.0" : 10295.227404081632,
-                "95.0" : 10298.05643877551,
-                "99.0" : 10298.05643877551,
-                "99.9" : 10298.05643877551,
-                "99.99" : 10298.05643877551,
-                "99.999" : 10298.05643877551,
-                "99.9999" : 10298.05643877551,
-                "100.0" : 10298.05643877551
+                "0.0" : 95.64925816561016,
+                "50.0" : 97.00799924184162,
+                "90.0" : 97.4895041778854,
+                "95.0" : 97.49395245462435,
+                "99.0" : 97.49395245462435,
+                "99.9" : 97.49395245462435,
+                "99.99" : 97.49395245462435,
+                "99.999" : 97.49395245462435,
+                "99.9999" : 97.49395245462435,
+                "100.0" : 97.49395245462435
             },
-            "scoreUnit" : "us/op",
+            "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    10269.766091836735,
-                    10298.05643877551,
-                    10207.5665,
-                    10155.258191919193,
-                    10105.269151515151,
-                    10209.103959183674,
-                    10132.729161616162,
-                    10194.806565656565,
-                    10262.482826530611,
-                    10193.201535353535
+                    96.62937145005014,
+                    97.1212371629645,
+                    95.981825054375,
+                    97.49395245462435,
+                    96.89476132071871,
+                    97.3133341264763,
+                    96.77876662246851,
+                    97.44946968723477,
+                    97.44333102164539,
+                    95.64925816561016
                 ]
             ]
         },
@@ -182,57 +188,59 @@
     {
         "jmhVersion" : "1.21",
         "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.collect",
-        "mode" : "avgt",
+        "mode" : "thrpt",
         "threads" : 1,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
         ],
         "jdkVersion" : "1.8.0_201",
         "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
         "vmVersion" : "25.201-b09",
-        "warmupIterations" : 5,
-        "warmupTime" : "1 s",
+        "warmupIterations" : 3,
+        "warmupTime" : "5 s",
         "warmupBatchSize" : 1,
         "measurementIterations" : 10,
-        "measurementTime" : "1 s",
+        "measurementTime" : "5 s",
         "measurementBatchSize" : 1,
         "params" : {
             "size" : "1000000"
         },
         "primaryMetric" : {
-            "score" : 101804.67221000002,
-            "scoreError" : 4031.3478032630105,
+            "score" : 9.832382821218866,
+            "scoreError" : 0.12946747391904867,
             "scoreConfidence" : [
-                97773.32440673701,
-                105836.02001326303
+                9.702915347299818,
+                9.961850295137914
             ],
             "scorePercentiles" : {
-                "0.0" : 99766.921,
-                "50.0" : 100543.2482,
-                "90.0" : 107537.85353000001,
-                "95.0" : 107765.5607,
-                "99.0" : 107765.5607,
-                "99.9" : 107765.5607,
-                "99.99" : 107765.5607,
-                "99.999" : 107765.5607,
-                "99.9999" : 107765.5607,
-                "100.0" : 107765.5607
+                "0.0" : 9.656840023527263,
+                "50.0" : 9.862110535438774,
+                "90.0" : 9.900376297385069,
+                "95.0" : 9.901272079396131,
+                "99.0" : 9.901272079396131,
+                "99.9" : 9.901272079396131,
+                "99.99" : 9.901272079396131,
+                "99.999" : 9.901272079396131,
+                "99.9999" : 9.901272079396131,
+                "100.0" : 9.901272079396131
             },
-            "scoreUnit" : "us/op",
+            "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    99766.921,
-                    102070.4728,
-                    100336.8577,
-                    100189.2036,
-                    100467.5283,
-                    105488.489,
-                    100407.979,
-                    107765.5607,
-                    100618.9681,
-                    100934.7419
+                    9.656840023527263,
+                    9.841735023654367,
+                    9.887103110579591,
+                    9.875497833079356,
+                    9.867428898236012,
+                    9.856792172641535,
+                    9.901272079396131,
+                    9.85270857656641,
+                    9.89231425928551,
+                    9.692136235222481
                 ]
             ]
         },
@@ -241,58 +249,60 @@
     },
     {
         "jmhVersion" : "1.21",
-        "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.collectParallel",
-        "mode" : "avgt",
+        "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.collectPar",
+        "mode" : "thrpt",
         "threads" : 1,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
         ],
         "jdkVersion" : "1.8.0_201",
         "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
         "vmVersion" : "25.201-b09",
-        "warmupIterations" : 5,
-        "warmupTime" : "1 s",
+        "warmupIterations" : 3,
+        "warmupTime" : "5 s",
         "warmupBatchSize" : 1,
         "measurementIterations" : 10,
-        "measurementTime" : "1 s",
+        "measurementTime" : "5 s",
         "measurementBatchSize" : 1,
         "params" : {
             "size" : "1000"
         },
         "primaryMetric" : {
-            "score" : 40.41717338241654,
-            "scoreError" : 0.7233624803037079,
+            "score" : 28522.52998780297,
+            "scoreError" : 221.12812986536477,
             "scoreConfidence" : [
-                39.69381090211284,
-                41.14053586272025
+                28301.401857937606,
+                28743.658117668332
             ],
             "scorePercentiles" : {
-                "0.0" : 39.27480843543827,
-                "50.0" : 40.50852095997759,
-                "90.0" : 40.98140019883676,
-                "95.0" : 41.00793907089262,
-                "99.0" : 41.00793907089262,
-                "99.9" : 41.00793907089262,
-                "99.99" : 41.00793907089262,
-                "99.999" : 41.00793907089262,
-                "99.9999" : 41.00793907089262,
-                "100.0" : 41.00793907089262
+                "0.0" : 28123.903624022365,
+                "50.0" : 28557.249895407724,
+                "90.0" : 28629.450598266325,
+                "95.0" : 28629.757502434033,
+                "99.0" : 28629.757502434033,
+                "99.9" : 28629.757502434033,
+                "99.99" : 28629.757502434033,
+                "99.999" : 28629.757502434033,
+                "99.9999" : 28629.757502434033,
+                "100.0" : 28629.757502434033
             },
-            "scoreUnit" : "us/op",
+            "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    39.27480843543827,
-                    40.26526563066146,
-                    41.00793907089262,
-                    40.67660159330163,
-                    40.74255035033404,
-                    40.42789469641846,
-                    40.48566518236652,
-                    40.53137673758865,
-                    40.07206546998958,
-                    40.68756665717424
+                    28123.903624022365,
+                    28564.726523729805,
+                    28538.266115656224,
+                    28546.555307428454,
+                    28565.669552976993,
+                    28549.773267085642,
+                    28629.757502434033,
+                    28487.695237209988,
+                    28626.688460756955,
+                    28592.264286729187
                 ]
             ]
         },
@@ -301,58 +311,60 @@
     },
     {
         "jmhVersion" : "1.21",
-        "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.collectParallel",
-        "mode" : "avgt",
+        "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.collectPar",
+        "mode" : "thrpt",
         "threads" : 1,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
         ],
         "jdkVersion" : "1.8.0_201",
         "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
         "vmVersion" : "25.201-b09",
-        "warmupIterations" : 5,
-        "warmupTime" : "1 s",
+        "warmupIterations" : 3,
+        "warmupTime" : "5 s",
         "warmupBatchSize" : 1,
         "measurementIterations" : 10,
-        "measurementTime" : "1 s",
+        "measurementTime" : "5 s",
         "measurementBatchSize" : 1,
         "params" : {
             "size" : "10000"
         },
         "primaryMetric" : {
-            "score" : 255.0784470668262,
-            "scoreError" : 2.719178423507708,
+            "score" : 4708.543080429938,
+            "scoreError" : 309.4763216236247,
             "scoreConfidence" : [
-                252.35926864331847,
-                257.79762549033387
+                4399.066758806313,
+                5018.019402053562
             ],
             "scorePercentiles" : {
-                "0.0" : 252.76347081122063,
-                "50.0" : 254.54445005482717,
-                "90.0" : 258.5114752320091,
-                "95.0" : 258.72131091567513,
-                "99.0" : 258.72131091567513,
-                "99.9" : 258.72131091567513,
-                "99.99" : 258.72131091567513,
-                "99.999" : 258.72131091567513,
-                "99.9999" : 258.72131091567513,
-                "100.0" : 258.72131091567513
+                "0.0" : 4199.384776490943,
+                "50.0" : 4796.176770398761,
+                "90.0" : 4833.184803064343,
+                "95.0" : 4834.271307830369,
+                "99.0" : 4834.271307830369,
+                "99.9" : 4834.271307830369,
+                "99.99" : 4834.271307830369,
+                "99.999" : 4834.271307830369,
+                "99.9999" : 4834.271307830369,
+                "100.0" : 4834.271307830369
             },
-            "scoreUnit" : "us/op",
+            "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    255.43093283963228,
-                    256.6229540790149,
-                    258.72131091567513,
-                    254.40234231943032,
-                    252.76347081122063,
-                    254.68655779022404,
-                    254.29787693872362,
-                    253.21266253164558,
-                    254.0675179070358,
-                    256.5788445356593
+                    4815.3492291320545,
+                    4811.141582038889,
+                    4770.870039591773,
+                    4813.946323321757,
+                    4823.40626017011,
+                    4781.211958758631,
+                    4834.271307830369,
+                    4740.88952862655,
+                    4494.959798338296,
+                    4199.384776490943
                 ]
             ]
         },
@@ -361,58 +373,60 @@
     },
     {
         "jmhVersion" : "1.21",
-        "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.collectParallel",
-        "mode" : "avgt",
+        "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.collectPar",
+        "mode" : "thrpt",
         "threads" : 1,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
         ],
         "jdkVersion" : "1.8.0_201",
         "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
         "vmVersion" : "25.201-b09",
-        "warmupIterations" : 5,
-        "warmupTime" : "1 s",
+        "warmupIterations" : 3,
+        "warmupTime" : "5 s",
         "warmupBatchSize" : 1,
         "measurementIterations" : 10,
-        "measurementTime" : "1 s",
+        "measurementTime" : "5 s",
         "measurementBatchSize" : 1,
         "params" : {
             "size" : "100000"
         },
         "primaryMetric" : {
-            "score" : 3321.1439845336536,
-            "scoreError" : 86.02898659652267,
+            "score" : 435.47729387378075,
+            "scoreError" : 66.93699317264382,
             "scoreConfidence" : [
-                3235.1149979371307,
-                3407.1729711301764
+                368.5403007011369,
+                502.4142870464246
             ],
             "scorePercentiles" : {
-                "0.0" : 3205.5713653846155,
-                "50.0" : 3311.85334602649,
-                "90.0" : 3407.5175119356836,
-                "95.0" : 3411.68631292517,
-                "99.0" : 3411.68631292517,
-                "99.9" : 3411.68631292517,
-                "99.99" : 3411.68631292517,
-                "99.999" : 3411.68631292517,
-                "99.9999" : 3411.68631292517,
-                "100.0" : 3411.68631292517
+                "0.0" : 372.22788056245315,
+                "50.0" : 427.0885575648989,
+                "90.0" : 497.88625424238955,
+                "95.0" : 498.96687857859996,
+                "99.0" : 498.96687857859996,
+                "99.9" : 498.96687857859996,
+                "99.99" : 498.96687857859996,
+                "99.999" : 498.96687857859996,
+                "99.9999" : 498.96687857859996,
+                "100.0" : 498.96687857859996
             },
-            "scoreUnit" : "us/op",
+            "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    3205.5713653846155,
-                    3311.9100264900662,
-                    3283.034849180328,
-                    3354.375959866221,
-                    3311.796665562914,
-                    3296.5895690789475,
-                    3305.176488448845,
-                    3369.998303030303,
-                    3411.68631292517,
-                    3361.3003053691277
+                    431.6686428866347,
+                    459.72661742592794,
+                    477.05002033951547,
+                    498.96687857859996,
+                    488.1606352164958,
+                    406.13572252373905,
+                    419.6337908606286,
+                    422.50847224316306,
+                    378.6942781006501,
+                    372.22788056245315
                 ]
             ]
         },
@@ -421,58 +435,60 @@
     },
     {
         "jmhVersion" : "1.21",
-        "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.collectParallel",
-        "mode" : "avgt",
+        "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.collectPar",
+        "mode" : "thrpt",
         "threads" : 1,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
         ],
         "jdkVersion" : "1.8.0_201",
         "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
         "vmVersion" : "25.201-b09",
-        "warmupIterations" : 5,
-        "warmupTime" : "1 s",
+        "warmupIterations" : 3,
+        "warmupTime" : "5 s",
         "warmupBatchSize" : 1,
         "measurementIterations" : 10,
-        "measurementTime" : "1 s",
+        "measurementTime" : "5 s",
         "measurementBatchSize" : 1,
         "params" : {
             "size" : "1000000"
         },
         "primaryMetric" : {
-            "score" : 23316.571110943318,
-            "scoreError" : 529.2895925400397,
+            "score" : 48.7687495196605,
+            "scoreError" : 4.259917187257945,
             "scoreConfidence" : [
-                22787.281518403277,
-                23845.86070348336
+                44.508832332402555,
+                53.02866670691845
             ],
             "scorePercentiles" : {
-                "0.0" : 22942.59875,
-                "50.0" : 23244.765735200846,
-                "90.0" : 24074.0544179402,
-                "95.0" : 24116.341523809522,
-                "99.0" : 24116.341523809522,
-                "99.9" : 24116.341523809522,
-                "99.99" : 24116.341523809522,
-                "99.999" : 24116.341523809522,
-                "99.9999" : 24116.341523809522,
-                "100.0" : 24116.341523809522
+                "0.0" : 44.14391725437877,
+                "50.0" : 49.891270570542716,
+                "90.0" : 52.27911017412415,
+                "95.0" : 52.36746958972821,
+                "99.0" : 52.36746958972821,
+                "99.9" : 52.36746958972821,
+                "99.99" : 52.36746958972821,
+                "99.999" : 52.36746958972821,
+                "99.9999" : 52.36746958972821,
+                "100.0" : 52.36746958972821
             },
-            "scoreUnit" : "us/op",
+            "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    23693.47046511628,
-                    24116.341523809522,
-                    23297.19260465116,
-                    23225.010772727273,
-                    23210.944295454545,
-                    22942.59875,
-                    23344.579772727273,
-                    23264.52069767442,
-                    23026.63209090909,
-                    23044.420136363635
+                    50.14921177693676,
+                    49.63332936414867,
+                    50.38693570554243,
+                    47.74816220769921,
+                    51.483875433687594,
+                    52.36746958972821,
+                    50.35117124676705,
+                    44.65498032567951,
+                    44.14391725437877,
+                    46.768442292036816
                 ]
             ]
         },
@@ -482,57 +498,59 @@
     {
         "jmhVersion" : "1.21",
         "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.forEach",
-        "mode" : "avgt",
+        "mode" : "thrpt",
         "threads" : 1,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
         ],
         "jdkVersion" : "1.8.0_201",
         "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
         "vmVersion" : "25.201-b09",
-        "warmupIterations" : 5,
-        "warmupTime" : "1 s",
+        "warmupIterations" : 3,
+        "warmupTime" : "5 s",
         "warmupBatchSize" : 1,
         "measurementIterations" : 10,
-        "measurementTime" : "1 s",
+        "measurementTime" : "5 s",
         "measurementBatchSize" : 1,
         "params" : {
             "size" : "1000"
         },
         "primaryMetric" : {
-            "score" : 105.5125690052951,
-            "scoreError" : 5.432599182738501,
+            "score" : 9806.680994591507,
+            "scoreError" : 238.1889056001806,
             "scoreConfidence" : [
-                100.0799698225566,
-                110.9451681880336
+                9568.492088991326,
+                10044.869900191687
             ],
             "scorePercentiles" : {
-                "0.0" : 101.00364320339325,
-                "50.0" : 104.25016300013232,
-                "90.0" : 112.40127963675151,
-                "95.0" : 112.80410928160596,
-                "99.0" : 112.80410928160596,
-                "99.9" : 112.80410928160596,
-                "99.99" : 112.80410928160596,
-                "99.999" : 112.80410928160596,
-                "99.9999" : 112.80410928160596,
-                "100.0" : 112.80410928160596
+                "0.0" : 9552.81818149954,
+                "50.0" : 9792.870738234902,
+                "90.0" : 10048.495144824528,
+                "95.0" : 10049.094963742014,
+                "99.0" : 10049.094963742014,
+                "99.9" : 10049.094963742014,
+                "99.99" : 10049.094963742014,
+                "99.999" : 10049.094963742014,
+                "99.9999" : 10049.094963742014,
+                "100.0" : 10049.094963742014
             },
-            "scoreUnit" : "us/op",
+            "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    101.00364320339325,
-                    104.96326078287333,
-                    103.5370652173913,
-                    108.66064291146117,
-                    112.80410928160596,
-                    106.06033828207848,
-                    108.77581283306145,
-                    103.45387743069921,
-                    102.70343325118094,
-                    103.16350685920578
+                    10043.096774567155,
+                    9761.098364490561,
+                    9552.81818149954,
+                    9738.168331763527,
+                    9652.219511437303,
+                    9824.643111979243,
+                    9849.240746973906,
+                    10049.094963742014,
+                    9873.645114967641,
+                    9722.784844494176
                 ]
             ]
         },
@@ -542,57 +560,59 @@
     {
         "jmhVersion" : "1.21",
         "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.forEach",
-        "mode" : "avgt",
+        "mode" : "thrpt",
         "threads" : 1,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
         ],
         "jdkVersion" : "1.8.0_201",
         "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
         "vmVersion" : "25.201-b09",
-        "warmupIterations" : 5,
-        "warmupTime" : "1 s",
+        "warmupIterations" : 3,
+        "warmupTime" : "5 s",
         "warmupBatchSize" : 1,
         "measurementIterations" : 10,
-        "measurementTime" : "1 s",
+        "measurementTime" : "5 s",
         "measurementBatchSize" : 1,
         "params" : {
             "size" : "10000"
         },
         "primaryMetric" : {
-            "score" : 1034.7764929796092,
-            "scoreError" : 44.410018281970935,
+            "score" : 945.6088274417,
+            "scoreError" : 30.082293169079346,
             "scoreConfidence" : [
-                990.3664746976383,
-                1079.18651126158
+                915.5265342726207,
+                975.6911206107793
             ],
             "scorePercentiles" : {
-                "0.0" : 998.6902904191617,
-                "50.0" : 1045.815088660199,
-                "90.0" : 1073.7065238094096,
-                "95.0" : 1074.9898109559613,
-                "99.0" : 1074.9898109559613,
-                "99.9" : 1074.9898109559613,
-                "99.99" : 1074.9898109559613,
-                "99.999" : 1074.9898109559613,
-                "99.9999" : 1074.9898109559613,
-                "100.0" : 1074.9898109559613
+                "0.0" : 914.1472145802179,
+                "50.0" : 947.5152881507483,
+                "90.0" : 973.6290806747547,
+                "95.0" : 974.6539110745769,
+                "99.0" : 974.6539110745769,
+                "99.9" : 974.6539110745769,
+                "99.99" : 974.6539110745769,
+                "99.999" : 974.6539110745769,
+                "99.9999" : 974.6539110745769,
+                "100.0" : 974.6539110745769
             },
-            "scoreUnit" : "us/op",
+            "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    1074.9898109559613,
-                    1062.156939490446,
-                    1004.380797188755,
-                    1001.6638968968969,
-                    1050.3353599160546,
-                    1059.9301440677966,
-                    1048.044012565445,
-                    998.6902904191617,
-                    1043.5861647549532,
-                    1003.9875135406219
+                    951.654498688732,
+                    935.6466705276086,
+                    914.8566264140783,
+                    914.1472145802179,
+                    943.3760776127648,
+                    964.4056070763551,
+                    974.6539110745769,
+                    942.4757679336401,
+                    956.990521473783,
+                    957.8813790352407
                 ]
             ]
         },
@@ -602,57 +622,59 @@
     {
         "jmhVersion" : "1.21",
         "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.forEach",
-        "mode" : "avgt",
+        "mode" : "thrpt",
         "threads" : 1,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
         ],
         "jdkVersion" : "1.8.0_201",
         "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
         "vmVersion" : "25.201-b09",
-        "warmupIterations" : 5,
-        "warmupTime" : "1 s",
+        "warmupIterations" : 3,
+        "warmupTime" : "5 s",
         "warmupBatchSize" : 1,
         "measurementIterations" : 10,
-        "measurementTime" : "1 s",
+        "measurementTime" : "5 s",
         "measurementBatchSize" : 1,
         "params" : {
             "size" : "100000"
         },
         "primaryMetric" : {
-            "score" : 10991.01049593478,
-            "scoreError" : 1112.7937308660355,
+            "score" : 91.30788809413178,
+            "scoreError" : 1.9581213524286294,
             "scoreConfidence" : [
-                9878.216765068744,
-                12103.804226800814
+                89.34976674170315,
+                93.26600944656042
             ],
             "scorePercentiles" : {
-                "0.0" : 10248.627010204082,
-                "50.0" : 11046.766142270531,
-                "90.0" : 12582.214851415161,
-                "95.0" : 12724.361341772152,
-                "99.0" : 12724.361341772152,
-                "99.9" : 12724.361341772152,
-                "99.99" : 12724.361341772152,
-                "99.999" : 12724.361341772152,
-                "99.9999" : 12724.361341772152,
-                "100.0" : 12724.361341772152
+                "0.0" : 88.87345539756924,
+                "50.0" : 91.27189760533187,
+                "90.0" : 93.05347439896347,
+                "95.0" : 93.0601773812772,
+                "99.0" : 93.0601773812772,
+                "99.9" : 93.0601773812772,
+                "99.99" : 93.0601773812772,
+                "99.999" : 93.0601773812772,
+                "99.9999" : 93.0601773812772,
+                "100.0" : 93.0601773812772
             },
-            "scoreUnit" : "us/op",
+            "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    10248.627010204082,
-                    12724.361341772152,
-                    11120.694744444445,
-                    10264.906316326531,
-                    10634.564905263158,
-                    11223.430877777777,
-                    10297.091040816327,
-                    11117.752588888889,
-                    11302.896438202248,
-                    10975.779695652174
+                    91.24879663777536,
+                    91.43849107765993,
+                    88.87345539756924,
+                    90.78128716249591,
+                    90.70173801815316,
+                    93.0601773812772,
+                    92.99314755814,
+                    92.48187731873452,
+                    91.29499857288837,
+                    90.20491181662416
                 ]
             ]
         },
@@ -662,57 +684,59 @@
     {
         "jmhVersion" : "1.21",
         "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.forEach",
-        "mode" : "avgt",
+        "mode" : "thrpt",
         "threads" : 1,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
         ],
         "jdkVersion" : "1.8.0_201",
         "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
         "vmVersion" : "25.201-b09",
-        "warmupIterations" : 5,
-        "warmupTime" : "1 s",
+        "warmupIterations" : 3,
+        "warmupTime" : "5 s",
         "warmupBatchSize" : 1,
         "measurementIterations" : 10,
-        "measurementTime" : "1 s",
+        "measurementTime" : "5 s",
         "measurementBatchSize" : 1,
         "params" : {
             "size" : "1000000"
         },
         "primaryMetric" : {
-            "score" : 102887.27178,
-            "scoreError" : 3929.2333546998266,
+            "score" : 9.544558116344174,
+            "scoreError" : 0.26046761218947806,
             "scoreConfidence" : [
-                98958.03842530017,
-                106816.50513469982
+                9.284090504154696,
+                9.805025728533652
             ],
             "scorePercentiles" : {
-                "0.0" : 100469.4466,
-                "50.0" : 101686.62150000001,
-                "90.0" : 107151.65561,
-                "95.0" : 107232.6658,
-                "99.0" : 107232.6658,
-                "99.9" : 107232.6658,
-                "99.99" : 107232.6658,
-                "99.999" : 107232.6658,
-                "99.9999" : 107232.6658,
-                "100.0" : 107232.6658
+                "0.0" : 9.348215076476674,
+                "50.0" : 9.50459036748117,
+                "90.0" : 9.852886668704661,
+                "95.0" : 9.861546208693305,
+                "99.0" : 9.861546208693305,
+                "99.9" : 9.861546208693305,
+                "99.99" : 9.861546208693305,
+                "99.999" : 9.861546208693305,
+                "99.9999" : 9.861546208693305,
+                "100.0" : 9.861546208693305
             },
-            "scoreUnit" : "us/op",
+            "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    104690.141,
-                    100500.7462,
-                    106422.5639,
-                    101956.404,
-                    100987.3896,
-                    100621.7915,
-                    101416.839,
-                    100469.4466,
-                    107232.6658,
-                    104574.7302
+                    9.62210394430954,
+                    9.398339047713073,
+                    9.40168116134265,
+                    9.411767852365527,
+                    9.481990107605261,
+                    9.527190627357077,
+                    9.348215076476674,
+                    9.77495080880686,
+                    9.861546208693305,
+                    9.617796328771767
                 ]
             ]
         },
@@ -722,57 +746,59 @@
     {
         "jmhVersion" : "1.21",
         "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.reduce",
-        "mode" : "avgt",
+        "mode" : "thrpt",
         "threads" : 1,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
         ],
         "jdkVersion" : "1.8.0_201",
         "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
         "vmVersion" : "25.201-b09",
-        "warmupIterations" : 5,
-        "warmupTime" : "1 s",
+        "warmupIterations" : 3,
+        "warmupTime" : "5 s",
         "warmupBatchSize" : 1,
         "measurementIterations" : 10,
-        "measurementTime" : "1 s",
+        "measurementTime" : "5 s",
         "measurementBatchSize" : 1,
         "params" : {
             "size" : "1000"
         },
         "primaryMetric" : {
-            "score" : 103.75894725107719,
-            "scoreError" : 5.445123482227952,
+            "score" : 9119.782992278213,
+            "scoreError" : 194.3034805260183,
             "scoreConfidence" : [
-                98.31382376884923,
-                109.20407073330514
+                8925.479511752195,
+                9314.08647280423
             ],
             "scorePercentiles" : {
-                "0.0" : 99.00640665214809,
-                "50.0" : 102.95451222341357,
-                "90.0" : 109.95501263318238,
-                "95.0" : 110.16974920145391,
-                "99.0" : 110.16974920145391,
-                "99.9" : 110.16974920145391,
-                "99.99" : 110.16974920145391,
-                "99.999" : 110.16974920145391,
-                "99.9999" : 110.16974920145391,
-                "100.0" : 110.16974920145391
+                "0.0" : 8951.18989407405,
+                "50.0" : 9046.370318351528,
+                "90.0" : 9309.208054800176,
+                "95.0" : 9312.320923925141,
+                "99.0" : 9312.320923925141,
+                "99.9" : 9312.320923925141,
+                "99.99" : 9312.320923925141,
+                "99.999" : 9312.320923925141,
+                "99.9999" : 9312.320923925141,
+                "100.0" : 9312.320923925141
             },
-            "scoreUnit" : "us/op",
+            "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    104.60481332357247,
-                    102.58468276923077,
-                    108.02238351873852,
-                    103.28255256092524,
-                    110.16974920145391,
-                    99.00640665214809,
-                    99.18130265767553,
-                    101.80300641221375,
-                    106.30810352891156,
-                    102.6264718859019
+                    9312.320923925141,
+                    9222.306780444838,
+                    9034.968936090441,
+                    9055.47837184606,
+                    8951.18989407405,
+                    9236.168005950025,
+                    9281.192232675496,
+                    9030.803807799988,
+                    9037.262264856996,
+                    9036.138705119103
                 ]
             ]
         },
@@ -782,57 +808,59 @@
     {
         "jmhVersion" : "1.21",
         "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.reduce",
-        "mode" : "avgt",
+        "mode" : "thrpt",
         "threads" : 1,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
         ],
         "jdkVersion" : "1.8.0_201",
         "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
         "vmVersion" : "25.201-b09",
-        "warmupIterations" : 5,
-        "warmupTime" : "1 s",
+        "warmupIterations" : 3,
+        "warmupTime" : "5 s",
         "warmupBatchSize" : 1,
         "measurementIterations" : 10,
-        "measurementTime" : "1 s",
+        "measurementTime" : "5 s",
         "measurementBatchSize" : 1,
         "params" : {
             "size" : "10000"
         },
         "primaryMetric" : {
-            "score" : 1032.9416736928597,
-            "scoreError" : 90.74621450932041,
+            "score" : 968.2149411422137,
+            "scoreError" : 32.364146429067326,
             "scoreConfidence" : [
-                942.1954591835392,
-                1123.6878882021801
+                935.8507947131463,
+                1000.579087571281
             ],
             "scorePercentiles" : {
-                "0.0" : 983.5099636184857,
-                "50.0" : 1001.9257435369186,
-                "90.0" : 1137.9869280133548,
-                "95.0" : 1139.389949886105,
-                "99.0" : 1139.389949886105,
-                "99.9" : 1139.389949886105,
-                "99.99" : 1139.389949886105,
-                "99.999" : 1139.389949886105,
-                "99.9999" : 1139.389949886105,
-                "100.0" : 1139.389949886105
+                "0.0" : 930.2050697603603,
+                "50.0" : 974.4248260799061,
+                "90.0" : 991.2500683288155,
+                "95.0" : 991.6205482143066,
+                "99.0" : 991.6205482143066,
+                "99.9" : 991.6205482143066,
+                "99.99" : 991.6205482143066,
+                "99.999" : 991.6205482143066,
+                "99.9999" : 991.6205482143066,
+                "100.0" : 991.6205482143066
             },
-            "scoreUnit" : "us/op",
+            "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    1007.1542022132796,
-                    992.3815228174603,
-                    996.6972848605577,
-                    1032.4270681114551,
-                    983.7458702064897,
-                    983.5099636184857,
-                    989.3164935707221,
-                    1125.3597311586052,
-                    1079.4346504854368,
-                    1139.389949886105
+                    980.5981117150853,
+                    973.85705414525,
+                    970.683548453649,
+                    987.9157493593957,
+                    974.9925980145622,
+                    982.3541776964397,
+                    991.6205482143066,
+                    930.2050697603603,
+                    934.3545621507717,
+                    955.5679919123157
                 ]
             ]
         },
@@ -842,57 +870,59 @@
     {
         "jmhVersion" : "1.21",
         "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.reduce",
-        "mode" : "avgt",
+        "mode" : "thrpt",
         "threads" : 1,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
         ],
         "jdkVersion" : "1.8.0_201",
         "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
         "vmVersion" : "25.201-b09",
-        "warmupIterations" : 5,
-        "warmupTime" : "1 s",
+        "warmupIterations" : 3,
+        "warmupTime" : "5 s",
         "warmupBatchSize" : 1,
         "measurementIterations" : 10,
-        "measurementTime" : "1 s",
+        "measurementTime" : "5 s",
         "measurementBatchSize" : 1,
         "params" : {
             "size" : "100000"
         },
         "primaryMetric" : {
-            "score" : 10101.091335003166,
-            "scoreError" : 871.2643916832669,
+            "score" : 95.41294120152651,
+            "scoreError" : 3.715998889617044,
             "scoreConfidence" : [
-                9229.826943319898,
-                10972.355726686434
+                91.69694231190947,
+                99.12894009114355
             ],
             "scorePercentiles" : {
-                "0.0" : 9774.59859223301,
-                "50.0" : 9835.109970588235,
-                "90.0" : 11410.756803238026,
-                "95.0" : 11475.717511363637,
-                "99.0" : 11475.717511363637,
-                "99.9" : 11475.717511363637,
-                "99.99" : 11475.717511363637,
-                "99.999" : 11475.717511363637,
-                "99.9999" : 11475.717511363637,
-                "100.0" : 11475.717511363637
+                "0.0" : 90.29785192753432,
+                "50.0" : 96.1575797225143,
+                "90.0" : 97.61868109954278,
+                "95.0" : 97.62021946047054,
+                "99.0" : 97.62021946047054,
+                "99.9" : 97.62021946047054,
+                "99.99" : 97.62021946047054,
+                "99.999" : 97.62021946047054,
+                "99.9999" : 97.62021946047054,
+                "100.0" : 97.62021946047054
             },
-            "scoreUnit" : "us/op",
+            "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    9815.759166666667,
-                    9913.590950495049,
-                    9933.356217821782,
-                    9843.809852941176,
-                    9786.73090291262,
-                    9814.829637254901,
-                    9774.59859223301,
-                    11475.717511363637,
-                    10826.110430107527,
-                    9826.410088235294
+                    90.29785192753432,
+                    93.39376542447408,
+                    93.03022322890737,
+                    97.36074846903452,
+                    97.62021946047054,
+                    97.36210145150643,
+                    97.60483585119306,
+                    95.14450675711599,
+                    96.19185928294888,
+                    96.12330016207973
                 ]
             ]
         },
@@ -902,57 +932,59 @@
     {
         "jmhVersion" : "1.21",
         "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.reduce",
-        "mode" : "avgt",
+        "mode" : "thrpt",
         "threads" : 1,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
         ],
         "jdkVersion" : "1.8.0_201",
         "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
         "vmVersion" : "25.201-b09",
-        "warmupIterations" : 5,
-        "warmupTime" : "1 s",
+        "warmupIterations" : 3,
+        "warmupTime" : "5 s",
         "warmupBatchSize" : 1,
         "measurementIterations" : 10,
-        "measurementTime" : "1 s",
+        "measurementTime" : "5 s",
         "measurementBatchSize" : 1,
         "params" : {
             "size" : "1000000"
         },
         "primaryMetric" : {
-            "score" : 103605.82311090908,
-            "scoreError" : 4759.313879989208,
+            "score" : 9.911893459255248,
+            "scoreError" : 0.13275919637392,
             "scoreConfidence" : [
-                98846.50923091988,
-                108365.13699089829
+                9.779134262881328,
+                10.044652655629168
             ],
             "scorePercentiles" : {
-                "0.0" : 98959.97327272728,
-                "50.0" : 103556.39851363638,
-                "90.0" : 107615.73039,
-                "95.0" : 107679.6983,
-                "99.0" : 107679.6983,
-                "99.9" : 107679.6983,
-                "99.99" : 107679.6983,
-                "99.999" : 107679.6983,
-                "99.9999" : 107679.6983,
-                "100.0" : 107679.6983
+                "0.0" : 9.789511450862868,
+                "50.0" : 9.933911541711346,
+                "90.0" : 10.013823183803597,
+                "95.0" : 10.015075850777404,
+                "99.0" : 10.015075850777404,
+                "99.9" : 10.015075850777404,
+                "99.99" : 10.015075850777404,
+                "99.999" : 10.015075850777404,
+                "99.9999" : 10.015075850777404,
+                "100.0" : 10.015075850777404
             },
-            "scoreUnit" : "us/op",
+            "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    107679.6983,
-                    106981.9916,
-                    107040.0192,
-                    105274.2006,
-                    99363.52063636364,
-                    98959.97327272728,
-                    101244.76927272727,
-                    103606.4563,
-                    102401.2612,
-                    103506.34072727273
+                    9.793650296623834,
+                    10.015075850777404,
+                    9.844411779045426,
+                    9.952036765881079,
+                    9.789511450862868,
+                    9.98234862420059,
+                    9.983998051276934,
+                    9.839566275303396,
+                    9.915786317541613,
+                    10.002549181039335
                 ]
             ]
         },
@@ -961,58 +993,60 @@
     },
     {
         "jmhVersion" : "1.21",
-        "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.reduceParallel",
-        "mode" : "avgt",
+        "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.reducePar",
+        "mode" : "thrpt",
         "threads" : 1,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
         ],
         "jdkVersion" : "1.8.0_201",
         "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
         "vmVersion" : "25.201-b09",
-        "warmupIterations" : 5,
-        "warmupTime" : "1 s",
+        "warmupIterations" : 3,
+        "warmupTime" : "5 s",
         "warmupBatchSize" : 1,
         "measurementIterations" : 10,
-        "measurementTime" : "1 s",
+        "measurementTime" : "5 s",
         "measurementBatchSize" : 1,
         "params" : {
             "size" : "1000"
         },
         "primaryMetric" : {
-            "score" : 35.89616790970268,
-            "scoreError" : 0.5320035997277228,
+            "score" : 28018.87518865912,
+            "scoreError" : 102.3107838774926,
             "scoreConfidence" : [
-                35.36416430997496,
-                36.428171509430406
+                27916.564404781628,
+                28121.185972536612
             ],
             "scorePercentiles" : {
-                "0.0" : 35.4740336608378,
-                "50.0" : 35.806699452316366,
-                "90.0" : 36.63157939771294,
-                "95.0" : 36.67009895871526,
-                "99.0" : 36.67009895871526,
-                "99.9" : 36.67009895871526,
-                "99.99" : 36.67009895871526,
-                "99.999" : 36.67009895871526,
-                "99.9999" : 36.67009895871526,
-                "100.0" : 36.67009895871526
+                "0.0" : 27910.089029556097,
+                "50.0" : 28015.380637514398,
+                "90.0" : 28101.22251128908,
+                "95.0" : 28101.29969875073,
+                "99.0" : 28101.29969875073,
+                "99.9" : 28101.29969875073,
+                "99.99" : 28101.29969875073,
+                "99.999" : 28101.29969875073,
+                "99.9999" : 28101.29969875073,
+                "100.0" : 28101.29969875073
             },
-            "scoreUnit" : "us/op",
+            "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    36.02396635689071,
-                    35.8620288285704,
-                    35.78743927574608,
-                    36.67009895871526,
-                    36.28490334869209,
-                    35.66987795135174,
-                    35.82595962888666,
-                    35.61580855382643,
-                    35.4740336608378,
-                    35.747562533509665
+                    28004.718639594554,
+                    28095.212513669412,
+                    28101.29969875073,
+                    27989.805016764032,
+                    27988.774356961443,
+                    27931.6109431635,
+                    28040.671228562904,
+                    28026.042635434238,
+                    28100.527824134235,
+                    27910.089029556097
                 ]
             ]
         },
@@ -1021,58 +1055,60 @@
     },
     {
         "jmhVersion" : "1.21",
-        "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.reduceParallel",
-        "mode" : "avgt",
+        "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.reducePar",
+        "mode" : "thrpt",
         "threads" : 1,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
         ],
         "jdkVersion" : "1.8.0_201",
         "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
         "vmVersion" : "25.201-b09",
-        "warmupIterations" : 5,
-        "warmupTime" : "1 s",
+        "warmupIterations" : 3,
+        "warmupTime" : "5 s",
         "warmupBatchSize" : 1,
         "measurementIterations" : 10,
-        "measurementTime" : "1 s",
+        "measurementTime" : "5 s",
         "measurementBatchSize" : 1,
         "params" : {
             "size" : "10000"
         },
         "primaryMetric" : {
-            "score" : 221.78702315618972,
-            "scoreError" : 4.912488371277877,
+            "score" : 4710.268373420664,
+            "scoreError" : 10.782931333895656,
             "scoreConfidence" : [
-                216.87453478491184,
-                226.6995115274676
+                4699.485442086769,
+                4721.051304754559
             ],
             "scorePercentiles" : {
-                "0.0" : 217.38304738100413,
-                "50.0" : 221.7349440558035,
-                "90.0" : 227.92036012090637,
-                "95.0" : 228.35000502283106,
-                "99.0" : 228.35000502283106,
-                "99.9" : 228.35000502283106,
-                "99.99" : 228.35000502283106,
-                "99.999" : 228.35000502283106,
-                "99.9999" : 228.35000502283106,
-                "100.0" : 228.35000502283106
+                "0.0" : 4699.574576446206,
+                "50.0" : 4709.132784398857,
+                "90.0" : 4721.263829523747,
+                "95.0" : 4721.669344798893,
+                "99.0" : 4721.669344798893,
+                "99.9" : 4721.669344798893,
+                "99.99" : 4721.669344798893,
+                "99.999" : 4721.669344798893,
+                "99.9999" : 4721.669344798893,
+                "100.0" : 4721.669344798893
             },
-            "scoreUnit" : "us/op",
+            "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    218.91251258481068,
-                    224.05355600358422,
-                    228.35000502283106,
-                    223.83058089057954,
-                    221.25341362530415,
-                    221.62062619100377,
-                    217.38304738100413,
-                    218.0403078264661,
-                    221.84926192060323,
-                    222.57692011570984
+                    4704.677238974932,
+                    4699.574576446206,
+                    4709.439641696425,
+                    4702.031682312275,
+                    4708.82592710129,
+                    4713.537790606247,
+                    4716.872769904028,
+                    4721.669344798893,
+                    4717.614192047432,
+                    4708.440570318913
                 ]
             ]
         },
@@ -1081,58 +1117,60 @@
     },
     {
         "jmhVersion" : "1.21",
-        "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.reduceParallel",
-        "mode" : "avgt",
+        "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.reducePar",
+        "mode" : "thrpt",
         "threads" : 1,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
         ],
         "jdkVersion" : "1.8.0_201",
         "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
         "vmVersion" : "25.201-b09",
-        "warmupIterations" : 5,
-        "warmupTime" : "1 s",
+        "warmupIterations" : 3,
+        "warmupTime" : "5 s",
         "warmupBatchSize" : 1,
         "measurementIterations" : 10,
-        "measurementTime" : "1 s",
+        "measurementTime" : "5 s",
         "measurementBatchSize" : 1,
         "params" : {
             "size" : "100000"
         },
         "primaryMetric" : {
-            "score" : 2059.422017967303,
-            "scoreError" : 37.25554903695343,
+            "score" : 493.4736850429821,
+            "scoreError" : 3.004271869866375,
             "scoreConfidence" : [
-                2022.1664689303495,
-                2096.6775670042566
+                490.4694131731157,
+                496.47795691284847
             ],
             "scorePercentiles" : {
-                "0.0" : 2026.8322429149798,
-                "50.0" : 2055.73192486507,
-                "90.0" : 2091.775468522095,
-                "95.0" : 2092.4089895615866,
-                "99.0" : 2092.4089895615866,
-                "99.9" : 2092.4089895615866,
-                "99.99" : 2092.4089895615866,
-                "99.999" : 2092.4089895615866,
-                "99.9999" : 2092.4089895615866,
-                "100.0" : 2092.4089895615866
+                "0.0" : 488.41396321909264,
+                "50.0" : 493.9197009070354,
+                "90.0" : 495.6891637315175,
+                "95.0" : 495.7962294354092,
+                "99.0" : 495.7962294354092,
+                "99.9" : 495.7962294354092,
+                "99.99" : 495.7962294354092,
+                "99.999" : 495.7962294354092,
+                "99.9999" : 495.7962294354092,
+                "100.0" : 495.7962294354092
             },
-            "scoreUnit" : "us/op",
+            "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    2076.1195954356845,
-                    2026.8322429149798,
-                    2035.5562967479675,
-                    2067.5893946280994,
-                    2092.4089895615866,
-                    2086.0737791666666,
-                    2085.648975,
-                    2037.8189531568228,
-                    2043.8744551020409,
-                    2042.2974979591836
+                    494.7255723964924,
+                    493.98280011167947,
+                    488.41396321909264,
+                    493.363475728047,
+                    494.41469712906775,
+                    493.9318227880733,
+                    495.7962294354092,
+                    492.34452773899744,
+                    493.9075790259975,
+                    493.85618285696415
                 ]
             ]
         },
@@ -1141,58 +1179,60 @@
     },
     {
         "jmhVersion" : "1.21",
-        "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.reduceParallel",
-        "mode" : "avgt",
+        "benchmark" : "tech.daniellas.streams.DoubleCalculationBenchmark.reducePar",
+        "mode" : "thrpt",
         "threads" : 1,
         "forks" : 1,
         "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
         "jvmArgs" : [
-            "-javaagent:/home/daniel.las/.m2/repository/org/jacoco/org.jacoco.agent/0.8.0/org.jacoco.agent-0.8.0-runtime.jar=destfile=/home/daniel.las/work/workspace_lynx/dltech/daniellas.tech/target/jacoco.exec,excludes=**/*_.*"
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
         ],
         "jdkVersion" : "1.8.0_201",
         "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
         "vmVersion" : "25.201-b09",
-        "warmupIterations" : 5,
-        "warmupTime" : "1 s",
+        "warmupIterations" : 3,
+        "warmupTime" : "5 s",
         "warmupBatchSize" : 1,
         "measurementIterations" : 10,
-        "measurementTime" : "1 s",
+        "measurementTime" : "5 s",
         "measurementBatchSize" : 1,
         "params" : {
             "size" : "1000000"
         },
         "primaryMetric" : {
-            "score" : 19802.09786489442,
-            "scoreError" : 323.9272849044096,
+            "score" : 50.309997394125645,
+            "scoreError" : 0.18451345651878276,
             "scoreConfidence" : [
-                19478.17057999001,
-                20126.02514979883
+                50.12548393760686,
+                50.49451085064443
             ],
             "scorePercentiles" : {
-                "0.0" : 19420.027403846154,
-                "50.0" : 19770.487,
-                "90.0" : 20184.933594000002,
-                "95.0" : 20200.14268,
-                "99.0" : 20200.14268,
-                "99.9" : 20200.14268,
-                "99.99" : 20200.14268,
-                "99.999" : 20200.14268,
-                "99.9999" : 20200.14268,
-                "100.0" : 20200.14268
+                "0.0" : 50.16514224925668,
+                "50.0" : 50.30515148164718,
+                "90.0" : 50.57214081785732,
+                "95.0" : 50.593516622981426,
+                "99.0" : 50.593516622981426,
+                "99.9" : 50.593516622981426,
+                "99.99" : 50.593516622981426,
+                "99.999" : 50.593516622981426,
+                "99.9999" : 50.593516622981426,
+                "100.0" : 50.593516622981426
             },
-            "scoreUnit" : "us/op",
+            "scoreUnit" : "ops/s",
             "rawData" : [
                 [
-                    20200.14268,
-                    20048.05182,
-                    19896.841235294116,
-                    19819.948705882354,
-                    19699.06974509804,
-                    19732.99331372549,
-                    19662.929745098038,
-                    19803.61929411765,
-                    19420.027403846154,
-                    19737.354705882353
+                    50.379758571740325,
+                    50.31098474450496,
+                    50.593516622981426,
+                    50.171933739990756,
+                    50.16514224925668,
+                    50.3395728700546,
+                    50.274052669033125,
+                    50.232833358720285,
+                    50.332860896184854,
+                    50.2993182187894
                 ]
             ]
         },

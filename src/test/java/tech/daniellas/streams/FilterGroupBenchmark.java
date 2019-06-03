@@ -84,14 +84,14 @@ public class FilterGroupBenchmark extends BenchmarkBase {
 	}
 
 	@Benchmark
-	public Map<Double, List<Double>> collectParallel(Params params) {
+	public Map<Double, List<Double>> collectPar(Params params) {
 		return params.items.parallelStream()
 		    .filter(n -> n > MIN && n < MAX)
 		    .collect(Collectors.groupingBy(n -> n / DIVISOR));
 	}
 
 	@Benchmark
-	public Map<Double, List<Double>> collectParallelOptimized(Params params) {
+	public Map<Double, List<Double>> collectParOpt(Params params) {
 		return params.items.parallelStream()
 		    .unordered()
 		    .filter(n -> n > MIN && n < MAX)
@@ -99,7 +99,7 @@ public class FilterGroupBenchmark extends BenchmarkBase {
 	}
 
 	@Benchmark
-	public io.vavr.collection.HashMap<Double, io.vavr.collection.List<Double>> reduceParallel(Params params) {
+	public io.vavr.collection.HashMap<Double, io.vavr.collection.List<Double>> reducePar(Params params) {
 		return params.items.parallelStream()
 		    .filter(n -> n > MIN && n < MAX)
 		    .reduce(

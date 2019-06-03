@@ -45,7 +45,7 @@ public class IntegerSumBenchmark extends BenchmarkBase {
 	}
 
 	@Benchmark
-	public int reduceParallel(Params params) {
+	public int reducePar(Params params) {
 		return params.items.parallelStream()
 		    .reduce(0, Integer::sum);
 	}
@@ -57,7 +57,7 @@ public class IntegerSumBenchmark extends BenchmarkBase {
 	}
 
 	@Benchmark
-	public int collectParallel(Params params) {
+	public int collectPar(Params params) {
 		return params.items.parallelStream()
 		    .collect(Collectors.summingInt(i -> i));
 	}

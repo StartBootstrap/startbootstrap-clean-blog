@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="Functional Programming, Java">
 <meta name="author" content="Daniel Łaś">
-<title>Daniel Łaś Tech Blog</title>
+<title>Daniel Łaś Tech Blog - Speed of stream. Nice but slow abstraction? Myths debunked.</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
 <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -18,7 +18,11 @@
 <link href="../css/clean-blog.min.css" rel="stylesheet">
 <style type="text/css">
 .chart {
-	height: 400px;
+	height: 300px;
+}
+
+table.benchmark tr.selection {
+	cursor: pointer;
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js" data-manual></script>
@@ -69,7 +73,7 @@
 				<div class="col-md-10 mx-auto">
 					<div class="post-heading text-center">
 						<h1>Speed of stream</h1>
-						<h2 class="subheading">Myths debunked?</h2>
+						<h2 class="subheading">Are streams nice but slow abstraction? Myths debunked.</h2>
 					</div>
 				</div>
 			</div>
@@ -124,6 +128,97 @@
 						<tbody id="streams-filter-group-table">
 						</tbody>
 					</table>
+					<h2>Words frequency</h2>
+					<h3>Original code</h3>
+					<div class="row">
+						<div class="col-md-8">
+							<div class="chart" id="wfc-chart"></div>
+						</div>
+						<div class="col-md-4">
+							<table class="table table-hover table-sm benchmark">
+								<thead>
+									<tr>
+										<th>Benchmark</th>
+										<th class="text-right">Score</th>
+									</tr>
+								</thead>
+								<tbody id="wfc-table">
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<h3>Step 1 - Using tokenizer stream</h3>
+					<div class="row">
+						<div class="col-md-8">
+							<div class="chart" id="wfc-chart1"></div>
+						</div>
+						<div class="col-md-4">
+							<table class="table table-hover table-sm benchmark">
+								<thead>
+									<tr>
+										<th>Benchmark</th>
+										<th class="text-right">Score</th>
+									</tr>
+								</thead>
+								<tbody id="wfc-table1">
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<h3>Step 2 - Parallel</h3>
+					<div class="row">
+						<div class="col-md-8">
+							<div class="chart" id="wfc-chart2"></div>
+						</div>
+						<div class="col-md-4">
+							<table class="table table-hover table-sm benchmark">
+								<thead>
+									<tr>
+										<th>Benchmark</th>
+										<th class="text-right">Score</th>
+									</tr>
+								</thead>
+								<tbody id="wfc-table2">
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<h3>Step 3 - Single pass</h3>
+					<div class="row">
+						<div class="col-md-8">
+							<div class="chart" id="wfc-chart3"></div>
+						</div>
+						<div class="col-md-4">
+							<table class="table table-hover table-sm benchmark">
+								<thead>
+									<tr>
+										<th>Benchmark</th>
+										<th class="text-right">Score</th>
+									</tr>
+								</thead>
+								<tbody id="wfc-table3">
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<h3>Step 4 - Single pass parallel</h3>
+					<div class="row">
+						<div class="col-md-8">
+							<div class="chart" id="wfc-chart4"></div>
+						</div>
+						<div class="col-md-4">
+							<table class="table table-hover table-sm benchmark">
+								<thead>
+									<tr>
+										<th>Benchmark</th>
+										<th class="text-right">Score</th>
+									</tr>
+								</thead>
+								<tbody id="wfc-table4">
+								</tbody>
+							</table>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -135,15 +230,15 @@
 				<div class="col-lg-8 col-md-10 mx-auto">
 					<ul class="list-inline text-center">
 						<li class="list-inline-item">
-							<a href="https://www.linkedin.com/in/daniel-las" target="_blank">
-								<span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-								</span>
+							<a href="https://www.linkedin.com/in/daniel-las" target="_blank"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i
+									class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+							</span>
 							</a>
 						</li>
 					</ul>
 					<p class="copyright text-muted">
-						Copyright &copy; Daniel Łaś 2019, Look and feel forked from
-						<a href="https://startbootstrap.com/template-overviews/clean-blog/" target="blank">Clean Blog</a>
+						Copyright &copy; Daniel Łaś 2019, Look and feel forked from <a href="https://startbootstrap.com/template-overviews/clean-blog/" target="blank">Clean
+							Blog</a>
 					</p>
 				</div>
 			</div>
