@@ -18,7 +18,7 @@
 <link href="../css/clean-blog.min.css" rel="stylesheet">
 <style type="text/css">
 .chart {
-	height: 300px;
+	height: 350px;
 }
 
 table.benchmark tr.selection {
@@ -83,8 +83,40 @@ table.benchmark tr.selection {
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10 mx-auto">
+					<p>From time to time I witness or am involved it the discussion about Java 8 Streams performance. The common knowledge is that streams are the
+						compromise between performance and terse although very descriptive abstraction. I couldn't find any comprehensive set of benchmarks around so decided to
+						write by myself. Here below I present gathered results.</p>
+					<h2>Benchmarking tool</h2>
+					<p>
+						The choice regarding benchmarking tools seemed easy, battle tested microbenchmark toolkit - <a href="https://openjdk.java.net/projects/code-tools/jmh/">JMH</a>
+						maintained under umbrella of OpenJDK. It's very easy to use:
+					</p>
+					<pre><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/BenchmarkBase.java" data-format="lines 17,44"></code></pre>
+					<p>
+						I measured different use cases and compared results of plain old <code>forEach</code> implementation with different flavours of <code>Stream</code>.
+					</p>
+					<p>
+						The JVM arguments passed in every test were: <em>-Xms2G -Xmx2G -XX:+UseG1GC</em>. The JVM version used was: <em>Java HotSpot(TM) 64-Bit Server
+							1.8.0_201</em>.
+					</p>
+					<p>
+						Most of the benchmarks were run on some elements list with different sizes: <em>1000</em>, <em>10 000</em>,<em>100 000</em>, <em>1 000 000</em> to verify
+						how given implementation performs depending on number of elements it has to process.
+					</p>
+					<p>
+						Benchmark results are presented on charts in <em>number operations per second</em> unit, usually in logarithmic scale to easily compare results between
+						different sample sizes. Results in table are normalized to <em>percents</em>, where best result is <em>100 %</em>. When you see <em>50 %</em> score in the
+						table, it means that this benchmark was half good as the best one.
+					</p>
 					<h2>Sum of integers</h2>
+					<p>This is first benchmark comparing performance of summing integer numbers from list. You can limit visible results by selecting them from the legend
+						at the top right corner of the chart.</p>
+					<p>
+						<a class="ans" data-toggle="collapse" href="#intsum">See benchmark code</a>
+					</p>
+					<pre class="collapse" id="intsum"><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/IntegerSumBenchmark.java"></code></pre>
 					<div class="chart" id="streams-sum-int-chart"></div>
+					<p>And this is results table. You can select rows to make it more readable.</p>
 					<table class="table table-hover table-sm benchmark">
 						<thead>
 							<tr>
@@ -98,6 +130,13 @@ table.benchmark tr.selection {
 						<tbody id="streams-sum-int-table">
 						</tbody>
 					</table>
+					<p>
+						It was easy to predict. We have clear winner: <code>forEach</code>, but it's advantage was decreasing with larger items numbers, especially when compared
+						to parallel version of <code>collect</code>. Sequential <code>collect</code> is better on <em>1000</em> elements, but then parallel version starts to move
+						ahead. <code>reduce</code> don't perform well at all, worst in almost all cases but again, parallel stream with <code>reduce</code> is doing better when
+						sample is bigger.
+					</p>
+					<p class="note"></p>
 					<h2>Sum of double calculations</h2>
 					<div class="chart" id="streams-sum-double-calculation-chart"></div>
 					<table class="table table-hover table-sm benchmark">

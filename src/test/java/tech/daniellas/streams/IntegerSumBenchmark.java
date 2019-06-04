@@ -12,19 +12,35 @@ import org.openjdk.jmh.annotations.State;
 
 public class IntegerSumBenchmark extends BenchmarkBase {
 
+	// These are benchmarks parameters
 	@State(Scope.Benchmark)
 	public static class Params {
+		// Run with given size parameters of
 		@Param({ "1000", "10000", "100000", "1000000" })
 		public int size;
 
+		// Items to run benchmark on
 		public List<Integer> items;
 
+		// Setup test data, will be run once and will not affect our results
 		@Setup
 		public void setUp() {
 			items = IntStream.range(0, size)
 			    .mapToObj(i -> i)
 			    .collect(Collectors.toList());
 		}
+	}
+
+	@Benchmark
+	public int collect(Params params) {
+		return params.items.stream()
+		    .collect(Collectors.summingInt(i -> i));
+	}
+
+	@Benchmark
+	public int collectPar(Params params) {
+		return params.items.parallelStream()
+		    .collect(Collectors.summingInt(i -> i));
 	}
 
 	@Benchmark
@@ -48,18 +64,6 @@ public class IntegerSumBenchmark extends BenchmarkBase {
 	public int reducePar(Params params) {
 		return params.items.parallelStream()
 		    .reduce(0, Integer::sum);
-	}
-
-	@Benchmark
-	public int collect(Params params) {
-		return params.items.stream()
-		    .collect(Collectors.summingInt(i -> i));
-	}
-
-	@Benchmark
-	public int collectPar(Params params) {
-		return params.items.parallelStream()
-		    .collect(Collectors.summingInt(i -> i));
 	}
 
 	@Override

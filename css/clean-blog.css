@@ -79,7 +79,7 @@ img::-moz-selection {
   background: transparent;
 }
 
-em, p.em {
+em, p.em, td.em {
   font-weight: bold;
 }
 
@@ -118,7 +118,7 @@ code.language-java {
 
 table.benchmark {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 12pt;
+  font-size: 11pt;
 }
 
 #mainNav {

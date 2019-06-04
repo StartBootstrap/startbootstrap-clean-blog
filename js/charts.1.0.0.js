@@ -15,6 +15,28 @@
 		});
 	}
 
+	function applyRelative(data) {
+		var maxBySize = _.chain(data).groupBy('size').map(function(v, k) {
+			var max = _.maxBy(v, 'score').score;
+
+			return {
+				size : k,
+				maxScore : max
+
+			};
+		}).reduce(function(a, v, k) {
+			a[v.size] = v.maxScore;
+
+			return a;
+		}, {}).value();
+
+		return _.map(data, function(i) {
+			i.relativeScore = i.score / maxBySize[i.size];
+
+			return i;
+		});
+	}
+
 	function renderSeriesChart(id, data, xlabel, scale) {
 		var chart = new Taucharts.Chart({
 			type : 'bar',
@@ -88,12 +110,16 @@
 		return '<th>' + text + '</th>';
 	}
 
-	function td(text) {
-		return '<td class="text-right">' + text + '</td>';
+	function td(text, cls) {
+		return '<td class="text-right ' + cls + '">' + text + '</td>';
 	}
 
 	function formatNumber(number) {
 		return numeral(number).format('0,000.00');
+	}
+
+	function formatPercent(number) {
+		return numeral(number).format('0.00 %');
 	}
 
 	function renderTable(id, data, cols) {
@@ -104,7 +130,7 @@
 			var cells = [ thead(k) ];
 
 			for (var i = 0; i < cols; i++) {
-				cells.push(td(formatNumber(v[i].score)));
+				cells.push(td(formatPercent(v[i].relativeScore), v[i].relativeScore === 1 ? 'em' : ''));
 			}
 
 			row.append(cells);
@@ -118,7 +144,7 @@
 	fetch('../data/benchmark-streams-sum-int.json').then(function(resp) {
 		return resp.text();
 	}).then(function(data) {
-		var formattedData = _.flow(JSON.parse, flattenJmhResults, filterData)(data);
+		var formattedData = _.flow(JSON.parse, flattenJmhResults, filterData, applyRelative)(data);
 
 		renderSeriesChart('streams-sum-int-chart', formattedData, 'Items in list', 'logarithmic');
 		renderTable('streams-sum-int-table', _.groupBy(formattedData, 'benchmark'), 4);
@@ -127,7 +153,7 @@
 	fetch('../data/benchmark-streams-sum-double-calculation.json').then(function(resp) {
 		return resp.text();
 	}).then(function(data) {
-		var formattedData = _.flow(JSON.parse, flattenJmhResults, filterData)(data);
+		var formattedData = _.flow(JSON.parse, flattenJmhResults, filterData, applyRelative)(data);
 
 		renderSeriesChart('streams-sum-double-calculation-chart', formattedData, 'Items in list', 'logarithmic');
 		renderTable('streams-sum-double-calculation-table', _.groupBy(formattedData, 'benchmark'), 4);
@@ -136,11 +162,15 @@
 	fetch('../data/benchmark-streams-filter-group.json').then(function(resp) {
 		return resp.text();
 	}).then(function(data) {
-		var formattedData = _.flow(JSON.parse, flattenJmhResults, filterData)(data);
+		var formattedData = _.flow(JSON.parse, flattenJmhResults, filterData, applyRelative)(data);
 
 		renderSeriesChart('streams-filter-group-chart', formattedData, 'Items in list', 'logarithmic');
 		renderTable('streams-filter-group-table', _.groupBy(formattedData, 'benchmark'), 4);
 	});
+
+	function tableData(data, limit) {
+		return _.flow(_.partialRight(_.take, limit), applyRelative, _.partialRight(_.groupBy, 'benchmark'))(data);
+	}
 
 	fetch('../data/benchmark-wfc.json').then(function(resp) {
 		return resp.text();
@@ -148,19 +178,19 @@
 		var formattedData = _.flow(JSON.parse, flattenJmhResults, filterData)(data);
 
 		renderChart('wfc-chart', _.take(formattedData, 2), 'Benchmark');
-		renderTable('wfc-table', _.groupBy(_.take(formattedData, 2), 'benchmark'), 1);
+		renderTable('wfc-table', tableData(formattedData, 2), 1);
 
 		renderChart('wfc-chart1', _.take(formattedData, 3), 'Benchmark');
-		renderTable('wfc-table1', _.groupBy(_.take(formattedData, 3), 'benchmark'), 1);
+		renderTable('wfc-table1', tableData(formattedData, 3), 1);
 
 		renderChart('wfc-chart2', _.take(formattedData, 4), 'Benchmark');
-		renderTable('wfc-table2', _.groupBy(_.take(formattedData, 4), 'benchmark'), 1);
+		renderTable('wfc-table2', tableData(formattedData, 4), 1);
 
 		renderChart('wfc-chart3', _.take(formattedData, 5), 'Benchmark');
-		renderTable('wfc-table3', _.groupBy(_.take(formattedData, 5), 'benchmark'), 1);
+		renderTable('wfc-table3', tableData(formattedData, 5), 1);
 
 		renderChart('wfc-chart4', _.take(formattedData, 6), 'Benchmark');
-		renderTable('wfc-table4', _.groupBy(_.take(formattedData, 6), 'benchmark'), 1);
+		renderTable('wfc-table4', tableData(formattedData, 6), 1);
 
 	});
 
