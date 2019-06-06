@@ -121,6 +121,11 @@ table.benchmark {
   font-size: 11pt;
 }
 
+p.legend {
+  font-style: italic;
+  margin: 15px 0;
+}
+
 #mainNav {
   position: absolute;
   border-bottom: 1px solid #e9ecef;

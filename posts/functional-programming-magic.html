@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="Functional Programming, Java">
+<meta name="description" content="Functional programming, Java, pure function, higher order function, function composition, side effects">
 <meta name="author" content="Daniel Łaś">
 <title>Daniel Łaś Tech Blog - Functional programming is like magic</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
@@ -72,9 +72,8 @@
 				<div class="col-md-10 mx-auto">
 					<p>
 						This is first part of pragmatic functional programming tutorial for Java developers. It's based on my experience taken from lessons of functional
-						programming in Java I give at work. If you read this part already, take a look at the next post:
-						<a href="why-functional-programming.html">Why functional programming</a>
-						.
+						programming in Java I give at work. If you read this part already, take a look at the next post: <a href="why-functional-programming.html">Why
+							functional programming</a> .
 					</p>
 					<p class="text-center">
 						<em>I hope you will enjoy it as much as I do teaching.</em>
@@ -235,19 +234,18 @@
 						you some exercises to let you practice and get better intuition in manipulating functions.
 					</p>
 					<p class="exc">
-						Write function transforming any two arguments function into two arguments function with arguments reversed.
-						<a class="ans" data-toggle="collapse" href="#reverse">Show answer</a>
+						Write function transforming any two arguments function into two arguments function with arguments reversed. <a class="ans" data-toggle="collapse"
+							href="#reverse">Show answer</a>
 					</p>
 					<pre class="collapse" id="reverse"><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/Reverse.java" data-format="skip-class"></code></pre>
 					<p class="exc">
-						Write function currying any two arguments function from the right side.
-						<a class="ans" data-toggle="collapse" href="#curryRight">Show answer</a>
+						Write function currying any two arguments function from the right side. <a class="ans" data-toggle="collapse" href="#curryRight">Show answer</a>
 					</p>
 					<pre class="collapse" id="curryRight"><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/CurryRight.java"
 						data-format="skip-class"></code></pre>
 					<p class="exc">
-						Write function currying any two arguments function from the right using <code>reverse</code> function.
-						<a class="ans" data-toggle="collapse" href="#curryRightReverse">Show answer</a>
+						Write function currying any two arguments function from the right using <code>reverse</code> function. <a class="ans" data-toggle="collapse"
+							href="#curryRightReverse">Show answer</a>
 					</p>
 					<pre class="collapse" id="curryRightReverse"><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/CurryRightViaReverse.java"
 						data-format="skip-class"></code></pre>
@@ -340,13 +338,12 @@
 							Core API</em> and from <em>Apache Commons Lang</em> library.
 					</p>
 					<p class="exc">
-						Extend our percent parsing function to trim input string before application.
-						<a class="ans" data-toggle="collapse" href="#percentParserTrim">Show answer</a>
+						Extend our percent parsing function to trim input string before application. <a class="ans" data-toggle="collapse" href="#percentParserTrim">Show
+							answer</a>
 					</p>
 					<pre class="collapse" id="percentParserTrim"><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/PercentParserTrim.java"></code></pre>
 					<p class="exc">
-						Extend our trimming percent parsing function to add two fraction digits.
-						<a class="ans" data-toggle="collapse" href="#percentParserScale">Show answer</a>
+						Extend our trimming percent parsing function to add two fraction digits. <a class="ans" data-toggle="collapse" href="#percentParserScale">Show answer</a>
 					</p>
 					<pre class="collapse" id="percentParserScale"><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/PercentParserScale.java"></code></pre>
 					<p>Although we have limited number of our programming tools, just higher order functions, partial application and composition, the amount of possible
@@ -433,15 +430,13 @@
 						Our program grows as there are new requirements given. There are new player's checks added like age verification, VIP players handling along with
 						additional player's handlers. We know that our Product Owner is considering additional checks and handlers. We want to structure our program to easily
 						handle multiple different cases. We decided to keep conditions and handlers in the list to use it in player's verification code. We need to cover now
-						additional cases: request security assistance for VIP players (we have VIP players list) and warn about players younger than 21 years old.
-						<a class="ans" data-toggle="collapse" href="#sideEffectsCompose">Show answer</a>
+						additional cases: request security assistance for VIP players (we have VIP players list) and warn about players younger than 21 years old. <a class="ans"
+							data-toggle="collapse" href="#sideEffectsCompose">Show answer</a>
 					</p>
 					<pre class="collapse" id="sideEffectsCompose"><code class="language-java" data-src="../src/main/java/tech/daniellas/p1/SideEffectsCompose.java"></code></pre>
 					<h2>What's next?</h2>
 					<p>
-						In next post you will read
-						<a href="why-functional-programming.html">why it's worth to learn functional programming</a>
-						.
+						In next post you will read <a href="why-functional-programming.html">why it's worth to learn functional programming</a> .
 					</p>
 				</div>
 			</div>
@@ -454,15 +449,15 @@
 				<div class="col-lg-8 col-md-10 mx-auto">
 					<ul class="list-inline text-center">
 						<li class="list-inline-item">
-							<a href="https://www.linkedin.com/in/daniel-las" target="_blank">
-								<span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-								</span>
+							<a href="https://www.linkedin.com/in/daniel-las" target="_blank"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i
+									class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+							</span>
 							</a>
 						</li>
 					</ul>
 					<p class="copyright text-muted">
-						Copyright &copy; Daniel Łaś 2019, Look and feel forked from
-						<a href="https://startbootstrap.com/template-overviews/clean-blog/" target="blank">Clean Blog</a>
+						Copyright &copy; Daniel Łaś 2019, Look and feel forked from <a href="https://startbootstrap.com/template-overviews/clean-blog/" target="blank">Clean
+							Blog</a>
 					</p>
 				</div>
 			</div>

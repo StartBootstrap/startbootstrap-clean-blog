@@ -31,18 +31,7 @@ public class IntegerSumBenchmark extends BenchmarkBase {
 		}
 	}
 
-	@Benchmark
-	public int collect(Params params) {
-		return params.items.stream()
-		    .collect(Collectors.summingInt(i -> i));
-	}
-
-	@Benchmark
-	public int collectPar(Params params) {
-		return params.items.parallelStream()
-		    .collect(Collectors.summingInt(i -> i));
-	}
-
+	// Plain old forEach implementation
 	@Benchmark
 	public int forEach(Params params) {
 		int res = 0;
@@ -54,12 +43,28 @@ public class IntegerSumBenchmark extends BenchmarkBase {
 		return res;
 	}
 
+	// Using summing collector
+	@Benchmark
+	public int collect(Params params) {
+		return params.items.stream()
+		    .collect(Collectors.summingInt(i -> i));
+	}
+
+	// Using summing collector on parallel stream
+	@Benchmark
+	public int collectPar(Params params) {
+		return params.items.parallelStream()
+		    .collect(Collectors.summingInt(i -> i));
+	}
+
+	// Using reduce
 	@Benchmark
 	public int reduce(Params params) {
 		return params.items.stream()
 		    .reduce(0, Integer::sum);
 	}
 
+	// Using reduce on parallel stream
 	@Benchmark
 	public int reducePar(Params params) {
 		return params.items.parallelStream()

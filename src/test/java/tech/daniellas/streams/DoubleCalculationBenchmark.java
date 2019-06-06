@@ -12,14 +12,16 @@ import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 
-import com.empirica.funcs.Functions;
-
 public class DoubleCalculationBenchmark extends BenchmarkBase {
 
-	private static Function<Double, Double> calculation = Functions.of(Math::log)
+	// This if our calculation, takes Double type number, calculates logarithm, then
+	// sine and then square root
+	private static Function<Double, Double> calculation = Function.<Double>identity()
+	    .andThen(Math::log)
 	    .andThen(Math::sin)
 	    .andThen(Math::sqrt);
 
+	// Benchmark parameters
 	@State(Scope.Benchmark)
 	public static class Params {
 		@Param({ "1000", "10000", "100000", "1000000" })
@@ -27,6 +29,7 @@ public class DoubleCalculationBenchmark extends BenchmarkBase {
 
 		public List<Double> items;
 
+		// We generate pseudo random doubles
 		@Setup
 		public void setUp() {
 			items = IntStream.range(0, size)
@@ -35,6 +38,7 @@ public class DoubleCalculationBenchmark extends BenchmarkBase {
 		}
 	}
 
+	// Using forEach
 	@Benchmark
 	public Double forEach(Params params) {
 		Double res = 0d;
@@ -46,6 +50,7 @@ public class DoubleCalculationBenchmark extends BenchmarkBase {
 		return res;
 	}
 
+	// Using reduce
 	@Benchmark
 	public Double reduce(Params params) {
 		return params.items.stream()
@@ -53,6 +58,7 @@ public class DoubleCalculationBenchmark extends BenchmarkBase {
 		    .reduce(0d, Double::sum);
 	}
 
+	// Using reduce on parallel stream
 	@Benchmark
 	public Double reducePar(Params params) {
 		return params.items.parallelStream()
@@ -60,6 +66,7 @@ public class DoubleCalculationBenchmark extends BenchmarkBase {
 		    .reduce(0d, Double::sum);
 	}
 
+	// Using collect with summing collector
 	@Benchmark
 	public Double collect(Params params) {
 		return params.items.stream()
@@ -67,6 +74,7 @@ public class DoubleCalculationBenchmark extends BenchmarkBase {
 		    .collect(Collectors.summingDouble(i -> i));
 	}
 
+	// Using collect with summing collector on parallel stream
 	@Benchmark
 	public Double collectPar(Params params) {
 		return params.items.parallelStream()

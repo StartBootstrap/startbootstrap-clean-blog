@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="Functional Programming, Java">
+<meta name="description" content="Functional Programming, Java, Java 8 streams benchmarks ">
 <meta name="author" content="Daniel Łaś">
 <title>Daniel Łaś Tech Blog - Speed of stream. Nice but slow abstraction? Myths debunked.</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
@@ -86,37 +86,45 @@ table.benchmark tr.selection {
 					<p>From time to time I witness or am involved it the discussion about Java 8 Streams performance. The common knowledge is that streams are the
 						compromise between performance and terse although very descriptive abstraction. I couldn't find any comprehensive set of benchmarks around so decided to
 						write by myself. Here below I present gathered results.</p>
-					<h2>Benchmarking tool</h2>
+					<h2>What and how was tested</h2>
+					<p>
+						I measured performance of several different use cases of <code>forEach</code> application, like applying some function to list of numbers and summing it
+						or filtering and grouping such list - usual programming tasks. The same tasks were implemented with different flavours of <code>Stream</code>.
+					</p>
 					<p>
 						The choice regarding benchmarking tools seemed easy, battle tested microbenchmark toolkit - <a href="https://openjdk.java.net/projects/code-tools/jmh/">JMH</a>
-						maintained under umbrella of OpenJDK. It's very easy to use:
+						maintained under umbrella of OpenJDK. It's very flexible and easy to use.
 					</p>
-					<pre><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/BenchmarkBase.java" data-format="lines 17,44"></code></pre>
 					<p>
-						I measured different use cases and compared results of plain old <code>forEach</code> implementation with different flavours of <code>Stream</code>.
+						<a class="ans" data-toggle="collapse" href="#jmh">See benchmark runner configuration</a>
+					</p>
+					<pre class="collapse" id="jmh"><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/BenchmarkBase.java"
+						data-format="lines 17,42"></code></pre>
+					<p>
+						Most of the benchmarks were run on some elements list of different sizes: <em>1000</em>, <em>10 000</em>,<em>100 000</em>, <em>1 000 000</em> to verify
+						how given implementation performs depending on number of elements it has to process.
 					</p>
 					<p>
 						The JVM arguments passed in every test were: <em>-Xms2G -Xmx2G -XX:+UseG1GC</em>. The JVM version used was: <em>Java HotSpot(TM) 64-Bit Server
 							1.8.0_201</em>.
 					</p>
 					<p>
-						Most of the benchmarks were run on some elements list with different sizes: <em>1000</em>, <em>10 000</em>,<em>100 000</em>, <em>1 000 000</em> to verify
-						how given implementation performs depending on number of elements it has to process.
+						Benchmark results are presented on charts in <em>number of operations per second</em> unit, usually in logarithmic scale to easily compare results between
+						different sample sizes.
 					</p>
 					<p>
-						Benchmark results are presented on charts in <em>number operations per second</em> unit, usually in logarithmic scale to easily compare results between
-						different sample sizes. Results in table are normalized to <em>percents</em>, where best result is <em>100 %</em>. When you see <em>50 %</em> score in the
-						table, it means that this benchmark was half good as the best one.
+						Results are also displayed in tables, normalized to <em>percents</em>, where best result is <em>100 %</em>. When you see <em>50 %</em> score in the table,
+						it means that this benchmark was half good as the best one.
 					</p>
 					<h2>Sum of integers</h2>
-					<p>This is first benchmark comparing performance of summing integer numbers from list. You can limit visible results by selecting them from the legend
-						at the top right corner of the chart.</p>
+					<p>This is first benchmark comparing performance of summing integer numbers from list.</p>
 					<p>
 						<a class="ans" data-toggle="collapse" href="#intsum">See benchmark code</a>
 					</p>
 					<pre class="collapse" id="intsum"><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/IntegerSumBenchmark.java"></code></pre>
 					<div class="chart" id="streams-sum-int-chart"></div>
-					<p>And this is results table. You can select rows to make it more readable.</p>
+					<p class="legend">You can limit series visible on charts by selecting them from the legend at the top right corner.</p>
+					<p>And this is results table.</p>
 					<table class="table table-hover table-sm benchmark">
 						<thead>
 							<tr>
@@ -130,14 +138,29 @@ table.benchmark tr.selection {
 						<tbody id="streams-sum-int-table">
 						</tbody>
 					</table>
+					<p class="legend">You can select rows to make it more readable.</p>
 					<p>
 						It was easy to predict. We have clear winner: <code>forEach</code>, but it's advantage was decreasing with larger items numbers, especially when compared
 						to parallel version of <code>collect</code>. Sequential <code>collect</code> is better on <em>1000</em> elements, but then parallel version starts to move
 						ahead. <code>reduce</code> don't perform well at all, worst in almost all cases but again, parallel stream with <code>reduce</code> is doing better when
 						sample is bigger.
 					</p>
-					<p class="note"></p>
-					<h2>Sum of double calculations</h2>
+					<p class="note">
+						If greatest part of your program is responsible for summing reasonable big number of integers, go for <code>forEach</code>.
+					</p>
+					<p>
+						If you think I'm little bit sarcastic here ... you are right. It's very unlikely that this level of performance optimizations matters, especially in the
+						world of <em>REST APIs</em>, <em>Microservices</em> and <em>Event Driven</em> architectures. If we replace <code>Stream.collect()</code> with <code>forEach</code>
+						to sum <em>100 000</em> integers obtained via some REST endpoint, we don't profit much. We gain tenths of microseconds compared to seconds required to
+						fetch data from database, serialize, transfer over the wire and deserialize.
+					</p>
+					<h2>Sum of calculations</h2>
+					<p>Let's take more realistic task this time: perform some math operation on list of randomly generated floating-point numbers and sum all calculated
+						values.</p>
+					<p>
+						<a class="ans" data-toggle="collapse" href="#doublesum">See benchmark code</a>
+					</p>
+					<pre class="collapse" id="doublesum"><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/DoubleCalculationBenchmark.java"></code></pre>
 					<div class="chart" id="streams-sum-double-calculation-chart"></div>
 					<table class="table table-hover table-sm benchmark">
 						<thead>
@@ -152,6 +175,25 @@ table.benchmark tr.selection {
 						<tbody id="streams-sum-double-calculation-table">
 						</tbody>
 					</table>
+					<p>
+						Well, what a surprise! <code>forEach</code> score is more or less the same as of sequential stream based versions, worst in 3 of 4 runs. Parallel stream
+						implementations are about 3 - 5 times faster. Such results are quite easy to explain.
+					</p>
+					<p class="note">
+						There are cost related to <code>Stream</code> creation and threads coordination that can't be mitigated when number of operations to parallelise is small
+						or the operation itself is fast.
+					</p>
+					<p>
+						We didn't observe such quick benefits of parallel streams in previous benchmark. According to <a href="https://en.wikipedia.org/wiki/Amdahl%27s_law">Amdahl's
+							law</a> defining theoretical limits of parallelism - the greater part of our program is run sequentially, less parallel it can be. This is exactly the case
+						for summing list of integers. Two integers addition is very fast operation, so inherently sequential part responsible for threads synchronization
+						prevailed, especially in case of relatively small quantity of items in the list.
+					</p>
+					<p>
+						The same law caused slightly better performance of <code>reduce</code> operation in this benchmark. <code>reduce</code> contract requires to use binary
+						associative operation, free from side effects and working on immutable objects. <code>Double.sum()</code> falls into this category. If we obey these
+						constraints, no synchronization is required during partial results merge.
+					</p>
 					<h2>Filter and group</h2>
 					<div class="chart" id="streams-filter-group-chart"></div>
 					<table class="table table-hover table-sm benchmark">

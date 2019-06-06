@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="Functional Programming, Java">
+<meta name="description"
+	content="Functional Programming, Java, parallel computations functional way, Monoid, Monad, SOLID, loose coupling, functions testability, equational reasoning">
 <meta name="author" content="Daniel Łaś">
 <title>Daniel Łaś Tech Blog - Why functional programming? It does make the difference.</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
@@ -71,19 +72,17 @@
 			<div class="row">
 				<div class="col-md-10 mx-auto">
 					<p>
-						This is second part of pragmatic functional programming tutorial for Java developers. If you read my previous post regarding
-						<a href="functional-programming-magic.html">what functional programming is</a>
-						, well ... <em>I'm glad you are back :)</em> If you didn't, <em>please take a look there</em> as I'm going to write about concepts described previously.
+						This is second part of pragmatic functional programming tutorial for Java developers. If you read my previous post regarding <a
+							href="functional-programming-magic.html">what functional programming is</a> , well ... <em>I'm glad you are back :)</em> If you didn't, <em>please
+							take a look there</em> as I'm going to write about concepts described previously.
 					</p>
 					<p>We know basic concepts and techniques of functional programming. It's time for some advertising, why it's good to use these techniques and concepts
 						and how they will improve our code.</p>
 					<h2>Concurrent and parallel computations</h2>
 					<p>
-						If we look at microprocessors parameters historical data, like here:
-						<a href="https://www.karlrupp.net/2018/02/42-years-of-microprocessor-trend-data/">42 Years of Microprocessor Trend Data </a>
-						, we can draw interesting conclusions.
-						<a href="https://en.wikipedia.org/wiki/Moore%27s_law">Moore's law</a>
-						still holds as number of transistors grows exponentially. Single thread performance increases slightly. The number of cores increases with a power law.
+						If we look at microprocessors parameters historical data, like here: <a href="https://www.karlrupp.net/2018/02/42-years-of-microprocessor-trend-data/">42
+							Years of Microprocessor Trend Data </a> , we can draw interesting conclusions. <a href="https://en.wikipedia.org/wiki/Moore%27s_law">Moore's law</a> still
+						holds as number of transistors grows exponentially. Single thread performance increases slightly. The number of cores increases with a power law.
 					</p>
 					<p>Once we have multiple cores available, it's not the big deal to make our programs concurrent. Just spawn tasks in separate threads and we are done.
 						The real difficulty is in making our programs parallel.</p>
@@ -127,12 +126,11 @@
 					</p>
 					<p>
 						The answer depends on it's ability to be divided into pieces that can be executed in parallel. The bigger part of program can be parallelized then better.
-						However, there are some theoretical limits described by
-						<a href="https://en.wikipedia.org/wiki/Amdahl%27s_law">Amdahl's law</a>
-						. Deciding if our program is a good candidate for parallelization is sometimes difficult. Usually we have some source of data and run computation on every
-						element from this source. More divisible is the source and more costly is the single element processing, chances are higher that we can benefit from
-						running it in parallel manner. However we split our job, either recursively or by some collection division, we need to take care of available parallelism
-						level determined by number of cores or nodes.
+						However, there are some theoretical limits described by <a href="https://en.wikipedia.org/wiki/Amdahl%27s_law">Amdahl's law</a> . Deciding if our program
+						is a good candidate for parallelization is sometimes difficult. Usually we have some source of data and run computation on every element from this source.
+						More divisible is the source and more costly is the single element processing, chances are higher that we can benefit from running it in parallel manner.
+						However we split our job, either recursively or by some collection division, we need to take care of available parallelism level determined by number of
+						cores or nodes.
 					</p>
 					<p>Let's make our hands dirty and write parallel program. The simplest case of parallel computation is:</p>
 					<p class="note">we have data set, we want to perform some long running calculation on every element from set and finally receive transformed data set
@@ -142,15 +140,13 @@
 						<img class="img-fluid" src="../img/mandelbrot.png" />
 					</p>
 					<p>
-						Above image is the fractal generated using
-						<a href="https://en.wikipedia.org/wiki/Mandelbrot_set">Mandelbrot's</a>
-						formula. To generate fractal we perform some iterative algorithm for every point in the image and set it's color depending on algorithm result.
+						Above image is the fractal generated using <a href="https://en.wikipedia.org/wiki/Mandelbrot_set">Mandelbrot's</a> formula. To generate fractal we perform
+						some iterative algorithm for every point in the image and set it's color depending on algorithm result.
 					</p>
 					<pre class="line-numbers"><code class="language-java" data-src="../src/test/java/tech/daniellas/p2/MandelbrotTest.java"></code></pre>
 					<p>
-						If you want to look at <code>Point</code> class and <code>mandelbrot</code> function,
-						<a class="ans" data-toggle="collapse" href="#mandelbrot">click here</a>
-						.
+						If you want to look at <code>Point</code> class and <code>mandelbrot</code> function, <a class="ans" data-toggle="collapse" href="#mandelbrot">click
+							here</a> .
 					</p>
 					<pre class="collapse" id="mandelbrot"><code class="language-java" data-src="../src/main/java/tech/daniellas/p2/Mandelbrot.java"></code></pre>
 					<ul>
@@ -259,37 +255,35 @@
 						functional paradigm. I just mean that functional programming encourages us to do things the right way.
 					</p>
 					<p>
-						Let's look at
-						<a href="https://en.wikipedia.org/wiki/Single_responsibility_principle">Single Responsibility principle</a>
-						first. Pure functions accept values and always return same value if applied to same arguments. The only purpose of function is to perform calculation
-						without side effects. If our function's argument number is within reason and we don't pass the whole environment as argument, we are constrained to
-						implement just <em>single feature</em>.
+						Let's look at <a href="https://en.wikipedia.org/wiki/Single_responsibility_principle">Single Responsibility principle</a> first. Pure functions accept
+						values and always return same value if applied to same arguments. The only purpose of function is to perform calculation without side effects. If our
+						function's argument number is within reason and we don't pass the whole environment as argument, we are constrained to implement just <em>single
+							feature</em>.
 					</p>
 					<p>
-						<a href="https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle">Open-Closed principle</a>
-						is followed naturally when we use higher order functions. Once simple function is implemented and is correct, there is no need to change it. If we want it
-						to be extendible, we just use other function as it's argument.
+						<a href="https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle">Open-Closed principle</a> is followed naturally when we use higher order functions.
+						Once simple function is implemented and is correct, there is no need to change it. If we want it to be extendible, we just use other function as it's
+						argument.
 					</p>
 					<p>
-						<a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">Liskov substitution principle</a>
-						doesn't fit directly into functional programming as it's coupled to class inheritance concept. According to this principle, we should be able to replace
-						objects with subclass implementations without breaking the program. It states in less formal language: <i>If we have class A and extend it with class
-							B, class B overrides some method of class A, this method should accept at least the same subset of input parameter values and should return values within
-							subset of values returned by class B from this method.</i> We are not allowed to restrict possible input values and extend possible return values. If this
-						principle is not used, safe replacement of objects with instances of subclass might cause errors. Liskov principle is a good practice in functional
-						programming too. Using higher order functions we expect that any functions passed as an argument will accept any allowed argument and will return value
-						within allowed set.
+						<a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">Liskov substitution principle</a> doesn't fit directly into functional programming
+						as it's coupled to class inheritance concept. According to this principle, we should be able to replace objects with subclass implementations without
+						breaking the program. It states in less formal language: <i>If we have class A and extend it with class B, class B overrides some method of class A,
+							this method should accept at least the same subset of input parameter values and should return values within subset of values returned by class B from
+							this method.</i> We are not allowed to restrict possible input values and extend possible return values. If this principle is not used, safe replacement of
+						objects with instances of subclass might cause errors. Liskov principle is a good practice in functional programming too. Using higher order functions we
+						expect that any functions passed as an argument will accept any allowed argument and will return value within allowed set.
 					</p>
 					<p>
-						<a href="https://en.wikipedia.org/wiki/Interface_segregation_principle">Interface Segregation principle</a>
-						fits perfectly. Just take a look at any interface annotated with <code>@FunctionalInterface</code>. Using this annotation we enforce compile time check
-						whether out interface defines single abstract method. When programming with higher order functions we depend only on single function and function is the
-						most succint interface with only one method (apart from interfaces with no methods implying very limited usability).
+						<a href="https://en.wikipedia.org/wiki/Interface_segregation_principle">Interface Segregation principle</a> fits perfectly. Just take a look at any
+						interface annotated with <code>@FunctionalInterface</code>. Using this annotation we enforce compile time check whether out interface defines single
+						abstract method. When programming with higher order functions we depend only on single function and function is the most succint interface with only one
+						method (apart from interfaces with no methods implying very limited usability).
 					</p>
 					<p>
-						<a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">Dependency Inversion principle</a>
-						lies at the bottom of functional programmers heart. We enforce it on lowest possible level, not only when designing modules. If we use only functions, we
-						restrict possible abstractions so there is no way to create coupling by unfortunate design.
+						<a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">Dependency Inversion principle</a> lies at the bottom of functional programmers
+						heart. We enforce it on lowest possible level, not only when designing modules. If we use only functions, we restrict possible abstractions so there is no
+						way to create coupling by unfortunate design.
 					</p>
 					<h2>Loose coupling</h2>
 					<p>Functional code is loosely coupled by its nature. When you give it a try by gradually introducing functions, you'll notice how greatly it reduces
@@ -346,9 +340,7 @@
 					<pre><code data-src="../src/main/java/tech/daniellas/p2/rt/AddTwoProof.txt"></code></pre>
 					<p class="note">We can safely use equational reasoning only if referential transparency holds.</p>
 					<p>
-						Let's try to prove some more complicated function from
-						<a href="functional-programming-magic.html#percent-parser">previous post</a>
-						- <code>percentParser</code>:
+						Let's try to prove some more complicated function from <a href="functional-programming-magic.html#percent-parser">previous post</a> - <code>percentParser</code>:
 					</p>
 					<p class="exc">
 						Write function accepting user provided string and convert it to percent format if possible. In case of non-number input, just return <em>0 %</em>.
@@ -379,15 +371,15 @@
 				<div class="col-lg-8 col-md-10 mx-auto">
 					<ul class="list-inline text-center">
 						<li class="list-inline-item">
-							<a href="https://www.linkedin.com/in/daniel-las" target="_blank">
-								<span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-								</span>
+							<a href="https://www.linkedin.com/in/daniel-las" target="_blank"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i
+									class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+							</span>
 							</a>
 						</li>
 					</ul>
 					<p class="copyright text-muted">
-						Copyright &copy; Daniel Łaś 2019, Look and feel forked from
-						<a href="https://startbootstrap.com/template-overviews/clean-blog/" target="blank">Clean Blog</a>
+						Copyright &copy; Daniel Łaś 2019, Look and feel forked from <a href="https://startbootstrap.com/template-overviews/clean-blog/" target="blank">Clean
+							Blog</a>
 					</p>
 				</div>
 			</div>
