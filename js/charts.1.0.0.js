@@ -31,7 +31,7 @@
 		}, {}).value();
 
 		return _.map(data, function(i) {
-			i.relativeScore = i.score / maxBySize[i.size];
+			i.relativeScore = (i.score / maxBySize[i.size]) * 100;
 
 			return i;
 		});
@@ -72,6 +72,40 @@
 		chart.renderTo(document.getElementById(id));
 	}
 
+	function renderRelativeChart(id, data, xlabel, scale) {
+		var chart = new Taucharts.Chart({
+			type : 'bar',
+			x : 'size',
+			y : 'relativeScore',
+			color : 'benchmark',
+			data : data,
+			guide : {
+				x : {
+					label : {
+						text : xlabel
+					}
+				},
+				y : {
+					label : {
+						text : '% score'
+					}
+				}
+			},
+			dimensions : {
+				size : {
+					type : 'order'
+				},
+				relativeScore : {
+					type : 'measure'
+				}
+			},
+			plugins : [ Taucharts.api.plugins.get('legend')(), Taucharts.api.plugins.get('tooltip')({
+				fields : [ 'relativeScore', 'benchmark' ]
+			}) ]
+		});
+		chart.renderTo(document.getElementById(id));
+	}
+
 	function renderChart(id, data) {
 		var chart = new Taucharts.Chart({
 			type : 'bar',
@@ -87,7 +121,7 @@
 				},
 				y : {
 					label : {
-						text : 'Time in microseconds'
+						text : 'Ops/sec'
 					}
 				}
 			},
@@ -130,7 +164,7 @@
 			var cells = [ thead(k) ];
 
 			for (var i = 0; i < cols; i++) {
-				cells.push(td(formatPercent(v[i].relativeScore), v[i].relativeScore === 1 ? 'em' : ''));
+				cells.push(td(formatNumber(v[i].score), v[i].relativeScore === 100 ? 'em' : ''));
 			}
 
 			row.append(cells);
@@ -146,7 +180,7 @@
 	}).then(function(data) {
 		var formattedData = _.flow(JSON.parse, flattenJmhResults, filterData, applyRelative)(data);
 
-		renderSeriesChart('streams-sum-int-chart', formattedData, 'Items in list', 'logarithmic');
+		renderRelativeChart('streams-sum-int-chart', formattedData, 'Items in list', 'logarithmic');
 		renderTable('streams-sum-int-table', _.groupBy(formattedData, 'benchmark'), 4);
 	});
 
@@ -155,17 +189,17 @@
 	}).then(function(data) {
 		var formattedData = _.flow(JSON.parse, flattenJmhResults, filterData, applyRelative)(data);
 
-		renderSeriesChart('streams-sum-double-calculation-chart', formattedData, 'Items in list', 'logarithmic');
+		renderRelativeChart('streams-sum-double-calculation-chart', formattedData, 'Items in list', 'logarithmic');
 		renderTable('streams-sum-double-calculation-table', _.groupBy(formattedData, 'benchmark'), 4);
 	});
 
-	fetch('../data/benchmark-streams-filter-group.json').then(function(resp) {
+	fetch('../data/benchmark-streams-group.json').then(function(resp) {
 		return resp.text();
 	}).then(function(data) {
 		var formattedData = _.flow(JSON.parse, flattenJmhResults, filterData, applyRelative)(data);
 
-		renderSeriesChart('streams-filter-group-chart', formattedData, 'Items in list', 'logarithmic');
-		renderTable('streams-filter-group-table', _.groupBy(formattedData, 'benchmark'), 4);
+		renderRelativeChart('streams-group-chart', formattedData, 'Items in list', 'logarithmic');
+		renderTable('streams-group-table', _.groupBy(formattedData, 'benchmark'), 4);
 	});
 
 	function tableData(data, limit) {

@@ -38,6 +38,22 @@ public class DoubleCalculationBenchmark extends BenchmarkBase {
 		}
 	}
 
+	// Using collect with summing collector
+	@Benchmark
+	public Double collect(Params params) {
+		return params.items.stream()
+		    .map(calculation)
+		    .collect(Collectors.summingDouble(i -> i));
+	}
+
+	// Using collect with summing collector on parallel stream
+	@Benchmark
+	public Double collectPar(Params params) {
+		return params.items.parallelStream()
+		    .map(calculation)
+		    .collect(Collectors.summingDouble(i -> i));
+	}
+
 	// Using forEach
 	@Benchmark
 	public Double forEach(Params params) {
@@ -64,22 +80,6 @@ public class DoubleCalculationBenchmark extends BenchmarkBase {
 		return params.items.parallelStream()
 		    .map(calculation)
 		    .reduce(0d, Double::sum);
-	}
-
-	// Using collect with summing collector
-	@Benchmark
-	public Double collect(Params params) {
-		return params.items.stream()
-		    .map(calculation)
-		    .collect(Collectors.summingDouble(i -> i));
-	}
-
-	// Using collect with summing collector on parallel stream
-	@Benchmark
-	public Double collectPar(Params params) {
-		return params.items.parallelStream()
-		    .map(calculation)
-		    .collect(Collectors.summingDouble(i -> i));
 	}
 
 	@Override

@@ -18,7 +18,11 @@
 <link href="../css/clean-blog.min.css" rel="stylesheet">
 <style type="text/css">
 .chart {
-	height: 350px;
+	height: 250px;
+}
+
+#streams-group-chart {
+	height: 400px;
 }
 
 table.benchmark tr.selection {
@@ -109,12 +113,11 @@ table.benchmark tr.selection {
 							1.8.0_201</em>.
 					</p>
 					<p>
-						Benchmark results are presented on charts in <em>number of operations per second</em> unit, usually in logarithmic scale to easily compare results between
-						different sample sizes.
+						Benchmark results are presented on charts in <em>percents of best result</em> to easily compare results between different sample sizes. Best result is <em>100
+							%</em>. When you see <em>50 %</em> score on the chart, it means that this benchmark was half good as the best one
 					</p>
 					<p>
-						Results are also displayed in tables, normalized to <em>percents</em>, where best result is <em>100 %</em>. When you see <em>50 %</em> score in the table,
-						it means that this benchmark was half good as the best one.
+						Results are also displayed in tables in <em>number of operations per second</em> unit. Best results are emphasized.
 					</p>
 					<h2>Sum of integers</h2>
 					<p>This is first benchmark comparing performance of summing integer numbers from list.</p>
@@ -176,8 +179,8 @@ table.benchmark tr.selection {
 						</tbody>
 					</table>
 					<p>
-						Well, what a surprise! <code>forEach</code> score is more or less the same as of sequential stream based versions, worst in 3 of 4 runs. Parallel stream
-						implementations are about 3 - 5 times faster. Such results are quite easy to explain.
+						Well, what a surprise! <code>forEach</code> score is more or less the same as of sequential stream based versions. Parallel stream implementations are
+						about 3 - 5 times faster. Actually, such results are quite easy to explain.
 					</p>
 					<p class="note">
 						There are cost related to <code>Stream</code> creation and threads coordination that can't be mitigated when number of operations to parallelise is small
@@ -194,8 +197,22 @@ table.benchmark tr.selection {
 						associative operation, free from side effects and working on immutable objects. <code>Double.sum()</code> falls into this category. If we obey these
 						constraints, no synchronization is required during partial results merge.
 					</p>
-					<h2>Filter and group</h2>
-					<div class="chart" id="streams-filter-group-chart"></div>
+					<h2>Grouping</h2>
+					<p>
+						Grouping some data set is easy, concise and very descriptive with streams therefore is really frequently used, at least in the code I see on a daily
+						basis. This feature was compared with version implemented imperatively using <code>forEach</code> loop in this benchmark. There are plenty of variations
+						that might affect performance: stream can be sequential or parallel, ordered o unordered, we have several options choosing collector. We can use <code>Stream.reduce()</code>
+						operator instead of <code>Stream.collect()</code> or different data structures as grouping containers.
+					</p>
+					<p>
+						The benchmarked task is: take list of randomly generated <code>Double</code>'s group by result of division by 100. Produced result is of type <code
+							class="text-nowrap">Map&lt;Double, List&lt;Double&gt;&gt;</code>.
+					</p>
+					<p>
+						<a class="ans" data-toggle="collapse" href="#filtergroup">See benchmark code</a>
+					</p>
+					<pre class="collapse" id="filtergroup"><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/GroupBenchmark.java"></code></pre>
+					<div class="chart" id="streams-group-chart"></div>
 					<table class="table table-hover table-sm benchmark">
 						<thead>
 							<tr>
@@ -206,7 +223,7 @@ table.benchmark tr.selection {
 								<th class="text-right">1000,000</th>
 							</tr>
 						</thead>
-						<tbody id="streams-filter-group-table">
+						<tbody id="streams-group-table">
 						</tbody>
 					</table>
 					<h2>Words frequency</h2>
@@ -220,7 +237,7 @@ table.benchmark tr.selection {
 								<thead>
 									<tr>
 										<th>Benchmark</th>
-										<th class="text-right">Score</th>
+										<th class="text-right">Ops/sec</th>
 									</tr>
 								</thead>
 								<tbody id="wfc-table">
@@ -238,7 +255,7 @@ table.benchmark tr.selection {
 								<thead>
 									<tr>
 										<th>Benchmark</th>
-										<th class="text-right">Score</th>
+										<th class="text-right">Ops/sec</th>
 									</tr>
 								</thead>
 								<tbody id="wfc-table1">
@@ -256,7 +273,7 @@ table.benchmark tr.selection {
 								<thead>
 									<tr>
 										<th>Benchmark</th>
-										<th class="text-right">Score</th>
+										<th class="text-right">Ops/sec</th>
 									</tr>
 								</thead>
 								<tbody id="wfc-table2">
@@ -274,7 +291,7 @@ table.benchmark tr.selection {
 								<thead>
 									<tr>
 										<th>Benchmark</th>
-										<th class="text-right">Score</th>
+										<th class="text-right">Ops/sec</th>
 									</tr>
 								</thead>
 								<tbody id="wfc-table3">
@@ -292,7 +309,7 @@ table.benchmark tr.selection {
 								<thead>
 									<tr>
 										<th>Benchmark</th>
-										<th class="text-right">Score</th>
+										<th class="text-right">Ops/sec</th>
 									</tr>
 								</thead>
 								<tbody id="wfc-table4">

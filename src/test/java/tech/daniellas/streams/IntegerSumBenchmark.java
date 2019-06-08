@@ -31,18 +31,6 @@ public class IntegerSumBenchmark extends BenchmarkBase {
 		}
 	}
 
-	// Plain old forEach implementation
-	@Benchmark
-	public int forEach(Params params) {
-		int res = 0;
-
-		for (Integer item : params.items) {
-			res += item;
-		}
-
-		return res;
-	}
-
 	// Using summing collector
 	@Benchmark
 	public int collect(Params params) {
@@ -55,6 +43,18 @@ public class IntegerSumBenchmark extends BenchmarkBase {
 	public int collectPar(Params params) {
 		return params.items.parallelStream()
 		    .collect(Collectors.summingInt(i -> i));
+	}
+
+	// Plain old forEach implementation
+	@Benchmark
+	public int forEach(Params params) {
+		int res = 0;
+
+		for (Integer item : params.items) {
+			res += item;
+		}
+
+		return res;
 	}
 
 	// Using reduce
