@@ -6,6 +6,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class FilterGroupTest {
+	
 	private static GroupBenchmark.Params params;
 
 	@BeforeClass

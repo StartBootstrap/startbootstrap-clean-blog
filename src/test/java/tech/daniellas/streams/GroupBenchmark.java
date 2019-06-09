@@ -18,23 +18,53 @@ import org.openjdk.jmh.annotations.State;
 
 public class GroupBenchmark extends BenchmarkBase {
 
+	// This is grouping divisor value
 	static final double DIVISOR = 100.0;
 
-	@State(Scope.Benchmark)
-	public static class Params {
-		@Param({ "1000", "10000", "100000", "1000000" })
-		public int size;
-
-		public List<Double> items;
-
-		@Setup
-		public void setUp() {
-			items = IntStream.range(0, size)
-			    .mapToObj(i -> RandomUtils.nextDouble())
-			    .collect(Collectors.toList());
-		}
+	// Using grouping collector
+	@Benchmark
+	public Map<Double, List<Double>> collect(Params params) {
+		return params.items.stream()
+		    .collect(Collectors.groupingBy(n -> n / DIVISOR));
 	}
 
+	// Using grouping collector with linked list
+	@Benchmark
+	public Map<Double, List<Double>> collectLinked(Params params) {
+		return params.items.stream()
+		    .collect(Collectors.groupingBy(
+		        n -> n / DIVISOR,
+		        Collectors.toCollection(LinkedList::new)));
+	}
+
+	// Using parallel stream
+	@Benchmark
+	public Map<Double, List<Double>> collectPar(Params params) {
+		return params.items.parallelStream()
+		    .collect(Collectors.groupingBy(n -> n / DIVISOR));
+	}
+
+	// Using parallel stream with linked list
+	@Benchmark
+	public Map<Double, List<Double>> collectParLinked(Params params) {
+		return params.items.parallelStream()
+		    .collect(Collectors.groupingBy(
+		        n -> n / DIVISOR,
+		        Collectors.toCollection(LinkedList::new)));
+	}
+
+	// Using parallel unordered stream, concurrent grouping collector with linked
+	// list
+	@Benchmark
+	public Map<Double, List<Double>> collectParOpt(Params params) {
+		return params.items.parallelStream()
+		    .unordered()
+		    .collect(Collectors.groupingByConcurrent(
+		        n -> n / DIVISOR,
+		        Collectors.toCollection(LinkedList::new)));
+	}
+
+	// Using forEach
 	@Benchmark
 	public Map<Double, List<Double>> forEach(Params params) {
 		Map<Double, List<Double>> res = new HashMap<>();
@@ -55,6 +85,7 @@ public class GroupBenchmark extends BenchmarkBase {
 		return res;
 	}
 
+	// Using forEach and linked list
 	@Benchmark
 	public Map<Double, List<Double>> forEachLinked(Params params) {
 		Map<Double, List<Double>> res = new HashMap<>();
@@ -75,6 +106,7 @@ public class GroupBenchmark extends BenchmarkBase {
 		return res;
 	}
 
+	// Using forEach, linked list and map's merge method
 	@Benchmark
 	public Map<Double, List<Double>> forEachMerge(Params params) {
 		Map<Double, List<Double>> res = new HashMap<>();
@@ -92,44 +124,7 @@ public class GroupBenchmark extends BenchmarkBase {
 
 		return res;
 	}
-
-	@Benchmark
-	public Map<Double, List<Double>> collect(Params params) {
-		return params.items.stream()
-		    .collect(Collectors.groupingBy(n -> n / DIVISOR));
-	}
-
-	@Benchmark
-	public Map<Double, List<Double>> collectLinked(Params params) {
-		return params.items.stream()
-		    .collect(Collectors.groupingBy(
-		        n -> n / DIVISOR,
-		        Collectors.toCollection(LinkedList::new)));
-	}
-
-	@Benchmark
-	public Map<Double, List<Double>> collectPar(Params params) {
-		return params.items.parallelStream()
-		    .collect(Collectors.groupingBy(n -> n / DIVISOR));
-	}
-
-	@Benchmark
-	public Map<Double, List<Double>> collectParLinked(Params params) {
-		return params.items.parallelStream()
-		    .collect(Collectors.groupingBy(
-		        n -> n / DIVISOR,
-		        Collectors.toCollection(LinkedList::new)));
-	}
-
-	@Benchmark
-	public Map<Double, List<Double>> collectParOpt(Params params) {
-		return params.items.parallelStream()
-		    .unordered()
-		    .collect(Collectors.groupingByConcurrent(
-		        n -> n / DIVISOR,
-		        Collectors.toCollection(LinkedList::new)));
-	}
-
+	// Using parallel stream reduction with immutable map and list
 	@Benchmark
 	public io.vavr.collection.HashMap<Double, io.vavr.collection.List<Double>> reducePar(Params params) {
 		return params.items.parallelStream()
@@ -145,6 +140,7 @@ public class GroupBenchmark extends BenchmarkBase {
 		        (l, r) -> l.merge(r, io.vavr.collection.List::prependAll));
 	}
 
+	// Using parallel unordered stream reduction with immutable map and list
 	@Benchmark
 	public io.vavr.collection.HashMap<Double, io.vavr.collection.List<Double>> reduceParUnord(Params params) {
 		return params.items.parallelStream()
@@ -159,6 +155,22 @@ public class GroupBenchmark extends BenchmarkBase {
 			            .getOrElse(() -> io.vavr.collection.List.of(n)));
 		        },
 		        (l, r) -> l.merge(r, io.vavr.collection.List::prependAll));
+	}
+
+	// Benchmark parameters
+	@State(Scope.Benchmark)
+	public static class Params {
+		@Param({ "1000", "10000", "100000", "1000000" })
+		public int size;
+
+		public List<Double> items;
+
+		@Setup
+		public void setUp() {
+			items = IntStream.range(0, size)
+			    .mapToObj(i -> RandomUtils.nextDouble())
+			    .collect(Collectors.toList());
+		}
 	}
 
 	@Override

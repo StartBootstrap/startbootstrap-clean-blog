@@ -8,7 +8,10 @@ import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 public class TokenizerStream {
+
+	// Stream factory method
 	public static Stream<String> of(String str) {
+		// Here we create stream from iterator
 		return StreamSupport.stream(
 		    Spliterators.spliteratorUnknownSize(
 		        new StringTokenizerIterator(new StringTokenizer(str)),
@@ -16,6 +19,7 @@ public class TokenizerStream {
 		    false);
 	}
 
+	// Parallel stream factory method
 	public static Stream<String> ofParallelUnordered(String str) {
 		return StreamSupport.stream(
 		    Spliterators.spliteratorUnknownSize(
@@ -26,6 +30,7 @@ public class TokenizerStream {
 		    .unordered();
 	}
 
+	// This is iterator implementation
 	static class StringTokenizerIterator implements Iterator<String> {
 		final StringTokenizer tokenizer;
 

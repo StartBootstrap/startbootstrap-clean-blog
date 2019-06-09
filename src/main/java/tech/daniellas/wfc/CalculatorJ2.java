@@ -11,7 +11,7 @@ import java.util.*;
 public final class CalculatorJ2 implements Calculator {
 
 	@Override
-	public Collection<String> extractWords(String path,int lengthTreshold) {
+	public Collection<String> extractWords(String path, int lengthTreshold) {
 		ArrayList<String> words = new ArrayList<>(0x1000);
 		try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
 			for (String line = reader.readLine(); line != null; line = reader.readLine()) {

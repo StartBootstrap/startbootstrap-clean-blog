@@ -9,5 +9,7 @@ public interface Calculator {
 	Map<String, ? extends Number> countWords(Collection<String> words);
 
 	Collection<WordFrequency> getMostFrequentWords(
-	    Map<String, ? extends Number> wordCounts, int totalWordCount, int limit);
+	    Map<String, ? extends Number> wordCounts, 
+	    int totalWordCount, 
+	    int limit);
 }

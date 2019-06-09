@@ -15,7 +15,7 @@
 		});
 	}
 
-	function applyRelative(data) {
+	function applyRelativeBySize(data) {
 		var maxBySize = _.chain(data).groupBy('size').map(function(v, k) {
 			var max = _.maxBy(v, 'score').score;
 
@@ -31,7 +31,29 @@
 		}, {}).value();
 
 		return _.map(data, function(i) {
-			i.relativeScore = (i.score / maxBySize[i.size]) * 100;
+			i.relativeScoreBySize = (i.score / maxBySize[i.size]) * 100;
+
+			return i;
+		});
+	}
+
+	function applyRelativeByBenchmark(data) {
+		var maxByBenchmark = _.chain(data).groupBy('benchmark').map(function(v, k) {
+			var max = _.maxBy(v, 'score').score;
+
+			return {
+				benchmark : k,
+				maxScore : max
+
+			};
+		}).reduce(function(a, v, k) {
+			a[v.benchmark] = v.maxScore;
+
+			return a;
+		}, {}).value();
+
+		return _.map(data, function(i) {
+			i.relativeScoreByBenchmark = (i.score / maxByBenchmark[i.benchmark]) * 100;
 
 			return i;
 		});
@@ -72,11 +94,11 @@
 		chart.renderTo(document.getElementById(id));
 	}
 
-	function renderRelativeChart(id, data, xlabel, scale) {
+	function renderRelativeBySizeChart(id, data, xlabel, scale) {
 		var chart = new Taucharts.Chart({
 			type : 'bar',
 			x : 'size',
-			y : 'relativeScore',
+			y : 'relativeScoreBySize',
 			color : 'benchmark',
 			data : data,
 			guide : {
@@ -95,12 +117,48 @@
 				size : {
 					type : 'order'
 				},
-				relativeScore : {
-					type : 'measure'
+				relativeScoreBySize : {
+					type : 'measure',
+					scale : scale
 				}
 			},
 			plugins : [ Taucharts.api.plugins.get('legend')(), Taucharts.api.plugins.get('tooltip')({
-				fields : [ 'relativeScore', 'benchmark' ]
+				fields : [ 'relativeScoreBySize', 'benchmark' ]
+			}) ]
+		});
+		chart.renderTo(document.getElementById(id));
+	}
+
+	function renderRelativeByBenchmarkChart(id, data, xlabel, scale) {
+		var chart = new Taucharts.Chart({
+			type : 'bar',
+			x : 'size',
+			y : 'relativeScoreByBenchmark',
+			color : 'benchmark',
+			data : data,
+			guide : {
+				x : {
+					label : {
+						text : xlabel
+					}
+				},
+				y : {
+					label : {
+						text : '% score'
+					}
+				}
+			},
+			dimensions : {
+				size : {
+					type : 'order'
+				},
+				relativeScoreByBenchmark : {
+					type : 'measure',
+					scale : scale
+				}
+			},
+			plugins : [ Taucharts.api.plugins.get('legend')(), Taucharts.api.plugins.get('tooltip')({
+				fields : [ 'relativeScoreByBenchmark', 'benchmark' ]
 			}) ]
 		});
 		chart.renderTo(document.getElementById(id));
@@ -164,7 +222,7 @@
 			var cells = [ thead(k) ];
 
 			for (var i = 0; i < cols; i++) {
-				cells.push(td(formatNumber(v[i].score), v[i].relativeScore === 100 ? 'em' : ''));
+				cells.push(td(formatNumber(v[i].score), v[i].relativeScoreBySize === 100 ? 'em' : ''));
 			}
 
 			row.append(cells);
@@ -178,32 +236,42 @@
 	fetch('../data/benchmark-streams-sum-int.json').then(function(resp) {
 		return resp.text();
 	}).then(function(data) {
-		var formattedData = _.flow(JSON.parse, flattenJmhResults, filterData, applyRelative)(data);
+		var formattedData = _.flow(JSON.parse, flattenJmhResults, filterData, applyRelativeBySize)(data);
 
-		renderRelativeChart('streams-sum-int-chart', formattedData, 'Items in list', 'logarithmic');
+		renderRelativeBySizeChart('streams-sum-int-chart', formattedData, 'Items in list');
 		renderTable('streams-sum-int-table', _.groupBy(formattedData, 'benchmark'), 4);
 	});
 
 	fetch('../data/benchmark-streams-sum-double-calculation.json').then(function(resp) {
 		return resp.text();
 	}).then(function(data) {
-		var formattedData = _.flow(JSON.parse, flattenJmhResults, filterData, applyRelative)(data);
+		var formattedData = _.flow(JSON.parse, flattenJmhResults, filterData, applyRelativeBySize)(data);
 
-		renderRelativeChart('streams-sum-double-calculation-chart', formattedData, 'Items in list', 'logarithmic');
+		renderRelativeBySizeChart('streams-sum-double-calculation-chart', formattedData, 'Items in list');
 		renderTable('streams-sum-double-calculation-table', _.groupBy(formattedData, 'benchmark'), 4);
 	});
 
 	fetch('../data/benchmark-streams-group.json').then(function(resp) {
 		return resp.text();
 	}).then(function(data) {
-		var formattedData = _.flow(JSON.parse, flattenJmhResults, filterData, applyRelative)(data);
+		var formattedData = _.flow(JSON.parse, flattenJmhResults, filterData, applyRelativeBySize, applyRelativeByBenchmark)(data);
 
-		renderRelativeChart('streams-group-chart', formattedData, 'Items in list', 'logarithmic');
+		renderRelativeBySizeChart('streams-group-chart', formattedData, 'Items in list');
+		renderRelativeByBenchmarkChart('streams-group-chart-bench', formattedData, 'Items in list', 'logarithmic');
 		renderTable('streams-group-table', _.groupBy(formattedData, 'benchmark'), 4);
 	});
 
+	fetch('../data/benchmark-streams-filter-sort-distinct.json').then(function(resp) {
+		return resp.text();
+	}).then(function(data) {
+		var formattedData = _.flow(JSON.parse, flattenJmhResults, filterData, applyRelativeBySize)(data);
+
+		renderRelativeBySizeChart('streams-filter-sort-distinct-chart', formattedData, 'Items in list');
+		renderTable('streams-filter-sort-distinct-table', _.groupBy(formattedData, 'benchmark'), 4);
+	});
+
 	function tableData(data, limit) {
-		return _.flow(_.partialRight(_.take, limit), applyRelative, _.partialRight(_.groupBy, 'benchmark'))(data);
+		return _.flow(_.partialRight(_.take, limit), _.partialRight(_.groupBy, 'benchmark'))(data);
 	}
 
 	fetch('../data/benchmark-wfc.json').then(function(resp) {

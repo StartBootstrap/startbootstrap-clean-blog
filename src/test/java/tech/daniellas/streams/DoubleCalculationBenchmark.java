@@ -21,23 +21,6 @@ public class DoubleCalculationBenchmark extends BenchmarkBase {
 	    .andThen(Math::sin)
 	    .andThen(Math::sqrt);
 
-	// Benchmark parameters
-	@State(Scope.Benchmark)
-	public static class Params {
-		@Param({ "1000", "10000", "100000", "1000000" })
-		public int size;
-
-		public List<Double> items;
-
-		// We generate pseudo random doubles
-		@Setup
-		public void setUp() {
-			items = IntStream.range(0, size)
-			    .mapToObj(i -> RandomUtils.nextDouble())
-			    .collect(Collectors.toList());
-		}
-	}
-
 	// Using collect with summing collector
 	@Benchmark
 	public Double collect(Params params) {
@@ -80,6 +63,23 @@ public class DoubleCalculationBenchmark extends BenchmarkBase {
 		return params.items.parallelStream()
 		    .map(calculation)
 		    .reduce(0d, Double::sum);
+	}
+
+	// Benchmark parameters
+	@State(Scope.Benchmark)
+	public static class Params {
+		@Param({ "1000", "10000", "100000", "1000000" })
+		public int size;
+
+		public List<Double> items;
+
+		// We generate pseudo random doubles
+		@Setup
+		public void setUp() {
+			items = IntStream.range(0, size)
+			    .mapToObj(i -> RandomUtils.nextDouble())
+			    .collect(Collectors.toList());
+		}
 	}
 
 	@Override

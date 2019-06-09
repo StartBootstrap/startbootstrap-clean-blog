@@ -21,7 +21,7 @@
 	height: 250px;
 }
 
-#streams-group-chart {
+.chart-lg {
 	height: 400px;
 }
 
@@ -113,8 +113,9 @@ table.benchmark tr.selection {
 							1.8.0_201</em>.
 					</p>
 					<p>
-						Benchmark results are presented on charts in <em>percents of best result</em> to easily compare results between different sample sizes. Best result is <em>100
-							%</em>. When you see <em>50 %</em> score on the chart, it means that this benchmark was half good as the best one
+						Benchmark results are presented on charts in <em>percents of best result</em> within sample size. Charts are normalized in the way that for given list
+						size best score is found and every score is divided by it. Best result is <em>100 %</em>. When you see <em>50 %</em> score on the chart, it means that
+						this benchmark was half good as the best one
 					</p>
 					<p>
 						Results are also displayed in tables in <em>number of operations per second</em> unit. Best results are emphasized.
@@ -209,10 +210,10 @@ table.benchmark tr.selection {
 							class="text-nowrap">Map&lt;Double, List&lt;Double&gt;&gt;</code>.
 					</p>
 					<p>
-						<a class="ans" data-toggle="collapse" href="#filtergroup">See benchmark code</a>
+						<a class="ans" data-toggle="collapse" href="#group">See benchmark code</a>
 					</p>
-					<pre class="collapse" id="filtergroup"><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/GroupBenchmark.java"></code></pre>
-					<div class="chart" id="streams-group-chart"></div>
+					<pre class="collapse" id="group"><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/GroupBenchmark.java"></code></pre>
+					<div class="chart-lg" id="streams-group-chart"></div>
 					<table class="table table-hover table-sm benchmark">
 						<thead>
 							<tr>
@@ -226,8 +227,67 @@ table.benchmark tr.selection {
 						<tbody id="streams-group-table">
 						</tbody>
 					</table>
+					<p>
+						Streams based implementation have won the competition again. Careful selection of target data structure made some difference for both: <code>Stream.collect()</code>
+						and <code>forEach</code> based solutions. Parallel streams didn't do well until all possible optimizations were applied: parallel unordered stream,
+						concurrent collector with linked list. Reduction with immutable collections taken from <a href="https://www.vavr.io/">Vavr</a> library performed poorly,
+						mostly due to <code>Map</code> performance characteristics, it's <code>put()</code> and <code>get()</code> methods has <em>effective O(1)</em> time
+						complexity.
+					</p>
+					<p>
+						There is severe performance loss visible between <em>10 000</em> and <em>100 000</em> items count I'm not able to explain. This effect is not visible for
+						reduction based implementations. You can easily spot it on below chart with Y axis is in logarithmic scale. Every result is divided by best result of the
+						same benchmark but different sample size. For smallest list size <em>1000</em>, score is <em>100 %</em>.
+					</p>
+					<div class="chart-lg" id="streams-group-chart-bench"></div>
+					<p>
+						Consecutive runs were given 10 times larger list. In ideal world, results should be: <em>100 %</em>, <em>10 %</em>, <em>1 %</em> and <em>0.1 %</em>. Given
+						10 times larger list performance would be 10 times worse, but it's not the case for executed benchmarks and is more significant for all grouping
+						implementations except those based on reduction and immutable data structures.
+					<h2>Filtering and sorting distinct items</h2>
+					<p>
+						Yet another frequently used features of <code>Stream</code>: filtering, sorting and distinct items selection. Maybe not all together but separately for
+						sure. This benchmark takes random decimal numbers, filter by predefined minimal and maximum value, takes distinct values and sort in natural order.
+					</p>
+					<p>
+						<a class="ans" data-toggle="collapse" href="#fitersort">See benchmark code</a>
+					</p>
+					<pre class="collapse" id="fitersort"><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/FilterSortDistinctBenchmark.java"></code></pre>
+					<div class="chart" id="streams-filter-sort-distinct-chart"></div>
+					<table class="table table-hover table-sm benchmark">
+						<thead>
+							<tr>
+								<th>Benchmark</th>
+								<th class="text-right">1000</th>
+								<th class="text-right">10,000</th>
+								<th class="text-right">100,000</th>
+								<th class="text-right">1000,000</th>
+							</tr>
+						</thead>
+						<tbody id="streams-filter-sort-distinct-table">
+						</tbody>
+					</table>
+					<p>Yet again, stream based code is the winner and common pattern reveals: parallel stream are better when given list becomes longer.</p>
 					<h2>Words frequency</h2>
+					<p>
+						This test is inspired by talk I attended at <em>Geecon 2019</em> conference where I saw the performance comparison of old school Java code and Java 8
+						Streams based code. I think that speaker's message was not exactly that Java 8 streams are slow but anyway, presented code triggered my curiosity.
+					</p>
+					<p>
+						The task is: read text file, split into words, count all words, count number of occurrences of every word, display 10 most frequent words. Frequency is
+						simply <em>word count/total words count</em>.
+					</p>
 					<h3>Original code</h3>
+					<p>This is original code copied from authors Github repository with irrelevant adjustments.</p>
+					<p>This is original old school Java 2 based implementation:</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/wfc/CalculatorJ2.java"></code></pre>
+					<p>This is original Java 8 Streams based implementation:</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/wfc/CalculatorJ8Prl.java"></code></pre>
+					<p>This is additional class used for results display:</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/wfc/WordFrequency.java"></code></pre>
+					<p>This is benchmark code:</p>
+					<pre><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/WfcBenchmark.java" data-format="lines 24,60"></code></pre>
+					<p>Below are benchmark results:</p>
 					<div class="row">
 						<div class="col-md-8">
 							<div class="chart" id="wfc-chart"></div>
@@ -245,7 +305,30 @@ table.benchmark tr.selection {
 							</table>
 						</div>
 					</div>
-					<h3>Step 1 - Using tokenizer stream</h3>
+					<p>My first thoughts: not very impressive ... should we really forget about Java 8 Streams where performance matters? But wait, this code looks
+						suspicious:</p>
+					<ol>
+						<li>Is it reasonable to use parallel stream for IO operations?</li>
+						<li>Is it really fair to use regular expressions based string splitting?</li>
+						<li>Does it really help using parallel stream whenever possible?</li>
+						<li>Is it really good idea to create intermediate collection for every operation we perform?</li>
+					</ol>
+					<p>Lets try to get rid of above doubts and use simple adjustments to improve stream performance.</p>
+					<h3>Step 1 - Using string tokenizer stream and sequential streams</h3>
+					<pre><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/WfcBenchmark.java" data-format="lines 62,78"></code></pre>
+					<p>
+						We use sequential streams because reading file from disk might not be the best candidate for parallelization. In test conditions, there is no IO performed
+						because operating system is smart enough to keep frequently read files in memory, but even though <code>Path.lines()</code> created stream is of unknown
+						size what is strong limitation too. Instead of splitting string and using flat mapping over stream created from strings array, we flat map over stream
+						created from <code>StringTokenizer</code>. This should be more efficient.
+					</p>
+					<p>
+						<a class="ans" data-toggle="collapse" href="#string-tokenizer">See the TokenizerStream code</a>
+					</p>
+					<pre class="collapse" id="string-tokenizer"><code class="language-java" data-src="../src/main/java/tech/daniellas/wfc/TokenizerStream.java"></code></pre>
+					<p>
+						Here are <code>java8step1</code> benchmark results.
+					</p>
 					<div class="row">
 						<div class="col-md-8">
 							<div class="chart" id="wfc-chart1"></div>
@@ -263,7 +346,12 @@ table.benchmark tr.selection {
 							</table>
 						</div>
 					</div>
-					<h3>Step 2 - Parallel</h3>
+					<p>So far so good, we are better then first stream based approach but still below Java 2 based code. Let's try do better.</p>
+					<h3>Step 2 - Parallel streams</h3>
+					<p>Using parallel stream with IO operations is disputable but we can definitely transform tokens stream to parallel and unordered without much risk.
+						Let's use parallel streams for all operations instead of reading lines from file.</p>
+					<pre><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/WfcBenchmark.java" data-format="lines 80,100"></code></pre>
+					<p>Here are the results.</p>
 					<div class="row">
 						<div class="col-md-8">
 							<div class="chart" id="wfc-chart2"></div>
@@ -281,7 +369,16 @@ table.benchmark tr.selection {
 							</table>
 						</div>
 					</div>
-					<h3>Step 3 - Single pass</h3>
+					<p>We are ahead previous competitors now, but not much. Let's try something more.</p>
+					<h3>Step 3 - Less collections in between</h3>
+					<p>
+						Splitting code into well defined functions is the very good practice, but it means more overhead for this kind of tasks. We can easily get rid of one of
+						created collections by combining group and total words counter increase into one stream. If we look at previous examples, we can notice that first list is
+						just the holder for all words from file. We immediately transform it to <code>Map&lt;String,Long&gt;</code> with <code>Stream.collect()</code>. Later on
+						we use all words list to get total words number. To avoid necessity of all words list we can group words counts into custom <code>Map</code>
+						implementation counting all <code>put</code> operations.
+					</p>
+					<pre><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/WfcBenchmark.java" data-format="lines 102,141"></code></pre>
 					<div class="row">
 						<div class="col-md-8">
 							<div class="chart" id="wfc-chart3"></div>
@@ -299,7 +396,12 @@ table.benchmark tr.selection {
 							</table>
 						</div>
 					</div>
+					<p>Did you notice that we didn't use parallel streams at all? I did it deliberately to verify what optimizations really matter. Avoiding unnecessary
+						collections is enough to gain significant performance boost.</p>
 					<h3>Step 4 - Single pass parallel</h3>
+					<p>If we profit by limiting number of created collections and by using parallel streams, let's see what results will be if we combine both
+						improvements.</p>
+					<pre><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/WfcBenchmark.java" data-format="lines 143,163"></code></pre>
 					<div class="row">
 						<div class="col-md-8">
 							<div class="chart" id="wfc-chart4"></div>
@@ -317,6 +419,23 @@ table.benchmark tr.selection {
 							</table>
 						</div>
 					</div>
+					<p>
+						This time I'm satisfied. Optimized stream based code is about 3 times faster than original Java 8 example and about 2 times faster than original Java 2
+						implementation. To be honest, I must admit that using parallel streams is cheating and <code>CountingMap</code> could be used to optimize Java 2 based
+						code. On the other side <code>java8step1</code> did quite well. We already know that <code>Stream</code> requires some additional resources and we benefit
+						more when we give it more time to work on given task. There is also very important lesson from <em>Words Frequency</em> example:
+					</p>
+					<p class="note">Don't use parallel streams blindly, always think if there is any potential for parallelism.</p>
+					<h2>Conclusions</h2>
+					<p>
+						I will be frank with you - I'm really glad that Java 8 <code>Stream</code> is quite good in regards of performance. I'd really miss it's beautiful
+						descriptive abstraction if I had to drop it's use due to poor performance. I did my best to perform legitimate benchmarks and I'm convinced by their
+						results. If you are not, my dear reader, please let me know.
+					</p>
+					<p class="note">
+						There is one more unknown yet left to be discovered. Our parallel streams share one and only <code>ForkJoinPool</code> within whole JVM. The common
+						knowledge is that we should be careful about this, but what are the real numbers ... I don't know. Hopefully, I'll get into it soon.
+					</p>
 				</div>
 			</div>
 		</div>
