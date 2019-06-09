@@ -319,8 +319,8 @@ table.benchmark tr.selection {
 					<p>
 						We use sequential streams because reading file from disk might not be the best candidate for parallelization. In test conditions, there is no IO performed
 						because operating system is smart enough to keep frequently read files in memory, but even though <code>Path.lines()</code> created stream is of unknown
-						size what is strong limitation too. Instead of splitting string and using flat mapping over stream created from strings array, we flat map over stream
-						created from <code>StringTokenizer</code>. This should be more efficient.
+						size what is strong limitation too. Additionally, instead of splitting string and using flat mapping over stream created from strings array, we flat map
+						over stream created from tokens iterator - <code>TokenizerStream</code>. This should be more efficient.
 					</p>
 					<p>
 						<a class="ans" data-toggle="collapse" href="#string-tokenizer">See the TokenizerStream code</a>
@@ -346,7 +346,7 @@ table.benchmark tr.selection {
 							</table>
 						</div>
 					</div>
-					<p>So far so good, we are better then first stream based approach but still below Java 2 based code. Let's try do better.</p>
+					<p>So far so good, we are better then first stream based approach but still below Java 2 based code. Let's try to do better.</p>
 					<h3>Step 2 - Parallel streams</h3>
 					<p>Using parallel stream with IO operations is disputable but we can definitely transform tokens stream to parallel and unordered without much risk.
 						Let's use parallel streams for all operations instead of reading lines from file.</p>
