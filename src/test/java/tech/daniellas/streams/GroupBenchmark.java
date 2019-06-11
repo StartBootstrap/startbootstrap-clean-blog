@@ -30,47 +30,47 @@ public class GroupBenchmark extends BenchmarkBase {
 
 	// Using grouping collector with linked list
 	@Benchmark
-	public Map<Double, List<Double>> collectLinked(Params params) {
+	public Map<Long, List<Double>> collectLinked(Params params) {
 		return params.items.stream()
 		    .collect(Collectors.groupingBy(
-		        n -> n / DIVISOR,
+		        n -> Math.round(n / DIVISOR),
 		        Collectors.toCollection(LinkedList::new)));
 	}
 
 	// Using parallel stream
 	@Benchmark
-	public Map<Double, List<Double>> collectPar(Params params) {
+	public Map<Long, List<Double>> collectPar(Params params) {
 		return params.items.parallelStream()
-		    .collect(Collectors.groupingBy(n -> n / DIVISOR));
+		    .collect(Collectors.groupingBy(n -> Math.round(n / DIVISOR)));
 	}
 
 	// Using parallel stream with linked list
 	@Benchmark
-	public Map<Double, List<Double>> collectParLinked(Params params) {
+	public Map<Long, List<Double>> collectParLinked(Params params) {
 		return params.items.parallelStream()
 		    .collect(Collectors.groupingBy(
-		        n -> n / DIVISOR,
+		        n -> Math.round(n / DIVISOR),
 		        Collectors.toCollection(LinkedList::new)));
 	}
 
 	// Using parallel unordered stream, concurrent grouping collector with linked
 	// list
 	@Benchmark
-	public Map<Double, List<Double>> collectParOpt(Params params) {
+	public Map<Long, List<Double>> collectParOpt(Params params) {
 		return params.items.parallelStream()
 		    .unordered()
 		    .collect(Collectors.groupingByConcurrent(
-		        n -> n / DIVISOR,
+		        n -> Math.round(n / DIVISOR),
 		        Collectors.toCollection(LinkedList::new)));
 	}
 
 	// Using forEach
 	@Benchmark
-	public Map<Double, List<Double>> forEach(Params params) {
-		Map<Double, List<Double>> res = new HashMap<>();
+	public Map<Long, List<Double>> forEach(Params params) {
+		Map<Long, List<Double>> res = new HashMap<>();
 
 		for (Double item : params.items) {
-			Double key = item / DIVISOR;
+			Long key = Math.round(item / DIVISOR);
 			List<Double> list = res.get(key);
 
 			if (list != null) {
@@ -87,11 +87,11 @@ public class GroupBenchmark extends BenchmarkBase {
 
 	// Using forEach and linked list
 	@Benchmark
-	public Map<Double, List<Double>> forEachLinked(Params params) {
-		Map<Double, List<Double>> res = new HashMap<>();
+	public Map<Long, List<Double>> forEachLinked(Params params) {
+		Map<Long, List<Double>> res = new HashMap<>();
 
 		for (Double item : params.items) {
-			Double key = item / DIVISOR;
+			Long key = Math.round(item / DIVISOR);
 			List<Double> list = res.get(key);
 
 			if (list != null) {
@@ -108,12 +108,12 @@ public class GroupBenchmark extends BenchmarkBase {
 
 	// Using forEach, linked list and map's merge method
 	@Benchmark
-	public Map<Double, List<Double>> forEachMerge(Params params) {
-		Map<Double, List<Double>> res = new HashMap<>();
+	public Map<Long, List<Double>> forEachMerge(Params params) {
+		Map<Long, List<Double>> res = new HashMap<>();
 
 		for (Double item : params.items) {
 			res.merge(
-			    item / DIVISOR,
+			    Math.round(item / DIVISOR),
 			    new LinkedList<>(Collections.singletonList(item)),
 			    (k, v) -> {
 				    v.add(item);
@@ -124,14 +124,15 @@ public class GroupBenchmark extends BenchmarkBase {
 
 		return res;
 	}
+
 	// Using parallel stream reduction with immutable map and list
 	@Benchmark
-	public io.vavr.collection.HashMap<Double, io.vavr.collection.List<Double>> reducePar(Params params) {
+	public io.vavr.collection.HashMap<Long, io.vavr.collection.List<Double>> reducePar(Params params) {
 		return params.items.parallelStream()
 		    .reduce(
 		        io.vavr.collection.HashMap.empty(),
 		        (m, n) -> {
-			        Double key = n / DIVISOR;
+			        Long key = Math.round(n / DIVISOR);
 
 			        return m.put(key, m.get(key)
 			            .map(l -> l.prepend(n))
@@ -142,13 +143,13 @@ public class GroupBenchmark extends BenchmarkBase {
 
 	// Using parallel unordered stream reduction with immutable map and list
 	@Benchmark
-	public io.vavr.collection.HashMap<Double, io.vavr.collection.List<Double>> reduceParUnord(Params params) {
+	public io.vavr.collection.HashMap<Long, io.vavr.collection.List<Double>> reduceParUnord(Params params) {
 		return params.items.parallelStream()
 		    .unordered()
 		    .reduce(
 		        io.vavr.collection.HashMap.empty(),
 		        (m, n) -> {
-			        Double key = n / DIVISOR;
+			        Long key = Math.round(n / DIVISOR);
 
 			        return m.put(key, m.get(key)
 			            .map(l -> l.prepend(n))

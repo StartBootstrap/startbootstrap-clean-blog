@@ -74,7 +74,7 @@ img::-moz-selection {
   background: transparent;
 }
 
-em, p.em, td.em {
+em, p.em {
 	font-weight: bold;
 }
 
@@ -108,12 +108,3 @@ code.language-java {
 	}
 }
 
-table.benchmark {
-  @include sans-serif-font;
-  font-size: 11pt;
-}
-
-p.legend {
-	font-style: italic;
-	margin: 15px 0;
-}

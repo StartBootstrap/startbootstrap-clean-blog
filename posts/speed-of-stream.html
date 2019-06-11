@@ -16,19 +16,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css" />
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/taucharts@2/dist/taucharts.min.css" />
 <link href="../css/clean-blog.min.css" rel="stylesheet">
-<style type="text/css">
-.chart {
-	height: 250px;
-}
-
-.chart-lg {
-	height: 400px;
-}
-
-table.benchmark tr.selection {
-	cursor: pointer;
-}
-</style>
+<link href="../css/custom.1.0.0.min.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js" data-manual></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-java.min.js"></script>
@@ -77,7 +65,7 @@ table.benchmark tr.selection {
 				<div class="col-md-10 mx-auto">
 					<div class="post-heading text-center">
 						<h1>Speed of stream</h1>
-						<h2 class="subheading">Is Java 8 Stream nice but slow abstraction? Myths debunked.</h2>
+						<h2 class="subheading">Is Java 8 Stream API nice but slow abstraction? Myths debunked.</h2>
 					</div>
 				</div>
 			</div>
@@ -87,16 +75,16 @@ table.benchmark tr.selection {
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10 mx-auto">
-					<p>From time to time I witness or am involved it the discussion about Java 8 Streams performance. The common knowledge is that streams are the
-						compromise between performance and terse although very descriptive abstraction. I couldn't find any comprehensive set of benchmarks around so decided to
-						write by myself. Here below I present gathered results.</p>
+					<p>From time to time I witness or am involved it the discussion about Java 8 streams performance. The common knowledge is that streams are the
+						compromise between performance and terse, although very descriptive abstraction. I couldn't find any comprehensive set of benchmarks around so I decided
+						to run some by myself. Here below I present gathered results.</p>
 					<h2>What and how was tested</h2>
 					<p>
 						I measured performance of several different use cases of <code>forEach</code> application, like applying some function to list of numbers and summing it
 						or filtering and grouping such list - usual programming tasks. The same tasks were implemented with different flavours of <code>Stream</code>.
 					</p>
 					<p>
-						The choice regarding benchmarking tools seemed easy, battle tested microbenchmark toolkit - <a href="https://openjdk.java.net/projects/code-tools/jmh/">JMH</a>
+						The choice regarding benchmarking tools was easy, battle tested microbenchmark toolkit - <a href="https://openjdk.java.net/projects/code-tools/jmh/">JMH</a>
 						maintained under umbrella of OpenJDK. It's very flexible and easy to use.
 					</p>
 					<p>
@@ -105,8 +93,9 @@ table.benchmark tr.selection {
 					<pre class="collapse" id="jmh"><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/BenchmarkBase.java"
 						data-format="lines 17,42"></code></pre>
 					<p>
-						Most of the benchmarks were run on some elements list of different sizes: <em>1000</em>, <em>10 000</em>,<em>100 000</em>, <em>1 000 000</em> to verify
-						how given implementation performs depending on number of elements it has to process.
+						Most of the benchmarks were run on some elements list of different sizes: <em class="text-nowrap">1000</em>, <em class="text-nowrap">10 000</em>,<em
+							class="text-nowrap">100 000</em>, <em class="text-nowrap">1 000 000</em> to verify how given implementation performs depending on number of elements it
+						has to process.
 					</p>
 					<p>
 						The JVM arguments passed in every test were: <em>-Xms2G -Xmx2G -XX:+UseG1GC</em>. The JVM version used was: <em>Java HotSpot(TM) 64-Bit Server
@@ -114,8 +103,8 @@ table.benchmark tr.selection {
 					</p>
 					<p>
 						Benchmark results are presented on charts in <em>percents of best result</em> within sample size. Charts are normalized in the way that for given list
-						size best score is found and every score is divided by it. Best result is <em>100 %</em>. When you see <em>50 %</em> score on the chart, it means that
-						this benchmark was half good as the best one
+						size best score among different implementations is found and every score is divided by it. Best result is <em class="text-nowrap">100 %</em>. When you see
+						<em class="text-nowrap">50 %</em> score on the chart, it means that this benchmark was half good as the best one
 					</p>
 					<p>
 						Results are also displayed in tables in <em>number of operations per second</em> unit. Best results are emphasized.
@@ -129,20 +118,22 @@ table.benchmark tr.selection {
 					<div class="chart" id="streams-sum-int-chart"></div>
 					<p class="legend">You can limit series visible on charts by selecting them from the legend at the top right corner.</p>
 					<p>And this is results table.</p>
-					<table class="table table-hover table-sm benchmark">
-						<thead>
-							<tr>
-								<th>Benchmark</th>
-								<th class="text-right">1000</th>
-								<th class="text-right">10,000</th>
-								<th class="text-right">100,000</th>
-								<th class="text-right">1000,000</th>
-							</tr>
-						</thead>
-						<tbody id="streams-sum-int-table">
-						</tbody>
-					</table>
-					<p class="legend">You can select rows to make it more readable.</p>
+					<div class="table-responsive">
+						<table class="table table-hover table-sm benchmark">
+							<thead>
+								<tr>
+									<th>Benchmark</th>
+									<th class="text-right">1000</th>
+									<th class="text-right">10,000</th>
+									<th class="text-right">100,000</th>
+									<th class="text-right">1000,000</th>
+								</tr>
+							</thead>
+							<tbody id="streams-sum-int-table">
+							</tbody>
+						</table>
+					</div>
+					<p class="legend">You can select rows to make results easier to analyze.</p>
 					<p>
 						It was easy to predict. We have clear winner: <code>forEach</code>, but it's advantage was decreasing with larger items numbers, especially when compared
 						to parallel version of <code>collect</code>. Sequential <code>collect</code> is better on <em>1000</em> elements, but then parallel version starts to move
@@ -155,30 +146,34 @@ table.benchmark tr.selection {
 					<p>
 						If you think I'm little bit sarcastic here ... you are right. It's very unlikely that this level of performance optimizations matters, especially in the
 						world of <em>REST APIs</em>, <em>Microservices</em> and <em>Event Driven</em> architectures. If we replace <code>Stream.collect()</code> with <code>forEach</code>
-						to sum <em>100 000</em> integers obtained via some REST endpoint, we don't profit much. We gain tenths of microseconds compared to seconds required to
-						fetch data from database, serialize, transfer over the wire and deserialize.
+						to sum <em class="text-nowrap">100 000</em> integers obtained via some REST endpoint, we don't profit much. We gain tenths of microseconds compared to
+						seconds required to fetch data from database, serialize, transfer over the wire and deserialize.
 					</p>
 					<h2>Sum of calculations</h2>
-					<p>Let's take more realistic task this time: perform some math operation on list of randomly generated floating-point numbers and sum all calculated
-						values.</p>
+					<p>
+						Let's take more <i>realistic</i> task this time: perform some math operation on list of randomly generated floating-point numbers and sum all calculated
+						values.
+					</p>
 					<p>
 						<a class="ans" data-toggle="collapse" href="#doublesum">See benchmark code</a>
 					</p>
 					<pre class="collapse" id="doublesum"><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/DoubleCalculationBenchmark.java"></code></pre>
 					<div class="chart" id="streams-sum-double-calculation-chart"></div>
-					<table class="table table-hover table-sm benchmark">
-						<thead>
-							<tr>
-								<th>Benchmark</th>
-								<th class="text-right">1000</th>
-								<th class="text-right">10,000</th>
-								<th class="text-right">100,000</th>
-								<th class="text-right">1000,000</th>
-							</tr>
-						</thead>
-						<tbody id="streams-sum-double-calculation-table">
-						</tbody>
-					</table>
+					<div class="table-responsive">
+						<table class="table table-hover table-sm benchmark">
+							<thead>
+								<tr>
+									<th>Benchmark</th>
+									<th class="text-right">1000</th>
+									<th class="text-right">10,000</th>
+									<th class="text-right">100,000</th>
+									<th class="text-right">1000,000</th>
+								</tr>
+							</thead>
+							<tbody id="streams-sum-double-calculation-table">
+							</tbody>
+						</table>
+					</div>
 					<p>
 						Well, what a surprise! <code>forEach</code> score is more or less the same as of sequential stream based versions. Parallel stream implementations are
 						about 3 - 5 times faster. Actually, such results are quite easy to explain.
@@ -201,32 +196,35 @@ table.benchmark tr.selection {
 					<h2>Grouping</h2>
 					<p>
 						Grouping some data set is easy, concise and very descriptive with streams therefore is really frequently used, at least in the code I see on a daily
-						basis. This feature was compared with version implemented imperatively using <code>forEach</code> loop in this benchmark. There are plenty of variations
-						that might affect performance: stream can be sequential or parallel, ordered o unordered, we have several options choosing collector. We can use <code>Stream.reduce()</code>
-						operator instead of <code>Stream.collect()</code> or different data structures as grouping containers.
+						basis. This feature is compared with version implemented imperatively using <code>forEach</code> loop in this benchmark. There are plenty of variations
+						that might affect performance: stream can be sequential or parallel, ordered or unordered, we have several options choosing collector. We can use <code>Stream.reduce()</code>
+						operator instead of <code>Stream.collect()</code> or different data structures as grouping containers. That's the reason of multiple tested implementation
+						versions.
 					</p>
 					<p>
-						The benchmarked task is: take list of randomly generated <code>Double</code>'s group by result of division by 100. Produced result is of type <code
-							class="text-nowrap">Map&lt;Double, List&lt;Double&gt;&gt;</code>.
+						The benchmarked task is: take list of randomly generated <code>Double</code>'s, group by result of division by 100 rounded to <code>long</code>. Produced
+						result is of type <code class="text-nowrap">Map&lt;Long, List&lt;Double&gt;&gt;</code>.
 					</p>
 					<p>
 						<a class="ans" data-toggle="collapse" href="#group">See benchmark code</a>
 					</p>
 					<pre class="collapse" id="group"><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/GroupBenchmark.java"></code></pre>
 					<div class="chart-lg" id="streams-group-chart"></div>
-					<table class="table table-hover table-sm benchmark">
-						<thead>
-							<tr>
-								<th>Benchmark</th>
-								<th class="text-right">1000</th>
-								<th class="text-right">10,000</th>
-								<th class="text-right">100,000</th>
-								<th class="text-right">1000,000</th>
-							</tr>
-						</thead>
-						<tbody id="streams-group-table">
-						</tbody>
-					</table>
+					<div class="table-responsive">
+						<table class="table table-hover table-sm benchmark">
+							<thead>
+								<tr>
+									<th>Benchmark</th>
+									<th class="text-right">1000</th>
+									<th class="text-right">10,000</th>
+									<th class="text-right">100,000</th>
+									<th class="text-right">1000,000</th>
+								</tr>
+							</thead>
+							<tbody id="streams-group-table">
+							</tbody>
+						</table>
+					</div>
 					<p>
 						Streams based implementation have won the competition again. Careful selection of target data structure made some difference for both: <code>Stream.collect()</code>
 						and <code>forEach</code> based solutions. Parallel streams didn't do well until all possible optimizations were applied: parallel unordered stream,
@@ -254,19 +252,21 @@ table.benchmark tr.selection {
 					</p>
 					<pre class="collapse" id="fitersort"><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/FilterSortDistinctBenchmark.java"></code></pre>
 					<div class="chart" id="streams-filter-sort-distinct-chart"></div>
-					<table class="table table-hover table-sm benchmark">
-						<thead>
-							<tr>
-								<th>Benchmark</th>
-								<th class="text-right">1000</th>
-								<th class="text-right">10,000</th>
-								<th class="text-right">100,000</th>
-								<th class="text-right">1000,000</th>
-							</tr>
-						</thead>
-						<tbody id="streams-filter-sort-distinct-table">
-						</tbody>
-					</table>
+					<div class="table-responsive">
+						<table class="table table-hover table-sm benchmark">
+							<thead>
+								<tr>
+									<th>Benchmark</th>
+									<th class="text-right">1000</th>
+									<th class="text-right">10,000</th>
+									<th class="text-right">100,000</th>
+									<th class="text-right">1000,000</th>
+								</tr>
+							</thead>
+							<tbody id="streams-filter-sort-distinct-table">
+							</tbody>
+						</table>
+					</div>
 					<p>Yet again, stream based code is the winner and common pattern reveals: parallel stream are better when given list becomes longer.</p>
 					<h2>Words frequency</h2>
 					<p>
@@ -293,16 +293,18 @@ table.benchmark tr.selection {
 							<div class="chart" id="wfc-chart"></div>
 						</div>
 						<div class="col-md-4">
-							<table class="table table-hover table-sm benchmark">
-								<thead>
-									<tr>
-										<th>Benchmark</th>
-										<th class="text-right">Ops/sec</th>
-									</tr>
-								</thead>
-								<tbody id="wfc-table">
-								</tbody>
-							</table>
+							<div class="table-responsive">
+								<table class="table table-hover table-sm benchmark">
+									<thead>
+										<tr>
+											<th>Benchmark</th>
+											<th class="text-right">Ops/sec</th>
+										</tr>
+									</thead>
+									<tbody id="wfc-table">
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 					<p>My first thoughts: not very impressive ... should we really forget about Java 8 Streams where performance matters? But wait, this code looks
@@ -334,16 +336,18 @@ table.benchmark tr.selection {
 							<div class="chart" id="wfc-chart1"></div>
 						</div>
 						<div class="col-md-4">
-							<table class="table table-hover table-sm benchmark">
-								<thead>
-									<tr>
-										<th>Benchmark</th>
-										<th class="text-right">Ops/sec</th>
-									</tr>
-								</thead>
-								<tbody id="wfc-table1">
-								</tbody>
-							</table>
+							<div class="table-responsive">
+								<table class="table table-hover table-sm benchmark">
+									<thead>
+										<tr>
+											<th>Benchmark</th>
+											<th class="text-right">Ops/sec</th>
+										</tr>
+									</thead>
+									<tbody id="wfc-table1">
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 					<p>So far so good, we are better then first stream based approach but still below Java 2 based code. Let's try to do better.</p>
@@ -357,16 +361,18 @@ table.benchmark tr.selection {
 							<div class="chart" id="wfc-chart2"></div>
 						</div>
 						<div class="col-md-4">
-							<table class="table table-hover table-sm benchmark">
-								<thead>
-									<tr>
-										<th>Benchmark</th>
-										<th class="text-right">Ops/sec</th>
-									</tr>
-								</thead>
-								<tbody id="wfc-table2">
-								</tbody>
-							</table>
+							<div class="table-responsive">
+								<table class="table table-hover table-sm benchmark">
+									<thead>
+										<tr>
+											<th>Benchmark</th>
+											<th class="text-right">Ops/sec</th>
+										</tr>
+									</thead>
+									<tbody id="wfc-table2">
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 					<p>We are ahead previous competitors now, but not much. Let's try something more.</p>
@@ -384,16 +390,18 @@ table.benchmark tr.selection {
 							<div class="chart" id="wfc-chart3"></div>
 						</div>
 						<div class="col-md-4">
-							<table class="table table-hover table-sm benchmark">
-								<thead>
-									<tr>
-										<th>Benchmark</th>
-										<th class="text-right">Ops/sec</th>
-									</tr>
-								</thead>
-								<tbody id="wfc-table3">
-								</tbody>
-							</table>
+							<div class="table-responsive">
+								<table class="table table-hover table-sm benchmark">
+									<thead>
+										<tr>
+											<th>Benchmark</th>
+											<th class="text-right">Ops/sec</th>
+										</tr>
+									</thead>
+									<tbody id="wfc-table3">
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 					<p>Did you notice that we didn't use parallel streams at all? I did it deliberately to verify what optimizations really matter. Avoiding unnecessary
@@ -407,16 +415,18 @@ table.benchmark tr.selection {
 							<div class="chart" id="wfc-chart4"></div>
 						</div>
 						<div class="col-md-4">
-							<table class="table table-hover table-sm benchmark">
-								<thead>
-									<tr>
-										<th>Benchmark</th>
-										<th class="text-right">Ops/sec</th>
-									</tr>
-								</thead>
-								<tbody id="wfc-table4">
-								</tbody>
-							</table>
+							<div class="table-responsive">
+								<table class="table table-hover table-sm benchmark">
+									<thead>
+										<tr>
+											<th>Benchmark</th>
+											<th class="text-right">Ops/sec</th>
+										</tr>
+									</thead>
+									<tbody id="wfc-table4">
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 					<p>
