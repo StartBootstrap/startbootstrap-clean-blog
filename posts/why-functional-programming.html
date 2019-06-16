@@ -125,7 +125,7 @@
 						Before we start to parallelize our computation, we have to answer very important question - <em>Can it be parallelized at all?</em>
 					</p>
 					<p>
-						The answer depends on it's ability to be divided into pieces that can be executed in parallel. The bigger part of program can be parallelized then better.
+						The answer depends on its ability to be divided into pieces that can be executed in parallel. The bigger part of program can be parallelized then better.
 						However, there are some theoretical limits described by <a href="https://en.wikipedia.org/wiki/Amdahl%27s_law">Amdahl's law</a> . Deciding if our program
 						is a good candidate for parallelization is sometimes difficult. Usually we have some source of data and run computation on every element from this source.
 						More divisible is the source and more costly is the single element processing, chances are higher that we can benefit from running it in parallel manner.
@@ -237,7 +237,7 @@
 					</p>
 					<p>
 						It's time for real icing on the cake in regards of concurrent computations done monadic way with <code>CompletableFuture</code>. We all know how difficult
-						to test asynchronous code even when underlying services are mocked. Hopefully, many <code>CompletableFuture</code> methods are overloaded and accept
+						it is to test asynchronous code even when underlying services are mocked. Hopefully, many <code>CompletableFuture</code> methods are overloaded and accept
 						additional argument of type: <code>java.util.concurrent.Executor</code>. <code>Executor</code> is simple functional interface:
 					</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p2/Executor.java"></code></pre>
@@ -277,7 +277,7 @@
 					<p>
 						<a href="https://en.wikipedia.org/wiki/Interface_segregation_principle">Interface Segregation principle</a> fits perfectly. Just take a look at any
 						interface annotated with <code>@FunctionalInterface</code>. Using this annotation we enforce compile time check whether out interface defines single
-						abstract method. When programming with higher order functions we depend only on single function and function is the most succint interface with only one
+						abstract method. When programming with higher order functions we depend only on single function and function is the most succinct interface with only one
 						method (apart from interfaces with no methods implying very limited usability).
 					</p>
 					<p>
@@ -358,8 +358,8 @@
 					<h2>Summary</h2>
 					<p>I hope you are convinced at least a bit. To me, functional programming was a revelation, made coding more like a science than an art. It lets me
 						write terse, precise, easy to understand, explain and test code. Clear boundaries and laws compared to imprecise rules of object oriented design. It's not
-						a golden bullet solving all problems, there are areas where object oriented approach works better, but more I practice functional programming, I'm able to
-						use it to a greater extent.</p>
+						a golden bullet solving all problems, there are areas where object oriented approach works better, but the more I practice functional programming, to a
+						greater extent I'm able to use it.</p>
 				</div>
 			</div>
 		</div>

@@ -75,7 +75,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10 mx-auto">
-					<p>From time to time I witness or am involved it the discussion about Java 8 streams performance. The common knowledge is that streams are the
+					<p>From time to time I witness or am involved in the discussion about Java 8 streams performance. The common knowledge is that streams are the
 						compromise between performance and terse, although very descriptive abstraction. I couldn't find any comprehensive set of benchmarks around so I decided
 						to run some by myself. Here below I present gathered results.</p>
 					<h2>What and how was tested</h2>
@@ -226,25 +226,24 @@
 						</table>
 					</div>
 					<p>
-						Streams based implementation have won the competition again. Careful selection of target data structure made some difference for both: <code>Stream.collect()</code>
-						and <code>forEach</code> based solutions. Parallel streams didn't do well until all possible optimizations were applied: parallel unordered stream,
-						concurrent collector with linked list. Reduction with immutable collections taken from <a href="https://www.vavr.io/">Vavr</a> library performed poorly,
-						mostly due to <code>Map</code> performance characteristics, it's <code>put()</code> and <code>get()</code> methods has <em>effective O(1)</em> time
-						complexity.
+						Among sequential implementations, <code>forEach</code> based benchmarks are slightly better then streams collected to <code>Map</code>. Using <code>LinkedList</code>
+						usually improves results insensibly but not for collected parallel stream. Actually, there is severe performance loss visible when <code>Collectors.toCollection(LinkedList::new)</code>
+						is used as downstream collector. Parallel stream optimization attempt, simply speaking, failed miserably. It was only <code>Stream.unordered()</code> and
+						<code>Collectors.groupingByConcurrent()</code> added but it caused <em>collectParOpt</em> benchmark to be approximately 10 times slower in every case.
 					</p>
 					<p>
-						There is severe performance loss visible between <em>10 000</em> and <em>100 000</em> items count I'm not able to explain. This effect is not visible for
-						reduction based implementations. You can easily spot it on below chart with Y axis is in logarithmic scale. Every result is divided by best result of the
-						same benchmark but different sample size. For smallest list size <em>1000</em>, score is <em>100 %</em>.
+						I gave <code>Stream.reuduce()</code> on parallel stream the try here too. To use parallel reduction properly, we have to use immutable data structures.
+						Obviously, <code>HashMap</code> used by default in streams is mutable. Immutable <code>Map</code> and <code>List</code> from <a href="https://www.vavr.io">Vavr</a>
+						library came to the rescue but with limited success where my expectations were much higher.
 					</p>
-					<div class="chart-lg" id="streams-group-chart-bench"></div>
 					<p>
-						Consecutive runs were given 10 times larger list. In ideal world, results should be: <em>100 %</em>, <em>10 %</em>, <em>1 %</em> and <em>0.1 %</em>. Given
-						10 times larger list performance would be 10 times worse, but it's not the case for executed benchmarks and is more significant for all grouping
-						implementations except those based on reduction and immutable data structures.
+						I'm not ready to draw any significant conclusions regarding the reasons standing behind achieved results. The question: <em>stream or not to stream</em>
+						if we care about performance most, seems to be - sequential <code>forEach</code> or parallel <code>Stream.collect()</code>. And we'd better skip
+						optimization attempts without testing them in real life scenarios.
+					</p>
 					<h2>Filtering and sorting distinct items</h2>
 					<p>
-						Yet another frequently used features of <code>Stream</code>: filtering, sorting and distinct items selection. Maybe not all together but separately for
+						Another frequently used features of <code>Stream</code> are filtering, sorting and distinct items selection. Maybe not all together but separately for
 						sure. This benchmark takes random decimal numbers, filter by predefined minimal and maximum value, takes distinct values and sort in natural order.
 					</p>
 					<p>
@@ -443,8 +442,8 @@
 						results. If you are not, my dear reader, please let me know.
 					</p>
 					<p class="note">
-						There is one more unknown yet left to be discovered. Our parallel streams share one and only <code>ForkJoinPool</code> within whole JVM. The common
-						knowledge is that we should be careful about this, but what are the real numbers ... I don't know. Hopefully, I'll get into it soon.
+						There is one more unknown yet left to be discovered. Our parallel streams share one and only <code>ForkJoinPool</code> in single JVM. The common knowledge
+						is that we should be careful about this, but what are the real numbers ... I don't know. Hopefully, I'll get into it soon.
 					</p>
 				</div>
 			</div>

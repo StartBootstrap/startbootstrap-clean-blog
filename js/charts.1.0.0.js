@@ -257,7 +257,8 @@
 		var formattedData = _.flow(JSON.parse, flattenJmhResults, filterData, applyRelativeBySize, applyRelativeByBenchmark)(data);
 
 		renderRelativeBySizeChart('streams-group-chart', formattedData, 'Items in list');
-		renderRelativeByBenchmarkChart('streams-group-chart-bench', formattedData, 'Items in list', 'logarithmic');
+		// renderRelativeByBenchmarkChart('streams-group-chart-bench',
+		// formattedData, 'Items in list', 'logarithmic');
 		renderTable('streams-group-table', _.groupBy(formattedData, 'benchmark'), 4);
 	});
 

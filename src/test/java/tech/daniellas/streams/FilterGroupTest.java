@@ -6,13 +6,13 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class FilterGroupTest {
-	
+
 	private static GroupBenchmark.Params params;
 
 	@BeforeClass
 	public static void beforeClass() {
 		params = new GroupBenchmark.Params();
-		params.size = 100;
+		params.size = 5;
 		params.setUp();
 	}
 
@@ -25,8 +25,8 @@ public class FilterGroupTest {
 		    .isEqualTo(benchmark.collect(params))
 		    .isEqualTo(benchmark.collectPar(params))
 		    .isEqualTo(benchmark.collectParOpt(params));
-		
+
 		assertThat(assertThat(benchmark.forEach(params).keySet())
-				.isEqualTo(benchmark.reducePar(params).keySet().toJavaSet()));
+		    .isEqualTo(benchmark.reducePar(params).keySet().toJavaSet()));
 	}
 }

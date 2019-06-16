@@ -23,9 +23,9 @@ public class GroupBenchmark extends BenchmarkBase {
 
 	// Using grouping collector
 	@Benchmark
-	public Map<Double, List<Double>> collect(Params params) {
+	public Map<Long, List<Double>> collect(Params params) {
 		return params.items.stream()
-		    .collect(Collectors.groupingBy(n -> n / DIVISOR));
+		    .collect(Collectors.groupingBy(n -> Math.round(n / DIVISOR)));
 	}
 
 	// Using grouping collector with linked list
