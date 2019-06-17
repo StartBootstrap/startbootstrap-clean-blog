@@ -108,18 +108,18 @@ public class GroupBenchmark extends BenchmarkBase {
 
 	// Using forEach, linked list and map's merge method
 	@Benchmark
-	public Map<Long, List<Double>> forEachMerge(Params params) {
+	public Map<Long, List<Double>> forEachCompute(Params params) {
 		Map<Long, List<Double>> res = new HashMap<>();
 
 		for (Double item : params.items) {
-			res.merge(
-			    Math.round(item / DIVISOR),
-			    new LinkedList<>(Collections.singletonList(item)),
-			    (k, v) -> {
-				    v.add(item);
+			res.compute(Math.round(item / DIVISOR), (k, v) -> {
+				if (v == null) {
+					return new LinkedList<>(Collections.singletonList(item));
+				}
+				v.add(item);
 
-				    return v;
-			    });
+				return v;
+			});
 		}
 
 		return res;

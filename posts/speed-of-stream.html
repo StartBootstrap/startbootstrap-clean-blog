@@ -151,7 +151,7 @@
 					</p>
 					<h2>Sum of calculations</h2>
 					<p>
-						Let's take more <i>realistic</i> task this time: perform some math operation on list of randomly generated floating-point numbers and sum all calculated
+						Let's take more <i>"realistic"</i> task this time: perform some math operation on list of randomly generated floating-point numbers and sum all calculated
 						values.
 					</p>
 					<p>
@@ -234,12 +234,15 @@
 					<p>
 						I gave <code>Stream.reuduce()</code> on parallel stream the try here too. To make parallel reduction working properly, we have to use immutable data
 						structures. Java <code>HashMap</code> is mutable. Immutable <code>Map</code> and <code>List</code> from <a href="https://www.vavr.io">Vavr</a> library
-						came to the rescue but with limited success. To be honest, my expectations towards parallel reduction performance were much higher.
+						came to the rescue but with limited success. To be honest, my expectations towards parallel reduction performance were initially much higher but I shortly
+						realized that expectations were unreasonable. Vavr's <code>Map</code> has <em>effectively constant</em> <code>get</code> and <code>put</code> operations
+						performance characteristics and we have to always call them both, because there is no similar to plain Java's <code>Map.compute()</code> operation available
+						in it's API.
 					</p>
 					<p>
-						I'm not ready to draw any significant conclusions regarding the reasons standing behind achieved results. The question: <em>stream or not to stream</em>
-						if we care about performance most, seems to be - use sequential <code>forEach</code> or parallel <code>Stream.collect()</code>. And we'd better skip
-						optimization attempts without testing them in real life scenarios.
+						I wouldn't like to draw any significant conclusions regarding the reasons standing behind achieved results. There is just not enough data gathered. The
+						question: <em>stream or not to stream</em> seems to have following answers. If we care about microseconds level performance we should use sequential <code>forEach</code>
+						or parallel <code>Stream.collect()</code>. And we'd better skip optimization attempts without testing them in real life scenarios.
 					</p>
 					<h2>Filtering and sorting distinct items</h2>
 					<p>
@@ -437,9 +440,9 @@
 					<p class="note">Don't use parallel streams blindly, always think if there is any potential for parallelism.</p>
 					<h2>Conclusions</h2>
 					<p>
-						I will be frank with you - I'm really glad that Java 8 <code>Stream</code> is quite good in regards of performance. I'd really miss it's beautiful
-						descriptive abstraction if I had to drop it's use due to poor performance. I did my best to perform legitimate benchmarks and I'm convinced by their
-						results. If you are not, my dear reader, please let me know.
+						I will be frank with you - I'm really glad that Java 8 <code>Stream</code> is quite good in regards of performance. At least in the scope of common
+						enterprise class applications. I'd really miss it's beautiful descriptive abstraction if I had to drop it's use due to poor performance. I did my best to
+						perform legitimate benchmarks and I'm convinced by their results. If you are not, my dear reader, please let me know.
 					</p>
 					<p class="note">
 						There is one more unknown yet left to be discovered. Our parallel streams share one and only <code>ForkJoinPool</code> in single JVM. The common knowledge
