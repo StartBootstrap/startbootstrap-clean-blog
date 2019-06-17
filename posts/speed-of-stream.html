@@ -232,13 +232,13 @@
 						<code>Collectors.groupingByConcurrent()</code> added but it caused <em>collectParOpt</em> benchmark to be approximately 10 times slower in every case.
 					</p>
 					<p>
-						I gave <code>Stream.reuduce()</code> on parallel stream the try here too. To use parallel reduction properly, we have to use immutable data structures.
-						Obviously, <code>HashMap</code> used by default in streams is mutable. Immutable <code>Map</code> and <code>List</code> from <a href="https://www.vavr.io">Vavr</a>
-						library came to the rescue but with limited success where my expectations were much higher.
+						I gave <code>Stream.reuduce()</code> on parallel stream the try here too. To make parallel reduction working properly, we have to use immutable data
+						structures. Java <code>HashMap</code> is mutable. Immutable <code>Map</code> and <code>List</code> from <a href="https://www.vavr.io">Vavr</a> library
+						came to the rescue but with limited success. To be honest, my expectations towards parallel reduction performance were much higher.
 					</p>
 					<p>
 						I'm not ready to draw any significant conclusions regarding the reasons standing behind achieved results. The question: <em>stream or not to stream</em>
-						if we care about performance most, seems to be - sequential <code>forEach</code> or parallel <code>Stream.collect()</code>. And we'd better skip
+						if we care about performance most, seems to be - use sequential <code>forEach</code> or parallel <code>Stream.collect()</code>. And we'd better skip
 						optimization attempts without testing them in real life scenarios.
 					</p>
 					<h2>Filtering and sorting distinct items</h2>
@@ -306,8 +306,7 @@
 							</div>
 						</div>
 					</div>
-					<p>My first thoughts: not very impressive ... should we really forget about Java 8 Streams where performance matters? But wait, this code looks
-						suspicious:</p>
+					<p>My first thoughts: not very impressive ...? But wait, this code looks suspicious:</p>
 					<ol>
 						<li>Is it reasonable to use parallel stream for IO operations?</li>
 						<li>Is it really fair to use regular expressions based string splitting?</li>
@@ -316,12 +315,13 @@
 					</ol>
 					<p>Lets try to get rid of above doubts and use simple adjustments to improve stream performance.</p>
 					<h3>Step 1 - Using string tokenizer stream and sequential streams</h3>
+					<p>This is word frequency counter using sequential streams and different line to words splitter:</p>
 					<pre><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/WfcBenchmark.java" data-format="lines 62,78"></code></pre>
 					<p>
 						We use sequential streams because reading file from disk might not be the best candidate for parallelization. In test conditions, there is no IO performed
-						because operating system is smart enough to keep frequently read files in memory, but even though <code>Path.lines()</code> created stream is of unknown
-						size what is strong limitation too. Additionally, instead of splitting string and using flat mapping over stream created from strings array, we flat map
-						over stream created from tokens iterator - <code>TokenizerStream</code>. This should be more efficient.
+						because operating system is smart enough to keep frequently read files in memory, but even though, stream created by <code>Path.lines()</code> is of
+						unknown size what is strong limitation for parallelism too. Additionally, instead of splitting string and using flat mapping over stream created from
+						strings array, we flat map over stream created from tokens iterator - <code>TokenizerStream</code>. This should be more efficient.
 					</p>
 					<p>
 						<a class="ans" data-toggle="collapse" href="#string-tokenizer">See the TokenizerStream code</a>
@@ -349,10 +349,10 @@
 							</div>
 						</div>
 					</div>
-					<p>So far so good, we are better then first stream based approach but still below Java 2 based code. Let's try to do better.</p>
+					<p>So far so good, we are better then first stream based approach but still below Java 2 based code score. Let's try to do better.</p>
 					<h3>Step 2 - Parallel streams</h3>
 					<p>Using parallel stream with IO operations is disputable but we can definitely transform tokens stream to parallel and unordered without much risk.
-						Let's use parallel streams for all operations instead of reading lines from file.</p>
+						Let's use parallel streams for all operations except reading lines from file.</p>
 					<pre><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/WfcBenchmark.java" data-format="lines 80,100"></code></pre>
 					<p>Here are the results.</p>
 					<div class="row">
@@ -377,11 +377,11 @@
 					<p>We are ahead previous competitors now, but not much. Let's try something more.</p>
 					<h3>Step 3 - Less collections in between</h3>
 					<p>
-						Splitting code into well defined functions is the very good practice, but it means more overhead for this kind of tasks. We can easily get rid of one of
-						created collections by combining group and total words counter increase into one stream. If we look at previous examples, we can notice that first list is
-						just the holder for all words from file. We immediately transform it to <code>Map&lt;String,Long&gt;</code> with <code>Stream.collect()</code>. Later on
-						we use all words list to get total words number. To avoid necessity of all words list we can group words counts into custom <code>Map</code>
-						implementation counting all <code>put</code> operations.
+						Splitting code into well defined functions is the very good practice, but it means more overhead for this kind of tasks. We can easily reduce number of
+						intermediate collections by combining reading from file and word counting into one stream. If we look at previous examples, we can notice that first list
+						is just the holder for all words from file. We immediately transform it to <code>Map&lt;String,Long&gt;</code> with <code>Stream.collect()</code>. Later
+						on we use all words list to get total words number. To avoid necessity of holding all words list we, can group words counters into custom <code>Map</code>
+						implementation counting all <code>put</code> operations. Using this approach, we will have total words counter for free and we use 2 streams instead of 3.
 					</p>
 					<pre><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/WfcBenchmark.java" data-format="lines 102,141"></code></pre>
 					<div class="row">
@@ -406,7 +406,7 @@
 					<p>Did you notice that we didn't use parallel streams at all? I did it deliberately to verify what optimizations really matter. Avoiding unnecessary
 						collections is enough to gain significant performance boost.</p>
 					<h3>Step 4 - Single pass parallel</h3>
-					<p>If we profit by limiting number of created collections and by using parallel streams, let's see what results will be if we combine both
+					<p>If we profit from limiting number of created collections and by using parallel streams separately, let's see what results will be if we combine both
 						improvements.</p>
 					<pre><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/WfcBenchmark.java" data-format="lines 143,163"></code></pre>
 					<div class="row">
@@ -430,9 +430,9 @@
 					</div>
 					<p>
 						This time I'm satisfied. Optimized stream based code is about 3 times faster than original Java 8 example and about 2 times faster than original Java 2
-						implementation. To be honest, I must admit that using parallel streams is cheating and <code>CountingMap</code> could be used to optimize Java 2 based
-						code. On the other side <code>java8step1</code> did quite well. We already know that <code>Stream</code> requires some additional resources and we benefit
-						more when we give it more time to work on given task. There is also very important lesson from <em>Words Frequency</em> example:
+						implementation. I must admit that using parallel streams is cheating and <code>CountingMap</code> could be used to optimize Java 2 based code too. On the
+						other side <code>java8step1</code> did quite well. We already know that <code>Stream</code> requires some additional resources and we benefit more when we
+						give it more time to work on given task. There is also very important lesson from <em>Words Frequency</em> example:
 					</p>
 					<p class="note">Don't use parallel streams blindly, always think if there is any potential for parallelism.</p>
 					<h2>Conclusions</h2>
