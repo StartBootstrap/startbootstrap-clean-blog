@@ -1,0 +1,22 @@
+- name: Deploy daniellas.tech website
+  hosts: daniellas.tech
+  
+  tasks:
+
+  - name: Sync website content
+    copy:
+      src: "{{ item.src }}"
+      dest: "/usr/share/nginx/daniellas.tech/{{ item.dest }}"
+    with_items:
+      - { src: '../../robots.txt', dest: '' }
+      - { src: '../../sitemap.xml', dest: '' }
+      - { src: '../../index.html', dest: '' }
+      - { src: '../../about.html', dest: '' }
+      - { src: '../../contact.html', dest: '' }
+      - { src: '../../posts', dest: '' }
+      - { src: '../../css', dest: '' }
+      - { src: '../../img', dest: '' }
+      - { src: '../../js', dest: '' }
+      - { src: '../../src', dest: '' }
+      - { src: '../../data', dest: '' }
+      
