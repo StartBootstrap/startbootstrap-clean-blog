@@ -76,12 +76,13 @@
 			<div class="row">
 				<div class="col-md-10 mx-auto">
 					<p>From time to time I witness or am involved in the discussion about Java 8 streams performance. The common knowledge is that streams are the
-						compromise between performance and terse, although very descriptive abstraction. I couldn't find any comprehensive set of benchmarks around so I decided
-						to run some by myself. Here below I present gathered results.</p>
+						compromise between performance and brevity with convenience. I couldn't find any comprehensive set of benchmarks around showing how fast (or slow) streams
+						are. I decided to prepare and run a few tests by myself. Here below I present gathered results.</p>
 					<h2>What and how was tested</h2>
 					<p>
 						I measured performance of several different use cases of <code>forEach</code> application, like applying some function to list of numbers and summing it
-						or filtering and grouping such list - usual programming tasks. The same tasks were implemented with different flavours of <code>Stream</code>.
+						or filtering and grouping such list - usual programming tasks. The same tasks were implemented with different flavors of <code>Stream</code> and results
+						were compared.
 					</p>
 					<p>
 						The choice regarding benchmarking tools was easy, battle tested microbenchmark toolkit - <a href="https://openjdk.java.net/projects/code-tools/jmh/">JMH</a>
@@ -93,7 +94,7 @@
 					<pre class="collapse" id="jmh"><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/BenchmarkBase.java"
 						data-format="lines 17,42"></code></pre>
 					<p>
-						Most of the benchmarks were run on some elements list of different sizes: <em class="text-nowrap">1000</em>, <em class="text-nowrap">10 000</em>,<em
+						Most of the benchmarks were run on lists of different sizes: <em class="text-nowrap">1000</em>, <em class="text-nowrap">10 000</em>,<em
 							class="text-nowrap">100 000</em>, <em class="text-nowrap">1 000 000</em> to verify how given implementation performs depending on number of elements it
 						has to process.
 					</p>
@@ -236,8 +237,8 @@
 						structures. Java <code>HashMap</code> is mutable. Immutable <code>Map</code> and <code>List</code> from <a href="https://www.vavr.io">Vavr</a> library
 						came to the rescue but with limited success. To be honest, my expectations towards parallel reduction performance were initially much higher but I shortly
 						realized that expectations were unreasonable. Vavr's <code>Map</code> has <em>effectively constant</em> <code>get</code> and <code>put</code> operations
-						performance characteristics and we have to always call them both, because there is no similar to plain Java's <code>Map.compute()</code> operation available
-						in it's API.
+						performance characteristics and we have to always call them both, because there is no similar to plain Java's <code>Map.compute()</code> operation
+						available in it's API.
 					</p>
 					<p>
 						I wouldn't like to draw any significant conclusions regarding the reasons standing behind achieved results. There is just not enough data gathered. The
@@ -247,7 +248,7 @@
 					<h2>Filtering and sorting distinct items</h2>
 					<p>
 						Another frequently used features of <code>Stream</code> are filtering, sorting and distinct items selection. Maybe not all together but separately for
-						sure. This benchmark takes random decimal numbers, filter by predefined minimal and maximum value, takes distinct values and sort in natural order.
+						sure. This benchmark takes random decimal numbers, filters them by predefined minimal and maximum value, takes distinct values and sorts in natural order.
 					</p>
 					<p>
 						<a class="ans" data-toggle="collapse" href="#fitersort">See benchmark code</a>
@@ -269,7 +270,7 @@
 							</tbody>
 						</table>
 					</div>
-					<p>Yet again, stream based code is the winner and common pattern reveals: parallel stream are better when given list becomes longer.</p>
+					<p>Stream based code is the winner and common pattern reveals: parallel stream are better when given list becomes longer.</p>
 					<h2>Words frequency</h2>
 					<p>
 						This test is inspired by talk I attended at <em>Geecon 2019</em> conference where I saw the performance comparison of old school Java code and Java 8
@@ -283,13 +284,13 @@
 					<p>This is original code copied from authors Github repository with irrelevant adjustments.</p>
 					<p>This is original old school Java 2 based implementation:</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/wfc/CalculatorJ2.java"></code></pre>
-					<p>This is original Java 8 Streams based implementation:</p>
+					<p>This is original Java 8 Stream based implementation:</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/wfc/CalculatorJ8Prl.java"></code></pre>
 					<p>This is additional class used for results display:</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/wfc/WordFrequency.java"></code></pre>
 					<p>This is benchmark code:</p>
 					<pre><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/WfcBenchmark.java" data-format="lines 24,60"></code></pre>
-					<p>Below are benchmark results:</p>
+					<p>Below are benchmark results. This time, charts are not normalized and show just raw results.</p>
 					<div class="row">
 						<div class="col-md-8">
 							<div class="chart" id="wfc-chart"></div>
@@ -382,9 +383,10 @@
 					<p>
 						Splitting code into well defined functions is the very good practice, but it means more overhead for this kind of tasks. We can easily reduce number of
 						intermediate collections by combining reading from file and word counting into one stream. If we look at previous examples, we can notice that first list
-						is just the holder for all words from file. We immediately transform it to <code>Map&lt;String,Long&gt;</code> with <code>Stream.collect()</code>. Later
-						on we use all words list to get total words number. To avoid necessity of holding all words list we, can group words counters into custom <code>Map</code>
-						implementation counting all <code>put</code> operations. Using this approach, we will have total words counter for free and we use 2 streams instead of 3.
+						<code>List&lt;String&gt; words</code> is just the holder for all words from file. We immediately transform it to <code>Map&lt;String,Long&gt;</code> with
+						<code>Stream.collect()</code>. Later on we use all words list to get total words number. To avoid necessity of holding all words list we, can group words
+						counters into custom <code>Map</code> implementation counting all <code>put</code> operations. Using this approach, we will have total words counter for
+						free and we use 2 streams instead of 3.
 					</p>
 					<pre><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/WfcBenchmark.java" data-format="lines 102,141"></code></pre>
 					<div class="row">
@@ -407,7 +409,7 @@
 						</div>
 					</div>
 					<p>Did you notice that we didn't use parallel streams at all? I did it deliberately to verify what optimizations really matter. Avoiding unnecessary
-						collections is enough to gain significant performance boost.</p>
+						collections creation is enough to gain significant performance boost.</p>
 					<h3>Step 4 - Single pass parallel</h3>
 					<p>If we profit from limiting number of created collections and by using parallel streams separately, let's see what results will be if we combine both
 						improvements.</p>

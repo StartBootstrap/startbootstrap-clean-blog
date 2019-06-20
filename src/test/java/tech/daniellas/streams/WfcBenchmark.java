@@ -45,8 +45,7 @@ public class WfcBenchmark extends BenchmarkBase {
 		return mostFrequentWords;
 	}
 
-	// Using Java 8 based calculator code copied into benchmark code for better
-	// readability
+	// Using Java 8 based calculator
 	@Benchmark
 	public Collection<WordFrequency> java8() throws IOException {
 		Collection<String> words = calcJ8.extractWords(PATH, WORD_SIZE);
@@ -127,16 +126,16 @@ public class WfcBenchmark extends BenchmarkBase {
 		return count == null ? 1 : count + 1;
 	}
 
-	static class CountingMap<A, B> extends HashMap<A, B> {
+	static class CountingMap<K, V> extends HashMap<K, V> {
 		private static final long serialVersionUID = 1L;
 		int count = 0;
 
 		@Override
-		public B put(A key, B value) {
-			super.put(key, value);
+		public V put(K key, V value) {
+			V res = super.put(key, value);
 			count++;
 
-			return value;
+			return res;
 		}
 	}
 
