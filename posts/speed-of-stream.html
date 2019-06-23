@@ -442,9 +442,10 @@
 					<p class="note">Don't use parallel streams blindly, always think if there is any potential for parallelism.</p>
 					<h2>Conclusions</h2>
 					<p>
-						I will be frank with you - I'm really glad that Java 8 <code>Stream</code> is quite good in regards of performance. At least in the scope of common
-						enterprise class applications. I'd really miss it's beautiful descriptive abstraction if I had to drop it's use due to poor performance. I did my best to
-						perform legitimate benchmarks and I'm convinced by their results. If you are not, my dear reader, please let me know.
+						It looks like I found nothing revealing. Stream can be sometimes faster and sometimes slower than standard loop. I will be frank with you - I'm really
+						glad that Java 8 <code>Stream</code> is good enough in regards of performance. At least in the scope of common enterprise class applications. I'd really
+						miss it's beautiful and descriptive abstraction if I had to drop it's use due to poor performance. I did my best to perform legitimate benchmarks and I'm
+						convinced by their results. If you are not, my dear reader, please let me know.
 					</p>
 					<p class="note">
 						There is one more unknown yet left to be discovered. Our parallel streams share one and only <code>ForkJoinPool</code> in single JVM. The common knowledge
