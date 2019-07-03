@@ -78,6 +78,9 @@
 						<li class="list-group-item text-info">
 							<i class="fa fa-star"></i> Why functional programming?
 						</li>
+						<li class="list-group-item text-info">
+							<a href="you-dont-need-to-check-its-presence.html">You don't need to check it's presence</a>
+						</li>
 					</ul>
 					<p>
 						This is second part of pragmatic functional programming tutorial for Java developers. If you read my previous post regarding <a
@@ -133,7 +136,7 @@
 						Before we start to parallelize our computation, we have to answer very important question - <em>Can it be parallelized at all?</em>
 					</p>
 					<p>
-						The answer depends on its ability to be divided into pieces that can be executed in parallel. The bigger part of program can be parallelized then better.
+						The answer depends on it's ability to be divided into pieces that can be executed in parallel. The bigger part of program can be parallelized then better.
 						However, there are some theoretical limits described by <a href="https://en.wikipedia.org/wiki/Amdahl%27s_law">Amdahl's law</a> . Deciding if our program
 						is a good candidate for parallelization is sometimes difficult. Usually we have some source of data and run computation on every element from this source.
 						More divisible is the source and more costly is the single element processing, chances are higher that we can benefit from running it in parallel manner.
@@ -294,7 +297,7 @@
 						way to create coupling by unfortunate design.
 					</p>
 					<h2>Loose coupling</h2>
-					<p>Functional code is loosely coupled by its nature. When you give it a try by gradually introducing functions, you'll notice how greatly it reduces
+					<p>Functional code is loosely coupled by it's nature. When you give it a try by gradually introducing functions, you'll notice how greatly it reduces
 						coupling. This is because we can think about the class in terms of set of functions. If we need only one method from some external class, we can use only
 						this method without knowledge about this particular class interface. Here below is the example of this technique.</p>
 					<p>
@@ -368,6 +371,11 @@
 						write terse, precise, easy to understand, explain and test code. Clear boundaries and laws compared to imprecise rules of object oriented design. It's not
 						a golden bullet solving all problems, there are areas where object oriented approach works better, but the more I practice functional programming, to a
 						greater extent I'm able to use it.</p>
+					<h2>What's next?</h2>
+					<p>
+						In next post, you will read about <code>Optional</code> Monad: <a href="you-dont-need-to-check-its-presence.html">You don't need to check it's
+							presence</a>
+					</p>
 				</div>
 			</div>
 		</div>

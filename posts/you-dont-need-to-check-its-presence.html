@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Functional Programming, Java, Optional, Monads">
+<meta name="author" content="Daniel Łaś">
+<title>Daniel Łaś Tech Blog - You don't need to check it's presence. Anatomy of Optional and why you are using it wrong.</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet'
+	type='text/css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
+<link href="../css/clean-blog.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js" data-manual></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-java.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.4/fetch.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-12045869-7"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+	gtag('js', new Date());
+	gtag('config', 'UA-12045869-7');
+</script>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+		<div class="container">
+			<a class="navbar-brand" href="../index.html">Home</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+				aria-expanded="false" aria-label="Toggle navigation">
+				Menu <i class="fas fa-bars"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="../index.html">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../about.html">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../contact.html">Contact</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<header class="masthead sm">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 mx-auto">
+					<div class="post-heading text-center">
+						<h1>You don't need to check it's presence</h1>
+						<h2 class="subheading">Anatomy of Optional and why you are using it wrong.</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<article>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 mx-auto">
+					<ul class="list-group toc">
+						<li class="list-group-item">
+							<a href="functional-programming-magic.html">Functional programming magic</a>
+						</li>
+						<li class="list-group-item text-info">
+							<a href="why-functional-programming.html">Why functional programming?</a>
+						</li>
+						<li class="list-group-item text-info">
+							<i class="fa fa-star"></i> You don't need to check it's presence
+						</li>
+					</ul>
+					<p>
+						Every Java programmer knows <code>Optional</code> type. If someone doesn't, shame on her/him. In this post I'll show you the power of <code>Optional</code>
+						and will explain in details where does this power come from.
+					</p>
+					<h2>
+						What is <code>Optional</code>?
+					</h2>
+					<p>
+						First of all, <code>Optional</code> is a Monad. There will be more about Monads in another post but for the sake of this article I'm highlighting some
+						characteristics.
+					</p>
+					<ul class="list-unstyled">
+						<li>
+							<i class="fa fa-check text-success"></i> Every Monad has factory method: <code>Optional.ofNullable()</code> or <code>Optional.of()</code>
+						</li>
+						<li>
+							<i class="fa fa-check text-success"></i> Every Monad is a parameterized container: <code>Optional&lt;T&gt;</code>
+						</li>
+						<li>
+							<i class="fa fa-check text-success"></i> Every Monad has a mapping method taking function accepting monad's type and returning Monad: <code
+								class="text-nowrap">Optional&lt;U&gt; flatMap(Function&lt;? super T, Optional&lt;U&gt;&gt; mapper)</code>
+						</li>
+						<li>
+							<i class="fa fa-check text-success"></i> Monads are immutable
+						</li>
+						<li>
+							<i class="fa fa-check text-success"></i> Finally and last but not least Monad is a Monad only if it obeys three laws: <em>Left identity</em>, <em>Right
+								identity</em>, <em>Associativity</em>. You must take it on faith now, <code>Optional</code> obeys all of them.
+						</li>
+					</ul>
+					<p>
+						<code>Optional</code> is a Monad indicating whether it holds some value or is empty. It is very useful replacement of <code>null</code> and we should
+						avoid <code>nulls</code> at all costs because <code>null</code> is a huge code smell. There is not enough place here to express how smelly it is but we
+						can Google it: <a href="https://www.google.com/search?q=java+null+criticism">java null criticism</a>,
+					</p>
+					<h2>
+						Why you are using <code>Optional</code> wrong?
+					</h2>
+					<p>Is it happening to you more often than very rarely to write code like this?</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/CalculateSalary.java" data-format="lines 26,37"></code></pre>
+					<p>
+						If it does, please stop doing this, you are hurting all <em>Monads</em>. The fact that <code>Optional.isPresent()</code> is available doesn't mean that we
+						should use it except exceptional situations. If we would like to follow monadic conventions, above code should look like this:
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/CalculateSalaryValid.java"
+						data-format="lines 26,29"></code></pre>
+					<p>
+						These code snippets lengths difference is striking, isn't it? The <code>calculateSalary</code> method signature is changed too, the return type is <code>Optional&lt;BigDecimal&gt;</code>
+						now. It might seem to be minor difference but is quite significant. We don't have to document internal implementation behavior of returning <code>null</code>
+						in case of not found employee, we expressed it by method's signature. We inverted the control making caller's code to decide what to do in such case,
+						whether pass some other <code>Optional</code> further or maybe throw an exception. We just don't care here and this is good.
+					</p>
+					<p class="note">
+						Don't consume <code>Optional</code> to early, let it flow through your code for the sake of clarity and safety.
+					</p>
+					<h3>Map and filter it</h3>
+					<p>
+						Next case are the heavily underused <code>map</code> and <code>filter</code> methods. Let's say we have string values stored in the map and expose it via
+						some service class. Additional features provided by this class is the validation of the keys used to obtain values and some method used to decorate
+						returned values. This is traditional example implementation.
+					</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/DecoratingStore1.java"></code></pre>
+					<p>
+						This series of <code>if</code> statements can be easily replaced with <code>Optional</code>.
+					</p>
+					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/DecoratingStore2.java"></code></pre>
+					<p>
+						We can go further and get rid of blank key check before <code>Optional</code> creation.
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/DecoratingStore3.java"></code></pre>
+					<p>
+						We are allowed to use <code>cache::get</code> in line <span class="badge badge-secondary">10</span> because <code>Optional.map()</code> expects <code
+							class="text-nowrap">Function&lt;? super String,? extends String&gt;</code> there. It means function accepting any superclass of <code>String</code> and
+						returning any subclass of <code>String</code>. Our <code>cache.get()</code> method reference with signature <code>Function&lt;Object,String&gt;</code>
+						fits there.
+					</p>
+					<p>I personally find it much more convenient and descriptive to apply filters and transformations in this way. If you don't, maybe next example will be
+						more convincing.</p>
+					<p>Our task it to write method parsing text provided by user to percent format. To make things more complicated, users are from country using comma as
+						decimal separator. This is simple implementation.</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Parser1.java"></code></pre>
+					<p>
+						And this is equivalent implementation using <code>Optional</code>.
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Parser2.java"></code></pre>
+					<p>
+						One might say that this is semantically the same code, only syntax vary. Well, that's true, but there is one difference you might not spot. In first
+						example we did several intermediate assignments in lines <span class="badge badge-secondary">7</span>, <span class="badge badge-secondary">9</span> and <span
+							class="badge badge-secondary">11</span> to increase readability. It required additional mental work to think about clean variables names. When we perform
+						series of transformations with <code>Optional.map()</code> we can avoid this job.
+					</p>
+					<p>
+						Additional thing to point out is the weird exception thrown in line <span class="badge badge-secondary">19</span>. This is dead code actually so it
+						doesn't matter what exception is declared to be thrown, it will never be thrown anyway. It will never be thrown because any problematic value will cause <code>NumberFormatException</code>
+						in line <span class="badge badge-secondary">11</span>. It doesn't look good and would trigger questions and discussions. The reason is impure functions
+						usage and bad API design. The impure function is <code>BigDecimal</code> constructor. It throws <code>NumberFormatException</code> in case of non number
+						string provided as an argument. Pure functions always return value and never throw exceptions. In previous examples we also saw the rule applied: <em>Don't
+							consume <code>Optional</code> to early
+						</em>. Let's change the parser code to return <code>Optional</code> and use pure functions.
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Parser3.java"></code></pre>
+					<p>
+						This time we use pure <code>createBigDecimal(String str)</code> function to create <code>Optional&lt;BigDecimal&gt;</code> from <code>String</code>. It
+						will return <code>Optional.empty()</code> in case of invalid number representation. To handle nested <code>Optional</code> mapping, we use <code>Optional.flatMap()</code>
+						in line <span class="badge badge-secondary">19</span>, otherwise the type returned by expression would be <code>Optional&lt;Optional&lt;String&gt;&gt;</code>.
+						One thing to notice is that we don't know the reason why our <code>parsePercent</code> function returned empty <code>Optional</code>: because provided
+						argument is <code>null</code>, blank string or invalid number representation? The calling code knows only whether there is some value or there is now
+						value returned. There is handy way of handling such cases with ... of course another Monad named <code>Try</code>. There will be another post about <code>Try</code>
+						Monad but here below is the same code using <code>Try</code> from <a href="https://www.vavr.io">Vavr</a> library.
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Parser4.java"></code></pre>
+					<p>
+						The <code>Try</code> and <code>Optional</code> based code similarities are really striking, so much that it's easy to overlook the differences by just
+						reading the code. Furtunately, the compiler will spot the difference. The caller code will not differ much as well. Used <code>Try</code> implementation
+						provides bunch of methods very similar to those supplied by <code>Optional</code>, like: <code>orElse</code>, <code>getOrElseGet</code> or <code>getOrElseThrow</code>.
+						We can even convert the <code>Try</code> to <code>Optional</code> with <code>toJavaOptional()</code> method if we don't care about error details.
+					</p>
+					<p class="note">
+						This is the true power of Monads: we use all of them in the same way. If we know how to use <code>Optional</code>, we know how to use other Monads.
+					</p>
+					<h3>Handling missing nested values</h3>
+					<p>
+						To let you feel what I mean by deep nested missing values, I'd like to recall you old Java <em>XML W3C DOM API</em>. I find it most tedious to work with,
+						because methods it provides, very often return <code>null</code> values. Additionally, XML's Document Object Model is the tree of nodes that can be really
+						deep.
+					</p>
+					<p>Let's imagine that we have users database stored in XML file like this one:</p>
+					<pre><code class="language-xml" data-src="../src/test/resources/users.xml"></code></pre>
+					<p>As we can see, some users have address specified and some do not. To get user's street from address, we have to access it via quite long path:</p>
+					<ul>
+						<li>
+							find node named <code>user</code>
+						</li>
+						<li>
+							check whether child node <code>id</code> has expected text content
+						</li>
+						<li>
+							get <code>location</code> child node
+						</li>
+						<li>
+							get <code>address</code> child node if <code>location</code> is present
+						</li>
+						<li>
+							get <code>street</code> child node if <code>address</code> is present
+						</li>
+					</ul>
+					<p>
+						I'll let you you imagine how boring and error prone native DOM API use would be. To mitigate this, we created several functions operating on <code>org.w3c.dom.Node</code>
+						and using <code>Optional</code> as return value heavily.
+					</p>
+					<p>
+						First, we need the easy way to iterate over child nodes. Unfortunately, <code>NodeList</code> returned by <code>Node.getChildNodes()</code> isn't <code>Iterable</code>.
+						Lets' create our own implementation.
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/DomCombinators.java" data-format="lines 17,36"></code></pre>
+					<p>
+						If we have <code>Iterator</code>, we can use <code>Stream</code> created from it. This is function creating <code>Stream</code> from <code>NodeList</code>.
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/DomCombinators.java" data-format="lines 38,48"></code></pre>
+					<p>Next, we need some predicates to check various node properties.</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/DomCombinators.java" data-format="lines 50,71"></code></pre>
+					<p>
+						As we can see, there is <code>Optional</code> used all the time. This is due to the fact, that <code>Node</code> methods can return <code>null</code>
+						depending on <code>Node</code> type. For example, <code>getNodeName()</code> or <code>getAttributes()</code> methods called on text node always return <code>null</code>.
+						We create <code>Optional</code> using <code>of()</code> factory method because we don't accept <code>null</code> in predicates. In this way, we will fail
+						fast with <code>NullPointerException</code>.
+					</p>
+					<p>Then we need functions finding nodes. Here they are.</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/DomCombinators.java" data-format="lines 73,81"></code></pre>
+					<p>
+						Finally, if we have node finding functions, we can easily create additional useful predicate checking whether given <code>Node</code> has child matching
+						given condition.
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/DomCombinators.java" data-format="lines 83,87"></code></pre>
+					<p>Let's see our toys in action.</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/test/java/tech/daniellas/p3/UsersXmlTest.java" data-format="lines 41,52"></code></pre>
+					<p>
+						This code is totally safe (unless we left some bugs) and way easier to write and comprehend. We created custom <code>Node</code> <code>Predicate</code>
+						from primitive ones for convenience and used in line <span class="badge badge-secondary">3</span>.
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/test/java/tech/daniellas/p3/UsersXmlTest.java" data-format="lines 35,39"></code></pre>
+					<p>
+						This predicate checks, whether given node name is <code>user</code> and has child node named <code>id</code> with text content equal given <code>id</code>
+						argument.
+					</p>
+					<p>
+						Below test code is identical to previous on, only assertion differs because we don't expect <em>Mary Jane</em> (having id <em>2</em>) to have address
+						specified at all.
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/test/java/tech/daniellas/p3/UsersXmlTest.java" data-format="lines 54,64"></code></pre>
+					<p>What if we ask about non existing user? No problem.</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/test/java/tech/daniellas/p3/UsersXmlTest.java" data-format="lines 66,76"></code></pre>
+					<p>
+						There is no user with id <em>3</em> and test doesn't fail.
+					</p>
+					<p>And what about using attributes not present in out XML file? No issues at all.</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/test/java/tech/daniellas/p3/UsersXmlTest.java" data-format="lines 78,89"></code></pre>
+					<p>
+						There is no <code>user</code> node with attribute <code>name</code> and the test passes.
+					</p>
+					<h3>Eager and lazy alternative value</h3>
+				</div>
+			</div>
+		</div>
+	</article>
+	<hr>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-10 mx-auto">
+					<ul class="list-inline text-center">
+						<li class="list-inline-item">
+							<a href="https://www.linkedin.com/in/daniel-las" target="_blank"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i
+									class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+							</span>
+							</a>
+						</li>
+					</ul>
+					<p class="copyright text-muted">
+						Copyright &copy; Daniel Łaś 2019, Look and feel forked from <a href="https://startbootstrap.com/template-overviews/clean-blog/" target="blank">Clean
+							Blog</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+	<div class="alert text-center cookiealert">
+		We use cookies to ensure you get the best experience on our site.
+		<button class="btn btn-primary btn-sm acceptcookies">I agree</button>
+	</div>
+	<script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
+	<script src="../js/clean-blog.min.js"></script>
+	<script src="../js/examples.1.0.0.min.js"></script>
+</body>
+</html>

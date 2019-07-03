@@ -1,0 +1,18 @@
+<users>
+	<user>
+		<id>1</id>
+		<name>John Doe</name>
+		<location>
+			<address>
+				<street>Baker Street</street>
+			</address>
+		</location>
+	</user>
+	<user>
+		<id>2</id>
+		<name>Mary Jane</name>
+		<location>
+			<country>Atlantis</country>
+		</location>
+	</user>
+</users>

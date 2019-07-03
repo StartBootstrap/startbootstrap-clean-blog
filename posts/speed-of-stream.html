@@ -136,7 +136,7 @@
 					</div>
 					<p class="legend">You can select rows to make results easier to analyze.</p>
 					<p>
-						It was easy to predict. We have clear winner: <code>forEach</code>, but it's advantage was decreasing with larger items numbers, especially when compared
+						It was easy to predict. We have clear winner: <code>forEach</code>, but its advantage was decreasing with larger items numbers, especially when compared
 						to parallel version of <code>collect</code>. Sequential <code>collect</code> is better on <em>1000</em> elements, but then parallel version starts to move
 						ahead. <code>reduce</code> don't perform well at all, worst in almost all cases but again, parallel stream with <code>reduce</code> is doing better when
 						sample is bigger.
@@ -238,7 +238,7 @@
 						came to the rescue but with limited success. To be honest, my expectations towards parallel reduction performance were initially much higher but I shortly
 						realized that expectations were unreasonable. Vavr's <code>Map</code> has <em>effectively constant</em> <code>get</code> and <code>put</code> operations
 						performance characteristics and we have to always call them both, because there is no similar to plain Java's <code>Map.compute()</code> operation
-						available in it's API.
+						available in its API.
 					</p>
 					<p>
 						I wouldn't like to draw any significant conclusions regarding the reasons standing behind achieved results. There is just not enough data gathered. The
@@ -444,7 +444,7 @@
 					<p>
 						It looks like I found nothing revealing. Stream can be sometimes faster and sometimes slower than standard loop. I will be frank with you - I'm really
 						glad that Java 8 <code>Stream</code> is good enough in regards of performance. At least in the scope of common enterprise class applications. I'd really
-						miss it's beautiful and descriptive abstraction if I had to drop it's use due to poor performance. I did my best to perform legitimate benchmarks and I'm
+						miss its beautiful and descriptive abstraction if I had to drop its use due to poor performance. I did my best to perform legitimate benchmarks and I'm
 						convinced by their results. If you are not, my dear reader, please let me know.
 					</p>
 					<p class="note">
