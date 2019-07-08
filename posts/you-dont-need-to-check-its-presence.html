@@ -142,11 +142,11 @@
 						some service class. Additional features provided by this class is the validation of the keys used to obtain values and some method used to decorate
 						returned values. This is traditional example implementation.
 					</p>
-					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/DecoratingStore1.java"></code></pre>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/DecoratingStore1.java"></code></pre>
 					<p>
 						This series of <code>if</code> statements can be easily replaced with <code>Optional</code>.
 					</p>
-					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/DecoratingStore2.java"></code></pre>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/DecoratingStore2.java"></code></pre>
 					<p>
 						We can go further and get rid of blank key check before <code>Optional</code> creation.
 					</p>
@@ -274,14 +274,121 @@
 					<p>What if we ask about non existing user? No problem.</p>
 					<pre class="line-numbers"><code class="language-java" data-src="../src/test/java/tech/daniellas/p3/UsersXmlTest.java" data-format="lines 66,76"></code></pre>
 					<p>
-						There is no user with id <em>3</em> and test doesn't fail.
+						There is no user with id <em>3</em> and the test doesn't fail.
 					</p>
-					<p>And what about using attributes not present in out XML file? No issues at all.</p>
+					<p>And what about using attributes not present in our XML file? No issues at all.</p>
 					<pre class="line-numbers"><code class="language-java" data-src="../src/test/java/tech/daniellas/p3/UsersXmlTest.java" data-format="lines 78,89"></code></pre>
 					<p>
 						There is no <code>user</code> node with attribute <code>name</code> and the test passes.
 					</p>
+					<p>
+						As we can see, by writing less then 100 lines of code using <code>Optional</code> heavily we made our life with <em>XML DOM API</em> easier and safer.
+					</p>
 					<h3>Eager and lazy alternative value</h3>
+					<p>
+						One of the frequent usages of <code>Optional</code> is to get alternative value in case of empty <code>Optional</code>. We do this via <code>orElse(T
+							other)</code> or <code>orElseGet(Supplier&lt;? extends T&gt; other)</code> method. It's common mistake to use <code>orElse</code> while <code>orElseGet</code>
+						should be used. The difference between these methods is that <code>orElseGet</code> takes <code>Supplier</code>, so actual alternative value is evaluated
+						lazy, only if is needed meaning when <code>Optional</code> is empty. Java evaluates methods arguments before method body execution, we call it <em>eager
+							evaluation</em>. Improper selection of alternative value provider may result in unexpected behaviors, like in below example.
+					</p>
+					<p>
+						Let's say, we have repository interface and implementation backed up by some persistence technology. We express missing lookup by primary identifier by
+						returning <code>Optional</code> from appropriate method.
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Repository.java"></code></pre>
+					<p>
+						<code>getDefault</code> in line <span class="badge badge-secondary">5</span> returns the <code>Entity</code> by hardcoded <code>id</code> value and can be
+						used if the one we were looked for was not found. It also prints debug message for presentation purpose. Here below is simple test showing the difference
+						between eager and lazy evaluation of <code>Optional</code> alternative value.
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/test/java/tech/daniellas/p3/RepositoryTest.java"></code></pre>
+					<p>
+						<code>orElseGet</code> alternative value provider works in this way because it expects <code>Supplier</code> implementation. <code>Supplier</code> is the
+						functional interface with single abstract method <code>T get()</code>. This is all we need to obtain default value, just call <code>get()</code> and
+						return its result. This is exactly what <code>orElseGet</code> method does. Without calling <code>Supplier.get()</code> nothing happens. On the other
+						side, <code>orElse</code> expects default value which is evaluated before execution of our code using <code>Optional</code>. If we want to return simple
+						default value, like <code>BigDecimal.ZERO</code>, <code>Optional.orElse()</code> is perfectly legitimate.
+					</p>
+					<p class="note">
+						Whenever additional operations are needed to provide default value in case of empty <code>Optional</code>, use <code>orElseGet</code>. If the default
+						value is just simple object or constant, use <code>orElse</code>.
+					</p>
+					<h2>
+						Anatomy of <code>Optional</code>
+					</h2>
+					<p>
+						If you think that behind <code>Optional</code>'s powers stays some sophisticated code ... you are wrong. The concept and implementation is actually very
+						easy. The best way to see what is happening under the hood is to implement our version of <code>Optional</code>. Let's name it <code>Maybe</code> to
+						distinguish it from Java's <code>Optional</code> and Scala's <code>Option</code>.
+					</p>
+					<p>
+						Our <code>Maybe</code> is the generic container, so it has to be parameterized.
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/m1/Maybe.java"></code></pre>
+					<p>
+						If we think about very nature of <code>Maybe</code> it's just <em>either something or nothing</em>. We can easily design it as abstract class with only
+						two implementations: <code>Just</code> and <code>Nothing</code>. We don't want to allow any other implementations to exist, so let's make <code>Maybe</code>,
+						<code>Just</code> and <code>Nothing</code> constructors private. <code>Just</code> and <code>Nothing</code> will be static and final inner classes of <code>Maybe</code>.
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/m2/Maybe.java"></code></pre>
+					<p>
+						<code>Just</code> should hold some value, let's add the value placeholder to it.
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/m3/Maybe.java"></code></pre>
+					<p>
+						There is only one and only one <code>Nothing</code>, we can create singleton for it.
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/m4/Maybe.java"></code></pre>
+					<p>
+						If you wonder why <code>NOTHING</code> singleton is of unbounded wildcard type, the answer is simple: <code>Nothing</code> holds no value, it's type is
+						meaningless and can be discarded.
+					</p>
+					<p>
+						Next, we need to have the ways to create <code>Just</code> and <code>Nothing</code> instances. We can't just construct them, because their constructors
+						are private. Let's write appropriate factory methods in <code>Maybe</code>.
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 34,43"></code></pre>
+					<p>
+						By factoring <code>Nothing</code> we always return our singleton instance <code>NOTHING</code>. We do cast it to <code>Maybe&lt;A&gt;</code> to avoid
+						unnecessary unchecked cast warnings. Remember? <code>Nothing</code> holds no value and has no type actually, it's safe to cast it to <code>Maybe</code> of
+						any <code>A</code>. <code>Just</code> on the other hand must hold the value, <code>null</code> is not acceptable, hence we validate <code>just</code>
+						factory method argument against <code>null</code> references in line <span class="badge badge-secondary">7</span>.
+					</p>
+					<p>
+						We would like to create <code>Maybe</code> without knowing if it's nothing or something too. Let's craft the method doing so.
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 45,51"></code></pre>
+					<p>This is what we have so far.</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/m5/Maybe.java"></code></pre>
+					<p>
+						We may have a value in <code>Just</code> but we don't know how to check it. Let's add <code>Maybe.isPresent()</code> abstract method and implementations.
+						Obviously, implementation will be simple but completely different.
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 16,16"></code></pre>
+					<p>
+						This is <code>Just</code>:
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 102,105"></code></pre>
+					<p>
+						And this is <code>Nothing</code>:
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 58,61"></code></pre>
+					<p>
+						Let's quickly go through value accessors declaration in <code>Maybe</code>, they are not very interesting anyway.
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 18,22"></code></pre>
+					<p>
+						These are <code>Just</code> implementations:
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 107,120"></code></pre>
+					<p>
+						And these are taken from <code>Nothing</code>:
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 63,76"></code></pre>
+					<p>
+						We do completely opposite things in <code>Just</code> and <code>Nothing</code> respectively.
+					</p>
 				</div>
 			</div>
 		</div>
