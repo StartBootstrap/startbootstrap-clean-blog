@@ -19,16 +19,20 @@ public abstract class Maybe<A> {
 
 	public abstract A orElse(A other);
 
-	public abstract A orElseGet(Supplier<A> other);
+	public abstract A orElseGet(Supplier<? extends A> other);
 
-	public abstract void ifPresentOrElse(Consumer<A> c, Runnable r);
+	public abstract void ifPresentOrElse(Consumer<? super A> c, Runnable r);
 
-	public abstract <B> Maybe<B> map(Function<A, B> f);
+	public abstract <B> Maybe<B> map(Function<? super A, ? extends B> f);
 
-	public abstract <B> Maybe<B> flatMap(Function<A, Maybe<B>> f);
+	public abstract <B> Maybe<B> flatMap(Function<? super A, Maybe<B>> f);
 
-	public <B> Maybe<B> mapViaFlatMap(Function<A, B> f) {
+	public <B> Maybe<B> mapViaFlatMap(Function<? super A, ? extends B> f) {
 		return flatMap(f.andThen(Maybe::just));
+	}
+
+	public <B> Maybe<B> mapViaFlatMap2(Function<? super A, ? extends B> f) {
+		return flatMap(a -> Maybe.just(f.apply(a)));
 	}
 
 	@SuppressWarnings("unchecked")
@@ -71,22 +75,22 @@ public abstract class Maybe<A> {
 		}
 
 		@Override
-		public A orElseGet(Supplier<A> other) {
+		public A orElseGet(Supplier<? extends A> other) {
 			return other.get();
 		}
 
 		@Override
-		public void ifPresentOrElse(Consumer<A> c, Runnable r) {
+		public void ifPresentOrElse(Consumer<? super A> c, Runnable r) {
 			r.run();
 		}
 
 		@Override
-		public <B> Maybe<B> map(Function<A, B> f) {
+		public <B> Maybe<B> map(Function<? super A, ? extends B> f) {
 			return nothing();
 		}
 
 		@Override
-		public <B> Maybe<B> flatMap(Function<A, Maybe<B>> f) {
+		public <B> Maybe<B> flatMap(Function<? super A, Maybe<B>> f) {
 			return nothing();
 		}
 	}
@@ -115,22 +119,22 @@ public abstract class Maybe<A> {
 		}
 
 		@Override
-		public A orElseGet(Supplier<A> other) {
+		public A orElseGet(Supplier<? extends A> other) {
 			return value;
 		}
 
 		@Override
-		public void ifPresentOrElse(Consumer<A> c, Runnable r) {
+		public void ifPresentOrElse(Consumer<? super A> c, Runnable r) {
 			c.accept(value);
 		}
 
 		@Override
-		public <B> Maybe<B> map(Function<A, B> f) {
+		public <B> Maybe<B> map(Function<? super A, ? extends B> f) {
 			return maybe(f.apply(value));
 		}
 
 		@Override
-		public <B> Maybe<B> flatMap(Function<A, Maybe<B>> f) {
+		public <B> Maybe<B> flatMap(Function<? super A, Maybe<B>> f) {
 			return f.apply(value);
 		}
 	}

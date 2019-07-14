@@ -30,8 +30,7 @@ class DomCombinators {
 
 		@Override
 		public Node next() {
-			idx++;
-			return nodeList.item(idx);
+			return nodeList.item(idx++);
 		}
 	}
 
@@ -79,7 +78,7 @@ class DomCombinators {
 	static Function<Node, Optional<Node>> findFirstChild(String name) {
 		return findFirstChild(hasName(name));
 	}
-	
+
 	static Predicate<Node> hasChild(Predicate<Node> condition) {
 		return node -> findFirstChild(condition)
 		    .apply(node)

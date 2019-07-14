@@ -239,9 +239,9 @@
 					<p>
 						If we have <code>Iterator</code>, we can use <code>Stream</code> created from it. This is function creating <code>Stream</code> from <code>NodeList</code>.
 					</p>
-					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/DomCombinators.java" data-format="lines 38,48"></code></pre>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/DomCombinators.java" data-format="lines 37,48"></code></pre>
 					<p>Next, we need some predicates to check various node properties.</p>
-					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/DomCombinators.java" data-format="lines 50,71"></code></pre>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/DomCombinators.java" data-format="lines 49,71"></code></pre>
 					<p>
 						As we can see, there is <code>Optional</code> used all the time. This is due to the fact, that <code>Node</code> methods can return <code>null</code>
 						depending on <code>Node</code> type. For example, <code>getNodeName()</code> or <code>getAttributes()</code> methods called on text node always return <code>null</code>.
@@ -249,12 +249,12 @@
 						fast with <code>NullPointerException</code>.
 					</p>
 					<p>Then we need functions finding nodes. Here they are.</p>
-					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/DomCombinators.java" data-format="lines 73,81"></code></pre>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/DomCombinators.java" data-format="lines 72,81"></code></pre>
 					<p>
 						Finally, if we have node finding functions, we can easily create additional useful predicate checking whether given <code>Node</code> has child matching
 						given condition.
 					</p>
-					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/DomCombinators.java" data-format="lines 83,87"></code></pre>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/DomCombinators.java" data-format="lines 82,86"></code></pre>
 					<p>Let's see our toys in action.</p>
 					<pre class="line-numbers"><code class="language-java" data-src="../src/test/java/tech/daniellas/p3/UsersXmlTest.java" data-format="lines 41,52"></code></pre>
 					<p>
@@ -348,7 +348,7 @@
 						Next, we need to have the ways to create <code>Just</code> and <code>Nothing</code> instances. We can't just construct them, because their constructors
 						are private. Let's write appropriate factory methods in <code>Maybe</code>.
 					</p>
-					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 34,43"></code></pre>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 38,47"></code></pre>
 					<p>
 						By factoring <code>Nothing</code> we always return our singleton instance <code>NOTHING</code>. We do cast it to <code>Maybe&lt;A&gt;</code> to avoid
 						unnecessary unchecked cast warnings. Remember? <code>Nothing</code> holds no value and has no type actually, it's safe to cast it to <code>Maybe</code> of
@@ -358,7 +358,7 @@
 					<p>
 						We would like to create <code>Maybe</code> without knowing if it's nothing or something too. Let's craft the method doing so.
 					</p>
-					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 45,51"></code></pre>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 49,55"></code></pre>
 					<p>This is what we have so far.</p>
 					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/m5/Maybe.java"></code></pre>
 					<p>
@@ -369,11 +369,11 @@
 					<p>
 						This is <code>Just</code>:
 					</p>
-					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 102,105"></code></pre>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 106,109"></code></pre>
 					<p>
 						And this is <code>Nothing</code>:
 					</p>
-					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 58,61"></code></pre>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 62,65"></code></pre>
 					<p>
 						Let's quickly go through value accessors declaration in <code>Maybe</code>, they are not very interesting anyway.
 					</p>
@@ -381,13 +381,67 @@
 					<p>
 						These are <code>Just</code> implementations:
 					</p>
-					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 107,120"></code></pre>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 111,124"></code></pre>
 					<p>
 						And these are taken from <code>Nothing</code>:
 					</p>
-					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 63,76"></code></pre>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 67,80"></code></pre>
 					<p>
-						We do completely opposite things in <code>Just</code> and <code>Nothing</code> respectively.
+						We do completely opposite things in <code>Just</code> and <code>Nothing</code> respectively. This kind of symmetry is often present in functional
+						programming where Monads were born.
+					</p>
+					<p>
+						Finally the most important methods: <code>flatMap</code> and <code>map</code>. If you wonder why <code>flatMap</code> is in the first place ... the reason
+						is simple, <code>map</code> can be implemented using <code>flatMap</code>.
+					</p>
+					<p>
+						Let's start with <code>map</code> because it's easier to comprehend. Its signature is as follows: <code class="text-nowrap">Maybe&lt;B&gt;
+							map(Function&lt;? super A,? extends B&gt; f)</code>. <code>f</code> argument is named after <code>Function</code>. What this method does is: <em>it takes
+							given mapping function and returns new <code>Maybe</code> containing result of this function applied to <code>Maybe</code> value
+						</em>. <code>Nothing</code> implementation is simple, there is no value to apply given function to, we have only one choice, return <code>Nothing</code>.
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 87,90"></code></pre>
+					<p>
+						<code>Just.map()</code> implementation is very straightforward too:
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 131,134"></code></pre>
+					<p>
+						<code>flatMap</code> behavior is harder to explain and easier to write: <em>take <code>Maybe</code> with some value in it and apply mapping function
+							returning other <code>Maybe</code> to original <code>Maybe</code> value.
+						</em> <code>Nothing.flatMap()</code> returns <code>Nothing</code>, no surprises here.
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 92,95"></code></pre>
+					<p>
+						<code>Just.flatMap()</code> simply returns the result of given function applied to wrapped value.
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 136,139"></code></pre>
+					<p>
+						<code>flatMap</code> is the feature making <code>Maybe</code> a Monad, actually <code>map</code> is redundant because can be implemented using <code>flatMap</code>.
+						It is usually implemented separately for performance reasons.
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 30,32"></code></pre>
+					<p>
+						<code>mapViaFlatMap</code> is a method implemented in our abstract <code>Maybe</code> class. Presented above code is very functional. We can read is as: <em>take
+							<code>f</code> function, compose it with <code>Maybe::just</code>, the composed function is <code>just(f(v))</code> with signature <code
+							class="text-nowrap">Function&lt;? super A,Maybe&lt;B&gt;&gt;</code> and pass it to <code>flatMap</code>.
+						</em> We can also implement it using lambda expression if we find it easier to grasp:
+					</p>
+					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 34,36"></code></pre>
+					<p>
+						If you don't know what function composition is, you may find my post <a href="functional-programming-magic.html">Functional programming magic</a> quite
+						helpful. If you would like to see full <code>Maybe</code> source, <a class="ans" data-toggle="collapse" href="#maybe">click here</a>. You will find side
+						effects performing <code>ifPresentOrElse</code> method there.
+					</p>
+					<pre class="collapse line-numbers" id="maybe"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java"></code></pre>
+					<p>
+						That's it, about 100 lines of code and we have fully functional <code>Optional</code> replacement. We reinvented the wheel, there are plenty
+						implementations available but our understanding of <code>Optional</code> is much better thanks to this exercise.
+					</p>
+					<h2>Summary</h2>
+					<p>
+						We know how to use <code>Optional</code>. We know how simple and easy to implement concept it is. This is always like this: <em>great power lies in
+							simplicity</em>. I personally can't imagine my life without some kind of <code>Optional</code> in my programming toolkit and I hope that after reading my post
+						you will not be able to do so either.
 					</p>
 				</div>
 			</div>
