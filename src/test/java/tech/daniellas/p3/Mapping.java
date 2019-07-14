@@ -29,9 +29,12 @@ public class Mapping {
 	static Supplier<Integer> negate(Integer n) {
 		return () -> -n;
 	}
+	
+	
 
 	@Test
 	public void shouldMapToFunction() {
+		Integer in=1;
 		Integer v = Optional.of(1)
 		    .filter(n -> n < 0)
 		    .map(Mapping::negate)
