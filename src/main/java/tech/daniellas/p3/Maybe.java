@@ -28,11 +28,11 @@ public abstract class Maybe<A> {
 	public abstract <B> Maybe<B> flatMap(Function<? super A, Maybe<B>> f);
 
 	public <B> Maybe<B> mapViaFlatMap(Function<? super A, ? extends B> f) {
-		return flatMap(f.andThen(Maybe::just));
+		return flatMap(f.andThen(Maybe::maybe));
 	}
 
 	public <B> Maybe<B> mapViaFlatMap2(Function<? super A, ? extends B> f) {
-		return flatMap(a -> Maybe.just(f.apply(a)));
+		return flatMap(a -> Maybe.maybe(f.apply(a)));
 	}
 
 	@SuppressWarnings("unchecked")

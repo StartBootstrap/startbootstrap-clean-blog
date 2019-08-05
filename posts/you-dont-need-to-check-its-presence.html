@@ -422,8 +422,8 @@
 					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 30,32"></code></pre>
 					<p>
 						<code>mapViaFlatMap</code> is a method implemented in our abstract <code>Maybe</code> class. Presented above code is very functional. We can read is as: <em>take
-							<code>f</code> function, compose it with <code>Maybe::just</code>, the composed function is <code>just(f(v))</code> with signature <code
-							class="text-nowrap">Function&lt;? super A,Maybe&lt;B&gt;&gt;</code> and pass it to <code>flatMap</code>.
+							<code>f</code> function, compose it with <code>Maybe::maybe</code>, the composed function is <code>maybe(f(v))</code> with signature <code
+							class="text-nowrap">Function&lt;? super A,Maybe&lt;B&gt;&gt;</code>, and pass it to <code>flatMap</code>.
 						</em> We can also implement it using lambda expression if we find it easier to grasp:
 					</p>
 					<pre class="line-numbers"><code class="language-java" data-src="../src/main/java/tech/daniellas/p3/Maybe.java" data-format="lines 34,36"></code></pre>
