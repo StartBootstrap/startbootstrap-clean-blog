@@ -107,7 +107,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.16.14</version>
+			<version>1.18.8</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -123,8 +123,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.0</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<release>11</release>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -145,7 +144,7 @@
 					<argLine>-Xms2G -Xmx2G -XX:+UseG1GC</argLine>
 					<excludes>
 						<exclude>**/*ITest.java</exclude>
-						<exclude>**/*IPTest.java</exclude>
+						<exclude>**/*PTest.java</exclude>
 					</excludes>
 					<encoding>UTF-8</encoding>
 				</configuration>
