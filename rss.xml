@@ -4,6 +4,7 @@
 <title>Ethical and Professioal Issues</title>
 <link>http://www.angelicafrancoh.com/</link>
 <description>Tabs over Spaces with Angie</description>
+
 <item>
 <title>Writing 00: Responsibility</title>
 <link>angelicafrancoh.com/post.html</link>
@@ -11,5 +12,14 @@
 <pubDate>Fri, 30 Aug 2019 23:20:00 EST</pubDate>
 <description>Burdens that come with the superpower of code</description>
 </item>
+
+<item>
+<title>Writing 01: Identity</title>
+<link>angelicafrancoh.com/writing01.html</link>
+<guid>angelicafrancoh.com/writing01.html</guid>
+<pubDate>Fri, 06 Sep 2019 19:45:00 EST</pubDate>
+<description>A round peg in a square hole</description>
+</item>
+
 </channel>
 </rss>
