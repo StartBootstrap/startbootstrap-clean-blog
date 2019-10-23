@@ -3,10 +3,17 @@ import path from "path";
 
 const routes = new Router();
 
-routes.set("views", __dirname + "/views");
-
 routes.get("/", (req, res) => {
-  return res.sendFile(path.resolve(__dirname, "..", "public", "index.html"));
+  res.render("index");
+});
+
+routes.get("/posts/new", (req, res) => {
+  res.render("create");
+});
+
+routes.post("/posts/store", (req, res) => {
+  console.log(req.body);
+  res.redirect("/");
 });
 
 routes.get("/sobre", (req, res) => {

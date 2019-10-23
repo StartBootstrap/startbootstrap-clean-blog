@@ -1,0 +1,47 @@
+@layout('layouts.app')
+ 
+@section('content')
+<!-- Page Header -->
+<header class="masthead">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="page-heading">
+          <h1>Create New Post</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+ 
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <form action="/posts/store" method="POST">
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Title</label>
+            <input type="text" name="title" placeholder="Title" class="form-control">
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Description</label>
+            <input type="text" name="description" placeholder="Description" class="form-control">
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Content</label>
+            <textarea name="content" placeholder="Content ..." cols="30" rows="10" class="form-control"></textarea>
+          </div>
+        </div>
+        <div class="form-group my-4 text-center">
+          <button class="btn btn-primary">Create Post</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+@endsection
