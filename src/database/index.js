@@ -2,17 +2,18 @@ import mongoose from "mongoose";
 
 class Database {
   constructor() {
-    this.mongo();
+    this.init();
   }
 
-  mongo() {
-    this.mongoConnection = mongoose
-      .connect(
-        "mongodb+srv://blogposter:1Dca@dbqogD!@cluster0-29caz.mongodb.net/test?retryWrites=true&w=majority",
-        { useNewUrlParser: true, useFindAndModify: true }
-      )
-      .then(() => "You are now connected to Mongo!")
-      .catch(err => console.error("Something went wrong", err));
+  init() {
+    this.mongoConnection = mongoose.connect(
+      "mongodb://localhost:27017/node-blog",
+      {
+        useNewUrlParser: true,
+        useFindAndModify: true,
+        useUnifiedTopology: true
+      }
+    );
   }
 }
 

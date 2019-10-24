@@ -1,6 +1,9 @@
 import { Router } from "express";
 import path from "path";
 
+import PostController from "./app/controllers/PostController";
+import Post from "./app/models/Post";
+
 const routes = new Router();
 
 routes.get("/", (req, res) => {
@@ -11,21 +14,6 @@ routes.get("/posts/new", (req, res) => {
   res.render("create");
 });
 
-routes.post("/posts/store", (req, res) => {
-  console.log(req.body);
-  res.redirect("/");
-});
-
-routes.get("/sobre", (req, res) => {
-  return res.sendFile(path.resolve(__dirname, "..", "public", "about.html"));
-});
-
-routes.get("/posts", (req, res) => {
-  return res.sendFile(path.resolve(__dirname, "..", "public", "post.html"));
-});
-
-routes.get("/contato", (req, res) => {
-  return res.sendFile(path.resolve(__dirname, "..", "public", "contact.html"));
-});
+routes.post("/posts/store", PostController.store);
 
 export default routes;
