@@ -7,7 +7,7 @@ class Database {
 
   init() {
     this.mongoConnection = mongoose.connect(
-      "mongodb://localhost:27017/node-blog",
+      "mongodb+srv://blogposter:1DcaDbqogD@cluster0-29caz.mongodb.net/test?retryWrites=true&w=majority",
       {
         useNewUrlParser: true,
         useFindAndModify: true,

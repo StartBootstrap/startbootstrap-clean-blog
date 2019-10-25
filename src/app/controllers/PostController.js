@@ -5,7 +5,13 @@ class PostController {
   async store(req, res) {
     await Post.create(req.body);
 
-    return res.json(req.body);
+    return res.redirect("/");
+  }
+
+  async index(req, res) {
+    const posts = await Post.find({});
+
+    return res.render("index", { posts });
   }
 }
 

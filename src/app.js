@@ -2,6 +2,7 @@ import express from "express";
 import path from "path";
 import { config, engine } from "express-edge";
 import bodyParser from "body-parser";
+import fileUpload from "express-fileupload";
 
 import routes from "./routes";
 
@@ -26,6 +27,7 @@ class App {
         extended: true
       })
     );
+    this.server.use(fileUpload());
   }
 
   routes() {
