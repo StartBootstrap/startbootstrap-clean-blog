@@ -87,7 +87,7 @@ lib.newnav.1 {
             IFSUB {
                 ATagTitle.field = title
                 ATagParams = class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
-                linkWrap = <i class="fa fa-arrow-circle-down text-light" aria-hidden="true"></i> |
+                #linkWrap = <i class="fa fa-arrow-circle-down text-light" aria-hidden="true"></i> |
                 ATagBeforeWrap = 1
                 wrapItemAndSub = <li class="nav-item dropdown">|</li>
             }

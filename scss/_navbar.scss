@@ -50,9 +50,13 @@
     }
     .navbar-nav {
       > li.nav-item {
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.1);
+        margin-left: 10px;
+        border: 1px solid #ccc;
         > a {
           text-decoration: none;
-          padding: 10px 20px;
+          padding: 10px 18px;
           color: $white;
           border: none;
           &:focus,
