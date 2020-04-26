@@ -1,13 +1,7 @@
-/*!
- * Start Bootstrap - Clean Blog v5.0.8 (https://startbootstrap.com/template-overviews/clean-blog)
- * Copyright 2013-2019 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-clean-blog/blob/master/LICENSE)
- */
-
 body {
   font-size: 20px;
   color: #212529;
-  font-family: 'Lora', 'Times New Roman', serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 p {
@@ -25,7 +19,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 800;
+  font-weight: 100;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -48,6 +42,7 @@ blockquote {
   font-weight: 700;
   margin-top: 60px;
 }
+
 
 .caption {
   font-size: 14px;
@@ -283,14 +278,15 @@ header.masthead .post-heading .meta a {
 }
 
 .post-preview > a > .post-subtitle {
-  font-weight: 300;
+  font-size: 18px;
   margin: 0 0 10px;
+  margin-bottom: 10px;
 }
 
 .post-preview > .post-meta {
-  font-size: 18px;
+  font-size: 12px;
   font-style: italic;
-  margin-top: 0;
+  margin-top: 10px;
   color: #868e96;
 }
 
@@ -382,30 +378,38 @@ footer .copyright {
   font-size: 14px;
   margin-bottom: 0;
   text-align: center;
+  align-items: center;  
 }
 
-.btn {
+.btn{
+  background: #0087be;
+  color: #e5eaec;
+  width: 200px;
+  height: 40px;
   font-size: 14px;
-  font-weight: 800;
-  padding: 15px 25px;
-  letter-spacing: 1px;
+  cursor: pointer;
+  font-style: normal;
+  border: solid 1px transparent;
+  border-radius: 7px;  
+  font-weight: 800;  
+  letter-spacing: 1px;  
   text-transform: uppercase;
-  border-radius: 0;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-.btn-primary {
-  background-color: #0085A1;
-  border-color: #0085A1;
-}
-
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  color: #fff;
-  background-color: #00657b !important;
-  border-color: #00657b !important;
-}
-
-.btn-lg {
-  font-size: 16px;
-  padding: 25px 35px;
-}
+  }
+ 
+ 
+ .btn-primary{
+   background-color:#0085a1;
+   border-color:#0085a1
+  }
+ 
+ .btn-primary:active,.btn-primary:focus,.btn-primary:hover{
+   color:#fff;
+   background-color:#00657b!important;
+   border-color:#00657b!important
+  }
+ 
+ .btn-lg{
+   font-size:16px;
+   padding:25px 35px
+  }
