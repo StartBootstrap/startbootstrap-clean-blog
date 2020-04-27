@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="SIMAR MANN SINGH">
-  <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5ea4bdc981693d0012e589bb&product=inline-share-buttons' async='async'></script>
 
   <title>SIMAR MANN SINGH</title>
 
@@ -69,8 +68,7 @@
 
   <!-- Post Content -->
   <article>
-    <div class="container">
-      <div class="sharethis-inline-share-buttons"></div>
+    <div class="container">      
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
 
@@ -121,7 +119,21 @@
           <hr>          
         </div>
       </div>
-      <div class="sharethis-inline-reaction-buttons"></div>        
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function(){
+          this.page.url = 'http://127.0.0.1:5500/post_2.html';
+          this.page.identifier = PAGE_IDENTIFIER;          
+        };
+        (function() {
+          var d = document;
+          var s = d.createElement('script');
+          s.src = 'https://simarmannsingh-de.disqus.com/embed.js'
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable Javascript to run a third party plugin Disqus which will enable you to view and post comments related to this blog post. Developer and maintainer of this blog is trying to implement an independent and open source comment box but has not finished yet, meanwhile using Disqus plugin. </noscript>
     </div>
   </article>
 
@@ -134,7 +146,7 @@
         <div class="col-lg-8 col-md-10 mx-auto">
           <ul class="list-inline text-center">
             <li class="list-inline-item">
-              <a href="#">
+              <a href="https://twitter.com/simarmannsingh" target="_blank">
                 <span class="fa-stack fa-lg">
                   <i class="fas fa-circle fa-stack-2x"></i>
                   <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
@@ -142,7 +154,7 @@
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="#">
+              <a href="https://facebook.com/simarms" target="_blank">
                 <span class="fa-stack fa-lg">
                   <i class="fas fa-circle fa-stack-2x"></i>
                   <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
@@ -150,7 +162,7 @@
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="#">
+              <a href="https://github.com/simarmannsingh" target="_blank">
                 <span class="fa-stack fa-lg">
                   <i class="fas fa-circle fa-stack-2x"></i>
                   <i class="fab fa-github fa-stack-1x fa-inverse"></i>
@@ -158,7 +170,7 @@
               </a>
             </li>
           </ul>
-          <p class="copyright text-muted">Copyright &copy; Your Website 2019</p>
+          <p class="copyright">Copyright &copy; simarmannsingh.de  |   2020</p>
         </div>
       </div>
     </div>
