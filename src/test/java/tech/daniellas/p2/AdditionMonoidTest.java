@@ -13,7 +13,7 @@ public class AdditionMonoidTest {
 		    .mapToObj(i -> i)
 		    .collect(Collectors.toList());
 
-		Integer sum = numbers.stream()
+		numbers.stream()
 		    .parallel()
 		    .reduce(0, Integer::sum);
 	}

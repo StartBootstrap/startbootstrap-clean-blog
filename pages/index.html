@@ -26,23 +26,7 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-	<div class="container">
-		<a class="navbar-brand" href="index.html">Home</a>
-		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-			aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-			Menu <i class="fas fa-bars"></i>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarResponsive">
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-				<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-				<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-			</ul>
-		</div>
-	</div>
-</nav>
-
+	{% include "partials/nav.html" %}
 	<header class="masthead" style="background-image: url('img/home-bg.jpg')">
 		<div class="overlay"></div>
 		<div class="container">
@@ -103,33 +87,6 @@
 			</div>
 		</div>
 	</div>
-	<hr>
-<footer>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-8 col-md-10 mx-auto">
-				<ul class="list-inline text-center">
-					<li class="list-inline-item"><a href="https://www.linkedin.com/in/daniel-las" target="_blank"> <span class="fa-stack fa-lg">
-								<i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-						</span>
-					</a></li>
-				</ul>
-				<p class="copyright text-muted">
-					Copyright &copy; Daniel Łaś 2019, Look and feel forked from <a href="https://startbootstrap.com/template-overviews/clean-blog/"
-						target="blank">Clean Blog</a>
-				</p>
-			</div>
-		</div>
-	</div>
-</footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-<div class="alert text-center cookiealert">
-	We use cookies to ensure you get the best experience on our site.
-	<button class="btn btn-primary btn-sm acceptcookies">I agree</button>
-</div>
-<script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
-<script src="js/clean-blog.min.js"></script>
-
+	{% include "partials/footer.html" %}
 </body>
 </html>

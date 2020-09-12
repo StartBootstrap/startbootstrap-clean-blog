@@ -1,0 +1,1064 @@
+[
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.parallel.ParallelDoubleCalculationBenchmark.collect",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "1000"
+        },
+        "primaryMetric" : {
+            "score" : 47902.79068425626,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 47902.79068425626,
+                "50.0" : 47902.79068425626,
+                "90.0" : 47902.79068425626,
+                "95.0" : 47902.79068425626,
+                "99.0" : 47902.79068425626,
+                "99.9" : 47902.79068425626,
+                "99.99" : 47902.79068425626,
+                "99.999" : 47902.79068425626,
+                "99.9999" : 47902.79068425626,
+                "100.0" : 47902.79068425626
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    47902.79068425626
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.parallel.ParallelDoubleCalculationBenchmark.collect",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "10000"
+        },
+        "primaryMetric" : {
+            "score" : 4713.057806525735,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 4713.057806525735,
+                "50.0" : 4713.057806525735,
+                "90.0" : 4713.057806525735,
+                "95.0" : 4713.057806525735,
+                "99.0" : 4713.057806525735,
+                "99.9" : 4713.057806525735,
+                "99.99" : 4713.057806525735,
+                "99.999" : 4713.057806525735,
+                "99.9999" : 4713.057806525735,
+                "100.0" : 4713.057806525735
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    4713.057806525735
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.parallel.ParallelDoubleCalculationBenchmark.collect",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "100000"
+        },
+        "primaryMetric" : {
+            "score" : 448.400153220001,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 448.400153220001,
+                "50.0" : 448.400153220001,
+                "90.0" : 448.400153220001,
+                "95.0" : 448.400153220001,
+                "99.0" : 448.400153220001,
+                "99.9" : 448.400153220001,
+                "99.99" : 448.400153220001,
+                "99.999" : 448.400153220001,
+                "99.9999" : 448.400153220001,
+                "100.0" : 448.400153220001
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    448.400153220001
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.parallel.ParallelDoubleCalculationBenchmark.collect",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "1000000"
+        },
+        "primaryMetric" : {
+            "score" : 47.91456658525654,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 47.91456658525654,
+                "50.0" : 47.91456658525654,
+                "90.0" : 47.91456658525654,
+                "95.0" : 47.91456658525654,
+                "99.0" : 47.91456658525654,
+                "99.9" : 47.91456658525654,
+                "99.99" : 47.91456658525654,
+                "99.999" : 47.91456658525654,
+                "99.9999" : 47.91456658525654,
+                "100.0" : 47.91456658525654
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    47.91456658525654
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.parallel.ParallelDoubleCalculationBenchmark.collectPar",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "1000"
+        },
+        "primaryMetric" : {
+            "score" : 42195.931027256105,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 42195.931027256105,
+                "50.0" : 42195.931027256105,
+                "90.0" : 42195.931027256105,
+                "95.0" : 42195.931027256105,
+                "99.0" : 42195.931027256105,
+                "99.9" : 42195.931027256105,
+                "99.99" : 42195.931027256105,
+                "99.999" : 42195.931027256105,
+                "99.9999" : 42195.931027256105,
+                "100.0" : 42195.931027256105
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    42195.931027256105
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.parallel.ParallelDoubleCalculationBenchmark.collectPar",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "10000"
+        },
+        "primaryMetric" : {
+            "score" : 4535.9554147700355,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 4535.9554147700355,
+                "50.0" : 4535.9554147700355,
+                "90.0" : 4535.9554147700355,
+                "95.0" : 4535.9554147700355,
+                "99.0" : 4535.9554147700355,
+                "99.9" : 4535.9554147700355,
+                "99.99" : 4535.9554147700355,
+                "99.999" : 4535.9554147700355,
+                "99.9999" : 4535.9554147700355,
+                "100.0" : 4535.9554147700355
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    4535.9554147700355
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.parallel.ParallelDoubleCalculationBenchmark.collectPar",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "100000"
+        },
+        "primaryMetric" : {
+            "score" : 408.86450883410123,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 408.86450883410123,
+                "50.0" : 408.86450883410123,
+                "90.0" : 408.86450883410123,
+                "95.0" : 408.86450883410123,
+                "99.0" : 408.86450883410123,
+                "99.9" : 408.86450883410123,
+                "99.99" : 408.86450883410123,
+                "99.999" : 408.86450883410123,
+                "99.9999" : 408.86450883410123,
+                "100.0" : 408.86450883410123
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    408.86450883410123
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.parallel.ParallelDoubleCalculationBenchmark.collectPar",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "1000000"
+        },
+        "primaryMetric" : {
+            "score" : 44.574754726633884,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 44.574754726633884,
+                "50.0" : 44.574754726633884,
+                "90.0" : 44.574754726633884,
+                "95.0" : 44.574754726633884,
+                "99.0" : 44.574754726633884,
+                "99.9" : 44.574754726633884,
+                "99.99" : 44.574754726633884,
+                "99.999" : 44.574754726633884,
+                "99.9999" : 44.574754726633884,
+                "100.0" : 44.574754726633884
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    44.574754726633884
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.parallel.ParallelDoubleCalculationBenchmark.forEach",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "1000"
+        },
+        "primaryMetric" : {
+            "score" : 48055.99391925423,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 48055.99391925423,
+                "50.0" : 48055.99391925423,
+                "90.0" : 48055.99391925423,
+                "95.0" : 48055.99391925423,
+                "99.0" : 48055.99391925423,
+                "99.9" : 48055.99391925423,
+                "99.99" : 48055.99391925423,
+                "99.999" : 48055.99391925423,
+                "99.9999" : 48055.99391925423,
+                "100.0" : 48055.99391925423
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    48055.99391925423
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.parallel.ParallelDoubleCalculationBenchmark.forEach",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "10000"
+        },
+        "primaryMetric" : {
+            "score" : 4791.20321404381,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 4791.20321404381,
+                "50.0" : 4791.20321404381,
+                "90.0" : 4791.20321404381,
+                "95.0" : 4791.20321404381,
+                "99.0" : 4791.20321404381,
+                "99.9" : 4791.20321404381,
+                "99.99" : 4791.20321404381,
+                "99.999" : 4791.20321404381,
+                "99.9999" : 4791.20321404381,
+                "100.0" : 4791.20321404381
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    4791.20321404381
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.parallel.ParallelDoubleCalculationBenchmark.forEach",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "100000"
+        },
+        "primaryMetric" : {
+            "score" : 450.3625713757882,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 450.3625713757882,
+                "50.0" : 450.3625713757882,
+                "90.0" : 450.3625713757882,
+                "95.0" : 450.3625713757882,
+                "99.0" : 450.3625713757882,
+                "99.9" : 450.3625713757882,
+                "99.99" : 450.3625713757882,
+                "99.999" : 450.3625713757882,
+                "99.9999" : 450.3625713757882,
+                "100.0" : 450.3625713757882
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    450.3625713757882
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.parallel.ParallelDoubleCalculationBenchmark.forEach",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "1000000"
+        },
+        "primaryMetric" : {
+            "score" : 44.933189528140296,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 44.933189528140296,
+                "50.0" : 44.933189528140296,
+                "90.0" : 44.933189528140296,
+                "95.0" : 44.933189528140296,
+                "99.0" : 44.933189528140296,
+                "99.9" : 44.933189528140296,
+                "99.99" : 44.933189528140296,
+                "99.999" : 44.933189528140296,
+                "99.9999" : 44.933189528140296,
+                "100.0" : 44.933189528140296
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    44.933189528140296
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.parallel.ParallelDoubleCalculationBenchmark.reduce",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "1000"
+        },
+        "primaryMetric" : {
+            "score" : 45542.33731231142,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 45542.33731231142,
+                "50.0" : 45542.33731231142,
+                "90.0" : 45542.33731231142,
+                "95.0" : 45542.33731231142,
+                "99.0" : 45542.33731231142,
+                "99.9" : 45542.33731231142,
+                "99.99" : 45542.33731231142,
+                "99.999" : 45542.33731231142,
+                "99.9999" : 45542.33731231142,
+                "100.0" : 45542.33731231142
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    45542.33731231142
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.parallel.ParallelDoubleCalculationBenchmark.reduce",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "10000"
+        },
+        "primaryMetric" : {
+            "score" : 4567.368121686387,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 4567.368121686387,
+                "50.0" : 4567.368121686387,
+                "90.0" : 4567.368121686387,
+                "95.0" : 4567.368121686387,
+                "99.0" : 4567.368121686387,
+                "99.9" : 4567.368121686387,
+                "99.99" : 4567.368121686387,
+                "99.999" : 4567.368121686387,
+                "99.9999" : 4567.368121686387,
+                "100.0" : 4567.368121686387
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    4567.368121686387
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.parallel.ParallelDoubleCalculationBenchmark.reduce",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "100000"
+        },
+        "primaryMetric" : {
+            "score" : 430.91419867961497,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 430.91419867961497,
+                "50.0" : 430.91419867961497,
+                "90.0" : 430.91419867961497,
+                "95.0" : 430.91419867961497,
+                "99.0" : 430.91419867961497,
+                "99.9" : 430.91419867961497,
+                "99.99" : 430.91419867961497,
+                "99.999" : 430.91419867961497,
+                "99.9999" : 430.91419867961497,
+                "100.0" : 430.91419867961497
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    430.91419867961497
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.parallel.ParallelDoubleCalculationBenchmark.reduce",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "1000000"
+        },
+        "primaryMetric" : {
+            "score" : 47.568972666598256,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 47.568972666598256,
+                "50.0" : 47.568972666598256,
+                "90.0" : 47.568972666598256,
+                "95.0" : 47.568972666598256,
+                "99.0" : 47.568972666598256,
+                "99.9" : 47.568972666598256,
+                "99.99" : 47.568972666598256,
+                "99.999" : 47.568972666598256,
+                "99.9999" : 47.568972666598256,
+                "100.0" : 47.568972666598256
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    47.568972666598256
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.parallel.ParallelDoubleCalculationBenchmark.reducePar",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "1000"
+        },
+        "primaryMetric" : {
+            "score" : 41233.096513479504,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 41233.096513479504,
+                "50.0" : 41233.096513479504,
+                "90.0" : 41233.096513479504,
+                "95.0" : 41233.096513479504,
+                "99.0" : 41233.096513479504,
+                "99.9" : 41233.096513479504,
+                "99.99" : 41233.096513479504,
+                "99.999" : 41233.096513479504,
+                "99.9999" : 41233.096513479504,
+                "100.0" : 41233.096513479504
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    41233.096513479504
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.parallel.ParallelDoubleCalculationBenchmark.reducePar",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "10000"
+        },
+        "primaryMetric" : {
+            "score" : 4533.336466947728,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 4533.336466947728,
+                "50.0" : 4533.336466947728,
+                "90.0" : 4533.336466947728,
+                "95.0" : 4533.336466947728,
+                "99.0" : 4533.336466947728,
+                "99.9" : 4533.336466947728,
+                "99.99" : 4533.336466947728,
+                "99.999" : 4533.336466947728,
+                "99.9999" : 4533.336466947728,
+                "100.0" : 4533.336466947728
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    4533.336466947728
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.parallel.ParallelDoubleCalculationBenchmark.reducePar",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "100000"
+        },
+        "primaryMetric" : {
+            "score" : 427.09350678625714,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 427.09350678625714,
+                "50.0" : 427.09350678625714,
+                "90.0" : 427.09350678625714,
+                "95.0" : 427.09350678625714,
+                "99.0" : 427.09350678625714,
+                "99.9" : 427.09350678625714,
+                "99.99" : 427.09350678625714,
+                "99.999" : 427.09350678625714,
+                "99.9999" : 427.09350678625714,
+                "100.0" : 427.09350678625714
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    427.09350678625714
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "tech.daniellas.streams.parallel.ParallelDoubleCalculationBenchmark.reducePar",
+        "mode" : "thrpt",
+        "threads" : 8,
+        "forks" : 1,
+        "jvm" : "/usr/lib/jvm/java-8-oracle/jre/bin/java",
+        "jvmArgs" : [
+            "-Xms2G",
+            "-Xmx2G",
+            "-XX:+UseG1GC"
+        ],
+        "jdkVersion" : "1.8.0_201",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.201-b09",
+        "warmupIterations" : 1,
+        "warmupTime" : "1 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 1,
+        "measurementTime" : "2 s",
+        "measurementBatchSize" : 1,
+        "params" : {
+            "size" : "1000000"
+        },
+        "primaryMetric" : {
+            "score" : 44.66006722035089,
+            "scoreError" : "NaN",
+            "scoreConfidence" : [
+                "NaN",
+                "NaN"
+            ],
+            "scorePercentiles" : {
+                "0.0" : 44.66006722035089,
+                "50.0" : 44.66006722035089,
+                "90.0" : 44.66006722035089,
+                "95.0" : 44.66006722035089,
+                "99.0" : 44.66006722035089,
+                "99.9" : 44.66006722035089,
+                "99.99" : 44.66006722035089,
+                "99.999" : 44.66006722035089,
+                "99.9999" : 44.66006722035089,
+                "100.0" : 44.66006722035089
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    44.66006722035089
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    }
+]
+
+
