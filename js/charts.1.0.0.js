@@ -3,6 +3,7 @@ function flattenJmhResults(data) {
 		return {
 			benchmark : _.last(_.get(i, 'benchmark').split('.')),
 			size : _.parseInt(_.get(i, 'params.size')),
+			threads : _.get(i, 'threads'),
 			score : _.get(i, 'primaryMetric.score')
 		};
 	});

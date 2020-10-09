@@ -29,7 +29,7 @@ public abstract class FastBenchmarkBase {
 		    // Every 5 seconds long
 		    .warmupTime(new TimeValue(1, TimeUnit.SECONDS))
 		    // Then run 10 measurement iterations
-		    .measurementIterations(1)
+		    .measurementIterations(3)
 		    // Every 5 seconds long
 		    .measurementTime(new TimeValue(2, TimeUnit.SECONDS))
 		    // Finally write results to file
