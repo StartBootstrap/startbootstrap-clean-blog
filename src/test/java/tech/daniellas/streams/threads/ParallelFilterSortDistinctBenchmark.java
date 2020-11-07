@@ -13,9 +13,9 @@ import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Threads;
 
-import tech.daniellas.streams.FastBenchmarkBase;
+import tech.daniellas.streams.BenchmarkBase;
 
-public class ParallelFilterSortDistinctBenchmark extends FastBenchmarkBase {
+public class ParallelFilterSortDistinctBenchmark extends BenchmarkBase {
 
 	// Minimal value used in filter
 	static final Double MIN = 0.0;
@@ -81,7 +81,7 @@ public class ParallelFilterSortDistinctBenchmark extends FastBenchmarkBase {
 	// Benchmark parameters
 	@State(Scope.Benchmark)
 	public static class Params {
-		@Param({ "1000" })
+		@Param({ "1000", "100000" })
 		public int size;
 
 		public List<Double> items;

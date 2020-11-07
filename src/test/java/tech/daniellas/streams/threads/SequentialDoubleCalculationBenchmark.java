@@ -1,7 +1,7 @@
 package tech.daniellas.streams.threads;
 
 import java.util.List;
-import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -15,61 +15,65 @@ import org.openjdk.jmh.annotations.Threads;
 
 import tech.daniellas.streams.BenchmarkBase;
 
-public class SequentialGroupBenchmark extends BenchmarkBase {
+public class SequentialDoubleCalculationBenchmark extends BenchmarkBase {
 
-	// This is grouping divisor value
-	static final double DIVISOR = 100.0;
+	private static Function<Double, Double> calculation = Function.<Double>identity()
+	    .andThen(Math::log)
+	    .andThen(Math::sin)
+	    .andThen(Math::sqrt);
 
-	private Map<Long, List<Double>> operation(Params params) {
+
+	private Double operation(Params params) {
 		return params.items.stream()
-				.collect(Collectors.groupingBy(n -> Math.round(n / DIVISOR)));
+		    .map(calculation)
+		    .reduce(0d, Double::sum);
 	}
 
 	@Threads(2)
 	@Benchmark
-	public Map<Long, List<Double>> benchmarkA(Params params) {
+	public Double benchmarkA(Params params) {
 		return operation(params);
 	}
 
 	@Threads(4)
 	@Benchmark
-	public Map<Long, List<Double>> benchmarkB(Params params) {
+	public Double benchmarkB(Params params) {
 		return operation(params);
 	}
 
 	@Threads(6)
 	@Benchmark
-	public Map<Long, List<Double>> benchmarkC(Params params) {
+	public Double benchmarkC(Params params) {
 		return operation(params);
 	}
 
 	@Threads(8)
 	@Benchmark
-	public Map<Long, List<Double>> benchmarkD(Params params) {
+	public Double benchmarkD(Params params) {
 		return operation(params);
 	}
 
 	@Threads(10)
 	@Benchmark
-	public Map<Long, List<Double>> benchmarkE(Params params) {
+	public Double benchmarkE(Params params) {
 		return operation(params);
 	}
 
 	@Threads(12)
 	@Benchmark
-	public Map<Long, List<Double>> benchmarkF(Params params) {
+	public Double benchmarkF(Params params) {
 		return operation(params);
 	}
 
 	@Threads(14)
 	@Benchmark
-	public Map<Long, List<Double>> benchmarkG(Params params) {
+	public Double benchmarkG(Params params) {
 		return operation(params);
 	}
 
 	@Threads(16)
 	@Benchmark
-	public Map<Long, List<Double>> benchmarkH(Params params) {
+	public Double benchmarkH(Params params) {
 		return operation(params);
 	}
 
@@ -84,14 +88,14 @@ public class SequentialGroupBenchmark extends BenchmarkBase {
 		@Setup
 		public void setUp() {
 			items = IntStream.range(0, size)
-					.mapToObj(i -> RandomUtils.nextDouble())
-					.collect(Collectors.toList());
+			    .mapToObj(i -> RandomUtils.nextDouble())
+			    .collect(Collectors.toList());
 		}
 	}
 
 	@Override
 	protected String reportPath() {
-		return "data/benchmark-threads-streams-group-sequential.json";
+		return "data/benchmark-threads-streams-sum-double-calculation-sequential.json";
 	}
 
 }

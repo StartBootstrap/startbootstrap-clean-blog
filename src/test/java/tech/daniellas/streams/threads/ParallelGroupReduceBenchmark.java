@@ -1,11 +1,10 @@
 package tech.daniellas.streams.threads;
 
-import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import org.apache.commons.lang3.RandomUtils;
+import org.junit.Ignore;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Param;
 import org.openjdk.jmh.annotations.Scope;
@@ -13,63 +12,76 @@ import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Threads;
 
-import tech.daniellas.streams.BenchmarkBase;
+import io.vavr.collection.HashMap;
+import io.vavr.collection.List;
+import io.vavr.collection.Map;
+import tech.daniellas.streams.FastBenchmarkBase;
 
-public class SequentialGroupBenchmark extends BenchmarkBase {
+@Ignore
+public class ParallelGroupReduceBenchmark extends FastBenchmarkBase {
 
 	// This is grouping divisor value
 	static final double DIVISOR = 100.0;
 
 	private Map<Long, List<Double>> operation(Params params) {
-		return params.items.stream()
-				.collect(Collectors.groupingBy(n -> Math.round(n / DIVISOR)));
+		return params.items.parallelStream()
+				.reduce(
+						HashMap.empty(),
+						(m, n) -> {
+							Long key = Math.round(n / DIVISOR);
+							
+							return m.put(key, m.get(key)
+									.map(l -> l.prepend(n))
+									.getOrElse(() -> List.of(n)));
+						},
+						(l, r) -> l.merge(r, List::prependAll));
 	}
 
 	@Threads(2)
 	@Benchmark
-	public Map<Long, List<Double>> benchmarkA(Params params) {
+	public Map<Long, List<Double>> collectParThreadsA(Params params) {
 		return operation(params);
 	}
 
 	@Threads(4)
 	@Benchmark
-	public Map<Long, List<Double>> benchmarkB(Params params) {
+	public Map<Long, List<Double>> collectParThreadsB(Params params) {
 		return operation(params);
 	}
 
 	@Threads(6)
 	@Benchmark
-	public Map<Long, List<Double>> benchmarkC(Params params) {
+	public Map<Long, List<Double>> collectParThreadsC(Params params) {
 		return operation(params);
 	}
 
 	@Threads(8)
 	@Benchmark
-	public Map<Long, List<Double>> benchmarkD(Params params) {
+	public Map<Long, List<Double>> collectParThreadsD(Params params) {
 		return operation(params);
 	}
 
 	@Threads(10)
 	@Benchmark
-	public Map<Long, List<Double>> benchmarkE(Params params) {
+	public Map<Long, List<Double>> collectParThreadsE(Params params) {
 		return operation(params);
 	}
 
 	@Threads(12)
 	@Benchmark
-	public Map<Long, List<Double>> benchmarkF(Params params) {
+	public Map<Long, List<Double>> collectParThreadsF(Params params) {
 		return operation(params);
 	}
 
 	@Threads(14)
 	@Benchmark
-	public Map<Long, List<Double>> benchmarkG(Params params) {
+	public Map<Long, List<Double>> collectParThreadsG(Params params) {
 		return operation(params);
 	}
 
 	@Threads(16)
 	@Benchmark
-	public Map<Long, List<Double>> benchmarkH(Params params) {
+	public Map<Long, List<Double>> collectParThreadsH(Params params) {
 		return operation(params);
 	}
 
@@ -79,7 +91,7 @@ public class SequentialGroupBenchmark extends BenchmarkBase {
 		@Param({ "1000", "100000" })
 		public int size;
 
-		public List<Double> items;
+		public java.util.List<Double> items;
 
 		@Setup
 		public void setUp() {
@@ -91,7 +103,7 @@ public class SequentialGroupBenchmark extends BenchmarkBase {
 
 	@Override
 	protected String reportPath() {
-		return "data/benchmark-threads-streams-group-sequential.json";
+		return "data/benchmark-threads-streams-group-reduce-parallel.json";
 	}
 
 }

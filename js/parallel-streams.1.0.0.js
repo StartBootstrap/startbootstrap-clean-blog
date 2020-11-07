@@ -2,10 +2,10 @@
 
 	function renderThreadsChart(id, data) {
 		var chart = new Taucharts.Chart({
-			type : 'bar',
+			type : 'line',
 			x : 'threads',
 			y : 'score',
-			color : 'benchmark',
+			color : 'Stream',
 			data : data,
 			guide : {
 				x : {
@@ -27,7 +27,7 @@
 					type : 'measure'
 				}
 			},
-			plugins : [ Taucharts.api.plugins.get('tooltip')({
+			plugins : [ Taucharts.api.plugins.get('legend')(), Taucharts.api.plugins.get('tooltip')({
 				fields : [ 'score', 'threads' ]
 			}) ]
 		});
@@ -55,45 +55,63 @@
 			});
 		});
 	}
-	;
 
 	function tableData(data, limit) {
 		return _.flow(_.partialRight(_.take, limit), _.partialRight(_.groupBy, 'benchmark'))(data);
 	}
 
-	fetch('../data/benchmark-threads-streams-group-sequential.json').then(function(resp) {
-		return resp.text();
-	}).then(function(data) {
-		var formattedData = _.flow(JSON.parse, flattenJmhResults, filterData)(data);
+	function applyStream(stream) {
+		return function(data) {
+			return _.map(data, function(i) {
+				i.Stream = stream;
 
-		renderThreadsChart('sequential-group-chart', _.take(formattedData, 16), 'Threads');
-		renderThreadsTable('sequential-group-table', tableData(formattedData, 16), 1);
-	});
-	fetch('../data/benchmark-threads-streams-group-parallel.json').then(function(resp) {
-		return resp.text();
-	}).then(function(data) {
-		var formattedData = _.flow(JSON.parse, flattenJmhResults, filterData)(data);
+				return i;
+			});
+		};
+	}
 
-		renderThreadsChart('parallel-group-chart', _.take(formattedData, 16), 'Threads');
-		renderThreadsTable('parallel-group-table', tableData(formattedData, 16), 1);
-	});
+	function filterSize(size) {
+		return function(data) {
+			return _.filter(data, function(i) {
+				return i.size === size;
+			});
+		}
+	}
 
-	fetch('../data/benchmark-threads-streams-filter-sort-distinct-sequential.json').then(function(resp) {
-		return resp.text();
-	}).then(function(data) {
-		var formattedData = _.flow(JSON.parse, flattenJmhResults, filterData)(data);
+	function renderChart(seqSrc, parSrc, size, id) {
+		fetch(seqSrc).then(function(resp) {
+			return resp.text();
+		}).then(function(data) {
+			var seqData = _.flow(JSON.parse, flattenJmhResults, filterSize(size), applyStream('Sequential'))(data);
 
-		renderThreadsChart('sequential-filter-sort-distinct-chart', _.take(formattedData, 16), 'Threads');
-		renderThreadsTable('sequential-filter-sort-distinct-table', tableData(formattedData, 16), 1);
-	});
-	fetch('../data/benchmark-threads-streams-filter-sort-distinct-parallel.json').then(function(resp) {
-		return resp.text();
-	}).then(function(data) {
-		var formattedData = _.flow(JSON.parse, flattenJmhResults, filterData)(data);
+			fetch(parSrc).then(function(resp) {
+				return resp.text();
+			}).then(function(data) {
+				var parData = _.flow(JSON.parse, flattenJmhResults, filterSize(size), applyStream('Parallel'))(data);
 
-		renderThreadsChart('parallel-filter-sort-distinct-chart', _.take(formattedData, 16), 'Threads');
-		renderThreadsTable('parallel-filter-sort-distinct-table', tableData(formattedData, 16), 1);
-	});
+				renderThreadsChart(id, _.concat(seqData, parData), 'Threads');
+			});
+		});
+	}
 
-	
+	renderChart('../data/benchmark-threads-streams-sum-double-calculation-sequential.json',
+			'../data/benchmark-threads-streams-sum-double-calculation-parallel.json', 1000, 'sum-double-calculation-chart');
+	renderChart('../data/benchmark-threads-streams-sum-double-calculation-sequential.json',
+			'../data/benchmark-threads-streams-sum-double-calculation-parallel.json', 100000, 'sum-double-calculation-large-chart');
+
+	// renderChart('../data/benchmark-threads-streams-sum-double-calculation-sequential-collect.json',
+	// '../data/benchmark-threads-streams-sum-double-calculation-parallel-collect.json',
+	// 1000, 'sum-double-calculation-collect-chart');
+	// renderChart('../data/benchmark-threads-streams-sum-double-calculation-sequential-collect.json',
+	// '../data/benchmark-threads-streams-sum-double-calculation-parallel-collect.json',
+	// 100000, 'sum-double-calculation-collect-large-chart');
+
+	renderChart('../data/benchmark-threads-streams-group-sequential.json', '../data/benchmark-threads-streams-group-parallel.json', 1000, 'group-chart');
+	renderChart('../data/benchmark-threads-streams-group-sequential.json', '../data/benchmark-threads-streams-group-parallel.json', 100000, 'group-large-chart');
+
+	renderChart('../data/benchmark-threads-streams-filter-sort-distinct-sequential.json',
+			'../data/benchmark-threads-streams-filter-sort-distinct-parallel.json', 1000, 'filter-sort-distinct-chart');
+	renderChart('../data/benchmark-threads-streams-filter-sort-distinct-sequential.json',
+			'../data/benchmark-threads-streams-filter-sort-distinct-parallel.json', 100000, 'filter-sort-distinct-large-chart');
+
 })(jQuery);

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Functional Programming, Java, Java 8 streams benchmarks ">
+<meta name="author" content="Daniel Łaś">
+<title>Daniel Łaś Tech Blog - Performance of parallel Streams. The truth revealed.</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+	rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css" />
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/taucharts@2/dist/taucharts.min.css" />
+<link href="../css/clean-blog.min.css" rel="stylesheet">
+<link href="../css/custom.1.0.0.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js" data-manual></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-java.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.4/fetch.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/taucharts@2/dist/taucharts.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-12045869-7"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+	gtag('js', new Date());
+	gtag('config', 'UA-12045869-7');
+</script>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+		<div class="container">
+			<a class="navbar-brand" href="../index.html">Home</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				Menu <i class="fas fa-bars"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+					<li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<header class="masthead sm">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 mx-auto">
+					<div class="post-heading text-center">
+						<h1>Performance of parallel Streams</h1>
+						<h2 class="subheading">The truth revealed.</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<article>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 mx-auto">
+					<p>
+						This is continuation of my previous post <a href="speed-of-stream.html">Speed of stream</a> where I compared benchmarks results of
+						various applications of <code>Java Stream API</code> . Please take a look there if you want to know how fast (or slow) <code>Streams</code>
+						are. I ended it with the question whether using parallel streams in a typical multiuser application makes any sense. The common wisdom
+						is that we should use parallel streams in such circumstances with care. Here below you can find results of several benchmarks showing
+						hard evidences why this caution is legitimate.
+					</p>
+					<h2>What's the point?</h2>
+					<p>
+						We already know that <code>Java Streams</code> sometimes are slow and sometimes perform quite well. You can speed up your calculations
+						using parallel streams. Not every type of calculation deserves spending additional time and resources on threads coordination. There
+						is another factor that must be considered in regards of parallel streams usage - every parallel stream started in the JVM uses the
+						common thread pool. If your program is executed as a single process at a time and your operating system hasn't much more to do - go
+						ahead and don't hesitate to use parallel streams.
+					</p>
+					<p class="note">The situation differs vastly when your parallel stream is not the only one running at the same time.</p>
+					<p>It's not difficult to find such use cases, let's take web applications for an example ... The problem is the same as always when
+						multiple users compete for shared constrained resource. Some of the competitors have to wait in the queue and the queue management
+						costs more when it's becoming larger.</p>
+					<h2>What and how was tested</h2>
+					<p>
+						I tested three applications of <code>Stream API</code> in sequential and parallel variant:
+					</p>
+					<ul>
+						<li>Sum of calculations</li>
+						<li>Grouping</li>
+						<li>Filtering and and sorting distinct items</li>
+					</ul>
+					<p>All of the applications will be described in details later.</p>
+					<p>
+						Just like previously, I used <a href="https://openjdk.java.net/projects/code-tools/jmh/">JMH</a> to run benchmarks and measure the
+						performance. The difference is that tested code was executed in <strong>2</strong>, <strong>4</strong>, <strong>6</strong>, <strong>8</strong>,
+						<strong>10</strong>,<strong>12</strong>, <strong>14</strong> and <strong>16</strong> threads at the same time on <strong>8</strong>
+						core machine. Every benchmark was executed against stream of size <strong>1000</strong> and <strong>100 000</strong> to check if the
+						size matters.
+					</p>
+					<p>
+						<a class="ans" data-toggle="collapse" href="#jmh">See the benchmark runner configuration</a>
+					</p>
+					<pre class="collapse" id="jmh"><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/BenchmarkBase.java"
+						data-format="lines 17,42"></code></pre>
+					<p>
+						The JVM arguments passed in every test were: <em>-Xms2G -Xmx2G -XX:+UseG1GC</em>. The JVM version used was: <em>Java HotSpot(TM)
+							64-Bit Server 1.8.0_201</em>.
+					</p>
+					<p>
+						Benchmark results are presented as charts showing number of operations per second of sequential and parallel streams running in <strong>2</strong>,
+						<strong>4</strong>, <strong>6</strong>, <strong>8</strong>, <strong>10</strong>,<strong>12</strong>, <strong>14</strong> and <strong>16</strong>
+						threads. The number of operations is the sum of operations executed in every running thread within one second.
+					</p>
+					<p class="note">
+						If you wonder if this setup reflects the reality of web applications ... this is how modern <a
+							href="https://en.wikipedia.org/wiki/Non-blocking_I/O_(Java)">Non-Blocking I/O</a> based web frameworks work: there is some thread
+						responsible for IO and passing tasks to multiple worker threads waiting in the pool.
+					</p>
+					<h2>Sum of calculations</h2>
+					<p>Here the task is to perform some math operation on list of randomly generated floating-point numbers and sum all calculated
+						values:</p>
+					<pre class="line-numbers"><code class="language-java"
+						data-src="../src/test/java/tech/daniellas/streams/threads/ParallelDoubleCalculationBenchmark.java" data-format="lines 20,46"></code></pre>
+					<p>
+						Sequential variant differs in the way the stream is created in line <span class="badge badge-secondary">2</span> - <code>parallelStream()</code>
+						vs. <code>stream()</code>:
+					</p>
+					<pre class="line-numbers"><code class="language-java"
+						data-src="../src/test/java/tech/daniellas/streams/threads/SequentialDoubleCalculationBenchmark.java" data-format="lines 26,30"></code></pre>
+					<p>
+						Please note that I deliberately used <code>reduce</code> operation in line <span class="badge badge-secondary">4</span>. Reduction
+						should parallelize more gracefully because numbers addition and zero value form <a href="why-functional-programming.html#monoids">Monoid</a>.
+						Thanks to this, no synchronization is needed to sum operations results calculated in different threads. If I'd have used <code>collect</code>,
+						partial results would have been added to a single variable that would have to be synchronized.
+					</p>
+					<p>Below charts show benchmarks results for:</p>
+					<p>
+						<strong>1000</strong> long stream
+					</p>
+					<div class="chart" id="sum-double-calculation-chart"></div>
+					<p>
+						and for <strong>100 000</strong> long stream
+					</p>
+					<div class="chart" id="sum-double-calculation-large-chart"></div>
+					<p>
+						There are no surprises for sequential stream. Total number of operations grows together with number of cores involved until all
+						available cores are in use. We gain nothing when the number of threads increases above the number of available cores. This is how it
+						is. This is only the simulation of multitasking provided by the operating system if the number of active tasks exceeds the number of
+						processing units called <a href="https://en.wikipedia.org/wiki/Context_switch">context switching</a>.
+					</p>
+					<p>Parallel stream behavior looks more interesting - total number of operations seems to be constant regardless of the count of
+						parallel threads. It's not exactly constant but differences are so small that it's safe to assume that they are insignificant.</p>
+					<p>
+						Did you notice that parallel stream performed slightly better then sequential one when the number of items in the stream were larger?
+						I find it difficult to explain. Such results were rather obvious while comparing <code>stream</code> and <code>for-each</code> speed -
+						there is some cost associated with stream creation not paid when stream is larger. It looks like in this particular case there is some
+						additional cost bound to parallel stream creation or a benefit related to larger streams processing but I'm not sure what it is.
+					</p>
+					<h2>Grouping</h2>
+					<div class="chart" id="group-chart"></div>
+					<div class="chart" id="group-large-chart"></div>
+					<h2>Filtering and sorting distinct items</h2>
+					<div class="chart" id="filter-sort-distinct-chart"></div>
+					<div class="chart" id="filter-sort-distinct-large-chart"></div>
+				</div>
+			</div>
+		</div>
+	</article>
+	<hr>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-10 mx-auto">
+					<ul class="list-inline text-center">
+						<li class="list-inline-item"><a href="https://www.linkedin.com/in/daniel-las" target="_blank"> <span class="fa-stack fa-lg">
+									<i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+							</span>
+						</a></li>
+					</ul>
+					<p class="copyright text-muted">
+						Copyright &copy; Daniel Łaś 2020, Look and feel forked from <a href="https://startbootstrap.com/template-overviews/clean-blog/"
+							target="blank">Clean Blog</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+	<div class="alert text-center cookiealert">
+		We use cookies to ensure you get the best experience on our site.
+		<button class="btn btn-primary btn-sm acceptcookies">I agree</button>
+	</div>
+	<script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
+	<script src="../js/clean-blog.min.js"></script>
+	<script src="../js/examples.1.0.0.min.js"></script>
+	<script src="../js/charts.1.0.0.min.js"></script>
+	<script src="../js/parallel-streams.1.0.0.min.js"></script>
+</body>
+</html>

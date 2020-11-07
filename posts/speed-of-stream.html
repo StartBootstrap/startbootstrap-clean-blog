@@ -9,8 +9,8 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
 <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet'
-	type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+	rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css" />
@@ -39,21 +39,15 @@
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
 		<div class="container">
 			<a class="navbar-brand" href="../index.html">Home</a>
-			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-				aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 				Menu <i class="fas fa-bars"></i>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="../index.html">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="../about.html">About</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="../contact.html">Contact</a>
-					</li>
+					<li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+					<li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
 				</ul>
 			</div>
 		</div>
@@ -75,37 +69,40 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10 mx-auto">
-					<p>From time to time I witness or am involved in the discussion about Java 8 streams performance. The common knowledge is that streams are the
-						compromise between performance and brevity with convenience. I couldn't find any comprehensive set of benchmarks around showing how fast (or slow) streams
-						are. I decided to prepare and run a few tests by myself. Here below I present gathered results.</p>
+					<p>From time to time I witness or am involved in the discussion about Java 8 streams performance. The common knowledge is that
+						streams are the compromise between performance and brevity with convenience. I couldn't find any comprehensive set of benchmarks
+						around showing how fast (or slow) streams are. I decided to prepare and run a few tests by myself. Here below I present gathered
+						results.</p>
 					<h2>What and how was tested</h2>
 					<p>
-						I measured performance of several different use cases of <code>forEach</code> application, like applying some function to list of numbers and summing it
-						or filtering and grouping such list - usual programming tasks. The same tasks were implemented with different flavors of <code>Stream</code> and results
-						were compared.
+						I measured performance of several different use cases of <code>forEach</code> application, like applying some function to list of
+						numbers and summing it or filtering and grouping such list - usual programming tasks. The same tasks were implemented with different
+						flavors of <code>Stream</code> and results were compared.
 					</p>
 					<p>
-						The choice regarding benchmarking tools was easy, battle tested microbenchmark toolkit - <a href="https://openjdk.java.net/projects/code-tools/jmh/">JMH</a>
-						maintained under umbrella of OpenJDK. It's very flexible and easy to use.
+						The choice regarding benchmarking tools was easy, battle tested microbenchmark toolkit - <a
+							href="https://openjdk.java.net/projects/code-tools/jmh/">JMH</a> maintained under umbrella of OpenJDK. It's very flexible and easy to
+						use.
 					</p>
 					<p>
-						<a class="ans" data-toggle="collapse" href="#jmh">See benchmark runner configuration</a>
+						<a class="ans" data-toggle="collapse" href="#jmh">See the benchmark runner configuration</a>
 					</p>
 					<pre class="collapse" id="jmh"><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/BenchmarkBase.java"
 						data-format="lines 17,42"></code></pre>
 					<p>
 						Most of the benchmarks were run on lists of different sizes: <em class="text-nowrap">1000</em>, <em class="text-nowrap">10 000</em>,<em
-							class="text-nowrap">100 000</em>, <em class="text-nowrap">1 000 000</em> to verify how given implementation performs depending on number of elements it
-						has to process.
+							class="text-nowrap">100 000</em>, <em class="text-nowrap">1 000 000</em> to verify how given implementation performs depending on
+						number of elements it has to process.
 					</p>
 					<p>
-						The JVM arguments passed in every test were: <em>-Xms2G -Xmx2G -XX:+UseG1GC</em>. The JVM version used was: <em>Java HotSpot(TM) 64-Bit Server
-							1.8.0_201</em>.
+						The JVM arguments passed in every test were: <em>-Xms2G -Xmx2G -XX:+UseG1GC</em>. The JVM version used was: <em>Java HotSpot(TM)
+							64-Bit Server 1.8.0_201</em>.
 					</p>
 					<p>
-						Benchmark results are presented on charts in <em>percents of best result</em> within sample size. Charts are normalized in the way that for given list
-						size best score among different implementations is found and every score is divided by it. Best result is <em class="text-nowrap">100 %</em>. When you see
-						<em class="text-nowrap">50 %</em> score on the chart, it means that this benchmark was half good as the best one
+						Benchmark results are presented on charts in <em>percents of best result</em> within sample size. Charts are normalized in the way
+						that for given list size best score among different implementations is found and every score is divided by it. Best result is <em
+							class="text-nowrap">100 %</em>. When you see <em class="text-nowrap">50 %</em> score on the chart, it means that this benchmark was
+						half good as the best one
 					</p>
 					<p>
 						Results are also displayed in tables in <em>number of operations per second</em> unit. Best results are emphasized.
@@ -115,7 +112,8 @@
 					<p>
 						<a class="ans" data-toggle="collapse" href="#intsum">See benchmark code</a>
 					</p>
-					<pre class="collapse" id="intsum"><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/IntegerSumBenchmark.java"></code></pre>
+					<pre class="collapse" id="intsum"><code class="language-java"
+						data-src="../src/test/java/tech/daniellas/streams/IntegerSumBenchmark.java"></code></pre>
 					<div class="chart" id="streams-sum-int-chart"></div>
 					<p class="legend">You can limit series visible on charts by selecting them from the legend at the top right corner.</p>
 					<p>And this is results table.</p>
@@ -136,29 +134,31 @@
 					</div>
 					<p class="legend">You can select rows to make results easier to analyze.</p>
 					<p>
-						It was easy to predict. We have clear winner: <code>forEach</code>, but its advantage was decreasing with larger items numbers, especially when compared
-						to parallel version of <code>collect</code>. Sequential <code>collect</code> is better on <em>1000</em> elements, but then parallel version starts to move
-						ahead. <code>reduce</code> don't perform well at all, worst in almost all cases but again, parallel stream with <code>reduce</code> is doing better when
-						sample is bigger.
+						It was easy to predict. We have clear winner: <code>forEach</code> , but its advantage was decreasing with larger items numbers,
+						especially when compared to parallel version of <code>collect</code> . Sequential <code>collect</code> is better on <em>1000</em>
+						elements, but then parallel version starts to move ahead. <code>reduce</code> don't perform well at all, worst in almost all cases but
+						again, parallel stream with <code>reduce</code> is doing better when sample is bigger.
 					</p>
 					<p class="note">
-						If greatest part of your program is responsible for summing reasonable big number of integers, go for <code>forEach</code>.
+						If greatest part of your program is responsible for summing reasonable big number of integers, go for <code>forEach</code> .
 					</p>
 					<p>
-						If you think I'm little bit sarcastic here ... you are right. It's very unlikely that this level of performance optimizations matters, especially in the
-						world of <em>REST APIs</em>, <em>Microservices</em> and <em>Event Driven</em> architectures. If we replace <code>Stream.collect()</code> with <code>forEach</code>
-						to sum <em class="text-nowrap">100 000</em> integers obtained via some REST endpoint, we don't profit much. We gain tenths of microseconds compared to
-						seconds required to fetch data from database, serialize, transfer over the wire and deserialize.
+						If you think I'm little bit sarcastic here ... you are right. It's very unlikely that this level of performance optimizations matters,
+						especially in the world of <em>REST APIs</em>, <em>Microservices</em> and <em>Event Driven</em> architectures. If we replace <code>Stream.collect()</code>
+						with <code>forEach</code> to sum <em class="text-nowrap">100 000</em> integers obtained via some REST endpoint, we don't profit much.
+						We gain tenths of microseconds compared to seconds required to fetch data from database, serialize, transfer over the wire and
+						deserialize.
 					</p>
 					<h2>Sum of calculations</h2>
 					<p>
-						Let's take more <i>"realistic"</i> task this time: perform some math operation on list of randomly generated floating-point numbers and sum all calculated
-						values.
+						Let's take more <i>"realistic"</i> task this time: perform some math operation on list of randomly generated floating-point numbers
+						and sum all calculated values.
 					</p>
 					<p>
 						<a class="ans" data-toggle="collapse" href="#doublesum">See benchmark code</a>
 					</p>
-					<pre class="collapse" id="doublesum"><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/DoubleCalculationBenchmark.java"></code></pre>
+					<pre class="collapse" id="doublesum"><code class="language-java"
+						data-src="../src/test/java/tech/daniellas/streams/DoubleCalculationBenchmark.java"></code></pre>
 					<div class="chart" id="streams-sum-double-calculation-chart"></div>
 					<div class="table-responsive">
 						<table class="table table-hover table-sm benchmark">
@@ -176,40 +176,42 @@
 						</table>
 					</div>
 					<p>
-						Well, what a surprise! <code>forEach</code> score is more or less the same as of sequential stream based versions. Parallel stream implementations are
-						about 3 - 5 times faster. Actually, such results are quite easy to explain.
+						Well, what a surprise! <code>forEach</code> score is more or less the same as of sequential stream based versions. Parallel stream
+						implementations are about 3 - 5 times faster. Actually, such results are quite easy to explain.
 					</p>
 					<p class="note">
-						There are cost related to <code>Stream</code> creation and threads coordination that can't be mitigated when number of operations to parallelise is small
-						or the operation itself is fast.
+						There are cost related to <code>Stream</code> creation and threads coordination that can't be mitigated when number of operations to
+						parallelise is small or the operation itself is fast.
 					</p>
 					<p>
-						We didn't observe such quick benefits of parallel streams in previous benchmark. According to <a href="https://en.wikipedia.org/wiki/Amdahl%27s_law">Amdahl's
-							law</a> defining theoretical limits of parallelism - the greater part of our program is run sequentially, less parallel it can be. This is exactly the case
-						for summing list of integers. Two integers addition is very fast operation, so inherently sequential part responsible for threads synchronization
-						prevailed, especially in case of relatively small quantity of items in the list.
+						We didn't observe such quick benefits of parallel streams in previous benchmark. According to <a
+							href="https://en.wikipedia.org/wiki/Amdahl%27s_law">Amdahl's law</a> defining theoretical limits of parallelism - the greater part of
+						our program is run sequentially, less parallel it can be. This is exactly the case for summing list of integers. Two integers addition
+						is very fast operation, so inherently sequential part responsible for threads synchronization prevailed, especially in case of
+						relatively small quantity of items in the list.
 					</p>
 					<p>
-						The same law caused slightly better performance of <code>reduce</code> operation in this benchmark. <code>reduce</code> contract requires to use binary
-						associative operation, free from side effects and working on immutable objects. <code>Double.sum()</code> falls into this category. If we obey these
-						constraints, no synchronization is required during partial results merge.
+						The same law caused slightly better performance of <code>reduce</code> operation in this benchmark. <code>reduce</code> contract
+						requires to use binary associative operation, free from side effects and working on immutable objects. <code>Double.sum()</code> falls
+						into this category. If we obey these constraints, no synchronization is required during partial results merge.
 					</p>
 					<h2>Grouping</h2>
 					<p>
-						Grouping some data set is easy, concise and very descriptive with streams therefore is really frequently used, at least in the code I see on a daily
-						basis. This feature is compared with version implemented imperatively using <code>forEach</code> loop in this benchmark. There are plenty of variations
-						that might affect performance: stream can be sequential or parallel, ordered or unordered, we have several options choosing collector. We can use <code>Stream.reduce()</code>
-						operator instead of <code>Stream.collect()</code> or different data structures as grouping containers. That's the reason of multiple tested implementation
-						versions.
+						Grouping some data set is easy, concise and very descriptive with streams therefore is really frequently used, at least in the code I
+						see on a daily basis. This feature is compared with version implemented imperatively using <code>forEach</code> loop in this
+						benchmark. There are plenty of variations that might affect performance: stream can be sequential or parallel, ordered or unordered,
+						we have several options choosing collector. We can use <code>Stream.reduce()</code> operator instead of <code>Stream.collect()</code>
+						or different data structures as grouping containers. That's the reason of multiple tested implementation versions.
 					</p>
 					<p>
-						The benchmarked task is: take list of randomly generated <code>Double</code>'s, group by result of division by 100 rounded to <code>long</code>. Produced
-						result is of type <code class="text-nowrap">Map&lt;Long, List&lt;Double&gt;&gt;</code>.
+						The benchmarked task is: take list of randomly generated <code>Double</code> 's, group by result of division by 100 rounded to <code>long</code>
+						. Produced result is of type <code class="text-nowrap">Map&lt;Long, List&lt;Double&gt;&gt;</code>.
 					</p>
 					<p>
 						<a class="ans" data-toggle="collapse" href="#group">See benchmark code</a>
 					</p>
-					<pre class="collapse" id="group"><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/GroupBenchmark.java"></code></pre>
+					<pre class="collapse" id="group"><code class="language-java"
+						data-src="../src/test/java/tech/daniellas/streams/GroupBenchmark.java"></code></pre>
 					<div class="chart-lg" id="streams-group-chart"></div>
 					<div class="table-responsive">
 						<table class="table table-hover table-sm benchmark">
@@ -227,33 +229,37 @@
 						</table>
 					</div>
 					<p>
-						Among sequential implementations, <code>forEach</code> based benchmarks are slightly better then streams collected to <code>Map</code>. Using <code>LinkedList</code>
-						usually improves results insensibly but not for collected parallel stream. Actually, there is severe performance loss visible when <code>Collectors.toCollection(LinkedList::new)</code>
-						is used as downstream collector. Parallel stream optimization attempt, simply speaking, failed miserably. It was only <code>Stream.unordered()</code> and
-						<code>Collectors.groupingByConcurrent()</code> added but it caused <em>collectParOpt</em> benchmark to be approximately 10 times slower in every case.
+						Among sequential implementations, <code>forEach</code> based benchmarks are slightly better then streams collected to <code>Map</code>
+						. Using <code>LinkedList</code> usually improves results insensibly but not for collected parallel stream. Actually, there is severe
+						performance loss visible when <code>Collectors.toCollection(LinkedList::new)</code> is used as downstream collector. Parallel stream
+						optimization attempt, simply speaking, failed miserably. It was only <code>Stream.unordered()</code> and <code>Collectors.groupingByConcurrent()</code>
+						added but it caused <em>collectParOpt</em> benchmark to be approximately 10 times slower in every case.
 					</p>
 					<p>
-						I gave <code>Stream.reuduce()</code> on parallel stream the try here too. To make parallel reduction working properly, we have to use immutable data
-						structures. Java <code>HashMap</code> is mutable. Immutable <code>Map</code> and <code>List</code> from <a href="https://www.vavr.io">Vavr</a> library
-						came to the rescue but with limited success. To be honest, my expectations towards parallel reduction performance were initially much higher but I shortly
-						realized that expectations were unreasonable. Vavr's <code>Map</code> has <em>effectively constant</em> <code>get</code> and <code>put</code> operations
-						performance characteristics and we have to always call them both, because there is no similar to plain Java's <code>Map.compute()</code> operation
-						available in its API.
+						I gave <code>Stream.reuduce()</code> on parallel stream the try here too. To make parallel reduction working properly, we have to use
+						immutable data structures. Java <code>HashMap</code> is mutable. Immutable <code>Map</code> and <code>List</code> from <a
+							href="https://www.vavr.io">Vavr</a> library came to the rescue but with limited success. To be honest, my expectations towards
+						parallel reduction performance were initially much higher but I shortly realized that expectations were unreasonable. Vavr's <code>Map</code>
+						has <em>effectively constant</em> <code>get</code> and <code>put</code> operations performance characteristics and we have to always
+						call them both, because there is no similar to plain Java's <code>Map.compute()</code> operation available in its API.
 					</p>
 					<p>
-						I wouldn't like to draw any significant conclusions regarding the reasons standing behind achieved results. There is just not enough data gathered. The
-						question: <em>stream or not to stream</em> seems to have following answers. If we care about microseconds level performance we should use sequential <code>forEach</code>
-						or parallel <code>Stream.collect()</code>. And we'd better skip optimization attempts without testing them in real life scenarios.
+						I wouldn't like to draw any significant conclusions regarding the reasons standing behind achieved results. There is just not enough
+						data gathered. The question: <em>stream or not to stream</em> seems to have following answers. If we care about microseconds level
+						performance we should use sequential <code>forEach</code> or parallel <code>Stream.collect()</code> . And we'd better skip
+						optimization attempts without testing them in real life scenarios.
 					</p>
 					<h2>Filtering and sorting distinct items</h2>
 					<p>
-						Another frequently used features of <code>Stream</code> are filtering, sorting and distinct items selection. Maybe not all together but separately for
-						sure. This benchmark takes random decimal numbers, filters them by predefined minimal and maximum value, takes distinct values and sorts in natural order.
+						Another frequently used features of <code>Stream</code> are filtering, sorting and distinct items selection. Maybe not all together
+						but separately for sure. This benchmark takes random decimal numbers, filters them by predefined minimal and maximum value, takes
+						distinct values and sorts in natural order.
 					</p>
 					<p>
 						<a class="ans" data-toggle="collapse" href="#fitersort">See benchmark code</a>
 					</p>
-					<pre class="collapse" id="fitersort"><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/FilterSortDistinctBenchmark.java"></code></pre>
+					<pre class="collapse" id="fitersort"><code class="language-java"
+						data-src="../src/test/java/tech/daniellas/streams/FilterSortDistinctBenchmark.java"></code></pre>
 					<div class="chart" id="streams-filter-sort-distinct-chart"></div>
 					<div class="table-responsive">
 						<table class="table table-hover table-sm benchmark">
@@ -273,12 +279,13 @@
 					<p>Stream based code is the winner and common pattern reveals: parallel stream are better when given list becomes longer.</p>
 					<h2>Words frequency</h2>
 					<p>
-						This test is inspired by the talk I attended at <em>Geecon 2019</em> conference where I saw the performance comparison of old school Java code and Java 8
-						Streams based code. I think that speaker's message was not exactly that Java 8 streams are slow but anyway, presented code triggered my curiosity.
+						This test is inspired by the talk I attended at <em>Geecon 2019</em> conference where I saw the performance comparison of old school
+						Java code and Java 8 Streams based code. I think that speaker's message was not exactly that Java 8 streams are slow but anyway,
+						presented code triggered my curiosity.
 					</p>
 					<p>
-						The task is: read text file, split into words, count all words, count number of occurrences of every word, display 10 most frequent words. Frequency is
-						simply <em>word count/total words count</em>.
+						The task is: read text file, split into words, count all words, count number of occurrences of every word, display 10 most frequent
+						words. Frequency is simply <em>word count/total words count</em>.
 					</p>
 					<h3>Original code</h3>
 					<p>This is original code copied from authors Github repository with irrelevant adjustments.</p>
@@ -289,7 +296,7 @@
 					<p>This is additional class used for results display:</p>
 					<pre><code class="language-java" data-src="../src/main/java/tech/daniellas/wfc/WordFrequency.java"></code></pre>
 					<p>This is benchmark code:</p>
-					<pre><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/WfcBenchmark.java" data-format="lines 24,60"></code></pre>
+					<pre><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/WfcBenchmark.java" data-format="lines 20,60"></code></pre>
 					<p>Below are benchmark results. This time, charts are not normalized and show just raw results.</p>
 					<div class="row">
 						<div class="col-md-8">
@@ -322,15 +329,17 @@
 					<p>This is word frequency counter using sequential streams and different line to words splitter:</p>
 					<pre><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/WfcBenchmark.java" data-format="lines 62,78"></code></pre>
 					<p>
-						We use sequential streams because reading file from disk might not be the best candidate for parallelization. In test conditions, there is no IO performed
-						because operating system is smart enough to keep frequently read files in memory, but even though, stream created by <code>Path.lines()</code> is of
-						unknown size what is strong limitation for parallelism too. Additionally, instead of splitting string and using flat mapping over stream created from
-						strings array, we flat map over stream created from tokens iterator - <code>TokenizerStream</code>. This should be more efficient.
+						We use sequential streams because reading file from disk might not be the best candidate for parallelization. In test conditions,
+						there is no IO performed because operating system is smart enough to keep frequently read files in memory, but even though, stream
+						created by <code>Path.lines()</code> is of unknown size what is strong limitation for parallelism too. Additionally, instead of
+						splitting string and using flat mapping over stream created from strings array, we flat map over stream created from tokens iterator -
+						<code>TokenizerStream</code> . This should be more efficient.
 					</p>
 					<p>
 						<a class="ans" data-toggle="collapse" href="#string-tokenizer">See the TokenizerStream code</a>
 					</p>
-					<pre class="collapse" id="string-tokenizer"><code class="language-java" data-src="../src/main/java/tech/daniellas/wfc/TokenizerStream.java"></code></pre>
+					<pre class="collapse" id="string-tokenizer"><code class="language-java"
+						data-src="../src/main/java/tech/daniellas/wfc/TokenizerStream.java"></code></pre>
 					<p>
 						Here are <code>java8step1</code> benchmark results.
 					</p>
@@ -355,8 +364,8 @@
 					</div>
 					<p>So far so good, we are better then first stream based approach but still below Java 2 based code score. Let's try to do better.</p>
 					<h3>Step 2 - Parallel streams</h3>
-					<p>Using parallel stream with IO operations is disputable but we can definitely transform tokens stream to parallel and unordered without much risk.
-						Let's use parallel streams for all operations except reading lines from file.</p>
+					<p>Using parallel stream with IO operations is disputable but we can definitely transform tokens stream to parallel and unordered
+						without much risk. Let's use parallel streams for all operations except reading lines from file.</p>
 					<pre><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/WfcBenchmark.java" data-format="lines 80,100"></code></pre>
 					<p>Here are the results.</p>
 					<div class="row">
@@ -381,12 +390,13 @@
 					<p>We are ahead previous competitors now, but not much. Let's try something more.</p>
 					<h3>Step 3 - Less collections in between</h3>
 					<p>
-						Splitting code into well defined functions is the very good practice, but it means more overhead for this kind of tasks. We can easily reduce number of
-						intermediate collections by combining reading from file and word counting into one stream. If we look at previous examples, we can notice that first list
-						<code>List&lt;String&gt; words</code> is just the holder for all words from file. We immediately transform it to <code>Map&lt;String,Long&gt;</code> with
-						<code>Stream.collect()</code>. Later on we use all words list to get total words number. To avoid necessity of holding all words list we, can group words
-						counters into custom <code>Map</code> implementation counting all <code>put</code> operations. Using this approach, we will have total words counter for
-						free and we use 2 streams instead of 3.
+						Splitting code into well defined functions is the very good practice, but it means more overhead for this kind of tasks. We can easily
+						reduce number of intermediate collections by combining reading from file and word counting into one stream. If we look at previous
+						examples, we can notice that first list <code>List&lt;String&gt; words</code> is just the holder for all words from file. We
+						immediately transform it to <code>Map&lt;String,Long&gt;</code> with <code>Stream.collect()</code> . Later on we use all words list to
+						get total words number. To avoid necessity of holding all words list we, can group words counters into custom <code>Map</code>
+						implementation counting all <code>put</code> operations. Using this approach, we will have total words counter for free and we use 2
+						streams instead of 3.
 					</p>
 					<pre><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/WfcBenchmark.java" data-format="lines 102,141"></code></pre>
 					<div class="row">
@@ -408,11 +418,11 @@
 							</div>
 						</div>
 					</div>
-					<p>Did you notice that we didn't use parallel streams at all? I did it deliberately to verify what optimizations really matter. Avoiding unnecessary
-						collections creation is enough to gain significant performance boost.</p>
+					<p>Did you notice that we didn't use parallel streams at all? I did it deliberately to verify what optimizations really matter.
+						Avoiding unnecessary collections creation is enough to gain significant performance boost.</p>
 					<h3>Step 4 - Single pass parallel</h3>
-					<p>If we profit from limiting number of created collections and by using parallel streams separately, let's see what results will be if we combine both
-						improvements.</p>
+					<p>If we profit from limiting number of created collections and by using parallel streams separately, let's see what results will
+						be if we combine both improvements.</p>
 					<pre><code class="language-java" data-src="../src/test/java/tech/daniellas/streams/WfcBenchmark.java" data-format="lines 143,163"></code></pre>
 					<div class="row">
 						<div class="col-md-8">
@@ -434,22 +444,26 @@
 						</div>
 					</div>
 					<p>
-						This time I'm satisfied. Optimized stream based code is about 3 times faster than original Java 8 example and about 2 times faster than original Java 2
-						implementation. I must admit that using parallel streams is cheating and <code>CountingMap</code> could be used to optimize Java 2 based code too. On the
-						other side <code>java8step1</code> did quite well. We already know that <code>Stream</code> requires some additional resources and we benefit more when we
-						give it more time to work on given task. There is also very important lesson from <em>Words Frequency</em> example:
+						This time I'm satisfied. Optimized stream based code is about 3 times faster than original Java 8 example and about 2 times faster
+						than original Java 2 implementation. I must admit that using parallel streams is cheating and <code>CountingMap</code> could be used
+						to optimize Java 2 based code too. On the other side <code>java8step1</code> did quite well. We already know that <code>Stream</code>
+						requires some additional resources and we benefit more when we give it more time to work on given task. There is also very important
+						lesson from <em>Words Frequency</em> example:
 					</p>
 					<p class="note">Don't use parallel streams blindly, always think if there is any potential for parallelism.</p>
 					<h2>Conclusions</h2>
 					<p>
-						It looks like I found nothing revealing. Stream can be sometimes faster and sometimes slower than standard loop. I will be frank with you - I'm really
-						glad that Java 8 <code>Stream</code> is good enough in regards of performance. At least in the scope of common enterprise class applications. I'd really
-						miss its beautiful and descriptive abstraction if I had to drop its use due to poor performance. I did my best to perform legitimate benchmarks and I'm
-						convinced by their results. If you are not, my dear reader, please let me know.
+						It looks like I found nothing revealing. Stream can be sometimes faster and sometimes slower than standard loop. I will be frank with
+						you - I'm really glad that Java 8 <code>Stream</code> is good enough in regards of performance. At least in the scope of common
+						enterprise class applications. I'd really miss its beautiful and descriptive abstraction if I had to drop its use due to poor
+						performance. I did my best to perform legitimate benchmarks and I'm convinced by their results. If you are not, my dear reader, please
+						let me know.
 					</p>
 					<p class="note">
-						There is one more unknown yet left to be discovered. Our parallel streams share one and only <code>ForkJoinPool</code> in single JVM. The common knowledge
-						is that we should be careful about this, but what are the real numbers ... I don't know. Hopefully, I'll get into it soon.
+						There is one more unknown yet left to be discovered. Our parallel streams share one and only <code>ForkJoinPool</code> in single JVM.
+						The common knowledge is that we should be careful about this, but what are the real numbers ... <br /> <br /> ... I didn't know but
+						I did my homework. Please see benchmark results of parallel streams performance used in simulated multiple user application: <a
+							href="performance-of-parallel-streams.html">Performance of parallel Streams</a>
 					</p>
 				</div>
 			</div>
@@ -461,16 +475,14 @@
 			<div class="row">
 				<div class="col-lg-8 col-md-10 mx-auto">
 					<ul class="list-inline text-center">
-						<li class="list-inline-item">
-							<a href="https://www.linkedin.com/in/daniel-las" target="_blank"> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i
-									class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+						<li class="list-inline-item"><a href="https://www.linkedin.com/in/daniel-las" target="_blank"> <span class="fa-stack fa-lg">
+									<i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
 							</span>
-							</a>
-						</li>
+						</a></li>
 					</ul>
 					<p class="copyright text-muted">
-						Copyright &copy; Daniel Łaś 2019, Look and feel forked from <a href="https://startbootstrap.com/template-overviews/clean-blog/" target="blank">Clean
-							Blog</a>
+						Copyright &copy; Daniel Łaś 2020, Look and feel forked from <a href="https://startbootstrap.com/template-overviews/clean-blog/"
+							target="blank">Clean Blog</a>
 					</p>
 				</div>
 			</div>
