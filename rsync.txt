@@ -1,0 +1,11 @@
+robots.txt
+sitemap.xml
+index.html
+about.html
+contact.html
+posts/
+css/
+img/
+js/
+src/
+data/

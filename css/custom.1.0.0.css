@@ -23,3 +23,7 @@ p.legend {
 td.em {
   font-weight: bold;
 }
+
+.center {
+  text-align: center;
+}

@@ -94,20 +94,37 @@
 		});
 	}
 
+	function renderTripleChart(seqSrc, parSrc, parConSrc, size, id) {
+		fetch(seqSrc).then(function(resp) {
+			return resp.text();
+		}).then(function(data) {
+			var seqData = _.flow(JSON.parse, flattenJmhResults, filterSize(size), applyStream('Sequential'))(data);
+
+			fetch(parSrc).then(function(resp) {
+				return resp.text();
+			}).then(function(data) {
+				var parData = _.flow(JSON.parse, flattenJmhResults, filterSize(size), applyStream('Parallel'))(data);
+
+				fetch(parConSrc).then(function(resp) {
+					return resp.text();
+				}).then(function(data) {
+					var parConData = _.flow(JSON.parse, flattenJmhResults, filterSize(size), applyStream('Parallel concurrent'))(data);
+
+					renderThreadsChart(id, _.concat(seqData, parData, parConData), 'Threads');
+				});
+			});
+		});
+	}
+
 	renderChart('../data/benchmark-threads-streams-sum-double-calculation-sequential.json',
 			'../data/benchmark-threads-streams-sum-double-calculation-parallel.json', 1000, 'sum-double-calculation-chart');
 	renderChart('../data/benchmark-threads-streams-sum-double-calculation-sequential.json',
 			'../data/benchmark-threads-streams-sum-double-calculation-parallel.json', 100000, 'sum-double-calculation-large-chart');
 
-	// renderChart('../data/benchmark-threads-streams-sum-double-calculation-sequential-collect.json',
-	// '../data/benchmark-threads-streams-sum-double-calculation-parallel-collect.json',
-	// 1000, 'sum-double-calculation-collect-chart');
-	// renderChart('../data/benchmark-threads-streams-sum-double-calculation-sequential-collect.json',
-	// '../data/benchmark-threads-streams-sum-double-calculation-parallel-collect.json',
-	// 100000, 'sum-double-calculation-collect-large-chart');
-
-	renderChart('../data/benchmark-threads-streams-group-sequential.json', '../data/benchmark-threads-streams-group-parallel.json', 1000, 'group-chart');
-	renderChart('../data/benchmark-threads-streams-group-sequential.json', '../data/benchmark-threads-streams-group-parallel.json', 100000, 'group-large-chart');
+	renderTripleChart('../data/benchmark-threads-streams-group-sequential.json', '../data/benchmark-threads-streams-group-parallel.json',
+			'../data/benchmark-threads-streams-group-parallel-concurrent.json', 1000, 'group-chart');
+	renderTripleChart('../data/benchmark-threads-streams-group-sequential.json', '../data/benchmark-threads-streams-group-parallel.json',
+			'../data/benchmark-threads-streams-group-parallel-concurrent.json', 100000, 'group-large-chart');
 
 	renderChart('../data/benchmark-threads-streams-filter-sort-distinct-sequential.json',
 			'../data/benchmark-threads-streams-filter-sort-distinct-parallel.json', 1000, 'filter-sort-distinct-chart');

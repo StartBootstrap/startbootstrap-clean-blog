@@ -6,3 +6,4 @@ node_modules
 .classpath
 *.retry
 target/
+sync-content.sh

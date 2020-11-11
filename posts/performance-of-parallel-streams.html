@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="Functional Programming, Java, Java 8 streams benchmarks ">
+<meta name="description" content="Functional Programming, Java, Java 8 parallel streams benchmarks, parallel stream performance">
 <meta name="author" content="Daniel Łaś">
 <title>Daniel Łaś Tech Blog - Performance of parallel Streams. The truth revealed.</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
@@ -128,36 +128,43 @@
 					<p>Here the task is to perform some math operation on list of randomly generated floating-point numbers and sum all calculated
 						values:</p>
 					<pre class="line-numbers"><code class="language-java"
-						data-src="../src/test/java/tech/daniellas/streams/threads/ParallelDoubleCalculationBenchmark.java" data-format="lines 20,46"></code></pre>
+						data-src="../src/test/java/tech/daniellas/streams/threads/SequentialDoubleCalculationBenchmark.java" data-format="lines 20,46"></code></pre>
 					<p>
-						Sequential variant differs in the way the stream is created in line <span class="badge badge-secondary">2</span> - <code>parallelStream()</code>
-						vs. <code>stream()</code>:
+						Parallel variant differs in the way the stream is created in line <span class="badge badge-secondary">2</span> - <code>stream()</code>
+						vs. <code>parallelStream()</code>:
 					</p>
 					<pre class="line-numbers"><code class="language-java"
-						data-src="../src/test/java/tech/daniellas/streams/threads/SequentialDoubleCalculationBenchmark.java" data-format="lines 26,30"></code></pre>
+						data-src="../src/test/java/tech/daniellas/streams/threads/ParallelDoubleCalculationBenchmark.java" data-format="lines 25,30"></code></pre>
 					<p>
 						Please note that I deliberately used <code>reduce</code> operation in line <span class="badge badge-secondary">4</span>. Reduction
 						should parallelize more gracefully because numbers addition and zero value form <a href="why-functional-programming.html#monoids">Monoid</a>.
 						Thanks to this, no synchronization is needed to sum operations results calculated in different threads. If I'd have used <code>collect</code>,
 						partial results would have been added to a single variable that would have to be synchronized.
 					</p>
-					<p>Below charts show benchmarks results for:</p>
 					<p>
-						<strong>1000</strong> long stream
+						Below chart show benchmarks results for <strong>1000</strong> long stream.
 					</p>
 					<div class="chart" id="sum-double-calculation-chart"></div>
 					<p>
-						and for <strong>100 000</strong> long stream
-					</p>
-					<div class="chart" id="sum-double-calculation-large-chart"></div>
-					<p>
 						There are no surprises for sequential stream. Total number of operations grows together with number of cores involved until all
 						available cores are in use. We gain nothing when the number of threads increases above the number of available cores. This is how it
-						is. This is only the simulation of multitasking provided by the operating system if the number of active tasks exceeds the number of
-						processing units called <a href="https://en.wikipedia.org/wiki/Context_switch">context switching</a>.
+						is. This is only the simulation of multitasking provided by the operating system called <a
+							href="https://en.wikipedia.org/wiki/Context_switch">context switching</a> when the number of active tasks exceeds the number of
+						processing units.
 					</p>
+					<p class="note">Making thread pools size larger will not make your multiuser program more efficient.</p>
 					<p>Parallel stream behavior looks more interesting - total number of operations seems to be constant regardless of the count of
-						parallel threads. It's not exactly constant but differences are so small that it's safe to assume that they are insignificant.</p>
+						parallel threads. It's not exactly constant but differences are so small that it's safe to assume that they are insignificant. This is
+						happening because it's always common thread pool fully utilized used regardless of number of concurrent users and no additional
+						synchronization is required.</p>
+					<p>Parallel version was the clear winner up to 4 concurrent threads while 8 cores were available. Starting from 6 threads
+						sequential variant was doing as well or better then parallel one. Simply speaking, coordination costs of concurrent access to shared
+						resource prevails at some point. Sequential streams executed in completely separated threads with no contention point suck all power
+						from the processor.</p>
+					<p>
+						Results are a little bit different for <strong>100 000</strong> long stream:
+					</p>
+					<div class="chart" id="sum-double-calculation-large-chart"></div>
 					<p>
 						Did you notice that parallel stream performed slightly better then sequential one when the number of items in the stream were larger?
 						I find it difficult to explain. Such results were rather obvious while comparing <code>stream</code> and <code>for-each</code> speed -
@@ -165,11 +172,62 @@
 						additional cost bound to parallel stream creation or a benefit related to larger streams processing but I'm not sure what it is.
 					</p>
 					<h2>Grouping</h2>
+					<p>
+						Grouping items using streams is very convenient. This time the benchmark takes list of randomly generated <code>Double</code> 's,
+						group by result of division by 100 rounded to <code>long</code> . Produced result is of type <code class="text-nowrap">Map&lt;Long,
+							List&lt;Double&gt;&gt;</code>. For grouping we usually use <code>collect</code> instead of <code>reduce</code> operation because there are
+						very handy grouping collectors available in the <code>Stream API</code>. Collecting is a mutable reduction what means that in case of
+						parallel stream there must be additional synchronization performed. There is additional version of grouping collector expecting the
+						thread safety guarantee from grouping container. In our case this is <code>ConcurrentHashMap</code>. The consequence is the unordered
+						results list as a map's value and the chance for a better parallelism.
+					</p>
+					<pre class="line-numbers"><code class="language-java"
+						data-src="../src/test/java/tech/daniellas/streams/threads/SequentialGroupBenchmark.java" data-format="lines 23,27"></code></pre>
+					<p>
+					<p>vs.</p>
+					<pre class="line-numbers"><code class="language-java"
+						data-src="../src/test/java/tech/daniellas/streams/threads/ParallelGroupBenchmark.java" data-format="lines 23,27"></code></pre>
+					<p>
+					<p>vs.</p>
+					<pre class="line-numbers"><code class="language-java"
+						data-src="../src/test/java/tech/daniellas/streams/threads/ParallelGroupConcurrentBenchmark.java" data-format="lines 23,27"></code></pre>
+					<p>
+					<p>Results of shorter streams benchmarks are visible below.</p>
 					<div class="chart" id="group-chart"></div>
+					<p>This time the situation is way different. Sequential stream is performing better with growing resources up to 8 threads.
+						Parallel stream gained more speed up to 4 threads, later on it was on the same level but still not better then sequential stream. The
+						concurrent collector used with the parallel stream only made the whole operation slower. It's only advantage was increasing
+						performance even when the number of threads went above available cores count, not a big success considering weak overall performance.</p>
+					<p>Longer stream again produced slightly different results:</p>
 					<div class="chart" id="group-large-chart"></div>
+					<p>Parallel stream was the fastest one up to 4 threads and processing with the same speed regardless of the used threads count. The
+						parallel stream with concurrent collector weakness is less visible.</p>
+					<p class="note">It looks like additional synchronization makes parallel streams less usable in the maximum performance context.</p>
 					<h2>Filtering and sorting distinct items</h2>
+					<p>Finally the next commonly used stream operations: filtering, sorting and distinct selection. This benchmark takes random decimal
+						numbers, filters them by predefined minimal and maximum value, takes distinct values and sorts in natural order. Sorting should not
+						cause much a difference because it's performed after the stream (sequential or parallel) is consumed. Distinct selection requires the
+						stream to maintain internal state what means additional synchronization apart from produced items collection in case of a parallel
+						stream.</p>
+					<p>
+						These are <strong>1000</strong> long stream results:
+					</p>
 					<div class="chart" id="filter-sort-distinct-chart"></div>
+					<p>
+						and <strong>100 000</strong> long stream results:
+					</p>
 					<div class="chart" id="filter-sort-distinct-large-chart"></div>
+					<p>We already saw trends presented on the above chart but this time trends are even stronger. Additional contention point makes the
+						parallel stream the looser. It had his time processing larger amount of items in 2 threads. Overall computing power of sequential
+						stream was getting better when executed in parallel with the limit of available cores.</p>
+					<div class="note">
+						<p>So what are lessons learned? Nothing revealing, just that hard physical limits still apply:</p>
+						<ul>
+							<li>you can't trick your computation power by increasing number of worker threads</li>
+							<li>shared resource blocking is the first class enemy of parallelism</li>
+						</ul>
+					</div>
+					<p class="center"><strong>Thank you dear reader for reading my post to the end. I hope you enjoyed it.</strong></p>
 				</div>
 			</div>
 		</div>

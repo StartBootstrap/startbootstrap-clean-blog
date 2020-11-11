@@ -22,7 +22,7 @@ public class ParallelGroupBenchmark extends BenchmarkBase {
 
 	private Map<Long, List<Double>> operation(Params params) {
 		return params.items.parallelStream()
-				.collect(Collectors.groupingBy(n -> Math.round(n / DIVISOR)));
+				.collect(Collectors.groupingBy(n -> Math.round(n / 100.0)));
 	}
 
 	@Threads(2)

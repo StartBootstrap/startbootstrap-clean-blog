@@ -87,7 +87,7 @@ blockquote.note {
   color: #000;
 }
 
-p.note {
+p.note, div.note {
   font-style: italic;
   background-color: #dee2e6;
   border-radius: 0.25rem;

@@ -29,6 +29,22 @@ public class SequentialDoubleCalculationBenchmark extends BenchmarkBase {
 		    .reduce(0d, Double::sum);
 	}
 
+	// Benchmark parameters
+	@State(Scope.Benchmark)
+	public static class Params {
+		@Param({ "1000", "100000" })
+		public int size;
+
+		public List<Double> items;
+
+		@Setup
+		public void setUp() {
+			items = IntStream.range(0, size)
+			    .mapToObj(i -> RandomUtils.nextDouble())
+			    .collect(Collectors.toList());
+		}
+	}
+
 	@Threads(2)
 	@Benchmark
 	public Double benchmarkA(Params params) {
@@ -75,22 +91,6 @@ public class SequentialDoubleCalculationBenchmark extends BenchmarkBase {
 	@Benchmark
 	public Double benchmarkH(Params params) {
 		return operation(params);
-	}
-
-	// Benchmark parameters
-	@State(Scope.Benchmark)
-	public static class Params {
-		@Param({ "1000", "100000" })
-		public int size;
-
-		public List<Double> items;
-
-		@Setup
-		public void setUp() {
-			items = IntStream.range(0, size)
-			    .mapToObj(i -> RandomUtils.nextDouble())
-			    .collect(Collectors.toList());
-		}
 	}
 
 	@Override

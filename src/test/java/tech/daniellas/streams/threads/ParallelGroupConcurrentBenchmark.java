@@ -15,14 +15,14 @@ import org.openjdk.jmh.annotations.Threads;
 
 import tech.daniellas.streams.BenchmarkBase;
 
-public class SequentialGroupBenchmark extends BenchmarkBase {
+public class ParallelGroupConcurrentBenchmark extends BenchmarkBase {
 
 	// This is grouping divisor value
 	static final double DIVISOR = 100.0;
 
 	private Map<Long, List<Double>> operation(Params params) {
-		return params.items.stream()
-				.collect(Collectors.groupingBy(n -> Math.round(n / 100.0)));
+		return params.items.parallelStream()
+				.collect(Collectors.groupingByConcurrent(n -> Math.round(n / 100.0)));
 	}
 
 	@Threads(2)
@@ -91,7 +91,7 @@ public class SequentialGroupBenchmark extends BenchmarkBase {
 
 	@Override
 	protected String reportPath() {
-		return "data/benchmark-threads-streams-group-sequential.json";
+		return "data/benchmark-threads-streams-group-parallel-concurrent.json";
 	}
 
 }
