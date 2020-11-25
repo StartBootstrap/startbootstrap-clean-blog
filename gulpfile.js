@@ -12,6 +12,7 @@ const plumber = require("gulp-plumber");
 const rename = require("gulp-rename");
 const sass = require("gulp-sass");
 const uglify = require("gulp-uglify");
+const path = require("path");
 
 // Load package.json for banner
 const pkg = require('./package.json');
@@ -47,21 +48,27 @@ function clean() {
   return del(["./vendor/"]);
 }
 
+function module_path(module) {
+  return path.dirname(
+    require.resolve(`${module}/package.json`)
+  );
+}
+
 // Bring third party dependencies from node_modules into vendor directory
 function modules() {
   // Bootstrap
-  var bootstrap = gulp.src('./node_modules/bootstrap/dist/**/*')
+  var bootstrap = gulp.src(module_path('bootstrap') + '/dist/**/*')
     .pipe(gulp.dest('./vendor/bootstrap'));
   // Font Awesome CSS
-  var fontAwesomeCSS = gulp.src('./node_modules/@fortawesome/fontawesome-free/css/**/*')
+  var fontAwesomeCSS = gulp.src(module_path('@fortawesome/fontawesome-free') + '/css/**/*')
     .pipe(gulp.dest('./vendor/fontawesome-free/css'));
   // Font Awesome Webfonts
-  var fontAwesomeWebfonts = gulp.src('./node_modules/@fortawesome/fontawesome-free/webfonts/**/*')
+  var fontAwesomeWebfonts = gulp.src(module_path('@fortawesome/fontawesome-free') + '/webfonts/**/*')
     .pipe(gulp.dest('./vendor/fontawesome-free/webfonts'));
   // jQuery
   var jquery = gulp.src([
-      './node_modules/jquery/dist/*',
-      '!./node_modules/jquery/dist/core.js'
+      `${module_path('jquery')}/dist/*`,
+      `!${module_path('jquery')}/dist/core.js`,
     ])
     .pipe(gulp.dest('./vendor/jquery'));
   return merge(bootstrap, fontAwesomeCSS, fontAwesomeWebfonts, jquery);
