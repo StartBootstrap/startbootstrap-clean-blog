@@ -172,7 +172,7 @@
                         // ---------------------------------------------------------
                         //                                                    NUMBER
                         // ---------------------------------------------------------
-                        if ($this.attr("type") !== undefined && $this.attr("type").toLowerCase() === "number") {
+                        if ($this.attr("type") !== undefined && $this.attr("type").toLowerCase() === "tel") {
                             message = settings.builtInValidators.number.message;
                             if ($this.data("validationNumberMessage")) {
                                 message = $this.data("validationNumberMessage");
