@@ -36,22 +36,82 @@ html(lang='en')
                             | Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!
 
                         .my-5
-                            form
+
+                            // Contact Form
+                            //
+                            // This form is pre-integrated with SB Forms
+                            // To make this form functional, sign up at
+                            // https://startbootstrap.com/solution/contact-forms
+                            // to get your API token!
+
+                            form#contactForm(data-sb-form-api-token='API_TOKEN')
                                 .form-floating
-                                    input#inputName.form-control(type='text' placeholder='Enter your name...')
+                                    input#inputName.form-control(
+                                        type='text',
+                                        placeholder='Enter your name...',
+                                        data-sb-validations='required'
+                                    )
                                     label(for='inputName') Name
+                                    .invalid-feedback(data-sb-feedback='name:required')
+                                        | A name is required.
                                 .form-floating
-                                    input#inputEmail.form-control(type='email' placeholder='Enter your email...')
+                                    input#inputEmail.form-control(
+                                        type='email',
+                                        placeholder='Enter your email...',
+                                        data-sb-validations='required,email'
+                                    )
                                     label(for='inputEmail') Email address
+                                    .invalid-feedback(data-sb-feedback='email:required')
+                                        | An email is required.
+                                    .invalid-feedback(data-sb-feedback='email:email')
+                                        | Email is not valid.
                                 .form-floating
-                                    input#inputPhone.form-control(type='tel' placeholder='Enter your phone number...')
+                                    input#inputPhone.form-control(
+                                        type='tel',
+                                        placeholder='Enter your phone number...',
+                                        data-sb-validations='required'
+                                    )
                                     label(for='inputPhone') Phone Number
+                                    .invalid-feedback(data-sb-feedback='phone:required')
+                                        | A phone number is required.
                                 .form-floating
-                                    textarea#inputMessage.form-control(placeholder='Enter your message here...', style='height: 12rem;')
+                                    textarea#inputMessage.form-control(
+                                        placeholder='Enter your message here...',
+                                        style='height: 12rem;',
+                                        data-sb-validations='required'
+                                    )
                                     label(for='inputMessage') Message
+                                    .invalid-feedback(data-sb-feedback='message:required')
+                                        | A message is required.
+
                                 br
-                                button.btn.btn-primary.text-uppercase(type='submit') Send
+
+                                // Submit success message
+                                //
+                                // This is what your users will see when the form
+                                // has successfully submitted
+
+                                #submitSuccessMessage.d-none
+                                    .text-center.mb-3
+                                        .fw-bolder Form submission successful!
+                                        | To activate this form, sign up at
+                                        br
+                                        a(href='https://startbootstrap.com/solution/contact-form') https://startbootstrap.com/solution/contact-form
+
+                                // Submit error message
+                                //
+                                // This is what your users will see when there is
+                                // an error submitting the form
+
+                                #submitErrorMessage.d-none
+                                    .text-center.text-danger.mb-3 Error sending message!
+
+                                // Submit Button
+                                button#submitButton.btn.btn-primary.text-uppercase.disabled(type='submit') Send
 
         include includes/footer.pug
 
         include includes/scripts.pug
+
+        // SB Forms JS
+        //- script(src='path/to/cdn.js')
