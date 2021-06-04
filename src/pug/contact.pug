@@ -37,50 +37,52 @@ html(lang='en')
 
                         .my-5
 
-                            // Contact Form
-                            //
-                            // This form is pre-integrated with SB Forms
+                            // * * * * * * * * * * * * * * *
+                            // * * SB Forms Contact Form * *
+                            // * * * * * * * * * * * * * * *
+
+                            // This form is pre-integrated with SB Forms.
                             // To make this form functional, sign up at
                             // https://startbootstrap.com/solution/contact-forms
-                            // to get your API token!
+                            // to get an API token!
 
                             form#contactForm(data-sb-form-api-token='API_TOKEN')
                                 .form-floating
-                                    input#inputName.form-control(
+                                    input#name.form-control(
                                         type='text',
                                         placeholder='Enter your name...',
                                         data-sb-validations='required'
                                     )
-                                    label(for='inputName') Name
+                                    label(for='name') Name
                                     .invalid-feedback(data-sb-feedback='name:required')
                                         | A name is required.
                                 .form-floating
-                                    input#inputEmail.form-control(
+                                    input#email.form-control(
                                         type='email',
                                         placeholder='Enter your email...',
                                         data-sb-validations='required,email'
                                     )
-                                    label(for='inputEmail') Email address
+                                    label(for='email') Email address
                                     .invalid-feedback(data-sb-feedback='email:required')
                                         | An email is required.
                                     .invalid-feedback(data-sb-feedback='email:email')
                                         | Email is not valid.
                                 .form-floating
-                                    input#inputPhone.form-control(
+                                    input#phone.form-control(
                                         type='tel',
                                         placeholder='Enter your phone number...',
                                         data-sb-validations='required'
                                     )
-                                    label(for='inputPhone') Phone Number
+                                    label(for='phone') Phone Number
                                     .invalid-feedback(data-sb-feedback='phone:required')
                                         | A phone number is required.
                                 .form-floating
-                                    textarea#inputMessage.form-control(
+                                    textarea#message.form-control(
                                         placeholder='Enter your message here...',
                                         style='height: 12rem;',
                                         data-sb-validations='required'
                                     )
-                                    label(for='inputMessage') Message
+                                    label(for='message') Message
                                     .invalid-feedback(data-sb-feedback='message:required')
                                         | A message is required.
 
@@ -113,5 +115,9 @@ html(lang='en')
 
         include includes/scripts.pug
 
-        // SB Forms JS
-        //- script(src='path/to/cdn.js')
+        // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+        // * *                               SB Forms JS                               * *
+        // * * Activate your form at https://startbootstrap.com/solution/contact-forms * *
+        // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+        script(src='https://cdn.startbootstrap.com/sb-forms-latest.js')
