@@ -1,0 +1,37 @@
+doctype html
+html(lang='en')
+
+    head
+
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(name='description', content=description)
+        meta(name='author', content=author)
+        meta(name='generator', content=generator.name)
+
+        title #{title} - #{site.subject}
+
+        link(rel='icon', type='image/x-icon', href=`${site.base}/assets/favicon.ico`)
+
+        include includes/css.pug
+
+    body
+
+        include includes/navbar.pug
+
+        block header
+            // Page Header
+            include includes/masthead
+
+        .container.px-4.px-lg-5
+            .row.gx-4.gx-lg-5.justify-content-center
+                .col-md-10.col-lg-8.col-xl-7
+                    block main
+                    // Main Content
+                    div !{contents}
+
+                    
+        
+        include includes/footer.pug
+
+        include includes/scripts.pug

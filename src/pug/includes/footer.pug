@@ -4,19 +4,10 @@ footer.border-top
         .row.gx-4.gx-lg-5.justify-content-center
             .col-md-10.col-lg-8.col-xl-7
                 ul.list-inline.text-center
-                    li.list-inline-item
-                        a(href='#!')
-                            span.fa-stack.fa-lg
-                                i.fas.fa-circle.fa-stack-2x
-                                i.fab.fa-twitter.fa-stack-1x.fa-inverse
-                    li.list-inline-item
-                        a(href='#!')
-                            span.fa-stack.fa-lg
-                                i.fas.fa-circle.fa-stack-2x
-                                i.fab.fa-facebook-f.fa-stack-1x.fa-inverse
-                    li.list-inline-item
-                        a(href='#!')
-                            span.fa-stack.fa-lg
-                                i.fas.fa-circle.fa-stack-2x
-                                i.fab.fa-github.fa-stack-1x.fa-inverse
-                .small.text-center.text-muted.fst-italic Copyright &copy; Your Website 2023
+                    each url, network in socials
+                      li.list-inline-item
+                          a(href=url)
+                              span.fa-stack.fa-lg(title=network)
+                                  i.fas.fa-circle.fa-stack-2x
+                                  i.fab.fa-stack-1x.fa-inverse(class=`fa-${network}`)
+                .small.text-center.text-muted.fst-italic Copyright &copy; #{site.subject} 2024
