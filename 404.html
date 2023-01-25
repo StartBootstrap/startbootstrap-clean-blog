@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>404 Page Not Found</title>
+    <meta name="robots" content="nofollow"/>
+    <script type="text/javascript">
+  var imageURLs = [
+       // "/img/404_christmas.gif"
+     /*,*/ "/img/040314_error404-page_red.gif"
+     , "/img/404.gif"
+     , "/img/giphy.gif"
+     , "/img/apple-404.gif"
+     , "/img/alien-404.gif"
+     , "/img/404-medium.gif"
+     , "/img/falling-404.gif"
+     , "/img/drawn-404.gif"
+     , "/img/bird-404.gif"
+     , "/img/windowsxp-404.gif"
+     , "/img/signflash-404.gif"
+  ];
+  function getImageTag() {
+    var img = '<img src=\"';
+    var randomIndex = Math.floor(Math.random() * imageURLs.length);
+    img += imageURLs[randomIndex];
+    img += '\" alt=\"Some alt text\"/>';
+    return img;
+  }
+</script>
+  </head>
+  <body>
+  <script type="text/javascript">
+    document.write(getImageTag());
+  </script>
+    <p>Uh oh. We couldn't find the page you were looking for. Try <a href="/" title="Go Home (ALT-H)" accesskey="h">going home</a>.</p>
+  </body>
+</html>
