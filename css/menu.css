@@ -1,0 +1,15 @@
+		ul li ul.dropdown{
+        min-width: 100%; /* Set width of the dropdown */
+        /*color: #000000;
+	background: #ffffff;*/
+        display: none;
+        position: absolute;
+        z-index: 999;
+        left: 0;
+    }
+    ul li:hover ul.dropdown{
+        display: block;	/* Display the dropdown */
+    }
+    ul li ul.dropdown li{
+        display: block;
+}
