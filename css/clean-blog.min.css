@@ -10,7 +10,7 @@ a,body{color:#333;}.navbar-custom .nav li a,.navbar-custom .navbar-brand,h1,h2,h
 	* {
 		visibility: hidden;
 	}
-	h1, h2, p, a, .meta, time {
+	h1, h2, p, a, b, i, u, .meta, time {
 		visibility: visible;
 	}
 }
