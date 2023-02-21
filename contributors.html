@@ -1,0 +1,14 @@
+---
+layout: default
+title: Contributors
+---
+<h1>Contributors</h1>
+
+<ul>
+  {% for author in site.authors %}
+    <li>
+        <h2><a href="{{ author.url }}">{{ author.name }}</a></h2>
+      <p>{{ author.content | markdownify }}</p>
+    </li>
+  {% endfor %}
+</ul>
