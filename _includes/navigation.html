@@ -16,8 +16,6 @@
             <li>
                <a href="{{ item.link }}" {% if page.url==item.link %}style="color: red;" {% endif %}>
                   {{ item.name }}
-                  <br>
-                  {{ page.url }}
                </a>
             </li>
             {% endfor %}
