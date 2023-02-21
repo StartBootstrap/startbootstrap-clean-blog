@@ -14,7 +14,7 @@
          <ul class="nav navbar-nav navbar-right">
             {% for item in site.data.navigation %}
             <li>
-               <a href="{{ item.link }}" {% if page.url==item.link %}style="color: red;" {% endif %}>
+               <a href="{{ item.link }}" {% if page.url==item.link %} class="current" {% endif %}>
                   {{ item.name }}
                </a>
             </li>
