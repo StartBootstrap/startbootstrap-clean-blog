@@ -62,7 +62,7 @@
 
  a img:focus,
  a img:hover {
-   cursor: zoom-in
+   cursor: pointer
  }
 
  blockquote {
