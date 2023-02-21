@@ -3,16 +3,14 @@ body {
   background-size: cover;
 }
 
-.year, .letter {
+.year,
+.letter {
   background-color: white;
-   opacity: 0.5;
+  opacity: 0.5;
 }
 
-.year:hover, .letter:hover {
+.year:hover,
+.letter:hover {
   background-color: white;
   opacity: 1;
-}
-
-.darkmode-layer, .darkmode-toggle {
-  z-index: 500;
 }
