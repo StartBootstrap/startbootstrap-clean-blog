@@ -14,10 +14,31 @@ title: The Love of God and of All Men
     {% endfor %}
 </ul>
 
+<!-- Automatically output the 5 latest posts following the format below. -->
+{% for post in site.posts %}
+<div class="post-preview">
+    <a href="/posts/2023/january/getting-to-know-nt">
+        <!-- <img src="/img/headers/front-page/bible-from-rawpixel.webp" class="post-preview-image" width="300px"
+            height="200px"> -->
+        <h2 class="post-title">
+            {{ post.title }}
+        </h2>
+        <h3 class="post-subtitle">
+            <!-- I invite you to think about these insights as you review the four gospels in the Bible this year. -->
+        </h3>
+    </a>
+    <p class="post-meta">Posted by Riley Grigg on <time datetime="2023-01-05T15:44-07:00">January 5, 2023 at
+            3:44 PM MST</time></p>
+</div>
+<hr>
+{% endfor %}
+
 <!-- Pager -->
 <ul class="pager">
     <li class="next">
-        <a href="">&larr; Newer Posts</a>
         <a href="/index/p2">Older Posts &rarr;</a>
+    </li>
+    <li class="previous">
+        <a href="">&larr; Newer Posts</a>
     </li>
 </ul>
