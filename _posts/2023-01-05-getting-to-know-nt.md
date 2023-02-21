@@ -2,6 +2,7 @@
 layout: post
 author: Riley
 title: Getting to Know the New Testament
+date: 2023-01-05 15:44
 ---
 Biblical Insights
 -----------------
