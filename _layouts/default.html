@@ -49,10 +49,6 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                <div class="site-heading">
                   <h1>{{ page.title }}</h1>
-                  <!-- hides extra content on post pages -->
-                  <!-- variable for testing purposes -->
-                  {{layout.layout}}
-                  <div {% if layout==post %}class="hidden" {% endif %}>
                      <hr class="small">
                      <span class="subheading">Doing my best to spread God's love to everyone</span>
                      <p class="home-date">
@@ -77,7 +73,6 @@
                         <script type="text/javascript" src="/assets/js/clean-blog.min.js"></script>
                      <p class="tip" id="quote">Loading Quote...</p>
                      <p class="tip"><a href="#" id="quote-share-link">Share Quote</a></p>
-                  </div>
                </div>
             </div>
          </div>
