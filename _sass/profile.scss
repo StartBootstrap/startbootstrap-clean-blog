@@ -6,7 +6,6 @@
   --f: 1; /* initial scale */
 
   width: var(--s);
-  aspect-ratio: 1;
   padding-top: calc(var(--s) / 5);
   cursor: pointer;
   border-radius: 0 0 999px 999px;
