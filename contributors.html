@@ -8,7 +8,7 @@ title: Contributors
   {% for author in site.authors %}
   <li>
     <!-- Thanks to the original pen and its creators: https://codepen.io/t_afif/pen/zYLeOLM?editors=1100 -->
-    <img class="profile-img" src="https://love-of-god-and-of-all-men.github.io/assets/images/profiles/{{ author.short_name }}.png"
+    <a href="{{ author.url }}"><img class="profile-img" src="https://love-of-god-and-of-all-men.github.io/assets/images/profiles/{{ author.short_name }}.png"</a>
       alt="{{ author.name }}">
     <h2><a href="{{ author.url }}">{{ author.name }}</a></h2>
     <p>{{ author.content | markdownify }}</p>
