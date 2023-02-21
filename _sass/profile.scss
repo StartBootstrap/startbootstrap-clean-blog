@@ -1,4 +1,4 @@
-img {
+.profile-img {
   --s: 200px; /* image size */
   --b: 6px; /* border thickness */
   --c: #ae3ec9; /* border color */
@@ -27,7 +27,7 @@ img {
   transform: scale(var(--f));
   transition: 0.5s;
 }
-img:hover {
+.profile-img:hover {
   --f: 1.4; /* hover scale */
 }
 
