@@ -47,33 +47,7 @@
       <div class="container">
          <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-               <div class="site-heading">
-                  <h1>{{ page.title }}</h1>
-                     <hr class="small">
-                     <span class="subheading">Doing my best to spread God's love to everyone</span>
-                     <p class="home-date">
-                        Today is </span>
-                        <script class="home-date">
-                           var now = new Date();
-                           var days = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
-                           var months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
-                           var date = ((now.getDate() < 10) ? "0" : "") + now.getDate();
-                           function fourdigits(number) {
-                              return (number < 1000) ? number + 1900 : number;
-                           }
-                           today = days[now.getDay()] + ", " +
-                              months[now.getMonth()] + " " +
-                              date + ", " +
-                              (fourdigits(now.getYear()));
-                           document.write(today);
-                        </script>
-                        <br>
-                        <iframe src="https://free.timeanddate.com/clock/i5zuu0zh/n220/fn15/fs18/tct/pct/ta1"
-                           frameborder="0" width="151" height="23" allowtransparency="true"></iframe><br>
-                        <script type="text/javascript" src="/assets/js/clean-blog.min.js"></script>
-                     <p class="tip" id="quote">Loading Quote...</p>
-                     <p class="tip"><a href="#" id="quote-share-link">Share Quote</a></p>
-               </div>
+               {% include siteheading.html %}
             </div>
          </div>
       </div>
