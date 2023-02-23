@@ -5,13 +5,12 @@ layout: default
 <hr>
 <h2 class="subheading">{{ page.subtitle }}</h2>
 <p>
+    Posted by 
     {% assign author = site.authors | where: 'short_name', page.author | first %}
     {% if author %}
     <a href="{{ author.url }}">{{ author.name }}</a>
     {% endif %}
-</p>
-<p>
-    {{ page.date | date: "%A, %B %-d, %Y" }} at {{ page.date | date: "%l:%M %p %Z" }}
+    on {{ page.date | date: "%A, %B %-d, %Y" }} at {{ page.date | date: "%l:%M %p %Z" }}
 </p>
 
 {{ content }}
