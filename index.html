@@ -17,11 +17,6 @@ title: The Love of God and of All Men
         </h3>
     </a>
     <p>
-        Posted by
-        {% assign author = site.authors | where: 'short_name', page.author | first %}
-        {% if author %}
-        <a href="{{ author.url }}">{{ author.name }}</a>
-        {% endif %}
         {{ page.date | date: "%B %-d, %Y" }}
     </p>
 </div>
