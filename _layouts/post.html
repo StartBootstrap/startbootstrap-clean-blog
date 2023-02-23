@@ -6,12 +6,11 @@ layout: default
 <h2 class="subheading">{{ page.subtitle }}</h2>
 <p>
     <!-- formatting the date nicely -->
-<p class="post-meta">Posted by {% assign author = site.authors | where: 'short_name', page.author | first %}
+    {{ page.date | date: '%A, %B %-d, %Y' }}
+    {% assign author = site.authors | where: 'short_name', page.author | first %}
     {% if author %}
-    <a href="{{ author.url }}">{{ author.name }}</a>
-    {% endif %} on <time datetime="{{ page.date | date_to_xmlschema">{{ page.date | date: '%A, %B %-d, %Y' }} at
-        {{ page.date | date: %l:%M %p %Z }}</time>
-</p>
+    - <a href="{{ author.url }}">{{ author.name }}</a>
+    {% endif %}
 </p>
 
 {{ content }}
