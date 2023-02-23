@@ -11,7 +11,7 @@ layout: default
     {% endif %}
 </p>
 <p>
-    {{ page.date | date: '%A, %B %-d, %Y' }} at {{ page.date | date: %l:%M %p %Z }}
+    {{ page.date | '%A, %B %-d, %Y' }} at {{ page.date | '%l:%M %p %Z' }}
 </p>
 
 {{ content }}
