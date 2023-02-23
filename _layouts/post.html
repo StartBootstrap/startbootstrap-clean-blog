@@ -5,8 +5,8 @@ layout: default
 <hr>
 <h2 class="subheading">{{ page.subtitle }}</h2>
 <p>
-    <!-- date_to_string formats the date nicely -->
-    {{ page.date | date_to_string }}
+    <!-- formatting the date nicely -->
+    {{ page.date | date: '%A, %B %-d, %Y' }}
     {% assign author = site.authors | where: 'short_name', page.author | first %}
     {% if author %}
     - <a href="{{ author.url }}">{{ author.name }}</a>
