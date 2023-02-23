@@ -2,4 +2,4 @@
 short_name: Riley
 name: Riley Grigg
 ---
-Riley is an avid fruit grower based in the south of France.
+Riley is the author of this blog.
