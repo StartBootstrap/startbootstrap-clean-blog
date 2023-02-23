@@ -7,8 +7,8 @@ date: 2022-04-25 17:49
 # Listen to this article:
 
 <audio controls>  
-<source src="https://love-of-god-and-of-all-men.github.io/assets/audio/thankful_for_service.mp3" controlsList="nodownload" type="audio/ogg">  
-<source src="https://love-of-god-and-of-all-men.github.io/assets/audio/thankful_for_service.m4a" controlsList="nodownload" type="audio/mpeg">  
+<source src="https://love-of-god-and-of-all-men.github.io/assets/audio/thankful_for_service.mp3" controls controlsList="nodownload" type="audio/ogg">  
+<source src="https://love-of-god-and-of-all-men.github.io/assets/audio/thankful_for_service.m4a" controls controlsList="nodownload" type="audio/mpeg">  
 Your browser does not support the audio element.
 </audio>
 
