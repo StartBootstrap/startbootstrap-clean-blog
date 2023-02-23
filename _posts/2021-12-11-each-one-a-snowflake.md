@@ -9,7 +9,7 @@ Originally Posted by Riley Grigg on [Closer to Christ with Riley](https://closer
 
 Thursday, I watched it snow, I've been thinking about all of us as people. We are all God's children, each one a snowflake. As I watched the snow falling, I had a thought about how each person, like each snowflake, is unique.
 
-![](/assets/images/headers/front-page/snowy_backyard.webp)
+<img class="img-responsive" src="/assets/images/headers/front-page/snowy_backyard.webp" alt="a child's climbing dome in the snow with lightly snowy trees and a fence in the background" title="a child's climbing dome in the snow with lightly snowy trees and a fence in the background">
 
 ----------
 
