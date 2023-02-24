@@ -6,9 +6,6 @@
             {% if author %}
             <a href="{{ author.url }}">{{ author.name }}</a>
             {% endif %}
-            <!-- on <time datetime="2022-12-13T12:14-07:00">December 13, 2022
-                  at
-                  12:14 PM MST</time> -->
             on {{ page.date | date: "%A, %B %-d, %Y" }} at {{ page.date | date: "%l:%M %p %Z" }}
       </span>
 </div>
