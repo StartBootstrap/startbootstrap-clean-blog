@@ -45,7 +45,8 @@
       <div class="container">
          <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-               {% if page.is_post %} <!-- is_post variable from _config.yml -->
+               <!-- is_post variable from _config.yml -->
+               {% if page.is_post %}
                {% include postheading.html %}
                {% else %}
                {% include siteheading.html %}
