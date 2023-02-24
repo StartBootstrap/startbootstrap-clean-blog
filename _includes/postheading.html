@@ -1,9 +1,13 @@
 <!-- Title, subheading, and metadata of post -->
 <div class="post-heading">
-   <h1>Putting Christ in Christmas</h1>
-   <h2 class="subheading">Who is Jesus to you?</h2>
-   <span class="meta">Posted by Riley Grigg on <time datetime="2022-12-13T12:14-07:00">December 13, 2022
-         at
-         12:14 PM MST</time></span>
+      <h1>{{ page.title }}</h1>
+      <h2 class="subheading">{{ page.subtitle }}</h2>
+      <span class="meta">Posted by {% assign author = site.authors | where: 'short_name', page.author | first %}
+            {% if author %}
+            <a href="{{ author.url }}">{{ author.name }}</a>
+            {% endif %} 
+            on <time datetime="2022-12-13T12:14-07:00">December 13, 2022
+                  at
+                  12:14 PM MST</time></span>
 </div>
 </div>
