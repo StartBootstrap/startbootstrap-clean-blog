@@ -268,6 +268,13 @@
    }
  }
 
+ .post-heading {
+   background-color: #00000050;
+   padding-left: 5%;
+   padding-right: 5%;
+   text-align: center;
+ }
+
  .post-preview>a>.post-title {
    font-size: 30px;
    margin-top: 30px;
