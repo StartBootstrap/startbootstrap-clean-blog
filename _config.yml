@@ -13,7 +13,7 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      is_post: true # automatically set is_post=true for all posts
+      is_post: true # automatically set is_post=true for all posts (used to determine in the default layout which header to show)
   - scope:
       path: ""
     values:
