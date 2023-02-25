@@ -1,144 +1,162 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <urlset
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xhtml="http://www.w3.org/1999/xhtml"
-      xsi:schemaLocation="
-            http://www.sitemaps.org/schemas/sitemap/0.9
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with PRO Sitemap Service https://pro-sitemaps.com -->
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-  <url>
-       <loc>https://love-of-god-and-of-all-men.github.io/</loc>
-       <lastmod>2022-12-13T20:05:05+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>1.0000</priority>
-  </url>
-  <url>
-       <loc>https://love-of-god-and-of-all-men.github.io/archive</loc>
-       <lastmod>2022-12-13T20:05:05+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://love-of-god-and-of-all-men.github.io/posts/2022/december/Christ-in-Christmas</loc>
-       <lastmod>2022-12-13T20:05:05+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://love-of-god-and-of-all-men.github.io/posts/2022/june/God-directing-our-paths</loc>
-       <lastmod>2022-12-13T20:05:05+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://love-of-god-and-of-all-men.github.io/posts/2022/april/thankful-for-service</loc>
-       <lastmod>2022-12-13T20:05:05+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://love-of-god-and-of-all-men.github.io/posts/2022/april/im-thankful-for-apr-5-2022</loc>
-       <lastmod>2022-12-13T20:05:05+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://love-of-god-and-of-all-men.github.io/posts/2021/december/each-one-snowflake</loc>
-       <lastmod>2022-12-13T20:05:05+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://love-of-god-and-of-all-men.github.io/index/p2</loc>
-       <lastmod>2022-12-13T20:05:05+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://love-of-god-and-of-all-men.github.io/archive/date</loc>
-       <lastmod>2022-12-13T20:05:05+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.6400</priority>
-  </url>
-  <url>
-       <loc>https://love-of-god-and-of-all-men.github.io/archive/title</loc>
-       <lastmod>2022-12-13T20:05:05+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.6400</priority>
-  </url>
-  <url>
-       <loc>https://love-of-god-and-of-all-men.github.io/posts/2021/november/local-orem-businesses</loc>
-       <lastmod>2022-12-13T20:05:05+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.6400</priority>
-  </url>
-  <url>
-       <loc>https://love-of-god-and-of-all-men.github.io/posts/2019/april/gc-faves</loc>
-       <lastmod>2022-12-13T20:05:05+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.6400</priority>
-  </url>
-  <url>
-       <loc>https://love-of-god-and-of-all-men.github.io/posts/2019/march/gc</loc>
-       <lastmod>2022-12-13T20:05:05+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.6400</priority>
-  </url>
-  <url>
-       <loc>https://love-of-god-and-of-all-men.github.io/posts/2018/december/christmas2018</loc>
-       <lastmod>2019-01-02T12:07:00+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.6400</priority>
-  </url>
-  <url>
-       <loc>https://love-of-god-and-of-all-men.github.io/posts/2018/september/october-2018-gc</loc>
-       <lastmod>2022-12-13T20:05:05+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.6400</priority>
-  </url>
-  <url>
-       <loc>https://love-of-god-and-of-all-men.github.io/index/p3</loc>
-       <lastmod>2022-12-13T20:05:05+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.6400</priority>
-  </url>
-  <url>
-       <loc>https://love-of-god-and-of-all-men.github.io/posts/2018/april/prom-2018</loc>
-       <lastmod>2022-12-13T20:05:05+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.5120</priority>
-  </url>
-  <url>
-       <loc>https://love-of-god-and-of-all-men.github.io/posts/2018/march/april-2018-gc</loc>
-       <lastmod>2022-12-13T20:05:05+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.5120</priority>
-  </url>
-  <url>
-       <loc>https://love-of-god-and-of-all-men.github.io/posts/2017/september/gc</loc>
-       <lastmod>2022-12-13T20:05:05+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.5120</priority>
-  </url>
-  <url>
-       <loc>https://love-of-god-and-of-all-men.github.io/posts/2017/july/pioneer2017</loc>
-       <lastmod>2022-12-13T20:05:05+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.5120</priority>
-  </url>
-  <url>
-       <loc>https://love-of-god-and-of-all-men.github.io/posts/2017/july/fourth</loc>
-       <lastmod>2022-12-13T20:05:05+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.5120</priority>
-  </url>
-  <url>
-       <loc>https://love-of-god-and-of-all-men.github.io/posts/2017/july/july</loc>
-       <lastmod>2022-12-13T20:05:05+00:00</lastmod>
-       <changefreq>daily</changefreq>
-       <priority>0.5120</priority>
-  </url>
+
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/</loc>
+  <lastmod>2023-02-25T16:27:07+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/archive.html</loc>
+  <lastmod>2023-02-25T16:27:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/contributors.html</loc>
+  <lastmod>2023-02-25T16:27:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/2023/02/23/He-knows-you.html</loc>
+  <lastmod>2023-02-25T16:27:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/authors/riley.html</loc>
+  <lastmod>2023-02-25T16:27:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/2023/02/23/homework-miracle.html</loc>
+  <lastmod>2023-02-25T16:27:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/2023/01/05/getting-to-know-nt.html</loc>
+  <lastmod>2023-02-25T16:27:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/2022/06/05/directing-our-paths.html</loc>
+  <lastmod>2023-02-25T16:27:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/2022/04/25/thankful-for-service.html</loc>
+  <lastmod>2023-02-25T16:27:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/2022/04/05/thankful.html</loc>
+  <lastmod>2023-02-25T16:27:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/2021/12/11/each-one-a-snowflake.html</loc>
+  <lastmod>2023-02-25T16:27:07+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/archive/date</loc>
+  <lastmod>2023-02-25T16:27:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/archive/title</loc>
+  <lastmod>2023-02-25T16:27:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/archive</loc>
+  <lastmod>2023-02-25T16:27:07+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/posts/2023/january/getting-to-know-nt</loc>
+  <lastmod>2023-02-25T16:27:04+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/posts/2022/december/Christ-in-Christmas</loc>
+  <lastmod>2023-02-25T16:27:04+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/posts/2022/june/God-directing-our-paths</loc>
+  <lastmod>2023-02-25T16:27:04+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/posts/2022/april/thankful-for-service</loc>
+  <lastmod>2023-02-25T16:27:04+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/posts/2022/april/im-thankful-for-apr-5-2022</loc>
+  <lastmod>2023-02-25T16:27:04+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/posts/2021/december/each-one-snowflake</loc>
+  <lastmod>2023-02-25T16:27:04+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/posts/2021/november/local-orem-businesses</loc>
+  <lastmod>2023-02-25T16:27:04+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/posts/2019/april/gc-faves</loc>
+  <lastmod>2023-02-25T16:27:04+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/posts/2019/march/gc</loc>
+  <lastmod>2023-02-25T16:27:04+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/posts/2018/december/christmas2018</loc>
+  <lastmod>2023-02-25T16:27:04+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/posts/2018/september/october-2018-gc</loc>
+  <lastmod>2023-02-25T16:27:04+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/posts/2018/march/april-2018-gc</loc>
+  <lastmod>2023-02-25T16:27:04+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/posts/2017/september/gc</loc>
+  <lastmod>2023-02-25T16:27:04+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/posts/2017/july/pioneer2017</loc>
+  <lastmod>2023-02-25T16:27:04+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/posts/2017/july/fourth</loc>
+  <lastmod>2023-02-25T16:27:04+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://love-of-god-and-of-all-men.github.io/posts/2017/july/july</loc>
+  <lastmod>2023-02-25T16:27:04+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
 </urlset>
