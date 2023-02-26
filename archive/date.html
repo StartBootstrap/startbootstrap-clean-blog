@@ -6,7 +6,7 @@ title: Archive by Date
   <!-- sorts the posts by date, reverses the default order from oldest to newest -->
   {% assign posts = site.posts | sort: 'date' | reverse %}
   {% for post in posts %}
-  <p><a href="{{ post.url }}">{{ post.title }}</a></p>
+  <p><a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%A, %B %-d, %Y" }}</p>
   {% endfor %}
 </ul>
 
