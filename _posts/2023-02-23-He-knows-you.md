@@ -18,3 +18,5 @@ This quote really hit me today. He really does know me. He knows you too and you
 ***
 
 Resources: [How to Pray](https://www.churchofjesuschrist.org/comeuntochrist/believe/god/how-to-pray).
+
+Photo by [Rosie Sun](https://unsplash.com/@rosiesun?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/photos/rTwhmFSoXC8?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
