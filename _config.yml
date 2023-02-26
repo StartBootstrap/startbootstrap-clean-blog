@@ -13,8 +13,8 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      is_post: true # automatically set is_post=true for all posts (used to determine in the default layout which header to show)
-- scope:
+      is_post: true # automatically set is_post=true for all posts (used to determine in which header to show at the top of each page)
+  - scope:
       path: ""
     values:
       layout: "default"
