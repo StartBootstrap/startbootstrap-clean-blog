@@ -3,6 +3,7 @@ layout: post
 author: Riley
 title: Getting to Know the New Testament
 subtitle: I invite you to think about these insights as you review the four gospels in the Bible this year.
+image: getting-to-know-nt
 date: 2023-01-05 15:44
 ---
 Biblical Insights
