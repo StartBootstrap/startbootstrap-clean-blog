@@ -5,7 +5,7 @@ title: Archive by Date
 <ul style="list-style-type: none;">
     {% assign posts = site.posts | sort: 'date' | reverse %}
 {% for post in posts %}
-  <p><a href="{{ post.url }}">{{ post.title }}</a>
+   <li><a href="{{ post.url }}">{{ post.title }}</a></li>
 {% endfor %}
 </ul>
 
