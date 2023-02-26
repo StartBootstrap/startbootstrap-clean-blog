@@ -1,1 +1,32 @@
-
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+{% if page.image %}
+<header class="intro-header" style="background-image: url('/assets/images/headers/{{ page.image }}');">
+    {% else %}
+    <header class="intro-header"
+        style="background-image: url('/assets/images/headers/front-page/God-loves-you-chalk.webp');">
+        {% endif %}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    {% if page.url == "/" %}
+                    {% include siteheading.html %}
+                    {% else %}
+                    {% include postheading.html %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <script>
+            (function () {
+                var cx = '013983193458560348448:lapt2plbyqi';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+            })();
+        </script>
+        <gcse:search></gcse:search>
+    </header>
