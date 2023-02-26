@@ -14,7 +14,7 @@ defaults:
     values:
       layout: "post"
       is_post: true # automatically set is_post=true for all posts (used to determine in which header to show at the top of each page)
-      image: /assets/images/headers/default
+      image: /assets/images/headers/default # no webp extension because it is specified already in the index.html
   - scope:
       path: ""
     values:
