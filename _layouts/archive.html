@@ -1,1 +1,40 @@
+---
+layout: default
+---
 
+<h1>{{ page.name }}</h1>
+
+{{ content }}
+
+<ul style="list-style-type: none;">
+    {% assign sorted_posts = site.posts | sort_natural %}
+    {% for post in sorted_posts %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+</ul>
+
+
+<!-- to be implemented later when a system is figured out to simplify this process with variables or whatever is needed -->
+<!-- <hr>
+  <a href="#a">A</a>
+  <a href="#c">C</a>
+  <a href="#e">E</a>
+  <a href="#f">F</a>
+  <a href="#g">G</a>
+  <a href="#i">I</a>
+  <a href="#j">J</a>
+  <a href="#l">L</a>
+  <a href="#o">O</a>
+  <a href="#p">P</a>
+  <a href="#r">R</a>
+  <a href="#t">T</a>
+  <hr>
+
+  <div class="letter">
+    <h1 id="a">A</h1>
+    <h2><a href="/posts/2018/march/april-2018-gc">April 2018 General Conference</a> - March 30, 2018</h2>
+    <h2><a href="/posts/2019/march/gc">April 2019 General Conference</a> - March 31, 2019</h2>
+    <a href="#">Back to Top</a>
+  </div>
+  <hr>
+-->
