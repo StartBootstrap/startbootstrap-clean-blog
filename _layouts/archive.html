@@ -6,13 +6,6 @@ layout: default
 
 {{ content }}
 
-<ul style="list-style-type: none;">
-    {% assign sorted_posts = site.posts | sort_natural %}
-    {% for post in sorted_posts %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-</ul>
-
 
 <!-- to be implemented later when a system is figured out to simplify this process with variables or whatever is needed -->
 <!-- <hr>
