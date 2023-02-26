@@ -14,7 +14,8 @@ defaults:
     values:
       layout: "post"
       is_post: true # automatically set is_post=true for all posts (used to determine in the default layout which header to show)
-  - scope:
+      image: /assets/images/headers/default.webp
+- scope:
       path: ""
     values:
       layout: "default"
