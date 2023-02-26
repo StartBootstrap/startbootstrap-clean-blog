@@ -7,11 +7,7 @@ title: The Love of God and of All Men
 {% for post in site.posts %}
 <div class="post-preview">
     <a href="{{ post.url }}">
-        {% if page.image %}
         <img src="/assets/images/headers/{{ post.image }}.webp" class="post-preview-image" width="300px" height="200px">
-        {% else %}
-        <img src="/assets/images/headers/default.webp" class="post-preview-image" width="300px" height="200px">
-        {% endif %}
         <h2 class="post-title">
             {{ post.title }}
         </h2>
