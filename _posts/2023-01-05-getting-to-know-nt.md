@@ -28,4 +28,4 @@ Matthew and Luke as well as Mark and John each had something unique to share. Ho
 
 * * *
 
-Header bible image from [rawpixel.com](https://www.rawpixel.com/image/3283929/free-photo-image-bible-reading-book)
+Header bible image from [rawpixel.com](https://www.rawpixel.com/image/3283929/free-photo-image-bible-reading-book){:target="_blank"}
