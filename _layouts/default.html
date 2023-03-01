@@ -6,26 +6,33 @@
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <!-- Code below sets the metadata based on if it is a blog post page or not -->
    {% if page.is_post %}
    <meta name="description" content="{{ page.subtitle }}">
-   {% else %}
-   <meta name="description" content="Doing my best to spread God's love to everyone">
-   {% endif %}
-   <meta name="theme-color" content="#FFFFFF">
-   <meta name="google-site-verification" content="hlYP3FRvFCuR1tXGgIjeIddGUvDxcrxAUM87lp19mrI" />
-   <!-- Bing site index verification code -->
-   <meta name="msvalidate.01" content="41C763BE2681A36D3DCB8CC46F33A20F" />
-   <link rel="icon" href="/favicon-512x512.png" />
-   <meta property="og:url" content="https://love-of-god-and-of-all-men.github.io" />
-   <meta property="og:title" content="{{ page.title }}" />
-   <meta property="og:description" content="Doing my best to spread God's love to everyone" />
-   <!-- Code below sets the metadata image url based on if it is a blog post page or not -->
-   {% if page.is_post %}
+   <meta property="og:description" content="{{ page.subtitle }}" />
    <meta property="og:image"
       content="https://love-of-god-and-of-all-men.github.io/assets/images/headers/{{ page.image }}.webp" />
    {% else %}
+   <meta name="description" content="Doing my best to spread God's love to everyone">
+   <meta property="og:description" content="Doing my best to spread God's love to everyone" />
    <meta property="og:image" content="https://love-of-god-and-of-all-men.github.io/God-loves-you-chalk.jpg" />
    {% endif %}
+
+   <!-- Code below sets the metadata based on if it is the homepage or not -->
+   {% if url == "/" %}
+   <meta name="google-site-verification" content="hlYP3FRvFCuR1tXGgIjeIddGUvDxcrxAUM87lp19mrI" />
+   <!-- Bing site index verification code -->
+   <meta name="msvalidate.01" content="41C763BE2681A36D3DCB8CC46F33A20F" />
+   {% else %}
+   {% endif %}
+
+   <!-- Metadata that is the same regardless of the page -->
+   <meta name="theme-color" content="#FFFFFF">
+   <link rel="icon" href="/favicon-512x512.png" />
+   <meta property="og:url" content="{{ page.url }}" />
+   <meta property="og:title" content="{{ page.title }}" />
+
    <title>{{ page.title }}</title>
    <!-- Bootstrap Core CSS -->
    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
