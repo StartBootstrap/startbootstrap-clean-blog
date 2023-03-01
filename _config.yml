@@ -19,5 +19,5 @@ defaults:
       path: ""
     values:
       layout: "default"
-      
+
 timezone: America/Denver
