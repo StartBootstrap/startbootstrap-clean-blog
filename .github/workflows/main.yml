@@ -1,0 +1,22 @@
+name: On Push Run
+
+on: push
+
+env:
+  MY_DIR: tag-generator
+
+jobs:
+  hello-world:
+    name: Hello world
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check-out devops repository
+      uses: actions/checkout@v2
+      with:
+        repository: griggril000/tag-generator
+        token: ${{ secrets.GITHUB_TOKEN }}
+        path: ${{ env.MY_DIR }}
+
+    - name: Hello World
+      run: python ${{ env.MY_DIR }}/tag_generator.py
+      shell: sh
