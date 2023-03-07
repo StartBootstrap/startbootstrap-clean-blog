@@ -46,6 +46,10 @@
    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
  }
 
+ .container-fluid {
+   background-color: white;
+ }
+
  p {
    line-height: 1.5;
    margin: 30px 0
