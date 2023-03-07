@@ -106,24 +106,24 @@
    }
 
    .navbar-custom .navbar-brand {
-     color: #fff;
-     padding: 20px
-   }
+    color: black;
+    padding: 20px
+  }
 
-   .navbar-custom .navbar-brand:focus,
-   .navbar-custom .navbar-brand:hover {
-     color: rgba(255, 255, 255, .8)
-   }
+  .navbar-custom .navbar-brand:focus,
+  .navbar-custom .navbar-brand:hover {
+    color: rgb(66 63 63 / 80%)
+  }
 
-   .navbar-custom .nav li a {
-     color: #fff;
-     padding: 20px
-   }
+  .navbar-custom .nav li a {
+    color: black;
+    padding: 20px
+  }
 
-   .navbar-custom .nav li a:focus,
-   .navbar-custom .nav li a:hover {
-     color: rgba(255, 255, 255, .8)
-   }
+  .navbar-custom .nav li a:focus,
+  .navbar-custom .nav li a:hover {
+    color: rgb(66 63 63 / 80%)
+  }
 
    .navbar-custom .nav li ul.dropdown-menu a {
      color: #333
