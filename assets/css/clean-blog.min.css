@@ -547,18 +547,6 @@
        transparent)
  }
 
- /* solid colored background for homepage date and time */
- .home-date,
- .date-announcement {
-   font-family: Lora, 'Times New Roman', serif;
-   font-size: 20px;
-   /*color overrides default site header text color*/
-   color: black;
-   background: white;
-   border-radius: 15px;
-   opacity: 0.8;
- }
-
  /* solid colored background for homepage tip */
  .tip {
    font-family: Lora, 'Times New Roman', serif;
