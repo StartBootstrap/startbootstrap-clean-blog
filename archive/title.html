@@ -6,7 +6,7 @@ title: Archive by Title
   <!-- sort_natural sorts posts alphabetically ignoring upper and lower case, also converts to string, so not ideal for number sorting -->
   {% assign sorted_posts = site.posts | sort_natural %}
   {% for post in sorted_posts %}
-  <p><a href="{{ post.url }}">{{ post.title }}</a></p>
+  <p><a href="{{ post.url }}">{{ post.title }} - <i>{{ post.date | date: "%B %-d, %Y" }}</i></a></p>
   {% endfor %}
 </ul>
 
