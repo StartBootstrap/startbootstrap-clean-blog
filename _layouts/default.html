@@ -105,7 +105,14 @@
          </div>
          <!-- right sidebar -->
          <div class="sidebar col-lg-2 col-md-3">
-            <p>Placeholder content</p>
+            {% for tag in site.tags %}
+            <h2 id="{{ tag[0] | slugify }}">{{ tag[0] }}</h2>
+            <ul>
+               {% for post in tag[1] %}
+               <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+               {% endfor %}
+            </ul>
+            {% endfor %}
          </div>
       </div>
    </div>
