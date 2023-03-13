@@ -3,3 +3,12 @@ layout: default
 ---
 
 {{ content }}
+
+{% if page.tags %}
+  <div class="post-tags">
+    {% for tag in page.tags %}
+    <a href="{{ site.url }}/tags/#{{ tag | slugify }}/"><button class="tag-bubble">{{ tag }}</button></a>
+      {% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  </div>
+{% endif %}
