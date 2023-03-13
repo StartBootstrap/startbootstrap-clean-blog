@@ -1,1 +1,20 @@
+.tag-bubble {
+  display: inline-block;
+  background-color: #0077cc;
+  color: #fff;
+  padding: 0.5em 1em;
+  border-radius: 1em;
+  font-size: 1rem;
+  text-align: center;
+  box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0.5em #0077cc;
+  }
+
+  &:hover {
+    background-color: #005fbf;
+  }
+}
