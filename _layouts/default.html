@@ -59,7 +59,8 @@
    <!-- Main Content -->
    <div class="container">
       <div class="row">
-         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+         <!-- main area -->
+         <div class="col-lg-10 col-md-9">
             {% if page.url == "/" %} <!-- script is included only if it is on the homepage -->
             <!-- Below is a script that will get the quote displayed on the page at the current moment and allow it to be shared on various platforms (depending on the device's sharing capabilities) when the link is clicked -->
             <script>
@@ -101,6 +102,10 @@
             {% endif %}
 
             {{content}}
+         </div>
+         <!-- right sidebar -->
+         <div class="col-lg-4 col-md-3">
+
          </div>
       </div>
    </div>
