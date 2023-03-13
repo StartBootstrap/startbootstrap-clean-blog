@@ -106,7 +106,7 @@
          <!-- right sidebar -->
          <div class="sidebar col-lg-2 col-md-3">
             {% for tag in site.tags %}
-            <p><b>id="{{ tag[0] | slugify }}">{{ tag[0] }}</b></p>
+            <p id="{{ tag[0] | slugify }}"><b>{{ tag[0] }}</b></p>
             <ul>
                {% for post in tag[1] %}
                <li><a href="{{ post.url }}">{{ post.title }}</a></li>
