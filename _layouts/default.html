@@ -59,8 +59,7 @@
    <!-- Main Content -->
    <div class="container">
       <div class="row">
-         <!-- main area -->
-         <div class="col-lg-10 col-md-9">
+         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             {% if page.url == "/" %} <!-- script is included only if it is on the homepage -->
             <!-- Below is a script that will get the quote displayed on the page at the current moment and allow it to be shared on various platforms (depending on the device's sharing capabilities) when the link is clicked -->
             <script>
@@ -102,17 +101,6 @@
             {% endif %}
 
             {{content}}
-         </div>
-         <!-- right sidebar -->
-         <div class="sidebar col-lg-2 col-md-3">
-            {% for tag in site.tags %}
-            <p id="{{ tag[0] | slugify }}"><b>{{ tag[0] }}</b></p>
-            <ul>
-               {% for post in tag[1] %}
-               <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-               {% endfor %}
-            </ul>
-            {% endfor %}
          </div>
       </div>
    </div>
