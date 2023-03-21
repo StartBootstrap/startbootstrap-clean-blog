@@ -11,4 +11,4 @@ Text
 
 ***
 
-Photo of the conference center at Temple Square from [churchofjesuschrist.org](https://www.churchofjesuschrist.org/media/image/conference-center-6e84e90?lang=eng&collectionId=5fd2e81dea574676b73022f1806607cb){:target="_blank"}
+Photo of the conference center at Temple Square from [churchofjesuschrist.org/media](https://www.churchofjesuschrist.org/media/image/conference-center-6e84e90?lang=eng&collectionId=5fd2e81dea574676b73022f1806607cb){:target="_blank"}
