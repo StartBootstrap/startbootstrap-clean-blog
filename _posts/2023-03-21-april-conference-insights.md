@@ -7,7 +7,7 @@ image: april-conference-insights
 date: 2023-03-21 12:22
 ---
 
-Text
+This page will be updated once general conference happens April 1st and 2nd.
 
 ***
 
