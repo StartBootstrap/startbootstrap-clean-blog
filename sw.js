@@ -31,49 +31,30 @@ self.addEventListener('fetch', event => {
         cache.put(event.request, fetchResponse.clone());
         return fetchResponse;
       } catch (e) {
-        // The network failed. Show offline message.
-        const offlineMessage = new Response('<h1>You are currently offline</h1>', {
-          headers: {'Content-Type': 'text/html'}
-        });
-        return offlineMessage;
+        // The network failed.
       }
     }
   })());
 });
 
-self.addEventListener('activate', event => {
-  event.waitUntil((async () => {
-    const keys = await caches.keys();
-    // Delete old cache versions.
-    keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key));
-  })());
+// Listen for the "offline" event
+window.addEventListener('offline', function (event) {
+  const offlineMessage = document.querySelector('.offline-message');
+  offlineMessage.textContent = 'You are currently offline. Please check your internet connection.';
+  offlineMessage.style.position = 'fixed';
+  offlineMessage.style.bottom = 0;
+  offlineMessage.style.width = '100%';
+  offlineMessage.style.backgroundColor = 'red';
+  offlineMessage.style.color = 'white';
+  offlineMessage.style.padding = '10px';
+  offlineMessage.style.textAlign = 'center';
+  document.body.appendChild(offlineMessage);
 });
 
-// Show/hide offline message
-function showOfflineMessage() {
-  const offlineDiv = document.createElement('div');
-  offlineDiv.innerHTML = '<h1>You are currently offline</h1>';
-  offlineDiv.id = 'offline-message';
-  document.body.appendChild(offlineDiv);
-}
-
-function hideOfflineMessage() {
-  const offlineDiv = document.getElementById('offline-message');
-  if (offlineDiv) {
-    offlineDiv.remove();
+// Listen for the "online" event
+window.addEventListener('online', function (event) {
+  const offlineMessage = document.querySelector('.offline-message');
+  if (offlineMessage) {
+    offlineMessage.remove();
   }
-}
-
-window.addEventListener('load', () => {
-  if (!navigator.onLine) {
-    showOfflineMessage();
-  }
-});
-
-window.addEventListener('online', () => {
-  hideOfflineMessage();
-});
-
-window.addEventListener('offline', () => {
-  showOfflineMessage();
 });
