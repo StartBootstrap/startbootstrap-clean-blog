@@ -1,4 +1,4 @@
-const CACHE_NAME = `blog-v1`;
+const CACHE_NAME = `blog-v1.1`;
 
 // Use the install event to pre-cache all initial resources.
 self.addEventListener('install', event => {
