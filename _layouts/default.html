@@ -35,7 +35,7 @@
 
    <title>{{ page.title }}</title>
    <!-- link to the manifest file -->
-   <link rel="manifest" href="manifest.json">
+   <link rel="manifest" href="/manifest.json">
    <!-- Bootstrap Core CSS -->
    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
    <!-- Theme CSS -->
@@ -113,6 +113,12 @@
    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
    <!-- Theme JavaScript -->
    <script src="/assets/js/clean-blog.min.js"></script>
+   <!-- Registering service worker -->
+   <script>
+      if ('serviceWorker' in navigator) {
+         navigator.serviceWorker.register('/assets/js/sw.js', { scope: '/' });
+      }
+   </script>
 </body>
 
 </html>
