@@ -114,11 +114,12 @@
    <!-- Theme JavaScript -->
    <script src="/assets/js/clean-blog.min.js"></script>
    <!-- Registering service worker -->
-   <script>
-      if ('serviceWorker' in navigator) {
-         navigator.serviceWorker.register('/sw.js', { scope: '/' });
-      }
-   </script>
 </body>
+
+<script>
+   if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js', { scope: '/' });
+   }
+</script>
 
 </html>
