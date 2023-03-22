@@ -1,0 +1,21 @@
+{
+    "lang": "en-us",
+    "name": "The Love of God and of All Men",
+    "short_name": "The Love of God and of All Men",
+    "description": "Doing my best to spread God's love to everyone",
+    "start_url": "/",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "orientation": "any",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "favicon-512x512.png",
+            "sizes": "512x512"
+        },
+        {
+            "src": "favicon-32x32.png",
+            "sizes": "32x32"
+        }
+    ]
+}
