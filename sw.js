@@ -41,6 +41,7 @@ self.addEventListener('fetch', event => {
 window.addEventListener('offline', function (event) {
   const offlineMessage = document.createElement('div');
   offlineMessage.textContent = 'You are currently offline. Please check your internet connection.';
+  offlineMessage.className = 'offline-message'; // Add class name to the element
   offlineMessage.style.position = 'fixed';
   offlineMessage.style.bottom = 0;
   offlineMessage.style.width = '100%';
