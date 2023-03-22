@@ -9,7 +9,7 @@ self.addEventListener('install', event => {
       '/assets/css/accordion.css',
       '/assets/css/clean-blog.min.css',
       '/assets/css/menu.css',
-      'assets/css/styles.scss'
+      '/assets/css/styles.scss'
     ]);
   })());
 });
