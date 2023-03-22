@@ -20,8 +20,6 @@ defaults:
     values:
       layout: "default"
 
-permalink: pretty
-
 # Tags (This tells Jekyll to generate a new directory called tag and place tag pages in that directory.)
 tag_page_dir: tag
 
