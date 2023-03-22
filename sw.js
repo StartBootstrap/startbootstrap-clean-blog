@@ -31,8 +31,49 @@ self.addEventListener('fetch', event => {
         cache.put(event.request, fetchResponse.clone());
         return fetchResponse;
       } catch (e) {
-        // The network failed.
+        // The network failed. Show offline message.
+        const offlineMessage = new Response('<h1>You are currently offline</h1>', {
+          headers: {'Content-Type': 'text/html'}
+        });
+        return offlineMessage;
       }
     }
   })());
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil((async () => {
+    const keys = await caches.keys();
+    // Delete old cache versions.
+    keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key));
+  })());
+});
+
+// Show/hide offline message
+function showOfflineMessage() {
+  const offlineDiv = document.createElement('div');
+  offlineDiv.innerHTML = '<h1>You are currently offline</h1>';
+  offlineDiv.id = 'offline-message';
+  document.body.appendChild(offlineDiv);
+}
+
+function hideOfflineMessage() {
+  const offlineDiv = document.getElementById('offline-message');
+  if (offlineDiv) {
+    offlineDiv.remove();
+  }
+}
+
+window.addEventListener('load', () => {
+  if (!navigator.onLine) {
+    showOfflineMessage();
+  }
+});
+
+window.addEventListener('online', () => {
+  hideOfflineMessage();
+});
+
+window.addEventListener('offline', () => {
+  showOfflineMessage();
 });
