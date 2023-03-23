@@ -7,7 +7,7 @@ layout: default
 {% if page.tags %}
 <div class="post-tags">
   {% for tag in page.tags %}
-  <a href="{{ site.url }}/tags#{{ tag | slugify }}"><button class="tag-bubble">{{ tag }}</button></a>
+  <a href="{{ site.url }}/tags#{{ tag | slugify }}" class="label label-primary">{{ tag }}</a>
   {% endfor %}
 </div>
 {% endif %}
