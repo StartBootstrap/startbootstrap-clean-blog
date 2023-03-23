@@ -17,5 +17,43 @@
             "src": "favicon-32x32.png",
             "sizes": "32x32"
         }
+    ],
+    "shortcuts": [
+        {
+            "name": "View the 5 Most Recent Posts",
+            "short_name": "Most Recent Posts",
+            "description": "View the 5 most recent posts by date",
+            "url": "/#posts",
+            "icons": [
+                {
+                    "src": "/icons/play-later.png",
+                    "sizes": "192x192"
+                }
+            ]
+        },
+        {
+            "name": "Archive by Date",
+            "short_name": "Archive by Date",
+            "description": "View a list of all posts sorted by date",
+            "url": "/archive/date/",
+            "icons": [
+                {
+                    "src": "/icons/subscriptions.png",
+                    "sizes": "192x192"
+                }
+            ]
+        },
+        {
+            "name": "Archive by Title",
+            "short_name": "Archive by Title",
+            "description": "View a list of all posts sorted alphabetically by title",
+            "url": "/archive/title/",
+            "icons": [
+                {
+                    "src": "/icons/subscriptions.png",
+                    "sizes": "192x192"
+                }
+            ]
+        }
     ]
 }
