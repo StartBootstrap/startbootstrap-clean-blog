@@ -35,7 +35,7 @@
             "name": "Archive by Date",
             "short_name": "Archive by Date",
             "description": "View a list of all posts sorted by date",
-            "url": "/archive/date/",
+            "url": "/archive/date",
             "icons": [
                 {
                     "src": "/icons/subscriptions.png",
@@ -47,7 +47,7 @@
             "name": "Archive by Title",
             "short_name": "Archive by Title",
             "description": "View a list of all posts sorted alphabetically by title",
-            "url": "/archive/title/",
+            "url": "/archive/title",
             "icons": [
                 {
                     "src": "/icons/subscriptions.png",
