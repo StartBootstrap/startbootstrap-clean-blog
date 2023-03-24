@@ -27,7 +27,7 @@
             "icons": [
                 {
                     "src": "/assets/images/icons/clock-rotate-left-solid.png",
-                    "sizes": "192x192"
+                    "sizes": "512x512"
                 }
             ]
         },
@@ -39,7 +39,7 @@
             "icons": [
                 {
                     "src": "/assets/images/icons/calendar-regular.png",
-                    "sizes": "192x192"
+                    "sizes": "448x512"
                 }
             ]
         },
@@ -51,7 +51,7 @@
             "icons": [
                 {
                     "src": "/assets/images/icons/a-solid.png",
-                    "sizes": "192x192"
+                    "sizes": "384x512"
                 }
             ]
         }
