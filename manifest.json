@@ -26,7 +26,7 @@
             "url": "/#posts",
             "icons": [
                 {
-                    "src": "/assets/images/icons/clock-rotate-left-solid.svg",
+                    "src": "/assets/images/icons/clock-rotate-left-solid.png",
                     "sizes": "192x192"
                 }
             ]
@@ -38,7 +38,7 @@
             "url": "/archive/date.html",
             "icons": [
                 {
-                    "src": "/assets/images/icons/calendar-regular.svg",
+                    "src": "/assets/images/icons/calendar-regular.png",
                     "sizes": "192x192"
                 }
             ]
@@ -50,7 +50,7 @@
             "url": "/archive/title.html",
             "icons": [
                 {
-                    "src": "/assets/images/icons/a-solid.svg",
+                    "src": "/assets/images/icons/a-solid.png",
                     "sizes": "192x192"
                 }
             ]
