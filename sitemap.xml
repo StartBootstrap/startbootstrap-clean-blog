@@ -1,87 +1,40 @@
+---
+layout: null
+sitemap:
+  exclude: 'yes'
+---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://love-of-god-and-of-all-men.github.io/</loc>
-  <lastmod>2023-03-13T01:57:32+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://love-of-god-and-of-all-men.github.io/archive.html</loc>
-  <lastmod>2023-03-13T01:57:32+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://love-of-god-and-of-all-men.github.io/contributors.html</loc>
-  <lastmod>2023-03-13T01:57:32+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://love-of-god-and-of-all-men.github.io/2023/03/12/thankful-for-connection.html</loc>
-  <lastmod>2023-03-13T01:57:32+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://love-of-god-and-of-all-men.github.io/authors/riley.html</loc>
-  <lastmod>2023-03-13T01:57:32+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://love-of-god-and-of-all-men.github.io/2023/02/23/He-knows-you.html</loc>
-  <lastmod>2023-03-13T01:57:32+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://love-of-god-and-of-all-men.github.io/2023/02/23/homework-miracle.html</loc>
-  <lastmod>2023-03-13T01:57:32+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://love-of-god-and-of-all-men.github.io/2023/01/05/getting-to-know-nt.html</loc>
-  <lastmod>2023-03-13T01:57:32+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://love-of-god-and-of-all-men.github.io/2022/06/05/directing-our-paths.html</loc>
-  <lastmod>2023-03-13T01:57:32+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://love-of-god-and-of-all-men.github.io/archive</loc>
-  <lastmod>2023-03-13T01:57:32+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://love-of-god-and-of-all-men.github.io/archive/date</loc>
-  <lastmod>2023-03-13T01:57:32+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://love-of-god-and-of-all-men.github.io/archive/title</loc>
-  <lastmod>2023-03-13T01:57:32+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://love-of-god-and-of-all-men.github.io/2022/04/25/thankful-for-service.html</loc>
-  <lastmod>2023-03-13T01:57:32+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://love-of-god-and-of-all-men.github.io/2022/04/05/thankful.html</loc>
-  <lastmod>2023-03-13T01:57:32+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://love-of-god-and-of-all-men.github.io/2021/12/11/each-one-a-snowflake.html</loc>
-  <lastmod>2023-03-13T01:57:32+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
-
+            {% for post in site.posts %}
+    {% unless post.published == false %}
+    <url>
+      <loc>{{ site.url }}{{ post.url }}</loc>
+      {% if post.sitemap.lastmod %}
+        <lastmod>{{ post.sitemap.lastmod | date: "%Y-%m-%d" }}</lastmod>
+      {% elsif post.date %}
+        <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+      {% else %}
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+      {% endif %}
+    </url>
+    {% endunless %}
+  {% endfor %}
+  {% for page in site.pages %}
+    {% unless page.sitemap.exclude == "yes" %}
+    <url>
+      <loc>{{ site.url }}{{ page.url | remove: "index.html" }}</loc>
+      {% if page.sitemap.lastmod %}
+        <lastmod>{{ page.sitemap.lastmod | date: "%Y-%m-%d" }}</lastmod>
+      {% elsif page.date %}
+        <lastmod>{{ page.date | date_to_xmlschema }}</lastmod>
+      {% else %}
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+      {% endif %}
+    </url>
+    {% endunless %}
+  {% endfor %}
 </urlset>
