@@ -1,4 +1,5 @@
 ---
+layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
@@ -8,6 +9,6 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
   <loc>https://love-of-god-and-of-all-men.github.io/</loc>
-  <lastmod>{{ page."now" | date: "%Y-%m-%d %H:%M" }}</lastmod>
+  <lastmod>{{ "now" | date: "%Y-%m-%d %H:%M" }}</lastmod>
 </url>
 </urlset>
