@@ -7,8 +7,14 @@ layout: null
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<url>
-  <loc>https://love-of-god-and-of-all-men.github.io/</loc>
-  <lastmod>{{ "now" | date: "%Y-%m-%d %H:%M" }}</lastmod>
-</url>
+            {% for post in site.posts %}
+            <url>
+    <loc>{{ site.url }}{{ page.url | remove: "index.html" }}</loc>
+    {% if page.date %}
+      <lastmod>{{ page.date | date_to_xmlschema }}</lastmod>
+    {% else %}
+      <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+    {% endif %}
+  </url>
+            {% endfor %}
 </urlset>
