@@ -8,6 +8,6 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
   <loc>https://love-of-god-and-of-all-men.github.io/</loc>
-  <lastmod>2023-03-13T01:57:32+00:00</lastmod>
+  <lastmod>{{ "now" | date: "%Y-%m-%d %H:%M" }}</lastmod>
 </url>
 </urlset>
