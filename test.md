@@ -9,9 +9,9 @@ General Conference is in:
 
 <script>
 
-// Set the date to countdown to (in this example, December 31, 2023 at 11:59 PM)
+// Set the date to countdown to conference (Saturday morning session)
 
-var countDownDate = new Date("Dec 31, 2023 23:59:59").getTime();
+var countDownDate = new Date("Apr 1, 2023 10:00:00").getTime();
 
 // Update the countdown every second
 
@@ -37,7 +37,7 @@ var countdownInterval = setInterval(function() {
 
   // Display the countdown
 
-  document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+  document.getElementById("countdown").innerHTML = days + "days";
 
   // If the countdown is finished, display a message
 
