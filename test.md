@@ -4,8 +4,7 @@ title: Test
 ---
 
 <p>Join me in listening to living prophets and Apostles this weekend.  <a href="https://newsroom.churchofjesuschrist.org/event/april-2023-general-conference?lang=eng" target="_blank">Learn More</a></p>
-General Conference is in:
-<div id="countdown"></div>
+General Conference is in: <div id="countdown"></div>
 
 <script>
 
