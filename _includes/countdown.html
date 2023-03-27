@@ -1,0 +1,27 @@
+<div id="countdown"></div>
+<script>
+// Set the date to count down to
+var countDownDate = new Date("April 1, 2023 10:00:00").getTime();
+
+// Update the countdown every 1 second (one second comes from the 1000 ms at the very bottom of the code)
+var x = setInterval(function() {
+
+  // Get the current date and time
+  var now = new Date().getTime();
+
+  // Calculate the time remaining
+  var distance = countDownDate - now;
+
+  // Calculate days remaining (Math.ceil I believe will make the count accurate as expected instead of showing the technical time remaining. Ex. 3 and a half days or 3 days and 12 hours showing as 3 days instead of 4 as you would count on a calendar not counting the hours.)
+  var daysRemaining = Math.ceil(distance / (1000 * 60 * 60 * 24));
+
+  // Display the days remaining
+  document.getElementById("countdown").innerHTML = daysRemaining + " days remaining";
+
+  // If the countdown is finished, display a message
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
