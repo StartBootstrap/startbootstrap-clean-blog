@@ -4,7 +4,7 @@ author: Riley
 subtitle: What is General Conference and what can I expect?
 tags: [general conference, prophets, Apostles]
 image: apr-general-conference
-date: 2023-03-27 18:00
+date: 2023-03-27 14:00
 ---
 
 {% include countdown.html %}
