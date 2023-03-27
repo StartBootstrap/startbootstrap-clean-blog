@@ -16,12 +16,12 @@ var x = setInterval(function() {
   var daysRemaining = Math.ceil(distance / (1000 * 60 * 60 * 24));
 
   // Display the days remaining
-  document.getElementById("countdown").innerHTML = daysRemaining + " days remaining";
+  document.getElementById("countdown").innerHTML = daysRemaining + " days until General Conference.";
 
   // If the countdown is finished, display a message
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("countdown").innerHTML = "EXPIRED";
+    document.getElementById("countdown").innerHTML = "Watch live on" + ' <a href="https://www.churchofjesuschrist.org/">the Church\'s website</a>' + " or on the" + ' <a href="https://www.youtube.com/user/LDSGeneralConference">the General Conference YouTube channel</a>' + ".";
   }
 }, 1000);
 </script>
