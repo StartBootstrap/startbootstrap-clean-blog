@@ -37,7 +37,7 @@ var countdownInterval = setInterval(function() {
 
   // Display the countdown
 
-  document.getElementById("countdown").innerHTML = days + "days";
+  document.getElementById("countdown").innerHTML = days + " days";
 
   // If the countdown is finished, display a message
 
