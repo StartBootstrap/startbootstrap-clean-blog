@@ -13,7 +13,7 @@ General Conference is in:
 
 var countDownDate = new Date("Apr 1, 2023 10:00:00").getTime();
 
-// Update the countdown every hour (3600000 at the bottom is one hour)
+// Update the countdown every second
 
 var countdownInterval = setInterval(function() {
 
@@ -49,6 +49,6 @@ var countdownInterval = setInterval(function() {
 
   }
 
-}, 3600000);
+}, 1000);
 
 </script>
