@@ -5,7 +5,8 @@ layout: default
 <h1>All Tags</h1>
 
 <!-- using sort_natural sorts post tags alphabetically ignoring upper and lower case, also converts to string, so not ideal for number sorting -->
-{% for tag in site.tags | sort_natural %}
+{% assign sorted_posts = site.tags | sort_natural %}
+{% for tag in site.tags %}
 <h2 id="{{ tag[0] | slugify }}">{{ tag[0] }}</h2>
 <ul>
   {% for post in tag[1] %}
