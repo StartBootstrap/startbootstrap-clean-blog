@@ -9,7 +9,6 @@ date: 2023-03-27 14:00
 ---
 
 {% include countdown.html %}
-[Learn More](https://newsroom.churchofjesuschrist.org/event/april-2023-general-conference?lang=eng){:target="_blank"}
 
 ***
 
