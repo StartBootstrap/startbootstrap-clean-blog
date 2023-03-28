@@ -3,6 +3,7 @@ layout: post
 author: Riley
 subtitle: I'm thankful for the opportunity to serve and to be served.
 image: thankful-for-service
+tags: [service, love, gratitude, posts with audio]
 date: 2022-04-25 17:49
 ---
 
