@@ -2,7 +2,7 @@
 layout: post
 author: Riley
 subtitle: Each person is unique like a snowflake. Each person is loved by God individually.
-tags: [relationships, love, your potential, individual worth]
+tags: [relationships, love, your potential, individual worth, identity, divine identity, nature]
 image: snowy_backyard
 date: 2021-12-11 16:14
 ---
