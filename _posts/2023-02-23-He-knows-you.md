@@ -3,6 +3,7 @@ layout: post
 author: Riley
 title: He Knows You
 subtitle: The Savior knows your struggles in detail.
+tags: [love, trials, your potential, prayer]
 image: He-knows-you
 date: 2023-02-23 16:00
 ---

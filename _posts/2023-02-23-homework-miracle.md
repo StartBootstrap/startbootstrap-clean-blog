@@ -2,7 +2,7 @@
 layout: post
 author: Riley
 subtitle: My miracle tonight
-tags: [gratitude]
+tags: [gratitude, school]
 date: 2023-02-23 00:37
 ---
 
