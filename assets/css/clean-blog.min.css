@@ -588,6 +588,10 @@
    }
  }
 
+ .post-tags {
+   margin-top: 15px;
+ }
+
  */ .progress-container {
    position: fixed;
    top: 0;
