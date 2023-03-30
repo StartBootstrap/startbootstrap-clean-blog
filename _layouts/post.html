@@ -4,6 +4,8 @@ layout: default
 
 {{ content }}
 
+{% include comment-box.html %}
+
 {% if page.tags %}
 <div class="post-tags">
   {% for tag in page.tags %}
