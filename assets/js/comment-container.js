@@ -1,34 +1,39 @@
-if (window.matchMedia("(max-width: 768px)").matches) {
-    const container = document.getElementById('container');
-    let startY = 0;
-    let endY = 0;
+const container = document.getElementById('container');
+const threshold = 50;
+let startY = 0;
+let endY = 0;
+let isRefreshing = false;
 
-    window.addEventListener('touchstart', (event) => {
-        startY = event.touches[0].clientY;
-    });
+window.addEventListener('touchstart', (event) => {
+  if (event.touches[0].clientY > window.innerHeight - threshold) {
+    startY = event.touches[0].clientY;
+    isRefreshing = false;
+  }
+});
 
-    window.addEventListener('touchend', (event) => {
-        endY = event.changedTouches[0].clientY;
-        const distance = startY - endY;
+window.addEventListener('touchmove', (event) => {
+  if (isRefreshing) {
+    return;
+  }
+  
+  if (event.changedTouches[0].clientY > window.innerHeight - threshold) {
+    endY = event.changedTouches[0].clientY;
+    const distance = startY - endY;
 
-        if (distance > 50) {
-            container.style.display = 'block';
-        } else if (distance < -50) {
-            container.style.display = 'none';
-        }
-    });
+    if (distance > threshold) {
+      isRefreshing = true;
+      container.style.display = 'block';
+      // Call your refresh function here
+      console.log('Refresh triggered!');
+    }
+  }
+});
 
-} else {
-    document.addEventListener('keypress', function (event) {
-        // Check if the key pressed is the 'c' key
-        if (event.key === 'c') {
-            // Toggle the visibility of the comment-container
-            var container = document.getElementById('container');
-            if (container.style.display === 'none') {
-                container.style.display = 'block';
-            } else {
-                container.style.display = 'none';
-            }
-        }
-    });
-}
+window.addEventListener('touchend', () => {
+  if (!isRefreshing) {
+    return;
+  }
+  
+  isRefreshing = false;
+  container.style.display = 'none';
+});
