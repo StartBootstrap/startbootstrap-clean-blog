@@ -1,6 +1,6 @@
 if (window.matchMedia("(max-width: 768px)").matches) {
     // Get a reference to the container
-    var accordion = document.getElementById('container');
+    var container = document.getElementById('container');
 
     // Add touch event listeners to the document
     document.addEventListener('touchstart', handleTouchStart, false);
