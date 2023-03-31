@@ -5,3 +5,20 @@
 	overflow: hidden;
 	font-size: 15px;
 }
+
+@media (max-width: 768px) {
+
+	/* CSS styles for mobile devices */
+	#comment-container {
+		position: fixed;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		transition: all 0.3s ease;
+	}
+
+	#comment-container.show {
+		left: 0;
+	}
+}
