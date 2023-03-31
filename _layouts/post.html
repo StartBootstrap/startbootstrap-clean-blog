@@ -31,6 +31,12 @@ layout: default
 <script src="/assets/js/comment-container.js"></script>
 {% endif %}
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<div style="height:2000px; background-color:green" id="content">
+</div>
+<div style="height:10px; display:none; background-color:red" id="extra">
+</div>
+
 {% if page.tags %}
 <div class="post-tags">
   {% for tag in page.tags %}
