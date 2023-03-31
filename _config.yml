@@ -15,6 +15,8 @@ defaults:
       layout: "post"
       is_post: true # automatically set is_post=true for all posts (used to determine in which header to show at the top of each page)
       image: default
+      // Disqus comments allowed unless explicitly set to false in the post Front Matter
+      comments: true
   - scope:
       path: ""
     values:
