@@ -1,7 +1,11 @@
 document.addEventListener('keypress', function (event) {
     // Check if the key pressed is the 'c' key
     if (event.key === 'c') {
-        // Show the comments section by changing the comment-container's display property
-        document.getElementById('comment-container').style.display = 'block';
+        // Toggle the visibility of the accordion
+        if (accordion.style.display === 'none') {
+            accordion.style.display = 'block';
+        } else {
+            accordion.style.display = 'none';
+        }
     }
 });
