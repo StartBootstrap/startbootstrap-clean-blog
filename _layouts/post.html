@@ -5,8 +5,8 @@ layout: default
 {{ content }}
 
 {% if page.comments %}
-<link rel="stylesheet" href="/assets/css/accordion.css">
-<div class="panel">
+<link rel="stylesheet" href="/assets/css/comment-container.css">
+<div class="comment-container">
   <div id="disqus_thread"></div>
   <script>
     /**
@@ -28,7 +28,7 @@ layout: default
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
       Disqus.</a></noscript>
 </div>
-<script src="/assets/js/accordion.js"></script>
+<script src="/assets/js/comment-container.js"></script>
 {% endif %}
 
 {% if page.tags %}
