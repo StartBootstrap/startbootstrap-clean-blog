@@ -5,8 +5,9 @@ layout: default
 {{ content }}
 
 {% if page.comments %}
-<link rel="stylesheet" href="/assets/css/comment-container.css">
-<div id="container">
+<link rel="stylesheet" href="/assets/css/accordion.css">
+<button class="btn btn-info accordion">Comment on this post</button>
+<div class="panel">
   <div id="disqus_thread"></div>
   <script>
     /**
@@ -28,14 +29,8 @@ layout: default
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
       Disqus.</a></noscript>
 </div>
-<script src="/assets/js/comment-container.js"></script>
+<script src="/assets/js/accordion.js"></script>
 {% endif %}
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<div style="height:2000px; background-color:green" id="content">
-</div>
-<div style="height:10px; display:none; background-color:red" id="extra">
-</div>
 
 {% if page.tags %}
 <div class="post-tags">
