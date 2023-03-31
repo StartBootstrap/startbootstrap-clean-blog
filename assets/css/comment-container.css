@@ -1,4 +1,4 @@
-#comment-container {
+#container {
 	padding: 0 18px;
 	background-color: white;
 	display: none;
@@ -9,7 +9,7 @@
 @media (max-width: 768px) {
 
 	/* CSS styles for mobile devices */
-	#comment-container {
+	#container {
 		position: fixed;
 		top: 0;
 		left: -100%;
@@ -18,7 +18,7 @@
 		transition: all 0.3s ease;
 	}
 
-	#comment-container.show {
+	#container.show {
 		left: 0;
 	}
 }
