@@ -5,7 +5,7 @@ subtitle:
 tags: []
 # image: the-book-of-mormon-and-personal-revelation
 
-date: 2023-05-05 00:00
+date: 2023-05-05 15:51
 ---
 
 I'm so thankful for the Book of Mormon because it's helped me throughout my life whether helping me solve my problems or bringing me peace.
