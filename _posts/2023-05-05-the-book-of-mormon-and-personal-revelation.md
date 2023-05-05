@@ -1,7 +1,7 @@
 ---
 layout: post
 author: Riley
-subtitle: 
+subtitle: The book mormon brings peace and personal revelation not just for me, but for you too.
 tags: []
 # image: the-book-of-mormon-and-personal-revelation
 
