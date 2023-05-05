@@ -3,7 +3,8 @@ layout: post
 author: Riley
 subtitle: 
 tags: []
-image: the-book-of-mormon-and-personal-revelation
+# image: the-book-of-mormon-and-personal-revelation
+
 date: 2023-05-05 00:00
 ---
 
