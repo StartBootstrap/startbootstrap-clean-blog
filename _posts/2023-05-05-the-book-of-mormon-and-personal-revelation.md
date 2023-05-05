@@ -23,3 +23,4 @@ Verse 9:
 > And after this manner did the Holy Ghost manifest the word of God unto me; wherefore, my beloved son, I know…
 
 Mormon inquired and knew. After reading that, I did what I knew which was to "counsel with the Lord" (Alma 37:37). I then used what Mormon taught. I received my answer. I knew and so can you.
+<br>
