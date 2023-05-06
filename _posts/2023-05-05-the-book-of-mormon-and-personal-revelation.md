@@ -1,6 +1,7 @@
 ---
 layout: post
 author: Riley
+title: The Book of Mormon and Personal Revelation
 subtitle: The Book of Mormon brings peace and personal revelation not just for me, but for you too.
 tags: [Book of Mormon, personal revelation, peace, solution, testimony, invitation]
 image: the-book-of-mormon-and-personal-revelation
