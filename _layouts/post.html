@@ -8,7 +8,7 @@ layout: default
 {{ content }}
 
 {% if page.tags %}
-<div class="post-tags">
+<div class="post-tags hidden-print">
   {% for tag in page.tags %}
   <a href="{{ site.url }}/archive/tags#{{ tag | slugify }}" class="label label-primary">{{ tag }}</a>
   {% endfor %}
