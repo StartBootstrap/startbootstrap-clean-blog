@@ -481,7 +481,7 @@ hr.subheading-hr {
    background: 0 0
  }
 
- @media print {
+ /* @media print {
    * {
      visibility: hidden;
    }
@@ -497,7 +497,7 @@ hr.subheading-hr {
    time {
      visibility: visible;
    }
- }
+ } */
 
  /* hexcode colored scrollbar code */
  /* ::-webkit-scrollbar {
