@@ -74,6 +74,11 @@
    font-style: italic
  }
 
+ hr.bottom {
+   margin-bottom: 20px;
+   border: 1px solid black;
+ }
+
  hr.small {
    max-width: 100px;
    margin: 15px auto;
