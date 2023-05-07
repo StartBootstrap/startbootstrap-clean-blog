@@ -75,6 +75,7 @@
  }
 
 hr.subheading-hr {
+  all: revert;
   margin-top: 20px;
 }
 
