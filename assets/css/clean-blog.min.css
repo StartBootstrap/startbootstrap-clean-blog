@@ -74,6 +74,10 @@
    font-style: italic
  }
 
+hr.subheading-hr {
+  margin-top: 20px;
+}
+
  hr.small {
    max-width: 100px;
    margin: 15px auto;

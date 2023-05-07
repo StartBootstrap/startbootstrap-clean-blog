@@ -1,7 +1,6 @@
 <!-- Title, subheading, and metadata of post -->
 <div class="post-heading">
       <h1>{{ page.title }}</h1>
-      <h2 class="subheading">{{ page.subtitle }}</h2>
       {% if page.is_post %}
       <span class="meta">Posted by {% assign author = site.authors | where: 'short_name', page.author | first %}
             {% if author %}
