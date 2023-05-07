@@ -20,6 +20,12 @@
    font-weight: 800
  }
 
+ h2.subheading {
+   all: revert;
+   font-size: 25px;
+   font-weight: normal;
+ }
+
  .caption,
  .intro-header .page-heading,
  .intro-header .site-heading,
@@ -74,11 +80,11 @@
    font-style: italic
  }
 
-hr.subheading-hr {
-  all: revert;
-  margin-top: 35px;
-  margin-bottom: 35px;
-}
+ hr.subheading-hr {
+   all: revert;
+   margin-top: 35px;
+   margin-bottom: 35px;
+ }
 
  hr.small {
    max-width: 100px;
