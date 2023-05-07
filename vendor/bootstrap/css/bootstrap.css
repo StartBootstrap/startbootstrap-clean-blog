@@ -228,7 +228,7 @@ th {
 }
 
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
-/* @media print {
+@media print {
 
     *,
     *:before,
@@ -316,7 +316,7 @@ th {
     .table-bordered td {
         border: 1px solid #ddd !important;
     }
-} */
+}
 
 @font-face {
     font-family: 'Glyphicons Halflings';
