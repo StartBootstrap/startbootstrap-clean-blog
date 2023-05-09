@@ -1,14 +1,14 @@
 ---
 layout: post
 author: Riley
-title: A Formula for Peace
+title: The Formula for Peace
 subtitle: The Lord's formula for peace
 tags: [peace, quote, image, scripture, Doctrine and Covenants]
 image: the-formula-for-peace
 date: 2023-05-08 22:00
 ---
 
-# A Formula For Peace
+# The Formula For Peace
 
 <img class="img-responsive" src="/assets/images/posts/the-formula-for-peace-quote.webp" width="45%" alt="blue sky with white clouds scattered throughout, quote on top">
 <br>
