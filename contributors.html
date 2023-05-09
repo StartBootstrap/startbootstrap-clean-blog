@@ -11,7 +11,7 @@ title: Contributors
         src="https://love-of-god-and-of-all-men.github.io/assets/images/profiles/{{ author.short_name }}.png"
         alt="photo of {{ author.name }}"></a>
     <h2><a href="{{ author.url }}">{{ author.name }}</a></h2>
-    <li>{{ author.content | markdownify }}</li>
+    <p>{{ author.content | markdownify }}</p>
   </li>
   {% endfor %}
 </ul>
