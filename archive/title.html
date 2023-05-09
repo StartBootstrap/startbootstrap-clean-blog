@@ -2,15 +2,25 @@
 layout: archive
 title: Archive by Title
 ---
-<ul style="list-style-type: none;">
-  <!-- using sort_natural sorts posts alphabetically ignoring upper and lower case, also converts to string, so not ideal for number sorting -->
-  {% assign sorted_posts = site.posts | sort: 'title' %}
-  {% for post in sorted_posts %}
-  <p><a href="{{ post.url }}">{{ post.title }}</a> - <i>{{ post.date | date: "%B %-d, %Y" }}</i></p>
-  {% endfor %}
-</ul>
 
-<!-- to be implemented later when a system is figured out to simplify this process with variables or whatever is needed -->
+<!-- Essentially sorting the posts by title and adding headings -->
+{% assign grouped_posts = site.posts | group_by_exp: "post", "post.title | slice: 0, 1" %}
+{% assign group_names = "" %}
+{% for group in grouped_posts %}
+  {% assign group_names = group_names | append: group.name | append: "," %}
+{% endfor %}
+{% assign sorted_group_names = group_names | split: "," | sort %}
+{% for name in sorted_group_names %}
+  {% assign group = grouped_posts | where: "name", name | first %}
+  <h2 id="{{ group.name }}">{{ group.name }}</h2>
+  <ul>
+    {% for post in group.items %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a> - <i>{{ post.date | date: "%B %-d, %Y" }}</i></li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+
+<!-- may be implemented later when a system is figured out to simplify this process with variables or whatever is needed -->
 <!-- <hr>
   <a href="#a">A</a>
   <a href="#c">C</a>

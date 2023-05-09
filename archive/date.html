@@ -2,15 +2,26 @@
 layout: archive
 title: Archive by Date
 ---
-<ul style="list-style-type: none;">
-  <!-- sorts the posts by date, reverses the default order from oldest to newest -->
-  {% assign posts = site.posts | sort: 'date' | reverse %}
-  {% for post in posts %}
-  <p><a href="{{ post.url }}">{{ post.title }}</a> - <i>{{ post.date | date: "%B %-d, %Y" }}</i></p>
-  {% endfor %}
-</ul>
 
-<!-- to be implemented later when a system is figured out to simplify this process with variables or whatever is needed -->
+<!-- Essentially sorting the posts by year and adding headings -->
+{% assign grouped_posts = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+{% assign group_names = "" %}
+{% for group in grouped_posts %}
+  {% assign group_names = group_names | append: group.name | append: "," %}
+{% endfor %}
+<!-- The keyword "reverse" after "sort" tells the code to put the newest date on top instead of the bottom. -->
+{% assign sorted_group_names = group_names | split: "," | sort | reverse %}
+{% for name in sorted_group_names %}
+  {% assign group = grouped_posts | where: "name", name | first %}
+  <h2 id="{{ group.name }}">{{ group.name }}</h2>
+  <ul>
+    {% for post in group.items %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a> - <i>{{ post.date | date: "%B %-d, %Y" }}</i></li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+
+<!-- may be implemented later when a system is figured out to simplify this process with variables or whatever is needed -->
 <!-- <hr>
   <a href="#2023">2023</a>
   <a href="#2022">2022</a>
