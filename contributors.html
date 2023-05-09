@@ -6,12 +6,12 @@ title: Contributors
 
 <ul style="list-style-type: none;">
   {% for author in site.authors %}
-  <li>
+  <ul>
     <a href="{{ author.url }}"><img class="profile-img"
         src="https://love-of-god-and-of-all-men.github.io/assets/images/profiles/{{ author.short_name }}.png"
         alt="photo of {{ author.name }}"></a>
     <h2><a href="{{ author.url }}">{{ author.name }}</a></h2>
-    <p>{{ author.content | markdownify }}</p>
+    <li>{{ author.content | markdownify }}</li>
   </li>
   {% endfor %}
 </ul>
