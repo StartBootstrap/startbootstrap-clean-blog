@@ -11,6 +11,8 @@ At the beginning of this month, I was given a compass by my grandpa. It was his 
 I have some thoughts compiled that I will post.
 
 <!-- Bullet list of all the things I've learned: -->
+# Lessons Learned
+- Just like the needles on a compass don't change, neither does God's word. They both point us north along our paths.
 
 * * *
 
