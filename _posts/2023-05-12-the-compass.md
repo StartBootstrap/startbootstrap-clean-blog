@@ -10,6 +10,8 @@ At the beginning of this month, I was given a compass by my grandpa. It was his 
 
 I will share my thoughts and experiences here as I have them.
 
+<!-- Bullet list of all the things I've learned: -->
+
 * * *
 
 Photo by [Ali Kazal](https://unsplash.com/@lureofadventure?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText){:target="_blank"} on [Unsplash](https://unsplash.com/photos/UU69D-_nwPI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText){:target="_blank"}
