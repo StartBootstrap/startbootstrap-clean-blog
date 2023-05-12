@@ -2,17 +2,14 @@
 layout: post
 author: Riley
 subtitle: Subtitle
-tags: [scriptures, the compass, personal revelation, Book of Mormon]
+tags: [the compass]
 image: the-compass
 date: 2023-05-01 00:00
 ---
+At the beginning of this month, I was given a compass by my grandfather. It was his retirement gift. Grandpa invited me to spend a month with the compass and to think about it.
 
-The Liahona represents...the scriptures, the prophets
-
-In the compass I was given, I found a thin space in the compass. I also saw a hinge which got me curious. I found out how to open the compass and inside I found markings showing degrees which help you further navigate. I related this to personal revelation and seeking God's word. As you search the scriptures, more detail and guidance are open to you (insert scripture) and you are able to find your way.
-
-The world can change direction, but the compass still points the way.
+I will share my experiences and thoughts here as I have them.
 
 * * *
 
-Photo by [](){:target="_blank"}
+Photo by [Ali Kazal](https://unsplash.com/@lureofadventure?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText){:target="_blank"} on [Unsplash](https://unsplash.com/photos/UU69D-_nwPI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText){:target="_blank"}
