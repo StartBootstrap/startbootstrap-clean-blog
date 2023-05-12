@@ -2,7 +2,7 @@
 layout: post
 author: Riley
 subtitle: Subtitle
-tags: [scriptures]
+tags: [scriptures, the compass, personal revelation]
 image: the-compass
 date: 2023-05-01 00:00
 ---
