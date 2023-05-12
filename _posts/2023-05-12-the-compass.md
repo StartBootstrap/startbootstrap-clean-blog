@@ -1,7 +1,7 @@
 ---
 layout: post
 author: Riley
-subtitle: Subtitle
+subtitle: I will share my experiences and thoughts [with the compass] here as I have them.
 tags: [the compass]
 image: the-compass
 date: 2023-05-12 01:30
