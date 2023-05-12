@@ -1,12 +1,12 @@
 ---
 layout: post
 author: Riley
-subtitle: I will share my thoughts and experiences [with the compass] here as I have them.
+subtitle: I will share my thoughts and experiences [with my grandpa's compass] here as I have them.
 tags: [the compass]
 image: the-compass
 date: 2023-05-12 01:30
 ---
-At the beginning of this month, I was given a compass by my grandfather. It was his retirement gift. Grandpa invited me to spend a month with the compass and to think about it.
+At the beginning of this month, I was given a compass by my grandpa. It was his retirement gift. Grandpa invited me to spend a month with the compass and to think about it.
 
 I will share my thoughts and experiences here as I have them.
 
