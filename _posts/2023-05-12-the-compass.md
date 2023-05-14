@@ -2,7 +2,7 @@
 layout: post
 author: Riley
 subtitle: Lessons learned from a compass
-tags: [the compass]
+tags: [the compass, scriptures, guidance]
 image: the-compass
 date: 2023-05-12 01:45
 <!-- updated: 2023-05-12 01:45 -->
