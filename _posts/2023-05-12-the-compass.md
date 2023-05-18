@@ -9,6 +9,8 @@ date: 2023-05-12 01:45
 ---
 At the beginning of this month, I was given a compass by my grandpa. It was his retirement gift. Grandpa invited me to spend a month with the compass and to think about it.
 
+One of my first thoughts was about the Liahona. The Liahona was a compass mentioned in the Book of Mormon. It gave directions to a family in the wilderness as they were led by God to a promised land. The compass worked based on obedience to the Lord and His commandments.
+
 <!-- Bullet list of all the things I've learned: -->
 # Lessons Learned
 - Just like the needles on a compass don't change where they point, neither does God's word. They always both point us in the right direction.
