@@ -80,11 +80,11 @@
    font-style: italic
  }
 
- hr {
+ hr.post {
   border-top:1px solid #000;
  }
 
- hr.subheading-hr {
+ hr.subheading {
    all: revert;
    margin-top: 35px;
    margin-bottom: 35px;
