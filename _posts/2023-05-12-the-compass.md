@@ -17,6 +17,7 @@ At the beginning of this month, I was given a compass by my grandpa. It was his 
 
 - Deeper and continual study of the scriptures leads to greater understanding and heavenly guidance.
 - Just like the needles on a compass don't change where they point, neither does God's word. They always both point us in the right direction.
+- The word of God also extends to prophets living today.
 
 <hr class = "post">
 
