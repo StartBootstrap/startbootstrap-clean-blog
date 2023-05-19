@@ -25,6 +25,8 @@ One of my first thoughts was about the Liahona. The Liahona was a compass mentio
 
 One thing the Liahona represents are the scriptures. In the compass I was given, I found a thin space. I opened the compass and inside I found markings showing degrees to help you further navigate. I then related this to personal revelation and seeking God's word. As you search the scriptures, more detail and guidance are open to you and you will be able to find your way.
 
+In addition to personal revelation, prophets can bring additional guidance.
+
 * * *
 
 Photo by [Ali Kazal](https://unsplash.com/@lureofadventure?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText){:target="_blank"} on [Unsplash](https://unsplash.com/photos/UU69D-_nwPI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText){:target="_blank"}
