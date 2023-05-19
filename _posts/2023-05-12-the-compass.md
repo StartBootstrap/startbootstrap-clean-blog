@@ -5,8 +5,9 @@ subtitle: Lessons learned from a compass
 tags: [the compass, scriptures, guidance]
 image: the-compass
 date: 2023-05-12 01:45
-<!-- updated: 2023-05-12 01:45 -->
+updated: 2023-05-18 23:08
 ---
+
 At the beginning of this month, I was given a compass by my grandpa. It was his retirement gift. Grandpa invited me to spend a month with the compass and to think about it.
 
 <!-- Bullet list of all the things I've learned: -->

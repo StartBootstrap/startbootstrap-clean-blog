@@ -16,12 +16,24 @@ title: The Love of God and of All Men
         </h3>
     </a>
 
-    <p class="post-meta">Posted by {% assign author = site.authors | where: 'short_name', page.author | first %}
+    <!-- If our post has an updated date and time, show this text. -->
+    {% if post.updated %}
+      <span class="post-meta">Posted by {% assign author = site.authors | where: 'short_name', page.author | first %}
+            {% if author %}
+            <a href="{{ author.url }}">{{ author.name }}</a>
+            {% endif %}
+            <br><br>Updated on {{ post.updated | date: "%A, %B %-d, %Y" }} at {{ post.updated | date: "%l:%M %p %Z" }}
+      </span>
+
+      <!-- If there is no updated date and time variable specified in the post's frontmatter, display this text. -->
+      {% else %}
+      <p class="post-meta">Posted by {% assign author = site.authors | where: 'short_name', page.author | first %}
         {% if author %}
         <a href="{{ author.url }}">{{ author.name }}</a>
         {% endif %}
         on {{ post.date | date: "%A, %B %-d, %Y" }} at {{ post.date | date: "%l:%M %p %Z" }}
     </p>
+      {% endif %}
 </div>
 <hr>
 {% endfor %}
