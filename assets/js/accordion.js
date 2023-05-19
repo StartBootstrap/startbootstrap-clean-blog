@@ -12,3 +12,14 @@ for (i = 0; i < acc.length; i++) {
         }
     });
 }
+
+$(document).ready(function () {
+    // Code to open accordion when jumping to a tag
+    var hash = window.location.hash;
+    if (hash) {
+        var element = $(hash);
+        if (element.length) {
+            element.trigger('click');
+        }
+    }
+});

@@ -6,7 +6,7 @@
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   
+
    <!-- Code below sets the metadata based on if it is a blog post page or not -->
    {% if page.is_post %}
    <meta name="description" content="{{ page.subtitle }}">
@@ -34,6 +34,8 @@
    <link rel="icon" href="/favicon-512x512.png" />
    <meta property="og:url" content="https://love-of-god-and-of-all-men.github.io{{ page.url }}" />
    <meta property="og:title" content="{{ page.title }}" />
+   <!-- Accordion CSS (mainly for the tags page) -->
+   <link rel="stylesheet" href="/assets/css/accordion.css">
 
    <title>{{ page.title }}</title>
    <!-- Bootstrap Core CSS (called from included html file so it is more easily updated in the future) -->
@@ -112,6 +114,8 @@
    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
    <!-- Theme JavaScript -->
    <script src="/assets/js/clean-blog.min.js"></script>
+   <!-- Accordion JavaScript (mainly for the tags page) -->
+   <script src="/assets/js/accordion.js"></script>
 </body>
 
 </html>
