@@ -25,7 +25,7 @@ One of my first thoughts was about the Liahona. The Liahona was a compass mentio
 
 One thing the Liahona represents are the scriptures. In the compass I was given, I found a thin space. I opened the compass and inside I found markings showing degrees to help you further navigate. I then related this to personal revelation and seeking God's word. As you search the scriptures, more detail and guidance are open to you and you will be able to find your way.
 
-In addition to personal revelation, prophets can bring additional guidance. As God said to Moses, “My words…never cease.” [Moses 1:4](https://www.churchofjesuschrist.org/study/scriptures/pgp/moses/1?id=p4&lang=eng#p4){:target="_blank"} God will be with you. His words never change, but He will continue to speak with you, helping you to confront and solve the unique challenges of this day.
+In addition to personal revelation, prophets can bring additional guidance. As God said to Moses, “My words…never cease.” [(Moses 1:4)](https://www.churchofjesuschrist.org/study/scriptures/pgp/moses/1?id=p4&lang=eng#p4){:target="_blank"} God will be with you. His words never change, but He will continue to speak with you, helping you to confront and solve the unique challenges of this day.
 
 * * *
 
