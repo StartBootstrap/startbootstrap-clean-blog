@@ -5,6 +5,10 @@ title: He Knows You
 subtitle: The Savior knows your struggles in detail.
 tags: [love, charity, trials, your potential, prayer, gospel, relationships]
 image: He-knows-you
+image_contributor: Rosie Sun
+contributor_link: https://unsplash.com/@rosiesun?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
+contributor_site: Unsplash
+contributor_site_link_to_image: https://unsplash.com/photos/rTwhmFSoXC8?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 date: 2023-02-23 16:00
 ---
 
@@ -19,5 +23,3 @@ This quote really hit me today. He really does know me. He knows you too and you
 ***
 
 Resources: [How to Pray](https://www.churchofjesuschrist.org/comeuntochrist/believe/god/how-to-pray){:target="_blank"}.
-
-Photo by [Rosie Sun](https://unsplash.com/@rosiesun?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText){:target="_blank"} on [Unsplash](https://unsplash.com/photos/rTwhmFSoXC8?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText){:target="_blank"}
