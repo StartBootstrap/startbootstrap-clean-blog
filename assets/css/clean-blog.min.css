@@ -220,6 +220,10 @@
    margin-bottom: 50px
  }
 
+ #post-header {
+  margin-bottom: 0px
+ }
+
  .intro-header .page-heading,
  .intro-header .post-heading,
  .intro-header .site-heading {

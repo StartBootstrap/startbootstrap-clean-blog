@@ -4,7 +4,8 @@
 {% if page.image && page.url != "/" %}
 <header class="intro-header" style="background-image: url('/assets/images/headers/{{ page.image }}.webp');">
     {% else %}
-    <header class="intro-header" style="background-image: url('/header-image.webp');">
+    <header class="intro-header" {% if page.is_post %}id="post-header"{% endif %}
+        style="background-image: url('/header-image.webp');">
         {% endif %}
         <div class="container">
             <div class="row">
