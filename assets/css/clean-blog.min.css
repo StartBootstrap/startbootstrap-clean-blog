@@ -52,6 +52,11 @@
    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
  }
 
+ #attribution {
+   background-color: white;
+   border-radius: 0px;
+ }
+
  .container-fluid {
    background-color: white;
  }
@@ -81,7 +86,7 @@
  }
 
  hr.post {
-  border-top:1px solid #000;
+   border-top: 1px solid #000;
  }
 
  hr.subheading {
