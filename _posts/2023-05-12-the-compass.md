@@ -7,7 +7,7 @@ image: the-compass
 image_contributor: Ali Kazal
 contributor_link: https://unsplash.com/@lureofadventure?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 contributor_site: Unsplash
-contributor_site_link: https://unsplash.com/photos/UU69D-_nwPI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
+contributor_site_link_to_image: https://unsplash.com/photos/UU69D-_nwPI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 date: 2023-05-12 01:45
 updated: 2023-05-19 17:20
 ---

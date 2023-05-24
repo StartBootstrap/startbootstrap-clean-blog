@@ -8,7 +8,7 @@ image: the-formula-for-peace
 image_contributor: Dominik Schröder
 contributor_link: https://unsplash.com/@wirhabenzeit?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 contributor_site: Unsplash
-contributor_site_link: https://unsplash.com/photos/FIKD9t5_5zQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
+contributor_site_link_to_image: https://unsplash.com/photos/FIKD9t5_5zQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 date: 2023-05-08 22:40
 ---
 
