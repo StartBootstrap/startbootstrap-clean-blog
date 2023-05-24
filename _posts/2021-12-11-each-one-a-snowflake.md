@@ -3,7 +3,7 @@ layout: post
 author: Riley
 subtitle: Each person is unique like a snowflake. Each person is loved by God individually.
 tags: [relationships, love, your potential, individual worth, identity, divine identity, nature]
-image: snowy_backyard
+image: each-one-a-snowflake
 date: 2021-12-11 16:14
 ---
 
@@ -11,7 +11,7 @@ Originally Posted by Riley Grigg on [Closer to Christ with Riley](https://closer
 
 Thursday, I watched it snow, I've been thinking about all of us as people. We are all God's children, each one a snowflake. As I watched the snow falling, I had a thought about how each person, like each snowflake, is unique.
 
-<img class="img-responsive" src="/assets/images/headers/snowy_backyard.webp" alt="a child's climbing dome in the snow with lightly snowy trees and a fence in the background" title="a child's climbing dome in the snow with lightly snowy trees and a fence in the background">
+<img class="img-responsive" src="/assets/images/posts/snowy-backyard.webp" alt="a child's climbing dome in the snow with lightly snowy trees and a fence in the background" title="a child's climbing dome in the snow with lightly snowy trees and a fence in the background">
 
 ----------
 
