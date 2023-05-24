@@ -20,10 +20,6 @@
             on {{ page.date | date: "%A, %B %-d, %Y" }} at {{ page.date | date: "%l:%M %p %Z" }}
       </span>
       {% endif %}
-
-      {% if page.image_contributor and page.contributor_link %}
-      {% include attribution.html %}
-      {% endif %}
       {% endif %}
 </div>
 </div>

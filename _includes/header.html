@@ -17,6 +17,9 @@
                 </div>
             </div>
         </div>
+        {% if page.image_contributor and page.contributor_link %}
+        {% include attribution.html %}
+        {% endif %}
         <script>
             (function () {
                 var cx = '013983193458560348448:lapt2plbyqi';
