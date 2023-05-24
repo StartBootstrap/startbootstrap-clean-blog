@@ -33,4 +33,5 @@ In addition to personal revelation, prophets can bring additional guidance. As G
 
 * * *
 
-Photo by [Ali Kazal](https://unsplash.com/@lureofadventure?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText){:target="_blank"} on [Unsplash](https://unsplash.com/photos/UU69D-_nwPI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText){:target="_blank"}
+<!-- Photo by [Ali Kazal](https://unsplash.com/@lureofadventure?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText){:target="_blank"} on [Unsplash](https://unsplash.com/photos/UU69D-_nwPI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText){:target="_blank"}
+-->
