@@ -52,7 +52,7 @@
    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
  }
 
- #attribution {
+ span#attribution {
    background-color: white;
    border-radius: 0px;
  }
