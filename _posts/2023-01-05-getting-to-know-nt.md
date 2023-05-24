@@ -5,6 +5,8 @@ title: Getting to Know the New Testament
 subtitle: I invite you to think about these insights as you review the four gospels in the Bible this year.
 tags: [New Testament, bible, gospel]
 image: getting-to-know-nt
+image_contributor: rawpixel.com
+contributor_link: https://www.rawpixel.com/image/3283929/free-photo-image-bible-reading-book
 date: 2023-01-05 15:44
 ---
 Biblical Insights
@@ -26,7 +28,3 @@ See also Bible Dictionary, “Gospels,” “Matthew,” “Luke.”
 * * *
 
 Matthew and Luke as well as Mark and John each had something unique to share. How blessed we are to have each account to get to know the Savior a little more. Let us each use our unique talents to share the Savior and His light with others today.
-
-* * *
-
-Header bible image from [rawpixel.com](https://www.rawpixel.com/image/3283929/free-photo-image-bible-reading-book){:target="_blank"}
