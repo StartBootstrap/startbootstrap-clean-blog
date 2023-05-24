@@ -5,6 +5,10 @@ title: God is Directing our Paths
 subtitle: God doesn't care nearly as much about where you have been as He does about where you are and, with His help, where you are willing to go. - Jeffery R Holland
 tags: [love, bible, mercy, choices]
 image: directing-our-paths
+image_contributor: Caleb Jones
+contributor_link: https://unsplash.com/@gcalebjones?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
+contributor_site: Unsplash
+contributor_site_link_to_image: https://unsplash.com/photos/J3JMyXWQHXU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 date: 2022-06-05 18:39
 ---
 Last week, I was reading the book of Jonah in the Old Testament. The first chapter really struck me. Jonah was running away from what the Lord had told him to do. Yet the Lord still had a plan for Jonah. Through Jonah, the Lord brought more people unto him (see verse 16). A great fish was also prepared for Jonah in the Lord's mercy (Vs. 17). As Jonah changed and turned to the Lord, the fish spat him out and Jonah chose to obey the Lord (Jonah 2).
@@ -13,6 +17,4 @@ I had a similar experience recently. I needed to get ready for work, but I had s
 
 * * *
 
-Quote in header from [the January 2010 Ensign magazine of The Church of Jesus Christ of Latter-day Saints](https://www.churchofjesuschrist.org/study/ensign/2010/01/the-best-is-yet-to-be?lang=eng&id=p32#p32:~:text=God%20doesn%E2%80%99t%20care%20nearly%20as%20much%20about%20where%20you%20have%20been%20as%20He%20does%20about%20where%20you%20are%20and%2C%20with%20His%20help%2C%20where%20you%20are%20willing%20to%20go.){:target="_blank"}
-
-Photo by [Caleb Jones](https://unsplash.com/@gcalebjones?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText){:target="_blank"} on [Unsplash](https://unsplash.com/photos/J3JMyXWQHXU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText){:target="_blank"}
+Quote from [the January 2010 Ensign magazine of The Church of Jesus Christ of Latter-day Saints](https://www.churchofjesuschrist.org/study/ensign/2010/01/the-best-is-yet-to-be?lang=eng&id=p32#p32:~:text=God%20doesn%E2%80%99t%20care%20nearly%20as%20much%20about%20where%20you%20have%20been%20as%20He%20does%20about%20where%20you%20are%20and%2C%20with%20His%20help%2C%20where%20you%20are%20willing%20to%20go.){:target="_blank"}
