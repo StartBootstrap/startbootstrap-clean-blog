@@ -16,7 +16,9 @@ layout: default
     affiliated with ComeUntoChrist.org)</span></div>
 <!-- {% endif %} -->
 
+{% if page.contributor_link and page.image_contributor %}
 {% include attribution.html %}
+{% endif %}
 
 {% if page.tags %}
 <div class="post-tags hidden-print">
