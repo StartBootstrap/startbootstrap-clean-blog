@@ -5,6 +5,10 @@ title: The Formula for Peace
 subtitle: The Lord's formula for peace
 tags: [peace, quotes, image, scriptures, Doctrine and Covenants]
 image: the-formula-for-peace
+image_contributor: Dominik Schröder
+contributor_link: https://unsplash.com/@wirhabenzeit?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
+contributor_site: Unsplash
+contributor_site_link: https://unsplash.com/photos/FIKD9t5_5zQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 date: 2023-05-08 22:40
 ---
 
@@ -16,7 +20,3 @@ date: 2023-05-08 22:40
 <span class="caption text-muted"><a href="/assets/images/posts/the-formula-for-peace-quote.webp" download>
   Download Image
 </a></span>
-
-* * *
-
-Header photo by [Dominik Schröder](https://unsplash.com/@wirhabenzeit?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText){:target="_blank"} on [Unsplash](https://unsplash.com/photos/FIKD9t5_5zQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText){:target="_blank"}
