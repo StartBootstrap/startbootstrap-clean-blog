@@ -500,25 +500,6 @@
    background: 0 0
  }
 
- @media print {
-   * {
-     visibility: hidden;
-   }
-
-   h1,
-   h2,
-   em,
-   p,
-   a,
-   b,
-   i,
-   u,
-   .meta,
-   time {
-     visibility: visible;
-   }
- }
-
  /* hexcode colored scrollbar code */
  /* ::-webkit-scrollbar {
   *  width: 10px;
