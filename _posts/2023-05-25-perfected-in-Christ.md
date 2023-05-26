@@ -8,7 +8,7 @@ image_contributor: Riho Kitagawa
 contributor_link: https://unsplash.com/pt-br/@riho_k?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 contributor_site: Unsplash
 contributor_site_link_to_image: https://unsplash.com/photos/JuDPjcutors?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
-date: 2023-05-26 00:09
+date: 2023-05-26 02:02
 ---
 
 Yesterday I was studying my scriptures. I had a question and wanted to share what I learned studying with that question in mind.
