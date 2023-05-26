@@ -1,0 +1,16 @@
+<script>
+    // If we're on a computer, we can use ctrl+p to run PrintFriendly's code to print a nice form of our page.
+    document.addEventListener('keydown', function (event) {
+        if (event.ctrlKey && event.key === 'p') {
+            javascript: (function () { if (window['priFri']) { window.print() } else { pfstyle = 'nbk'; pfBkVersion = '1'; _pnicer_script = document.createElement('SCRIPT'); _pnicer_script.type = 'text/javascript'; _pnicer_script.src = '//cdn.printfriendly.com/printfriendly.js'; document.getElementsByTagName('head')[0].appendChild(_pnicer_script); } })();
+            event.preventDefault();
+        }
+    });
+
+    // If we're on any device, particularly a mobile device, we can double tap to run PrintFriendly's code.
+    document.addEventListener("dblclick", (event) => { });
+    ondblclick = (event) => {
+        javascript: (function () { if (window['priFri']) { window.print() } else { pfstyle = 'nbk'; pfBkVersion = '1'; _pnicer_script = document.createElement('SCRIPT'); _pnicer_script.type = 'text/javascript'; _pnicer_script.src = '//cdn.printfriendly.com/printfriendly.js'; document.getElementsByTagName('head')[0].appendChild(_pnicer_script); } })();
+        event.preventDefault();
+    };
+</script>
