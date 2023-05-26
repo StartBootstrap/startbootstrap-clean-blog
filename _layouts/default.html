@@ -11,6 +11,7 @@
    {% if page.is_post %}
    <meta name="description" content="{{ page.subtitle }}">
    <meta property="og:description" content="{{ page.subtitle }}" />
+   <!-- Inspired by https://shopify.github.io/liquid/filters/join/ -->
    {% assign tags = page.tags %}
    <meta name="keywords" content="{{ tags | join: ', ' }}">
    <meta property="og:image"
