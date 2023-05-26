@@ -14,7 +14,8 @@
    <meta name="keywords" content="{{ page.tags }}">
    <meta property="og:image"
       content="https://love-of-god-and-of-all-men.github.io/assets/images/headers/{{ page.image }}.webp" />
-   <meta name="author" content="{{ page.author.name }}">
+   {% assign author = site.authors | where: 'short_name', page.author | first %}
+   <meta name="author" content="{{ page.author }}">
    {% else %}
    <meta name="description" content="Doing my best to spread God's love to everyone">
    <meta property="og:description" content="Doing my best to spread God's love to everyone" />
