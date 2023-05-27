@@ -2,7 +2,7 @@
 layout: post
 author: Riley
 subtitle: What does it mean to be perfected in Christ?
-tags: [Jesus, Old Testament, Book of Mormon, unity, virtue, your potential]
+tags: [Jesus, Old Testament, Book of Mormon, scriptures, unity, virtue, your potential]
 image: perfected-in-Christ
 image_contributor: Riho Kitagawa
 contributor_link: https://unsplash.com/pt-br/@riho_k?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
