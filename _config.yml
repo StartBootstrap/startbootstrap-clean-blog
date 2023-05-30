@@ -16,6 +16,7 @@ defaults:
       is_post: true # automatically set is_post=true for all posts (used to determine in which header to show at the top of each page)
       image: default
       author: "Riley" # At the moment, I am the only author. If there are other authors, I should be able to override this in an individual post's frontmatter.
+      contributor_site: Unsplash # default because this is the site I use the most for header images
   - scope:
       path: ""
     values:
