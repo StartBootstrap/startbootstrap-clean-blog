@@ -1,5 +1,4 @@
 ---
-layout: post
 author: Riley
 subtitle: Lessons learned from a compass
 tags: [the compass, scriptures, guidance, prophets, personal revelation,  Pearl of Great Price]

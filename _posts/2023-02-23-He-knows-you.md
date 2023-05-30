@@ -1,5 +1,4 @@
 ---
-layout: post
 author: Riley
 title: He Knows You
 subtitle: The Savior knows your struggles in detail.

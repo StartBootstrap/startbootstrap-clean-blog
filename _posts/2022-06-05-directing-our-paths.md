@@ -1,5 +1,4 @@
 ---
-layout: post
 author: Riley
 title: God is Directing our Paths
 subtitle: God doesn't care nearly as much about where you have been as He does about where you are and, with His help, where you are willing to go. - Jeffery R Holland

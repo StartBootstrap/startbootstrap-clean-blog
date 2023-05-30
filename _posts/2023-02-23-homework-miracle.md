@@ -1,5 +1,4 @@
 ---
-layout: post
 author: Riley
 subtitle: My miracle tonight
 tags: [gratitude, school]

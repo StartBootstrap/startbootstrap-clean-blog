@@ -1,5 +1,4 @@
 ---
-layout: post
 author: Riley
 subtitle: I'm thankful for the opportunity to serve and to be served.
 image: thankful-for-service

@@ -1,5 +1,4 @@
 ---
-layout: post
 author: Riley
 title: The Formula for Peace
 subtitle: The Lord's formula for peace

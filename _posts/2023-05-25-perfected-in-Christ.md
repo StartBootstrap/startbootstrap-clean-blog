@@ -1,5 +1,4 @@
 ---
-layout: post
 author: Riley
 subtitle: What does it mean to be perfected in Christ?
 tags: [Jesus, Old Testament, Book of Mormon, scriptures, unity, virtue, your potential]

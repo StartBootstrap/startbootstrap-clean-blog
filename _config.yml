@@ -12,7 +12,7 @@ defaults:
       path: ""
       type: "posts"
     values:
-      layout: "post"
+      layout: "post" # This ensures that you don't have to put this in the frontmatter of every single post.
       is_post: true # automatically set is_post=true for all posts (used to determine in which header to show at the top of each page)
       image: default
   - scope:
