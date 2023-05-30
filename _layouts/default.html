@@ -57,8 +57,11 @@
    <link
       href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
       rel='stylesheet' type='text/css'>
-   <!-- prevents images on page from being pinned to Pinterest -->
-   <meta name="pinterest" content="nopin" />
+
+   <!-- Include JavaScript in our posts (makes our ASL message stay closed for 30 days) -->
+   {% if page.is_post %}
+   <script src="/assets/js/message-close-cookie.js"></script>
+   {% endif %}
    {% include print.html %}
 </head>
 
