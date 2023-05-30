@@ -1,5 +1,4 @@
 ---
-author: Riley
 subtitle: When technology is used for good, we can connect to others over long distances.
 tags: [love, connection, family, relationships, gratitude, technology]
 image: thankful-for-connection

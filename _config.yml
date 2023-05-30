@@ -15,6 +15,7 @@ defaults:
       layout: "post" # This ensures that you don't have to put this in the frontmatter of every single post.
       is_post: true # automatically set is_post=true for all posts (used to determine in which header to show at the top of each page)
       image: default
+      author: "Riley" # At the moment, I am the only author. If there are other authors, I should be able to override this in an individual post's frontmatter.
   - scope:
       path: ""
     values:

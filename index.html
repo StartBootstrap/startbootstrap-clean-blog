@@ -18,18 +18,18 @@ title: The Love of God and of All Men
 
     <!-- If our post has an updated date and time, show this text. -->
     {% if post.updated %}
-      <span class="post-meta">Posted by {% assign author = site.authors | where: 'short_name', post.author | first %}
+      <span class="post-meta">Posted {% assign author = site.authors | where: 'short_name', post.author | first %}
             {% if author %}
-            <a href="{{ author.url }}">{{ author.name }}</a>
+            by <a href="{{ author.url }}">{{ author.name }}</a>
             {% endif %}
             <br>Updated on {{ post.updated | date: "%A, %B %-d, %Y" }} at {{ post.updated | date: "%l:%M %p %Z" }}
       </span>
 
       <!-- If there is no updated date and time variable specified in the post's frontmatter, display this text. -->
       {% else %}
-      <p class="post-meta">Posted by {% assign author = site.authors | where: 'short_name', post.author | first %}
+      <p class="post-meta">Posted {% assign author = site.authors | where: 'short_name', post.author | first %}
         {% if author %}
-        <a href="{{ author.url }}">{{ author.name }}</a>
+        by <a href="{{ author.url }}">{{ author.name }}</a>
         {% endif %}
         on {{ post.date | date: "%A, %B %-d, %Y" }} at {{ post.date | date: "%l:%M %p %Z" }}
     </p>

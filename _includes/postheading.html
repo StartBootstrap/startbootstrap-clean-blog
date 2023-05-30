@@ -4,18 +4,18 @@
       {% if page.is_post %}
       <!-- If our post has an updated date and time, show this text. -->
       {% if page.updated %}
-      <span class="meta">Posted by {% assign author = site.authors | where: 'short_name', page.author | first %}
+      <span class="meta">Posted {% assign author = site.authors | where: 'short_name', page.author | first %}
             {% if author %}
-            <a href="{{ author.url }}">{{ author.name }}</a>
+            by <a href="{{ author.url }}">{{ author.name }}</a>
             {% endif %}
             <br><br>Updated on {{ page.updated | date: "%A, %B %-d, %Y" }} at {{ page.updated | date: "%l:%M %p %Z" }}
       </span>
 
       <!-- If there is no updated date and time variable specified in the post's frontmatter, display this text. -->
       {% else %}
-      <span class="meta">Posted by {% assign author = site.authors | where: 'short_name', page.author | first %}
+      <span class="meta">Posted {% assign author = site.authors | where: 'short_name', page.author | first %}
             {% if author %}
-            <a href="{{ author.url }}">{{ author.name }}</a>
+            by <a href="{{ author.url }}">{{ author.name }}</a>
             {% endif %}
             on {{ page.date | date: "%A, %B %-d, %Y" }} at {{ page.date | date: "%l:%M %p %Z" }}
       </span>
