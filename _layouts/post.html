@@ -13,11 +13,3 @@ layout: default
 <div class="alert alert-info text-center" role="alert">Want to learn more? Visit <a
     href="https://ComeUntoChrist.org">ComeUntoChrist.org</a> <span class="caption text-muted">(This site is not
     affiliated with ComeUntoChrist.org)</span></div>
-
-{% if page.tags %}
-<div class="post-tags hidden-print">
-  {% for tag in page.tags %}
-  <a href="{{ site.url }}/archive/tags#{{ tag | slugify }}" class="label label-primary">{{ tag }}</a>
-  {% endfor %}
-</div>
-{% endif %}
