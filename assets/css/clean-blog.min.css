@@ -221,7 +221,7 @@
  }
 
  .post-header {
-  margin-bottom: 0px
+   margin-bottom: 0px
  }
 
  .intro-header .page-heading,
@@ -285,6 +285,11 @@
 
  .intro-header .post-heading .meta a {
    color: #fff
+ }
+
+ .caption,
+ .text-muted {
+   color: #000;
  }
 
  @media only screen and (min-width:768px) {
