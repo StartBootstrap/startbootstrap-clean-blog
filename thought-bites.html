@@ -9,6 +9,9 @@ title: Thought Bites
         <h2 class="post-title">
             {{ post.title }}
         </h2>
+        <p>
+            {{ post.content }}
+        </p>
   
       <span class="post-meta">{% assign author = site.authors | where: 'short_name', post.author | first %}
             {% if author %}
