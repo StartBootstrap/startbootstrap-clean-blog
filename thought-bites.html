@@ -4,7 +4,8 @@ title: Thought Bites
 ---
 
 <!-- Automatically outputs the 5 latest posts using limit:5 -->
-{% for post in site.posts | where:page.tag,"bite" limit:5 %}
+{% assign posts = site.posts | where_exp: "item", "item.tags contains 'bite'" %}
+{% for post in posts limit:5 %}
 <div class="thought-bite">
         <h2 class="post-title">
             {{ post.title }}
