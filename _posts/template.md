@@ -1,6 +1,6 @@
 ---
 subtitle: subtitle/tagline of post
-tags: [one tag, another, thistagdoesntneedspaces, but tags can have spaces, they are comma separated]
+tags: [one tag, another, thistagdoesntneedspaces, but tags can have spaces, they are comma separated, bite] # post must be tagged with "bite" if it is to be shown on the Thought Bites page instead of the homepage
 image: title-of-the-post-file (image must be stored in /assets/images/headers/ and have a .webp file extension)
 image_contributor: Name of photographer or painter, etc.
 contributor_link: link to their page
