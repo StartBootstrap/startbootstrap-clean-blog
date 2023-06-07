@@ -7,4 +7,4 @@ date: 2023-06-06 23:26
 
 [Joseph Smith Translation, Mark 14:20-21](https://www.churchofjesuschrist.org/study/scriptures/jst/jst-mark/14?lang=eng&id=p20-21#p20){:target="_blank"}
 
-As often as I take the sacrament can I remember the times when God has been with me.
+As often as I take the sacrament I can remember the times when God has been with me.
