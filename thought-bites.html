@@ -6,21 +6,14 @@ title: Thought Bites
 <!-- Automatically outputs the 5 latest posts using limit:5 -->
 {% for post in site.posts limit:5 %}
 <div class="thought-bite">
-    <a href="{{ post.url }}">
-        <img src="/assets/images/headers/{{ post.image }}.webp" class="post-preview-image" width="300px" height="200px">
         <h2 class="post-title">
             {{ post.title }}
         </h2>
-        <h3 class="post-subtitle">
-            {{ post.subtitle | strip_html }}
-        </h3>
-    </a>
   
-      <span class="post-meta">Posted {% assign author = site.authors | where: 'short_name', post.author | first %}
+      <span  {% assign author = site.authors | where: 'short_name', post.author | first %}
             {% if author %}
-            by <a href="{{ author.url }}">{{ author.name }}</a>
+            <a href="{{ author.url }}">{{ author.name }}</a>
             {% endif %}
-            <br>Updated on {{ post.updated | date: "%A, %B %-d, %Y" }} at {{ post.updated | date: "%l:%M %p %Z" }}
       </span>
 </div>
 <hr>
