@@ -10,7 +10,7 @@ title: Thought Bites
             {{ post.title }}
         </h2>
   
-      <span  {% assign author = site.authors | where: 'short_name', post.author | first %}
+      <span class="post-meta">{% assign author = site.authors | where: 'short_name', post.author | first %}
             {% if author %}
             <a href="{{ author.url }}">{{ author.name }}</a>
             {% endif %}
