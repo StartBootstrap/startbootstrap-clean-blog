@@ -1,6 +1,6 @@
 ---
-tags: [bite]
-date: 2023-06-12 18:02
+tags: [bite, Atonement of Jesus Christ, testimony]
+date: 2023-06-12 18:06
 ---
 
 "While we were not there to witness this act of selflessness and submission, we _are_ witnesses of the Atonement of Jesus Christ. Every time we repent and receive forgiveness of our sins, every time we feel the Savior’s strengthening power, we can testify of the reality of what happened in the Garden of Gethsemane."
