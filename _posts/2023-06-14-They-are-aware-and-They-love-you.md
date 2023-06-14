@@ -1,6 +1,5 @@
 ---
 tags: [bite, love, needs, awareness]
-image: They-are-aware-and-They-love-you
 date: 2023-06-14 01:00
 ---
 
