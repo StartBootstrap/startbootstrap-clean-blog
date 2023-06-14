@@ -4,6 +4,7 @@ image: They-are-aware-and-They-love-you
 date: 2023-06-14 01:00
 ---
 
+<img class="img-responsive" src="/assets/images/posts/the-They-are-aware-and-They-love-you.webp" alt="purple and blue-green gradient background with the below quote on top">
 "I love you. I assure you that our Heavenly Father and His Beloved Son, Jesus Christ, love you. They are intimately aware of your circumstances, your goodness, your needs, and your prayers for help."
 
 \- President Russell M Nelson
