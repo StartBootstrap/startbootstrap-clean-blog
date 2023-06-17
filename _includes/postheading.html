@@ -20,13 +20,13 @@
             on {{ page.date | date: "%A, %B %-d, %Y" }} at {{ page.date | date: "%l:%M %p %Z" }}
       </span>
       {% endif %}
-      {% endif %}
 
       <br>
       <span>
             <ul class="list-inline text-center">
+                  <!-- Email to a friend -->
                   <li>
-                        <a href="mailto:?subject={{ page.title }} - The Love of God and of All Men&body={{ page.subtitle }}%0D%0A%0D%0AYour message:"
+                        <a href="mailto:?subject={{ page.title }} - The Love of God and of All Men&body={{ page.subtitle }}%0D%0A{{ site.url }}{{ page.url }}%0D%0A%0D%0AYour message:"
                               target="_blank" title="Email to a Friend">
                               <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
@@ -35,11 +35,12 @@
                               </span>
                         </a>
                   </li>
+                  <!-- Copy post URL (with checkmark icon after copy) -->
                   <li>
                         <a href="#" onclick="copyText()" title="Copy Post URL">
                               <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
-                                    <i class="fa fa-link fa-stack-1x fa-inverse" aria-hidden="true"></i>
+                                    <i class="fa fa-link fa-stack-1x fa-inverse" id="copy-url" aria-hidden="true"></i>
                               </span>
                         </a>
                         <script>
@@ -47,9 +48,13 @@
                                     /* Copy text into clipboard */
                                     navigator.clipboard.writeText
                                           ("{{ site.url }}{{ page.url }}");
+
+                                    document.getElementById("copy-url").className = "fa fa-check fa-stack-1x fa-inverse";
+                                    document.getElementById("copy-url").style.color = "#03c04a";
                               }
                         </script>
                   </li>
+                  <!-- Print page with printfriendly.com -->
                   <li>
                         <a href="#" onclick="printPage()" title="Print this Page">
                               <span class="fa-stack fa-lg">
@@ -67,5 +72,6 @@
                   </li>
             </ul>
       </span>
+      {% endif %}
 </div>
 </div>
