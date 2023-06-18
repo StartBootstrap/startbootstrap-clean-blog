@@ -20,58 +20,6 @@
             on {{ page.date | date: "%A, %B %-d, %Y" }} at {{ page.date | date: "%l:%M %p %Z" }}
       </span>
       {% endif %}
-
-      <br>
-      <span>
-            <ul class="list-inline text-center">
-                  <!-- Email to a friend -->
-                  <li>
-                        <a href="mailto:?subject={{ page.title }} - The Love of God and of All Men&body={{ page.subtitle }}%0D%0A%0D%0A{{ site.url }}{{ page.url }}%0D%0A%0D%0AYour message:"
-                              target="_blank" title="Email to a Friend">
-                              <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
-                                    <i class="fa fa-paper-plane fa-stack-1x fa-inverse" aria-hidden="true">
-                                    </i>
-                              </span>
-                        </a>
-                  </li>
-                  <!-- Copy post URL (with checkmark icon after copy) -->
-                  <li>
-                        <a href="#" onclick="copyText()" title="Copy Post URL">
-                              <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
-                                    <i class="fa fa-link fa-stack-1x fa-inverse" id="copy-url" aria-hidden="true"></i>
-                              </span>
-                        </a>
-                        <script>
-                              function copyText() {
-                                    /* Copy text into clipboard */
-                                    navigator.clipboard.writeText
-                                          ("{{ site.url }}{{ page.url }}");
-
-                                    document.getElementById("copy-url").className = "fa fa-check fa-stack-1x fa-inverse";
-                                    document.getElementById("copy-url").style.color = "#03c04a";
-                              }
-                        </script>
-                  </li>
-                  <!-- Print page with printfriendly.com -->
-                  <li>
-                        <a href="#" onclick="printPage()" title="Print this Page">
-                              <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
-                                    <i class="fa fa-print fa-stack-1x fa-inverse" aria-hidden="true">
-                                    </i>
-                              </span>
-                        </a>
-                        <script>
-                              function printPage() {
-                                    javascript: (function () { if (window['priFri']) { window.print() } else { pfstyle = 'nbk'; pfBkVersion = '1'; _pnicer_script = document.createElement('SCRIPT'); _pnicer_script.type = 'text/javascript'; _pnicer_script.src = '//cdn.printfriendly.com/printfriendly.js'; document.getElementsByTagName('head')[0].appendChild(_pnicer_script); } })();
-                                    event.preventDefault();
-                              }
-                        </script>
-                  </li>
-            </ul>
-      </span>
       {% endif %}
 </div>
 </div>
