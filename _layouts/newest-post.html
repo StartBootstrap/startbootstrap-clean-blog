@@ -1,0 +1,96 @@
+<!-- Default layout -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <!-- Code below sets the metadata based on if it is a blog post page or not -->
+   {% if page.is_post %}
+   <meta name="description" content="{{ page.subtitle }}">
+   <meta property="og:description" content="{{ page.subtitle }}" />
+   <!-- Inspired by https://shopify.github.io/liquid/filters/join/ -->
+   {% assign tags = page.tags %}
+   <meta name="keywords" content="{{ tags | join: ', ' }}">
+   <meta property="og:image"
+      content="https://love-of-god-and-of-all-men.github.io/assets/images/headers/{{ page.image }}.webp" />
+   <meta name="author" content="{{ page.author }}">
+   {% else %}
+   <meta name="description" content="Doing my best to spread God's love to everyone">
+   <meta property="og:description" content="Doing my best to spread God's love to everyone" />
+   <meta property="og:image" content="https://love-of-god-and-of-all-men.github.io/God-loves-you-chalk.jpg" />
+   {% endif %}
+
+   <!-- Code below sets the metadata based on if it is the homepage or not -->
+   {% if page.url == "/" %}
+   <meta name="google-site-verification" content="hlYP3FRvFCuR1tXGgIjeIddGUvDxcrxAUM87lp19mrI" />
+   <!-- Bing site index verification code -->
+   <meta name="msvalidate.01" content="41C763BE2681A36D3DCB8CC46F33A20F" />
+   <!-- Include the keyboard shortcut code -->
+   <script src="/assets/js/keyboard-shortcuts.js"></script>
+   {% else %}
+   {% endif %}
+
+   {% if page.noindex %}
+   <meta name="robots" content="noindex">
+   {% endif %}
+
+   <!-- Metadata that is the same regardless of the page -->
+   <meta name="theme-color" content="#FFFFFF">
+   <link rel="icon" href="/favicon-512x512.png" />
+   <meta property="og:url" content="https://love-of-god-and-of-all-men.github.io{{ page.url }}" />
+   <meta property="og:title" content="{{ page.title }}" />
+   <link rel="alternate" type="application/rss+xml" href="{{ site.url }}/feed.xml">
+
+   <title>{{ page.title }}</title>
+   <!-- Bootstrap Core CSS (called from included html file so it is more easily updated in the future) -->
+   {% include bootstrap.html %}
+   <!-- Theme CSS -->
+   <link href="/assets/css/clean-blog.min.css" rel="stylesheet">
+   <!-- Menu CSS -->
+   <link href="/assets/css/menu.css" rel="stylesheet">
+   <!-- CSS for everything else -->
+   <link rel="stylesheet" href="/assets/css/styles.css">
+   <!-- Custom Fonts -->
+   {% include font-awesome.html %}
+   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet'
+      type='text/css'>
+   <link
+      href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+      rel='stylesheet' type='text/css'>
+
+   <!-- Include JavaScript in our posts (makes our ASL message stay closed for 30 days) -->
+   {% if page.is_post %}
+   <!-- Commenting out for now because script does not exist. -->
+   <!-- <script src="/assets/js/message-close-cookie.js"></script> -->
+   {% endif %}
+   {% include print.html %}
+</head>
+
+<body onload="genTip()">
+   {% include navigation.html %}
+   {% include header.html %}
+   <!-- Main Content -->
+   <div class="container">
+      <div class="row">
+         <div id="posts" class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            {% if page.url == "/" %} <!-- script is included only if it is on the homepage -->
+            <!-- Below is a script that will get the quote displayed on the page at the current moment and allow it to be shared on various platforms (depending on the device's sharing capabilities) when the link is clicked -->
+            <script src="/assets/js/quote-share.js"></script>
+            {% endif %}
+            {{content}}
+         </div>
+      </div>
+   </div>
+   {% include footer.html %}
+   <!-- jQuery -->
+   <script src="/vendor/jquery/jquery.min.js"></script>
+   <!-- Bootstrap Core JavaScript -->
+   <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+   <!-- Theme JavaScript -->
+   <script src="/assets/js/clean-blog.min.js"></script>
+</body>
+
+</html>
