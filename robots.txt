@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /posts/templates/
-Disallow: /newest-post.html
 Allow: /sitemap.xml
 Sitemap: https://love-of-god-and-of-all-men.github.io/sitemap.xml
