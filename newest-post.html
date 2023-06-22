@@ -1,0 +1,52 @@
+---
+layout: default
+title: Newest Post
+---
+
+<!-- Automatically outputs the 5 latest posts except for the posts tagged with "bite" -->
+{% assign counter = 0 %}
+{% for post in site.posts %}
+{% unless post.tags contains 'bite' %}
+{% if counter < 5 %} <div class="post-preview">
+    <a href="{{ post.url }}">
+        <img src="/assets/images/headers/{{ post.image }}.webp" class="post-preview-image" width="300px" height="200px">
+        <h2 class="post-title">
+            {{ post.title }}
+        </h2>
+        <h3 class="post-subtitle">
+            {{ post.subtitle | strip_html }}
+        </h3>
+    </a>
+
+    <!-- If our post has an updated date and time, show this text. -->
+    {% if post.updated %}
+    <span class="post-meta">Posted {% assign author = site.authors | where: 'short_name', post.author | first %}
+        {% if author %}
+        by <a href="{{ author.url }}">{{ author.name }}</a>
+        {% endif %}
+        <br>Updated on {{ post.updated | date: "%A, %B %-d, %Y" }} at {{ post.updated | date: "%l:%M %p %Z" }}
+    </span>
+
+    <!-- If there is no updated date and time variable specified in the post's frontmatter, display this text. -->
+    {% else %}
+    <p class="post-meta">Posted {% assign author = site.authors | where: 'short_name', post.author | first %}
+        {% if author %}
+        by <a href="{{ author.url }}">{{ author.name }}</a>
+        {% endif %}
+        on {{ post.date | date: "%A, %B %-d, %Y" }} at {{ post.date | date: "%l:%M %p %Z" }}
+    </p>
+    {% endif %}
+    </div>
+    <hr>
+    <!-- If our unless loop has run meaning it hasn't found a post tagged with "bite," it should increment our counter. -->
+    {% assign counter = counter | plus: 1 %}
+    {% endif %}
+    {% endunless %}
+    {% endfor %}
+
+    <!-- Pager -->
+    <ul class="pager">
+        <li>
+            <a href="archive">Post Archive</a>
+        </li>
+    </ul>
