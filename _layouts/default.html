@@ -33,6 +33,10 @@
    {% else %}
    {% endif %}
 
+   {% if page.noindex %}
+   <meta name="robots" content="noindex">
+   {% endif %}
+
    <!-- Metadata that is the same regardless of the page -->
    <meta name="theme-color" content="#FFFFFF">
    <link rel="icon" href="/favicon-512x512.png" />
