@@ -13,19 +13,12 @@
     "education",
     "lifestyle"
   ],
-  "screenshots": [],
   "icons": [
-    {
-      "src": "/favicon-32x32.png",
-      "type": "image/png",
-      "sizes": "32x32",
-      "purpose": "any"
-    },
     {
       "src": "/favicon-512x512.png",
       "type": "image/png",
       "sizes": "512x512",
-      "purpose": "maskable"
+      "purpose": "any"
     }
   ],
   "shortcuts": [
