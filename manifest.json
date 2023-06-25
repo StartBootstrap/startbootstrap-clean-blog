@@ -16,12 +16,16 @@
   "screenshots": [],
   "icons": [
     {
-      "src": "/favicon-512x512.png",
+      "src": "/favicon-32x32.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "32x32",
+      "purpose": "any"
     },
     {
-      "src": "https://love-of-god-and-of-all-men.github.io/God-loves-you-chalk.jpg"
+      "src": "/favicon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
     }
   ],
   "shortcuts": [
