@@ -1,0 +1,34 @@
+{
+  "background_color": "#ffffff",
+  "description": "Doing my best to spread God's love to everyone",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "The Love of God and of All Men",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "Love",
+  "start_url": "/",
+  "theme_color": "#FFFFFF",
+  "categories": [
+    "education",
+    "lifestyle"
+  ],
+  "screenshots": [],
+  "icons": [
+    {
+      "src": "/favicon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "https://love-of-god-and-of-all-men.github.io/God-loves-you-chalk.jpg"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Newest Post",
+      "url": "https://love-of-god-and-of-all-men.github.io/newest-post",
+      "description": "Newest post"
+    }
+  ]
+}
