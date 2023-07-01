@@ -1,6 +1,6 @@
 ---
 tags: [bite, love, Jesus Christ, temptation, strength, power, institute]
-date: 2023-06-30 23:00
+date: 2023-07-01 12:14
 ---
 
 Wednesday I had an amazing class on what we have learned recently. Here are points from my notes as well as my own thoughts.
