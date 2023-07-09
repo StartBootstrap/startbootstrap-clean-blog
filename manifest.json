@@ -40,6 +40,11 @@
       "name": "Thought Bites",
       "url": "https://love-of-god-and-of-all-men.github.io/thought-bites.html",
       "description": "Short Thoughts"
+    },
+    {
+      "name": "View the Newest Post",
+      "url": "https://love-of-god-and-of-all-men.github.io/newest-post.html",
+      "description": ""
     }
   ],
   "prefer_related_applications": false,
