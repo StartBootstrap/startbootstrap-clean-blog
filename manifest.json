@@ -1,0 +1,33 @@
+{
+  "background_color": "#ffffff",
+  "description": "Doing my best to spread God's love to everyone",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "The Love of God and of All Men",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "The Love of God",
+  "start_url": "/",
+  "theme_color": "#FFFFFF",
+  "categories": [
+    "education"
+  ],
+  "screenshots": [],
+  "icons": [
+    {
+      "src": "/favicon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "https://love-of-god-and-of-all-men.github.io/God-loves-you-chalk.jpg"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Thought Bites",
+      "url": "https://love-of-god-and-of-all-men.github.io/thought-bites.html",
+      "description": "Short Thoughts"
+    }
+  ]
+}
