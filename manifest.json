@@ -8,7 +8,7 @@
   "scope": "/",
   "short_name": "Love",
   "start_url": "/",
-  "theme_color": "#FFFFFF",
+  "theme_color": "#ff0000",
   "categories": [
     "education"
   ],
