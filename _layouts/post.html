@@ -11,7 +11,11 @@ layout: default
 
 <hr>
 
-{% include comments.html %}
+<!-- accordions from https://www.w3schools.com/howto/howto_js_accordion.asp -->
+<button class="accordion btn btn-secondary">Comment</button>
+<div class="panel">
+  {% include comments.html %}
+</div>
 
 <hr>
 
