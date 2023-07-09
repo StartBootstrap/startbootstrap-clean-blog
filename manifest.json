@@ -17,7 +17,8 @@
     {
       "src": "/favicon-512x512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any"
     },
     {
       "src": "https://love-of-god-and-of-all-men.github.io/God-loves-you-chalk.jpg"
