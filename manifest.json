@@ -2,7 +2,7 @@
   "background_color": "#ffffff",
   "description": "Doing my best to spread God's love to everyone",
   "dir": "ltr",
-  "display": "minimal-ui",
+  "display": "standalone",
   "name": "The Love of God and of All Men",
   "orientation": "any",
   "scope": "/",
