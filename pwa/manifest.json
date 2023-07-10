@@ -30,24 +30,21 @@
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any"
+    },
+    {
+      "src": "https://love-of-god-and-of-all-men.github.io/God-loves-you-chalk.jpg"
     }
   ],
   "shortcuts": [
     {
+      "name": "Thought Bites",
+      "url": "https://love-of-god-and-of-all-men.github.io/thought-bites.html",
+      "description": "Short Thoughts"
+    },
+    {
       "name": "View the Newest Post",
       "url": "https://love-of-god-and-of-all-men.github.io/newest-post.html",
       "description": ""
-    },
-    {
-      "name": "View Thought Bites",
-      "url": "https://love-of-god-and-of-all-men.github.io/thought-bites.html",
-      "description": "View a collection of short thoughts.",
-      "icons": [
-        {
-          "src": "/cookie.png",
-          "sizes": "512x512"
-        }
-      ]
     }
   ],
   "prefer_related_applications": false,

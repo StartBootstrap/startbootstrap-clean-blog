@@ -1,1 +1,0 @@
-<a href="https://www.flaticon.com/free-icons/bite" title="bite icons">Cookie icon created by Cap Cool - Flaticon</a>
