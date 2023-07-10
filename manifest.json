@@ -37,23 +37,23 @@
   ],
   "shortcuts": [
     {
-      "name": "Thought Bites",
-      "url": "https://love-of-god-and-of-all-men.github.io/thought-bites.html",
-      "description": "Short Thoughts",
-      "icons": [
-        {
-          "src": "/assets/icons/idea.png",
-          "sizes": "512x512"
-        }
-      ]
-    },
-    {
       "name": "View the Newest Post",
       "url": "https://love-of-god-and-of-all-men.github.io/newest-post.html",
       "description": "",
       "icons": [
         {
           "src": "/assets/icons/new-item.png",
+          "sizes": "512x512"
+        }
+      ]
+    },
+    {
+      "name": "Thought Bites",
+      "url": "https://love-of-god-and-of-all-men.github.io/thought-bites.html",
+      "description": "Short Thoughts",
+      "icons": [
+        {
+          "src": "/assets/icons/idea.png",
           "sizes": "512x512"
         }
       ]
