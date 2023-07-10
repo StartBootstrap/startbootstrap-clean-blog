@@ -36,13 +36,7 @@
     {
       "name": "View the Newest Post",
       "url": "https://love-of-god-and-of-all-men.github.io/newest-post.html",
-      "description": "",
-      "icons": [
-        {
-          "src": "/book.png",
-          "sizes": "512x512"
-        }
-      ]
+      "description": ""
     },
     {
       "name": "View Thought Bites",
