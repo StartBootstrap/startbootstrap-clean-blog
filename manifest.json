@@ -50,7 +50,13 @@
     {
       "name": "View the Newest Post",
       "url": "https://love-of-god-and-of-all-men.github.io/newest-post.html",
-      "description": ""
+      "description": "",
+      "icons": [
+        {
+          "src": "/assets/icons/new-item.png",
+          "sizes": "512x512"
+        }
+      ]
     }
   ],
   "prefer_related_applications": false,
