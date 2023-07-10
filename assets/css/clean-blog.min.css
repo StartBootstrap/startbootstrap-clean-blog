@@ -4,9 +4,32 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)*/
 
 /* CSS optimized by https://www.cssportal.com/css-optimize/ */
-a,
-body {
-  color: #333
+
+:root {
+  --primary: #000;
+  --secondary: #777;
+  --background: #fff;
+  --highlight: #0365fe;
+  --tap: #0365FE;
+  --scroll: #8d6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #fff;
+    --secondary: #d3d3d3;
+    --background: #000;
+  }
+}
+
+body,
+i {
+  color: var(--primary);
+  background-color: var(--background);
+}
+
+a {
+  color: var(--tap);
 }
 
 .navbar-custom .nav li a,
@@ -36,7 +59,11 @@ footer .copyright {
 body {
   font-family: Lora, 'Times New Roman', serif;
   font-size: 20px;
-  -webkit-tap-highlight-color: #0365FE
+  -webkit-tap-highlight-color: var(--tap);
+}
+
+.post-preview a {
+  color: var(---primary)
 }
 
 .intro-header .page-heading .subheading,
@@ -53,12 +80,13 @@ h6 {
 }
 
 #attribution {
-  background-color: #fff;
+  color: var(--primary);
+  background-color: var(--background);
   border-radius: 0
 }
 
 .container-fluid {
-  background-color: #fff
+  background-color: var(--background);
 }
 
 p {
@@ -72,7 +100,7 @@ p a {
 
 a:focus,
 a:hover {
-  color: #0365FE
+  color: var(--tap)
 }
 
 a img:focus,
@@ -81,12 +109,12 @@ a img:hover {
 }
 
 blockquote {
-  color: #777;
+  color: var(--secondary);
   font-style: italic
 }
 
 hr.post {
-  border-top: 1px solid #000
+  border-top: 1px solid var(--primary)
 }
 
 hr.subheading {
@@ -99,7 +127,7 @@ hr.small {
   max-width: 100px;
   margin: 15px auto;
   border-width: 4px;
-  border-color: #fff
+  border-color: var(--background)
 }
 
 .navbar-custom {
@@ -111,7 +139,7 @@ hr.small {
 }
 
 .navbar-custom .navbar-header .navbar-toggle {
-  color: #777;
+  color: var(--secondary);
   font-weight: 800;
   text-transform: uppercase;
   font-size: 12px
@@ -131,32 +159,32 @@ hr.small {
   }
 
   .navbar-custom .navbar-brand {
-    color: #000;
+    color: var(--primary);
     padding: 20px
   }
 
   .navbar-custom .navbar-brand:focus,
   .navbar-custom .navbar-brand:hover {
-    color: #a80000
+    color: var(--secondary)
   }
 
   .navbar-custom .nav li a {
-    color: #000;
+    color: var(--primary);
     padding: 20px
   }
 
   .navbar-custom .nav li a:focus,
   .navbar-custom .nav li a:hover {
-    color: #a80000
+    color: var(--primary)
   }
 
   .navbar-custom .nav li ul.dropdown-menu a {
-    color: #333
+    color: var(--secondary)
   }
 
   .navbar-custom .nav li ul.dropdown-menu a:focus,
   .navbar-custom .nav li ul.dropdown-menu a:hover {
-    color: #0365FE
+    color: var(--tap)
   }
 }
 
@@ -177,29 +205,29 @@ hr.small {
   .navbar-custom.is-fixed {
     position: fixed;
     top: -61px;
-    background-color: #f2f2f2;
-    border-bottom: 1px solid #f2f2f2;
+    background-color: var(--background);
+    border-bottom: 1px solid var(--background);
     -webkit-transition: -webkit-transform .3s;
     -moz-transition: -moz-transform .3s;
     transition: transform .3s
   }
 
   .navbar-custom.is-fixed .navbar-brand {
-    color: #333
+    color: var(--secondary)
   }
 
   .navbar-custom.is-fixed .navbar-brand:focus,
   .navbar-custom.is-fixed .navbar-brand:hover {
-    color: #0365FE
+    color: var(--tap)
   }
 
   .navbar-custom.is-fixed .nav li a {
-    color: #333
+    color: var(--secondary)
   }
 
   .navbar-custom.is-fixed .nav li a:focus,
   .navbar-custom.is-fixed .nav li a:hover {
-    color: #0365FE
+    color: var(--tap)
   }
 
   .navbar-custom.is-visible {
@@ -233,7 +261,7 @@ header.intro-header {
 .intro-header .post-heading,
 .intro-header .site-heading {
   padding: 100px 0 50px;
-  color: #fff
+  color: var(--primary)
 }
 
 .intro-header .page-heading h1,
@@ -289,12 +317,13 @@ header.intro-header {
 }
 
 .intro-header .post-heading .meta a {
-  color: #fff
+  color: var(--primary)
 }
 
 .caption,
 .text-muted {
-  color: #000
+  /* Hardcoded black for max visibility in light and dark modes */
+  color: black
 }
 
 @media only screen and (min-width:768px) {
@@ -389,7 +418,7 @@ footer .copyright {
   position: relative;
   margin-bottom: 0;
   padding-bottom: .5em;
-  border-bottom: 1px solid #eee
+  border-bottom: 1px solid var(--background)
 }
 
 .floating-label-form-group input,
@@ -425,7 +454,7 @@ footer .copyright {
 
 .floating-label-form-group::not(:first-child) {
   padding-left: 14px;
-  border-left: 1px solid #eee
+  border-left: 1px solid var(--background)
 }
 
 .floating-label-form-group-with-value label {
@@ -434,11 +463,11 @@ footer .copyright {
 }
 
 .floating-label-form-group-with-focus label {
-  color: #0365FE
+  color: var(--tap)
 }
 
 form .row:first-child .floating-label-form-group {
-  border-top: 1px solid #eee
+  border-top: 1px solid var(--background)
 }
 
 .btn {
@@ -454,8 +483,8 @@ form .row:first-child .floating-label-form-group {
 
 .btn-default:focus,
 .btn-default:hover {
-  background-color: #0365FE;
-  border: 1px solid #0365FE;
+  background-color: var(--tap);
+  border: 1px solid var(--tap);
   color: #fff
 }
 
@@ -467,45 +496,45 @@ form .row:first-child .floating-label-form-group {
 .pager li>span {
   font-size: 14px;
   padding: 15px 25px;
-  background-color: #fff;
+  background-color: var(--background);
   border-radius: 0
 }
 
 .pager li>a:focus,
 .pager li>a:hover {
   color: #fff;
-  background-color: #0365FE;
-  border: 1px solid #0365FE
+  background-color: var(--tap);
+  border: 1px solid var(--tap)
 }
 
 .pager .disabled>a,
 .pager .disabled>a:focus,
 .pager .disabled>a:hover,
 .pager .disabled>span {
-  color: #777;
-  background-color: #333;
+  color: var(--secondary);
+  background-color: var(--primary);
   cursor: not-allowed
 }
 
 ::-moz-selection {
-  color: #fff;
+  color: var(--background);
   text-shadow: none;
-  background: #0365FE
+  background: var(--highlight)
 }
 
 ::selection {
-  color: #fff;
+  color: var(--highlight);
   text-shadow: none;
-  background: #0365FE
+  background: var(--highlight)
 }
 
 img::selection {
-  color: #fff;
+  color: var(--background);
   background: 0 0
 }
 
 img::-moz-selection {
-  color: #fff;
+  color: var(--background);
   background: 0 0
 }
 
@@ -519,17 +548,17 @@ img::-moz-selection {
 
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: #FFF;
+  background-color: var(--background);
   border-radius: 10px
 }
 
 ::-webkit-scrollbar {
   width: 10px;
-  background-color: #FFF
+  background-color: var(--background)
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #8d6;
+  background-color: var(--scroll);
   border-radius: 10px;
   background-image: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0.5) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.5) 75%, transparent 75%, transparent)
 }
@@ -537,40 +566,8 @@ img::-moz-selection {
 .tip {
   font-family: Lora, 'Times New Roman', serif;
   font-size: 20px;
-  color: #000;
-  background: #fff;
+  color: var(--primary);
+  background: var(--background);
   border-radius: 15px;
   opacity: .8
-}
-
-@-webkit-keyframes example {
-  0% {
-    background-color: green
-  }
-
-  50% {
-    background-color: red
-  }
-
-  100% {
-    background-color: green
-  }
-}
-
-@keyframes example {
-  0% {
-    background-color: green
-  }
-
-  50% {
-    background-color: red
-  }
-
-  100% {
-    background-color: green
-  }
-}
-
-.post-tags {
-  margin-top: 15px
 }
