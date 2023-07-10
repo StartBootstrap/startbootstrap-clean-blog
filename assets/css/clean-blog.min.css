@@ -21,7 +21,8 @@
     --background: #000;
   }
 
-  .accordion {
+  .theme-dark {
+    color: white;
     background-color: black
   }
 }
