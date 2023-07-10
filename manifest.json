@@ -39,7 +39,13 @@
     {
       "name": "Thought Bites",
       "url": "https://love-of-god-and-of-all-men.github.io/thought-bites.html",
-      "description": "Short Thoughts"
+      "description": "Short Thoughts",
+      "icons": [
+        {
+          "src": "/assets/icons/lightbulb-regular.svg",
+          "sizes": "192x192"
+        }
+      ]
     },
     {
       "name": "View the Newest Post",
