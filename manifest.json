@@ -42,7 +42,7 @@
       "description": "Short Thoughts",
       "icons": [
         {
-          "src": "/assets/icons/lightbulb-regular.svg",
+          "src": "/assets/icons/idea.png",
           "sizes": "192x192"
         }
       ]
