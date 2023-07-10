@@ -220,6 +220,11 @@
    margin-bottom: 50px
  }
 
+ header.intro-header {
+   background-image: url('/header-image.webp');
+   background-image: linear-gradient(0deg, #00000060, #00000000), url('/header-image.webp');
+ }
+
  .post-header {
    margin-bottom: 0px
  }
