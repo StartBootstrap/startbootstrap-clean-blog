@@ -26,11 +26,6 @@
     color: white;
     background-color: black
   }
-
-  /* overrides the default text color so we can see what we search while in dark mode */
-  .gsc-control-cse {
-    color: black;
-  }
 }
 
 body,
