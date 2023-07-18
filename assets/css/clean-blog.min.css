@@ -21,7 +21,6 @@
     --background: #000;
   }
 
-  /* to override our accordion's default settings when we enter dark mode */
   .theme-dark {
     color: white;
     background-color: black
@@ -267,8 +266,7 @@ header.intro-header {
 .intro-header .post-heading,
 .intro-header .site-heading {
   padding: 100px 0 50px;
-  /* Color hardcoded for visibility */
-  color: white
+  color: var(--primary)
 }
 
 .intro-header .page-heading h1,
