@@ -323,7 +323,7 @@ header.intro-header {
 .caption,
 .text-muted {
   /* Hardcoded black for max visibility in light and dark modes */
-  color: blue
+  color: black
 }
 
 @media only screen and (min-width:768px) {
