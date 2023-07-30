@@ -1,4 +1,4 @@
 node_modules
 .DS_Store
-published/
+published/**.html
 pyblog/__pycache__/
