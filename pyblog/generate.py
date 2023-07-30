@@ -24,16 +24,22 @@ def inject_head(html_text: str):
     return re.sub(r"\{\{\s*head\s*\}\}", head_text, html_text)
 
 
+def inject_navbar(html_text: str):
+    with open("templates/navbar.html", "r") as f:
+        head_text = f.read()
+    return re.sub(r"\{\{\s*navbar\s*\}\}", head_text, html_text)
+
+
 def inject_header(html_text: str):
     with open("templates/header.html", "r") as f:
         head_text = f.read()
     return re.sub(r"\{\{\s*header\s*\}\}", head_text, html_text)
 
 
-def inject_navbar(html_text: str):
-    with open("templates/navbar.html", "r") as f:
+def inject_markdown_content(html_text: str):
+    with open("templates/md-content.html", "r") as f:
         head_text = f.read()
-    return re.sub(r"\{\{\s*navbar\s*\}\}", head_text, html_text)
+    return re.sub(r"\{\{\s*md-content\s*\}\}", head_text, html_text)
 
 
 def inject_footer(html_text: str):
@@ -50,6 +56,7 @@ def generate_index_html():
     html_text = inject_head(html_text)
     html_text = inject_navbar(html_text)
     html_text = inject_header(html_text)
+    html_text = inject_markdown_content(html_text)
     html_text = inject_footer(html_text)
     for key, value in metadata.items():
         if check_img(os.path.join("./assets/images", value)):
