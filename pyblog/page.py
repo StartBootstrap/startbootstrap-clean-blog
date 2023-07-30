@@ -13,14 +13,29 @@ from .template_injection import (
 
 
 class Page:
-    def __init__(self, metadata: dict, template_file_path: str) -> None:
+    def __init__(
+        self,
+        site_name: str,
+        metadata: dict,
+        page_slugs: list,
+        page_texts: list,
+        template_file_path: str,
+    ) -> None:
+        self.site_name = site_name
         self.metadata = metadata
+        self.page_slugs = page_slugs
+        self.page_texts = page_texts
         with open(template_file_path, "r") as f:
             self.html_text = f.read()
 
     def inject_templates(self):
         self.html_text = inject_head(self.html_text)
-        self.html_text = inject_navbar(self.html_text)
+        self.html_text = inject_navbar(
+            self.html_text,
+            site_name=self.site_name,
+            page_texts=self.page_texts,
+            page_slugs=self.page_slugs,
+        )
         self.html_text = inject_header(self.html_text)
         self.html_text = inject_markdown_content(self.html_text)
         self.html_text = inject_footer(self.html_text)
