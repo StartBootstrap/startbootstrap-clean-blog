@@ -20,7 +20,6 @@ def inject_navbar(
     navbar_list_tags = ""
     for page_slug, page_text in zip(page_slugs, page_texts):
         navbar_list_tags += f'<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{page_slug}.html">{page_text}</a></li>'
-    print(navbar_list_tags)
     return re.sub(r"\{\s*navbar-list\s*\}", navbar_list_tags, html_text)
 
 
