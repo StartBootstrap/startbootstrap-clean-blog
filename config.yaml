@@ -1,4 +1,5 @@
 name: GeekyRakshit
 tagline: Machine Learning Engineer
-bg-image: ../assets/images/home-bg.jpg
-portfolio-image: ../assets/images/geekyrakshit.png
+bg-image: home-bg.jpg
+portfolio-image: geekyrakshit.png
+landing-page-content: landing-page-content.md
