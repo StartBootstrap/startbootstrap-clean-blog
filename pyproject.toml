@@ -9,6 +9,7 @@ packages = [{ include = "pyblog" }]
 [tool.poetry.dependencies]
 python = "^3.10"
 markdown2 = {git = "https://github.com/trentm/python-markdown2"}
+pillow = "^10.0.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.7.0"
