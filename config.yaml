@@ -2,4 +2,13 @@ name: GeekyRakshit
 tagline: Machine Learning Engineer
 bg-image: home-bg.jpg
 portfolio-image: geekyrakshit.png
-md-content: landing-page-content.md
+md-content: index.md
+pages:
+  - name: About
+    tagline: ""
+    bg-image: about-bg.jpg
+    portfolio-image: None
+    md-content: about.md
+    id:
+      slug: about
+      template: index.html
