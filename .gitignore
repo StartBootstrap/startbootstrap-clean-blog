@@ -1,4 +1,4 @@
 node_modules
 .DS_Store
 published/
-**__pycache__/
+**__pycache__**
