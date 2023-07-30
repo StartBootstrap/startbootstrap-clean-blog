@@ -29,10 +29,13 @@ class Page:
         for key, value in self.metadata.items():
             if check_image(os.path.join("./assets/images", value)):
                 value = os.path.join("../assets/images", value)
+                if key == "portfolio-image":
+                    value = f"<img src=\"{value}\">"
             elif os.path.isfile(os.path.join("./markdowns", value)):
                 value = markdown2.markdown_path(os.path.join("./markdowns", value))
             self.html_text = re.sub(
                 r"\{\s*" + str(key) + r"\s*\}", value, self.html_text
             )
+        self.html_text = re.sub(r"\{([^}]*)\}", value, self.html_text)
         with open("published/index.html", "w") as f:
             f.write(self.html_text)
