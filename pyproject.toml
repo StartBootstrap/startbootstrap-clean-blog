@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "pyblog"
+version = "0.1.0"
+description = "Static blog-management system for python using clean-blog theme"
+authors = ["Soumik Rakshit <19soumik.rakshit96@gmail.com>"]
+readme = "README.md"
+packages = [{ include = "pyblog" }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+markdown2 = {git = "https://github.com/trentm/python-markdown2"}
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+isort = "^5.12.0"
+pyaml = "^23.7.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
