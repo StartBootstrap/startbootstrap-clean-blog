@@ -45,6 +45,14 @@
       ]
     },
     {
+      "name": "Posts by Date",
+      "url": "https://love-of-god-and-of-all-men.github.io/archive/date",
+      "description": "",
+      "icons": [ { "src": "/assets/icons/calendar.png",
+      "sizes": "512x512" }
+      ]
+    },
+    {
       "name": "Thought Bites",
       "url": "https://love-of-god-and-of-all-men.github.io/thought-bites.html",
       "description": "Short Thoughts",
