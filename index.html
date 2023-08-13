@@ -3,11 +3,9 @@ layout: default
 title: The Love of God and of All Men
 ---
 
-<!-- Automatically outputs the 5 latest posts except for the posts tagged with "bite" -->
-{% assign counter = 0 %}
+<!-- Automatically outputs the 5 latest posts -->
 {% for post in site.posts %}
-{% unless post.tags contains 'bite' %}
-{% if counter < 5 %} <div class="post-preview">
+<div class="post-preview">
     <a href="{{ post.url }}">
         <img src="/assets/images/headers/{{ post.image }}.webp" class="post-preview-image" width="300px" height="200px">
         <h2 class="post-title">
@@ -38,10 +36,6 @@ title: The Love of God and of All Men
     {% endif %}
     </div>
     <hr>
-    <!-- If our unless loop has run meaning it hasn't found a post tagged with "bite," it should increment our counter. -->
-    {% assign counter = counter | plus: 1 %}
-    {% endif %}
-    {% endunless %}
     {% endfor %}
 
     <!-- Pager -->
