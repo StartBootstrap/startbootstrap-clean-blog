@@ -51,17 +51,6 @@
       "icons": [ { "src": "/assets/icons/calendar.png",
       "sizes": "512x512" }
       ]
-    },
-    {
-      "name": "Thought Bites",
-      "url": "https://love-of-god-and-of-all-men.github.io/thought-bites.html",
-      "description": "Short Thoughts",
-      "icons": [
-        {
-          "src": "/assets/icons/idea.png",
-          "sizes": "512x512"
-        }
-      ]
     }
   ],
   "prefer_related_applications": false,
