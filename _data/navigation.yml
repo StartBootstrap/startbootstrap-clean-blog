@@ -1,7 +1,5 @@
 - name: Home
   link: /
-- name: Thought Bites
-  link: /thought-bites.html
 - name: Archive
   link: /archive.html
 - name: Contributors
