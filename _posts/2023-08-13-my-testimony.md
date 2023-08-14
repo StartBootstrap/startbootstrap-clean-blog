@@ -1,6 +1,6 @@
 ---
-subtitle: I share my witness of Christ
-tags: [Jesus, testimony, creation]
+subtitle: I share my witness of Christ.
+tags: [Jesus, testimony, creation, gratitude]
 image:
 image_contributor:
 contributor_link:
