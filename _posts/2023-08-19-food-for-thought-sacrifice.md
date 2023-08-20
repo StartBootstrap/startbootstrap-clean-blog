@@ -1,6 +1,6 @@
 ---
 title: Food for Thought - Sacrifice
-date: 2023-08-19 23:18
+date: 2023-08-19 23:28
 ---
 
 > He that spared not his own Son, but delivered him up for us all, how shall he not with him also freely give us all things?
