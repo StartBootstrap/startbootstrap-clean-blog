@@ -1,6 +1,5 @@
 ---
 title: Food for Thought - Sacrifice
-subtitle: 
 date: 2023-08-19 23:18
 ---
 
