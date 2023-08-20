@@ -1,7 +1,7 @@
 ---
 title: Food for Thought - Sacrifice
 subtitle: 
-date: 2022-08-19 23:18
+date: 2023-08-19 23:18
 ---
 
 [Romans 8:32](https://www.churchofjesuschrist.org/study/scriptures/nt/rom/8?id=p32&lang=eng#p32){:target="_blank"}
