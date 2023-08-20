@@ -11,9 +11,12 @@ title: The Love of God and of All Men
         <h2 class="post-title">
             {{ post.title }}
         </h2>
-        <h3 class="post-subtitle">
-            {{ post.subtitle | strip_html }}
-        </h3>
+        {% if post.subtitle %}
+            <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+            {% else %}
+        <!-- Show the 1st 15 words of the post if no subtitle is included in the post. -->
+            <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
+            {% endif %}
     </a>
 
     <!-- If our post has an updated date and time, show this text. -->
