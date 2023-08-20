@@ -15,6 +15,7 @@ title: The Love of God and of All Men
             <h3 class="post-subtitle">{{ post.subtitle }}</h3>
             {% else %}
         <!-- Show the 1st 15 words of the post if no subtitle is included in the post. -->
+        <!-- Code from https://github.com/StartBootstrap/startbootstrap-clean-blog-jekyll/blob/master/_layouts/home.html -->
             <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
             {% endif %}
     </a>
