@@ -1,5 +1,6 @@
 ---
 title: Food for Thought - Sacrifice
+subtitle: How can I not sacrifice everything for Him who sacrificed all for me?
 date: 2023-08-19 23:28
 updated: 2023-08-20 22:40
 ---
