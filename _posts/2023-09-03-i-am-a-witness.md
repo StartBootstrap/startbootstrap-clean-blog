@@ -1,6 +1,9 @@
 ---
 title: I am a Witness
 subtitle: I am a witness that God is present in our lives and that He loves us very much.
+image: christ-healing-man
+image_contributor: The Church of Jesus Christ of Latter-day Saints
+contributor_link: https://uk.churchofjesuschrist.org/getting-to-know-our-savior-jesus-christ
 date: 2023-09-03 23:11
 ---
 
