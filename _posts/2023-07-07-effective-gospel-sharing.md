@@ -2,8 +2,8 @@
 tags: [bite, gospel, sharing, missionary work, the Holy Ghost]
 image: effective-gospel-sharing
 image_contributor: The Church of Jesus Christ of Latter-day Saints
-contributor_link: ChurchOfJesusChrist.org
-contributor_site: ChurchOfJesusChrist.org
+contributor_link: https://ChurchOfJesusChrist.org
+contributor_site: https://ChurchOfJesusChrist.org
 contributor_site_link_to_image: https://sg.churchofjesuschrist.org/area/leader-message/2022/09-a-mighty-change-of-heart
 date: 2023-07-07 09:41
 ---
