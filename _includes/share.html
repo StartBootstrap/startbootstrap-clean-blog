@@ -3,10 +3,10 @@
             <!-- Email article to a friend -->
             <li>
                   {% if page.subtitle != null %}
-                  <a href="mailto:?subject={{ page.title }} - The Love of God and of All Men&body={{ page.subtitle }}%0D%0A%0D%0A{{ site.url }}{{ page.url }}%0D%0A%0D%0AYour message:%C2%A0"
+                  <a href="mailto:?subject={{ page.title }} - The Love of God and of All Men&body={{ page.subtitle }}%0D%0A%0D%0A{{ site.url }}{{ page.url }}%0D%0A%0D%0AYour message:%C2%A0%0D%0A%0D%0A"
                         target="_blank" title="Email to a Friend">
                         {% else %}
-                        <a href="mailto:?subject={{ page.title }} - The Love of God and of All Men&body={{ page.title }}%0D%0A%0D%0A{{ site.url }}{{ page.url }}%0D%0A%0D%0AYour message:%C2%A0"
+                        <a href="mailto:?subject={{ page.title }} - The Love of God and of All Men&body={{ page.title }}%0D%0A%0D%0A{{ site.url }}{{ page.url }}%0D%0A%0D%0AYour message:%C2%A0%0D%0A%0D%0A"
                               target="_blank" title="Email to a Friend">
                               {% endif %}
                               <i class="fa fa-envelope" aria-hidden="true">
