@@ -1,6 +1,6 @@
 ---
-title: test
-subtitle: A music playlist for good days and for the transformation of bad days
+title: Good Day, Good Life
+subtitle: A music playlist for good days and for the transformation of bad days.
 date: 2023-10-01 13:20
 ---
 
