@@ -17,6 +17,9 @@ I am reading in a part of the scriptures where a prophet Nephi stops sharing his
 - That we may rejoice reading what has been written.
 - That we may apply the words to ourselves (even still today)! [(2 Nephi 11:8)](https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/11?lang=eng&id=p8#p8)
 
-Reading Isaiah, I have come to know my Savior and His infinite love for me. What is one thing you have learned from the valuable words of Isaiah?
+---
+Reading Isaiah, I have come to know my Savior and His infinite love for me.
+
+What is one thing you have learned from the valuable words of Isaiah?
 
 If you don't understand Isaiah, how might you work to understand?
