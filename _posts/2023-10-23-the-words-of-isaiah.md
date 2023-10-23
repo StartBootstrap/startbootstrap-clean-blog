@@ -5,9 +5,10 @@ image: open-scriptures
 image_contributor: The Church of Jesus Christ of Latter-day Saints
 contributor_link: https://www.churchofjesuschrist.org/topics/priesthood/scriptures?lang=eng
 date: 2023-10-23 01:02
-updated: 2023-10-23 01:14
+updated: 2023-10-23 01:19
 ---
 
+## My Reading
 I am reading in a part of the scriptures where a prophet Nephi stops sharing his words and starts sharing what Isaiah said. I couldn't help but wonder why. I came up with a list of a few reasons Nephi gave for reading the words of Isaiah.
 
 - Isaiah saw the Savior.
@@ -18,6 +19,7 @@ I am reading in a part of the scriptures where a prophet Nephi stops sharing his
 - That we may apply the words to ourselves (even still today)! [(2 Nephi 11:8)](https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/11?lang=eng&id=p8#p8)
 
 ---
+## Discussion
 Reading Isaiah, I have come to know my Savior and His infinite love for me.
 
 What is one thing you have learned from the valuable words of Isaiah?
