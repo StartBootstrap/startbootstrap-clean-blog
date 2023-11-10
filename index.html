@@ -22,7 +22,7 @@ title: Sharing His Love
 
     <!-- If our post has an updated date and time, show this text. -->
     {% if post.updated %}
-    <p class="post-meta" title="Originally posted on {{ post.date | date: '%A, %B %-d, %Y' }} at{{ post.date | date: '%l:%M %p %Z' }}">Posted {% assign author = site.authors | where: 'short_name', post.author | first %}
+    <p class="post-meta" title="Originally posted on {{ post.date | date: '%A, %B %-d, %Y' }} at {{ post.date | date: '%l:%M %p %Z' }}">Posted {% assign author = site.authors | where: 'short_name', post.author | first %}
         {% if author %}
         by <a href="{{ author.url }}">{{ author.name }}</a>
         {% endif %}
