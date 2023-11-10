@@ -7,7 +7,7 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="manifest" href="manifest.json" />
-   
+
    <!-- Code below sets the metadata based on if it is a blog post page or not -->
    {% if page.is_post %}
    <meta name="description" content="{{ page.subtitle }}">
@@ -45,12 +45,12 @@
    <meta property="og:title" content="{{ page.title }}" />
    <link rel="alternate" type="application/rss+xml" href="{{ site.url }}/feed.xml">
 
-<script>
-  if (typeof navigator.serviceWorker !== 'undefined') {
-    navigator.serviceWorker.register('sw.js')
-  }
-</script>
-   
+   <script>
+      if (typeof navigator.serviceWorker !== 'undefined') {
+         navigator.serviceWorker.register('sw.js')
+      }
+   </script>
+
    <title>{{ page.title }}</title>
    <!-- Bootstrap Core CSS (called from included html file so it is more easily updated in the future) -->
    {% include bootstrap.html %}
@@ -72,6 +72,8 @@
    {% if page.is_post %}
    <!-- Commenting out for now because script does not exist. -->
    <!-- <script src="/assets/js/message-close-cookie.js"></script> -->
+   <!-- Include rich results in our code so Google can display our posts with images and descriptions in search. -->
+   {% include rich-results.html %}
    {% endif %}
    {% include print.html %}
 </head>
