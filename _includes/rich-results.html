@@ -21,7 +21,8 @@
           "url": "https://love-of-god-and-of-all-men.github.io/favicon-512x512.png"
         }
       },
-      "datePublished": "2023-10-23",
-      "dateModified": "2023-10-23"
+      "datePublished": "{{ page.date | date: "%F %T %z" }}" {% if page.updated %},
+      "dateModified": "{{ page.updated | date: "%F %T %z" }}"
+      {% endif %}
     }
     </script>
