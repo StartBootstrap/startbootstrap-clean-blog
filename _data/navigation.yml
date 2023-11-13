@@ -1,5 +1,7 @@
 - name: Home
   link: /
+- Name: Wallpapers
+  link: /wallpapers.html
 - name: Archive
   link: /archive.html
 - name: Contributors
