@@ -2,3 +2,6 @@
 <br>
 <br>
 <a href="https://www.flaticon.com/free-icons/calendar" title="calendar icons">Calendar icon created by bqlqn - Flaticon</a>
+<br>
+<br>
+<a href="https://www.flaticon.com/free-icons/picture" title="picture icons">Picture icons created by Pixel perfect - Flaticon</a>
