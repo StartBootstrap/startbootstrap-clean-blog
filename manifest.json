@@ -51,6 +51,14 @@
       "icons": [ { "src": "/assets/icons/calendar.png",
       "sizes": "512x512" }
       ]
+    },
+    {
+      "name": "Wallpapers",
+      "url": "https://love-of-god-and-of-all-men.github.io/wallpapers",
+      "description": "",
+      "icons": [ { "src": "/assets/icons/image-gallery.png",
+      "sizes": "512x512" }
+      ]
     }
   ],
   "prefer_related_applications": false,
