@@ -10,8 +10,6 @@
 
    <!-- Code below sets the metadata based on if it is a blog post page or not -->
    {% if page.is_post %}
-   <meta name="description" content="{{ page.subtitle }}">
-   <meta property="og:description" content="{{ page.subtitle }}" />
    <!-- Inspired by https://shopify.github.io/liquid/filters/join/ -->
    {% assign tags = page.tags %}
    <meta name="keywords" content="{{ tags | join: ', ' }}">
@@ -43,6 +41,11 @@
    <link rel="icon" href="/favicon-512x512.png" />
    <meta property="og:url" content="https://love-of-god-and-of-all-men.github.io{{ page.url }}" />
    <meta property="og:title" content="{{ page.title }}" />
+   <!-- If the page has a subtitle, add it to the metadata. -->
+   {% if page.subtitle %}
+   <meta name="description" content="{{ page.subtitle }}">
+   <meta property="og:description" content="{{ page.subtitle }}" />
+   {% endif %}
    <link rel="alternate" type="application/rss+xml" href="{{ site.url }}/feed.xml">
 
    <script>
@@ -52,6 +55,10 @@
    </script>
 
    <title>{{ page.title }}</title>
+   <!-- If the page has a subtitle, display it. -->
+   {% if page.subtitle %}
+   <h2 class="subheading"><em>{{ page.subtitle }}</em></h2>
+   {% endif %}
    <!-- Bootstrap Core CSS (called from included html file so it is more easily updated in the future) -->
    {% include bootstrap.html %}
    <!-- Theme CSS -->
