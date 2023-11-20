@@ -35,7 +35,9 @@
   "shortcuts": [
     {
       "name": "View the Newest Post",
+      {% for post in site.posts limit:1 %}
       "url": "https://love-of-god-and-of-all-men.github.io/newest-post.html",
+      {% endfor %}
       "description": "",
       "icons": [
         {
