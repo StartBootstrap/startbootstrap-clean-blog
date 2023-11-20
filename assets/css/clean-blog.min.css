@@ -574,3 +574,7 @@ img::-moz-selection {
 .post-tags {
   margin-top: 15px
 }
+
+.offline-article {
+  color: gray;
+}
