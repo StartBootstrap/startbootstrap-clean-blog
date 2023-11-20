@@ -5,24 +5,26 @@ title: Sharing His Love
 
 <!-- Automatically outputs the 5 latest posts -->
 {% for post in site.posts limit:5 %}
-<div class="post-preview {{ cachedArticle ? '' : 'offline-article' }}">
+<div class="post-preview {{ cachedArticle(article.url) ? '' : 'offline-article' }}">
     <a href="{{ post.url }}">
         <img src="/assets/images/headers/{{ post.image }}.webp" class="post-preview-image" width="300px" height="200px">
         <h2 class="post-title">
             {{ post.title }}
         </h2>
         {% if post.subtitle %}
-            <h3 class="post-subtitle">{{ post.subtitle }}</h3>
-            {% else %}
+        <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+        {% else %}
         <!-- Show the 1st 15 words of the post if no subtitle is included in the post. -->
         <!-- Code from https://github.com/StartBootstrap/startbootstrap-clean-blog-jekyll/blob/master/_layouts/home.html -->
-            <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
-            {% endif %}
+        <h3 class="post-subtitle">{{ post.excerpt | strip_html | truncatewords: 15 }}</h3>
+        {% endif %}
     </a>
 
     <!-- If our post has an updated date and time, show this text. -->
     {% if post.updated %}
-    <p class="post-meta" title="Originally posted on {{ post.date | date: '%A, %B %-d, %Y' }} at {{ post.date | date: '%l:%M %p %Z' }}">Posted {% assign author = site.authors | where: 'short_name', post.author | first %}
+    <p class="post-meta"
+        title="Originally posted on {{ post.date | date: '%A, %B %-d, %Y' }} at {{ post.date | date: '%l:%M %p %Z' }}">
+        Posted {% assign author = site.authors | where: 'short_name', post.author | first %}
         {% if author %}
         by <a href="{{ author.url }}">{{ author.name }}</a>
         {% endif %}
@@ -38,13 +40,19 @@ title: Sharing His Love
         on {{ post.date | date: "%A, %B %-d, %Y" }} at {{ post.date | date: "%l:%M %p %Z" }}
     </p>
     {% endif %}
-    </div>
-    <hr>
-    {% endfor %}
+</div>
+<hr>
+{% endfor %}
 
-    <!-- Pager -->
-    <ul class="pager">
-        <li>
-            <a href="archive">Post Archive</a>
-        </li>
-    </ul>
+<script>
+    function cachedArticle(articleURL) {
+        return caches.match(articleURL) !== null;
+    }
+</script>
+
+<!-- Pager -->
+<ul class="pager">
+    <li>
+        <a href="archive">Post Archive</a>
+    </li>
+</ul>
