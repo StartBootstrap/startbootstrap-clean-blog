@@ -37,7 +37,9 @@ layout: none
     },
     {
       "src": "/maskable-1080x1080.png",
-      "sizes": "1080x1080", "purpose": "maskable"
+      "type": "image/png",
+      "sizes": "1080x1080",
+      "purpose": "maskable"
     }
   ],
   "shortcuts": [
