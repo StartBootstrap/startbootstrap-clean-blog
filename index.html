@@ -8,7 +8,7 @@ title: Sharing His Love
 <div class="post-preview">
     <a href="{{ post.url }}">
         <img src="/assets/images/headers/{{ post.image }}.webp" class="post-preview-image" width="300px" height="200px">
-        <h2 class="post-title {{ cachedArticle(article.url) ? '' : 'offline-article' }}">
+        <h2 class="post-title">
             {{ post.title }}
         </h2>
         {% if post.subtitle %}
@@ -43,13 +43,6 @@ title: Sharing His Love
 </div>
 <hr>
 {% endfor %}
-
-<script>
-    function cachedArticle(articleURL) {
-        return caches.match(articleURL) !== null;
-        console.log(articleURL);
-    }
-</script>
 
 <!-- Pager -->
 <ul class="pager">
