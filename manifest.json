@@ -34,12 +34,6 @@ layout: none
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any"
-    },
-    {
-      "src": "/maskable-1024x1024.png",
-      "type": "image/png",
-      "sizes": "1024x1024",
-      "purpose": "maskable"
     }
   ],
   "shortcuts": [
