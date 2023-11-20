@@ -36,9 +36,9 @@ layout: none
       "purpose": "any"
     },
     {
-      "src": "/maskable-1080x1080.png",
+      "src": "/maskable-1024x1024.png",
       "type": "image/png",
-      "sizes": "1080x1080",
+      "sizes": "1024x1024",
       "purpose": "maskable"
     }
   ],
