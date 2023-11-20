@@ -3,6 +3,12 @@ layout: default
 title: Sharing His Love
 ---
 
+<script>
+    function cachedArticle(articleURL) {
+        return caches.match(articleURL) !== null;
+    }
+</script>
+
 <!-- Automatically outputs the 5 latest posts -->
 {% for post in site.posts limit:5 %}
 <div class="post-preview">
@@ -43,12 +49,6 @@ title: Sharing His Love
 </div>
 <hr>
 {% endfor %}
-
-<script>
-    function cachedArticle(articleURL) {
-        return caches.match(articleURL) !== null;
-    }
-</script>
 
 <!-- Pager -->
 <ul class="pager">
