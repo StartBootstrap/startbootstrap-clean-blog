@@ -39,9 +39,7 @@ layout: none
   "shortcuts": [
     {
       "name": "View the Newest Post",
-      {% for post in site.posts limit:1 %}
-      "url": "{{ post.url }}",
-      {% endfor %}
+      {% for post in site.posts limit:1 %}"url": "{{ site.url }}{{ post.url }}",{% endfor %}
       "description": "",
       "icons": [
         {
