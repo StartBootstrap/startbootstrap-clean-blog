@@ -39,6 +39,8 @@ layout: none
   "shortcuts": [
     {
       "name": "View the Newest Post",
+      // The shortcut when the PWA is installed will dynamically update when a new post is made.
+      // This shortcut will loop through the posts limiting its loop to one post and setting the url to the site's base url plus the post's url from the loop.
       {% for post in site.posts limit:1 %}"url": "{{ site.url }}{{ post.url }}",{% endfor %}
       "description": "",
       "icons": [
