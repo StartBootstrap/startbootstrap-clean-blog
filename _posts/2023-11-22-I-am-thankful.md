@@ -7,9 +7,10 @@ contributor_link: https://ChurchofJesusChrist.org
 contributor_site: ChurchofJesusChrist.org
 contributor_site_link_to_image: https://www.churchofjesuschrist.org/media/video/2020-11-1100-president-russell-m-nelson-on-the-healing-power-of-gratitude?lang=eng
 date: 2023-11-22 01:15
+modified: 2023-11-22 01:37
 ---
 
-Recently I was in a meeting, and someone brought up a wonderful video on gratitude that was made during the COVID-19 pandemic.
+Recently I was in a meeting, and someone brought up a wonderful video on gratitude that was made during the COVID-19 pandemic:
 
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/i51gcWCs-Ho' frameborder='0' allowfullscreen></iframe></div>
 
