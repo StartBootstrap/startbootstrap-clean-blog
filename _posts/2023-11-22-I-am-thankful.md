@@ -1,6 +1,6 @@
 ---
 title: I Am Thankful
-subtitle: A video on the healing power of gratitude and an invitation
+subtitle: A video and an invitation on the healing power of gratitude
 image: I-am-thankful
 image_contributor: The Church of Jesus Christ of Latter-day Saints
 contributor_link: https://ChurchofJesusChrist.org
