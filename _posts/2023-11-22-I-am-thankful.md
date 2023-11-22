@@ -22,6 +22,6 @@ I am thankful for food that is available to me so I have enough to eat.
 
 I am thankful to be able to feel God's love for me and to be able to share it with others.
 
-<hr>
+---
 
-More at <a href="https://powerofgratitude.org">PowerofGratitude.org</a>
+More at [PowerofGratitude.org](https://powerofgratitude.org)
