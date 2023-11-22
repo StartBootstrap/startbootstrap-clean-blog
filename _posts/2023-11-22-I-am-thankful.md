@@ -24,4 +24,4 @@ I am thankful to be able to feel God's love for me and to be able to share it wi
 
 ---
 
-More at [PowerofGratitude.org](https://powerofgratitude.org)
+More at [PowerofGratitude.org](powerofgratitude.org)
