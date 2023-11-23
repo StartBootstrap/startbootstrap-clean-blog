@@ -2,10 +2,10 @@
 title: I Am Thankful
 subtitle: Thoughts on the healing power of gratitude
 image: I-am-thankful
-image_contributor: The Church of Jesus Christ of Latter-day Saints
-contributor_link: https://ChurchofJesusChrist.org
-contributor_site: ChurchofJesusChrist.org
-contributor_site_link_to_image: https://www.churchofjesuschrist.org/media/video/2020-11-1100-president-russell-m-nelson-on-the-healing-power-of-gratitude?lang=eng
+image_contributor: Pro Church Media
+contributor_link: https://unsplash.com/@prochurchmedia
+contributor_site: unsplash.com
+contributor_site_link_to_image: https://unsplash.com/photos/brown-wooden-board-p2OQW69vXP4
 date: 2023-11-22 01:15
 updated: 2023-11-22 01:50
 ---
