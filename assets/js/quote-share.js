@@ -12,8 +12,7 @@ sleep(5000).then(() => {
    const shareData = {
       title: 'Quote',
       subject: 'Quote',
-      text: text,
-      url: 'https://love-of-god-and-of-all-men.github.io'
+      text: text
    }
 
    const link = document.querySelector('#quote-share-link');
