@@ -1,11 +1,11 @@
 // sleeping so the quote has time to load. Once the quote loads, we can get the text and share it through the link.
 // sleep time expects milliseconds
-function sleep(time) {
-   return new Promise((resolve) => setTimeout(resolve, time));
-}
+// function sleep(time) {
+   // return new Promise((resolve) => setTimeout(resolve, time));
+// }
 
 // Usage!
-sleep(5000).then(() => {
+// sleep(5000).then(() => {
    // Do something after the sleep!
    let text = document.getElementById("quote").textContent;
 
@@ -30,4 +30,4 @@ sleep(5000).then(() => {
          successMessage.textContent = 'Error: ' + err
       }
    });
-});
+// });
