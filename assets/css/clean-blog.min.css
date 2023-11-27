@@ -72,7 +72,7 @@ p a {
 
 a:focus,
 a:hover {
-  color: #0365FE
+  color: #ff0500
 }
 
 a img:focus,
@@ -156,7 +156,7 @@ hr.small {
 
   .navbar-custom .nav li ul.dropdown-menu a:focus,
   .navbar-custom .nav li ul.dropdown-menu a:hover {
-    color: #0365FE
+    color: red
   }
 }
 
@@ -190,7 +190,7 @@ hr.small {
 
   .navbar-custom.is-fixed .navbar-brand:focus,
   .navbar-custom.is-fixed .navbar-brand:hover {
-    color: #0365FE
+    color: red
   }
 
   .navbar-custom.is-fixed .nav li a {
@@ -199,7 +199,7 @@ hr.small {
 
   .navbar-custom.is-fixed .nav li a:focus,
   .navbar-custom.is-fixed .nav li a:hover {
-    color: #0365FE
+    color: red
   }
 
   .navbar-custom.is-visible {
@@ -454,8 +454,8 @@ form .row:first-child .floating-label-form-group {
 
 .btn-default:focus,
 .btn-default:hover {
-  background-color: #0365FE;
-  border: 1px solid #0365FE;
+  background-color: red;
+  border: 1px solid red;
   color: #fff
 }
 
@@ -474,8 +474,8 @@ form .row:first-child .floating-label-form-group {
 .pager li>a:focus,
 .pager li>a:hover {
   color: #fff;
-  background-color: #0365FE;
-  border: 1px solid #0365FE
+  background-color: red;
+  border: 1px solid red
 }
 
 .pager .disabled>a,
