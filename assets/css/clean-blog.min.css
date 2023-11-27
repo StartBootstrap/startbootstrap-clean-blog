@@ -111,7 +111,7 @@ hr.small {
 }
 
 .navbar-custom .navbar-header .navbar-toggle {
-  color: #777;
+  color: #000;
   font-weight: 800;
   text-transform: uppercase;
   font-size: 12px
@@ -185,7 +185,7 @@ hr.small {
   }
 
   .navbar-custom.is-fixed .navbar-brand {
-    color: #333
+    color: #000
   }
 
   .navbar-custom.is-fixed .navbar-brand:focus,
@@ -194,7 +194,7 @@ hr.small {
   }
 
   .navbar-custom.is-fixed .nav li a {
-    color: #333
+    color: #000
   }
 
   .navbar-custom.is-fixed .nav li a:focus,
