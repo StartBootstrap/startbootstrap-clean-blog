@@ -222,7 +222,7 @@ hr.small {
 
 header.intro-header {
   background-image: url(/header-image.webp);
-  background-image: linear-gradient(0deg, #00000000, #00000060), url(/header-image.webp)
+  background-image: linear-gradient(0deg, #00000060, #00000060), url(/header-image.webp)
 }
 
 .post-header {
