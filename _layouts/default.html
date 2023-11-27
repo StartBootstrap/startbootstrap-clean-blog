@@ -58,28 +58,92 @@
 
 <body onload="genTip()">
    {% include navigation.html %}
-   {% include header.html %}
-   <!-- Main Content -->
-   <div class="container">
-      <div class="row">
-         <div id="posts" class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            {% if page.url == "/" %} <!-- script is included only if it is on the homepage -->
-            <!-- Below is a script that will get the quote displayed on the page at the current moment and allow it to be shared on various platforms (depending on the device's sharing capabilities) when the link is clicked -->
-            <script src="/assets/js/quote-share.js"></script>
-            {% endif %}
-            {{content}}
+   <!-- Page Header -->
+   <!-- Set your background image for this header on the line below. -->
+   <!-- If the page has an image set, and it isn't the homepage, set the page's intro header to the image that is set for that page. -->
+   {% if page.image && page.url != "/" %}
+   <header class="intro-header post-header"
+      style="background-image: linear-gradient(0deg, #00000050, #00000050), url('/assets/images/headers/{{ page.image }}.webp');">
+      {% else %}
+      <header class="intro-header">
+         {% endif %}
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                  {% if page.url == "/" %}
+                  {% include siteheading.html %}
+                  {% else %}
+                  {% include postheading.html %}
+                  {% endif %}
+               </div>
+            </div>
+         </div>
+         {% if page.image_contributor and page.contributor_link %}
+         {% include attribution.html %}
+         {% endif %}
+         <script>
+            (function () {
+               var cx = '013983193458560348448:lapt2plbyqi';
+               var gcse = document.createElement('script');
+               gcse.type = 'text/javascript';
+               gcse.async = true;
+               gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+               var s = document.getElementsByTagName('script')[0];
+               s.parentNode.insertBefore(gcse, s);
+            })();
+         </script>
+         <gcse:search></gcse:search>
+      </header>
+      <!-- Main Content -->
+      <div class="container">
+         <div class="row">
+            <div id="posts" class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+               {% if page.url == "/" %} <!-- script is included only if it is on the homepage -->
+               <!-- Below is a script that will get the quote displayed on the page at the current moment and allow it to be shared on various platforms (depending on the device's sharing capabilities) when the link is clicked -->
+               <script src="/assets/js/quote-share.js"></script>
+               {% endif %}
+               {{content}}
+            </div>
          </div>
       </div>
-   </div>
-   {% include footer.html %}
-   <!-- jQuery -->
-   <script src="/vendor/jquery/jquery.min.js"></script>
-   <!-- Bootstrap Core JavaScript -->
-   <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
-   <!-- Theme JavaScript -->
-   <script src="/assets/js/clean-blog.min.js"></script>
-   <!-- Accordion JavaScript -->
-   <script src="/assets/js/accordion.js"></script>
+      <!-- Footer -->
+      <!-- Because of CSS rules in our Bootstrap code, anything with the class hidden-print will not be printed. -->
+      <footer class="hidden-print">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                  <ul class="list-inline text-center">
+                     <li>
+                        <a href="mailto:loveofallblog@gmail.com" title="Send me an Email" target="_blank">
+                           <span class="fa-stack fa-lg">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa fa-paper-plane fa-stack-1x fa-inverse"></i>
+                           </span>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="{{ site.url }}/feed.xml" target="_blank">
+                           <span class="fa-stack fa-lg">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                        </a>
+                     </li>
+                  </ul>
+                  <footer id="foot01" class="copyright"></footer>
+                  <script src="/footer.js"></script>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <!-- jQuery -->
+      <script src="/vendor/jquery/jquery.min.js"></script>
+      <!-- Bootstrap Core JavaScript -->
+      <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+      <!-- Theme JavaScript -->
+      <script src="/assets/js/clean-blog.min.js"></script>
+      <!-- Accordion JavaScript -->
+      <script src="/assets/js/accordion.js"></script>
 </body>
 
 </html>
