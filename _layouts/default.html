@@ -12,9 +12,12 @@
    {% if page.is_post %}
    <meta name="description" content="{{ page.subtitle }}">
    <meta property="og:description" content="{{ page.subtitle }}" />
+
+   <!-- Below code not in current use -->
    <!-- Inspired by https://shopify.github.io/liquid/filters/join/ -->
-   {% assign tags = page.tags %}
-   <meta name="keywords" content="{{ tags | join: ', ' }}">
+   <!-- {% assign tags = page.tags %} -->
+   <!-- <meta name="keywords" content="{{ tags | join: ', ' }}"> -->
+
    <meta property="og:image"
       content="https://love-of-god-and-of-all-men.github.io/assets/images/headers/{{ page.image }}.webp" />
    <meta name="author" content="{{ page.author }}">
