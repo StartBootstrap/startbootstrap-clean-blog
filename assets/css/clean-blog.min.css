@@ -529,7 +529,7 @@ img::-moz-selection {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(221, 102, 102);
+  background-color: rgb(255, 0, 0);
   border-radius: 10px;
 }
 
