@@ -5,10 +5,12 @@
 
 /* CSS optimized by https://www.cssportal.com/css-optimize/ */
 
+/* Setting theme color variables */
 :root {
   /* Primary for main text and links to articles */
   --primary: var(--primary);
   /* Secondary for minor items like the scrollbar and menu links on hover */
+
   /* Tertiary for things generally not seen except for hover or tap like link hover, button hover */
   --tertiary: #ff0500;
 }
