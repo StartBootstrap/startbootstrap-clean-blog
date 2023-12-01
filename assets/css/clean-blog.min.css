@@ -6,7 +6,7 @@
 /* CSS optimized by https://www.cssportal.com/css-optimize/ */
 
 :root {
-  /* tertiary for link hover, scollbar, button hover */
+  /* tertiary for things generally not seen except for hover or tap like link hover, button hover */
   --secondary: #ff0500;
 }
 
