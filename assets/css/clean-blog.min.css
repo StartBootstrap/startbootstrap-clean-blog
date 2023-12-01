@@ -7,7 +7,7 @@
 
 :root {
   /* tertiary for things generally not seen except for hover or tap like link hover, button hover */
-  --secondary: #ff0500;
+  --tertiary: #ff0500;
 }
 
 a,
@@ -78,7 +78,7 @@ p a {
 
 a:focus,
 a:hover {
-  color: var(--secondary)
+  color: var(--tertiary)
 }
 
 a img:focus,
@@ -162,7 +162,7 @@ hr.small {
 
   .navbar-custom .nav li ul.dropdown-menu a:focus,
   .navbar-custom .nav li ul.dropdown-menu a:hover {
-    color: var(--secondary)
+    color: var(--tertiary)
   }
 }
 
@@ -196,7 +196,7 @@ hr.small {
 
   .navbar-custom.is-fixed .navbar-brand:focus,
   .navbar-custom.is-fixed .navbar-brand:hover {
-    color: var(--secondary)
+    color: var(--tertiary)
   }
 
   .navbar-custom.is-fixed .nav li a {
@@ -205,7 +205,7 @@ hr.small {
 
   .navbar-custom.is-fixed .nav li a:focus,
   .navbar-custom.is-fixed .nav li a:hover {
-    color: var(--secondary)
+    color: var(--tertiary)
   }
 
   .navbar-custom.is-visible {
@@ -460,8 +460,8 @@ form .row:first-child .floating-label-form-group {
 
 .btn-default:focus,
 .btn-default:hover {
-  background-color: var(--secondary);
-  border: 1px solid var(--secondary);
+  background-color: var(--tertiary);
+  border: 1px solid var(--tertiary);
   color: #fff
 }
 
@@ -480,8 +480,8 @@ form .row:first-child .floating-label-form-group {
 .pager li>a:focus,
 .pager li>a:hover {
   color: #fff;
-  background-color: var(--secondary);
-  border: 1px solid var(--secondary)
+  background-color: var(--tertiary);
+  border: 1px solid var(--tertiary)
 }
 
 .pager .disabled>a,
@@ -535,7 +535,7 @@ img::-moz-selection {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--secondary);
+  background-color: var(--tertiary);
   border-radius: 10px;
 }
 
