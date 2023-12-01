@@ -6,13 +6,16 @@
 /* CSS optimized by https://www.cssportal.com/css-optimize/ */
 
 :root {
-  /* tertiary for things generally not seen except for hover or tap like link hover, button hover */
+  /* Primary for main text and links to articles */
+  --primary: var(--primary);
+  /* Secondary for minor items like the scrollbar and menu links on hover */
+  /* Tertiary for things generally not seen except for hover or tap like link hover, button hover */
   --tertiary: #ff0500;
 }
 
 a,
 body {
-  color: #333
+  color: var(--primary)
 }
 
 .navbar-custom .nav li a,
@@ -92,7 +95,7 @@ blockquote {
 }
 
 hr.post {
-  border-top: 1px solid #000
+  border-top: 1px solid var(--primary);
 }
 
 hr.subheading {
@@ -117,7 +120,7 @@ hr.small {
 }
 
 .navbar-custom .navbar-header .navbar-toggle {
-  color: #000;
+  color: var(--primary);
   font-weight: 800;
   text-transform: uppercase;
   font-size: 12px
@@ -137,7 +140,7 @@ hr.small {
   }
 
   .navbar-custom .navbar-brand {
-    color: #000;
+    color: var(--primary);
     padding: 20px
   }
 
@@ -147,7 +150,7 @@ hr.small {
   }
 
   .navbar-custom .nav li a {
-    color: #000;
+    color: var(--primary);
     padding: 20px
   }
 
@@ -157,7 +160,7 @@ hr.small {
   }
 
   .navbar-custom .nav li ul.dropdown-menu a {
-    color: #333
+    color: var(--primary)
   }
 
   .navbar-custom .nav li ul.dropdown-menu a:focus,
@@ -191,7 +194,7 @@ hr.small {
   }
 
   .navbar-custom.is-fixed .navbar-brand {
-    color: #000
+    color: var(--primary);
   }
 
   .navbar-custom.is-fixed .navbar-brand:focus,
@@ -200,7 +203,7 @@ hr.small {
   }
 
   .navbar-custom.is-fixed .nav li a {
-    color: #000
+    color: var(--primary);
   }
 
   .navbar-custom.is-fixed .nav li a:focus,
@@ -300,7 +303,7 @@ header.intro-header {
 
 .caption,
 .text-muted {
-  color: #000
+  color: var(--primary);
 }
 
 @media only screen and (min-width:768px) {
@@ -542,7 +545,7 @@ img::-moz-selection {
 .tip {
   font-family: Lora, 'Times New Roman', serif;
   font-size: 20px;
-  color: #000;
+  color: var(--primary);
   background: #fff;
   border-radius: 15px;
   opacity: .8
