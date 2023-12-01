@@ -8,7 +8,7 @@
 /* Setting theme color variables */
 :root {
   /* Primary for main text and links to articles */
-  --primary-text: #000;
+  --primary-text-color: #000;
   /* Secondary for minor items like the scrollbar and menu links on hover */
   --secondary: #a80000;
   /* Tertiary for things generally not seen except for hover or tap like link hover, button hover */
@@ -17,7 +17,7 @@
 
 a,
 body {
-  color: var(--primary-text)
+  color: var(--primary-text-color)
 }
 
 .navbar-custom .nav li a,
@@ -97,7 +97,7 @@ blockquote {
 }
 
 hr.post {
-  border-top: 1px solid var(--primary-text);
+  border-top: 1px solid var(--primary-text-color);
 }
 
 hr.subheading {
@@ -122,7 +122,7 @@ hr.small {
 }
 
 .navbar-custom .navbar-header .navbar-toggle {
-  color: var(--primary-text);
+  color: var(--primary-text-color);
   font-weight: 800;
   text-transform: uppercase;
   font-size: 12px
@@ -142,7 +142,7 @@ hr.small {
   }
 
   .navbar-custom .navbar-brand {
-    color: var(--primary-text);
+    color: var(--primary-text-color);
     padding: 20px
   }
 
@@ -152,7 +152,7 @@ hr.small {
   }
 
   .navbar-custom .nav li a {
-    color: var(--primary-text);
+    color: var(--primary-text-color);
     padding: 20px
   }
 
@@ -162,7 +162,7 @@ hr.small {
   }
 
   .navbar-custom .nav li ul.dropdown-menu a {
-    color: var(--primary-text)
+    color: var(--primary-text-color)
   }
 
   .navbar-custom .nav li ul.dropdown-menu a:focus,
@@ -196,7 +196,7 @@ hr.small {
   }
 
   .navbar-custom.is-fixed .navbar-brand {
-    color: var(--primary-text);
+    color: var(--primary-text-color);
   }
 
   .navbar-custom.is-fixed .navbar-brand:focus,
@@ -205,7 +205,7 @@ hr.small {
   }
 
   .navbar-custom.is-fixed .nav li a {
-    color: var(--primary-text);
+    color: var(--primary-text-color);
   }
 
   .navbar-custom.is-fixed .nav li a:focus,
@@ -305,7 +305,7 @@ header.intro-header {
 
 .caption,
 .text-muted {
-  color: var(--primary-text);
+  color: var(--primary-text-color);
 }
 
 @media only screen and (min-width:768px) {
@@ -548,7 +548,7 @@ img::-moz-selection {
 .tip {
   font-family: Lora, 'Times New Roman', serif;
   font-size: 20px;
-  color: var(--primary-text);
+  color: var(--primary-text-color);
   background: #fff;
   border-radius: 15px;
   opacity: .8
