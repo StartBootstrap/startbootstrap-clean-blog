@@ -47,7 +47,7 @@ footer .copyright {
 body {
   font-family: Lora, 'Times New Roman', serif;
   font-size: 20px;
-  -webkit-tap-highlight-color: #0365FE
+  -webkit-tap-highlight-color: var(--tertiary)
 }
 
 .intro-header .page-heading .subheading,
