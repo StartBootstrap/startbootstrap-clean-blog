@@ -4,6 +4,11 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)*/
 
 /* CSS optimized by https://www.cssportal.com/css-optimize/ */
+
+:root {
+  --secondary: #ff0500;
+}
+
 a,
 body {
   color: #333
@@ -72,7 +77,7 @@ p a {
 
 a:focus,
 a:hover {
-  color: #ff0500
+  color: var(--secondary)
 }
 
 a img:focus,
@@ -156,7 +161,7 @@ hr.small {
 
   .navbar-custom .nav li ul.dropdown-menu a:focus,
   .navbar-custom .nav li ul.dropdown-menu a:hover {
-    color: red
+    color: var(--secondary)
   }
 }
 
@@ -190,7 +195,7 @@ hr.small {
 
   .navbar-custom.is-fixed .navbar-brand:focus,
   .navbar-custom.is-fixed .navbar-brand:hover {
-    color: red
+    color: var(--secondary)
   }
 
   .navbar-custom.is-fixed .nav li a {
@@ -199,7 +204,7 @@ hr.small {
 
   .navbar-custom.is-fixed .nav li a:focus,
   .navbar-custom.is-fixed .nav li a:hover {
-    color: red
+    color: var(--secondary)
   }
 
   .navbar-custom.is-visible {
@@ -454,8 +459,8 @@ form .row:first-child .floating-label-form-group {
 
 .btn-default:focus,
 .btn-default:hover {
-  background-color: red;
-  border: 1px solid red;
+  background-color: var(--secondary);
+  border: 1px solid var(--secondary);
   color: #fff
 }
 
@@ -474,8 +479,8 @@ form .row:first-child .floating-label-form-group {
 .pager li>a:focus,
 .pager li>a:hover {
   color: #fff;
-  background-color: red;
-  border: 1px solid red
+  background-color: var(--secondary);
+  border: 1px solid var(--secondary)
 }
 
 .pager .disabled>a,
@@ -529,7 +534,7 @@ img::-moz-selection {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(255, 0, 0);
+  background-color: var(--secondary);
   border-radius: 10px;
 }
 
