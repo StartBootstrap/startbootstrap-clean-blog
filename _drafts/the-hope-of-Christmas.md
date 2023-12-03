@@ -11,6 +11,6 @@ The Grinch is another example of someone who did wrong, yet the Spirit of Christ
 Saul let Jesus change his life and became Paul the Apostle going on to strengthen the Church through his powerful letters.
 
 # There is Hope for You
-My friends, there is hope for you. You can change. There is a reason Christ came to earth. He came to earth for you.
+My friends, there is hope for _you._ _You_ can change. There is a reason Christ came to earth. He came to earth for _you._
 
 Even if others only see you for your sin, He doesn't see you that way. He sees you for the good you do, for who you can become. If you don't yet feel this, or believe this, I invite you to come to know the Savior. He knows you and wants you to feel of His love.
