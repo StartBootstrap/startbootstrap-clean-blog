@@ -4,6 +4,7 @@ We all have made some kind of decisions we wish we hadn't. There have been many 
 In the end, Scrooge found the Spirit of Christmas. We'll call him Ebenezer.
 He may have sung "Here I raise my Ebenezer, hither by Thy help I've come." Because of the gift of God's Son, Ebenezer was able to make it to where he was and was able to change. He had a moment, an Ebenezer he could raise to remember God's help in getting him to that point.
 
+# The Grinch and His Change of Heart
 The Grinch is another example of someone who did wrong, yet the Spirit of Christmas, the Spirit of Christ, led him to change, led him to repent.
 
 Saul let Jesus change his life and became Paul the Apostle going on to strengthen the Church through his powerful letters.
