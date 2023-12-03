@@ -1,4 +1,4 @@
-There have been many people who made poor decisions in their lives. Scrooge, the Grinch, and even Paul the Apostle of the Bible. Common among these is that all changed. All became better people.
+We all have made some kind of decisions we wish we hadn't. There have been many people who made poor decisions in their lives. Scrooge, the Grinch, and even Paul the Apostle of the Bible are some of these. Common among these people is that all of them changed. All became better people.
 
 In the end, Scrooge found the Spirit of Christmas. Call him Ebenezer.
 He may have sung "Here I raise my Ebenezer, hither by Thy help I've come." Because of the gift of God's Son, Ebenezer was able to make it to where he was and was able to change. He had a moment, an Ebenezer he could raise to remember God's help in getting him to that point.
