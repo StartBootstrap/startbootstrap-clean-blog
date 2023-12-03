@@ -1,3 +1,14 @@
+---
+title: Journaling
+subtitle: Tagline
+image: mercy
+image_contributor: #
+contributor_link: #
+contributor_site: #
+contributor_site_link_to_image: #
+date: 2023-11-15 00:00
+---
+
 ## Decisions
 We all have made some kind of decisions we wish we hadn't. There have been many people who made poor decisions in their lives. Scrooge, the Grinch, and even Paul the Apostle of the Bible are some of these. Common among these people is that all of them changed. All became better people.
 
