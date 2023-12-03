@@ -1,12 +1,12 @@
 ---
-title: Journaling
-subtitle: Tagline
-image: mercy
+title: The Hope of Christmas
+subtitle: #
+image: #
 image_contributor: #
 contributor_link: #
 contributor_site: #
 contributor_site_link_to_image: #
-date: 2023-11-15 00:00
+date: 2023-12-03 12:57
 ---
 
 ## Decisions
