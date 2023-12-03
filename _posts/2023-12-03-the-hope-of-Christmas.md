@@ -1,6 +1,6 @@
 ---
 title: The Hope of Christmas
-subtitle: #
+subtitle: We all have made some kind of decisions we wish we hadn't, but because of Christ, there is hope.
 image: #
 image_contributor: #
 contributor_link: #
