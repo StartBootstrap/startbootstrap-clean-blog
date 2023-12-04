@@ -484,7 +484,7 @@ img::-moz-selection {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--tertiary);
+  background-color: var(--secondary);
   border-radius: 10px;
 }
 
