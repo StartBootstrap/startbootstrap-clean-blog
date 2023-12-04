@@ -121,6 +121,10 @@ hr.small {
   z-index: 3
 }
 
+.navbar-custom .navbar-brand {
+  color: var(--primary-text-color);
+}
+
 .navbar-custom .navbar-header .navbar-toggle {
   color: var(--primary-text-color);
   font-weight: 800;
@@ -132,7 +136,8 @@ hr.small {
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 1px;
-  float: left
+  float: left;
+  color: var(--primary-text-color)
 }
 
 @media only screen and (min-width:768px) {
@@ -142,7 +147,6 @@ hr.small {
   }
 
   .navbar-custom .navbar-brand {
-    color: var(--primary-text-color);
     padding: 20px
   }
 
@@ -152,7 +156,6 @@ hr.small {
   }
 
   .navbar-custom .nav li a {
-    color: var(--primary-text-color);
     padding: 20px
   }
 
