@@ -8,7 +8,7 @@
 /* Setting theme color variables */
 :root {
   /* Primary for main text and links to articles */
-  --primary-text-color: #000;
+  --primary-text-color: black;
   /* Secondary for minor items like the scrollbar and menu links on hover */
   --secondary: #a80000;
   /* Tertiary for things generally not seen like tap and button hover */
