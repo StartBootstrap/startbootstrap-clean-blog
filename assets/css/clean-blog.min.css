@@ -446,18 +446,6 @@ footer .copyright {
   cursor: not-allowed
 }
 
-::-moz-selection {
-  color: var(--background-color);
-  text-shadow: none;
-  background: #0365FE
-}
-
-::selection {
-  color: var(--background-color);
-  text-shadow: none;
-  background: #0365FE
-}
-
 img::selection {
   color: var(--background-color);
   background: 0 0
