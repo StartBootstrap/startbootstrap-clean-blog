@@ -12,7 +12,9 @@
   /* Secondary for minor items like the scrollbar and menu links on hover */
   --secondary: #a80000;
   /* Tertiary for things generally not seen like tap and button hover */
-  --tertiary: #ff0500;
+  --tertiary: red;
+  /* the color for background elements and button hover text; tip and scrollbar backgrounds remain untouched */
+  --background-color: white;
 }
 
 a,
@@ -64,12 +66,12 @@ h6 {
 }
 
 #attribution {
-  background-color: #fff;
+  background-color: var(--background-color);
   border-radius: 0
 }
 
 .container-fluid {
-  background-color: #fff
+  background-color: var(--background-color)
 }
 
 p {
@@ -110,7 +112,7 @@ hr.small {
   max-width: 100px;
   margin: 15px auto;
   border-width: 4px;
-  border-color: #fff
+  border-color: var(--background-color)
 }
 
 .navbar-custom {
@@ -413,7 +415,7 @@ footer .copyright {
 .btn-default:hover {
   background-color: var(--tertiary);
   border: 1px solid var(--tertiary);
-  color: #fff
+  color: var(--background-color)
 }
 
 .pager {
@@ -430,7 +432,7 @@ footer .copyright {
 
 .pager li>a:focus,
 .pager li>a:hover {
-  color: #fff;
+  color: var(--background-color);
   background-color: var(--tertiary);
   border: 1px solid var(--tertiary)
 }
@@ -445,24 +447,24 @@ footer .copyright {
 }
 
 ::-moz-selection {
-  color: #fff;
+  color: var(--background-color);
   text-shadow: none;
   background: #0365FE
 }
 
 ::selection {
-  color: #fff;
+  color: var(--background-color);
   text-shadow: none;
   background: #0365FE
 }
 
 img::selection {
-  color: #fff;
+  color: var(--background-color);
   background: 0 0
 }
 
 img::-moz-selection {
-  color: #fff;
+  color: var(--background-color);
   background: 0 0
 }
 
