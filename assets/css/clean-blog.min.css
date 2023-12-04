@@ -13,8 +13,8 @@
   --secondary: #a80000;
   /* Tertiary for things generally not seen like tap and button hover */
   --tertiary: red;
-  /* the color for background elements and button hover text; tip and scrollbar backgrounds remain untouched */
-  --background-color: white;
+  /* the color for background elements and button hover text; tip and scrollbar backgrounds as well as white page background remain untouched */
+  --element-background-color: white;
 }
 
 a,
@@ -66,12 +66,12 @@ h6 {
 }
 
 #attribution {
-  background-color: var(--background-color);
+  background-color: var(--element-background-color);
   border-radius: 0
 }
 
 .container-fluid {
-  background-color: var(--background-color)
+  background-color: var(--element-background-color)
 }
 
 p {
@@ -112,7 +112,7 @@ hr.small {
   max-width: 100px;
   margin: 15px auto;
   border-width: 4px;
-  border-color: var(--background-color)
+  border-color: var(--element-background-color)
 }
 
 .navbar-custom {
@@ -249,6 +249,7 @@ header.intro-header {
 .intro-header .post-heading,
 .intro-header .site-heading {
   padding: 100px 0 50px;
+  /* text color on the background images */
   color: #fff
 }
 
@@ -305,6 +306,7 @@ header.intro-header {
 }
 
 .intro-header .post-heading .meta a {
+  /* links on the header backgrounds */
   color: #fff
 }
 
@@ -415,7 +417,7 @@ footer .copyright {
 .btn-default:hover {
   background-color: var(--tertiary);
   border: 1px solid var(--tertiary);
-  color: var(--background-color)
+  color: var(--element-background-color)
 }
 
 .pager {
@@ -426,13 +428,13 @@ footer .copyright {
 .pager li>span {
   font-size: 14px;
   padding: 15px 25px;
-  background-color: var(--background-color);
+  background-color: var(--element-background-color);
   border-radius: 0
 }
 
 .pager li>a:focus,
 .pager li>a:hover {
-  color: var(--background-color);
+  color: var(--element-background-color);
   background-color: var(--tertiary);
   border: 1px solid var(--tertiary)
 }
@@ -447,12 +449,12 @@ footer .copyright {
 }
 
 img::selection {
-  color: var(--background-color);
+  color: var(--element-background-color);
   background: 0 0
 }
 
 img::-moz-selection {
-  color: var(--background-color);
+  color: var(--element-background-color);
   background: 0 0
 }
 
