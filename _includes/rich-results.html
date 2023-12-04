@@ -46,7 +46,7 @@
               ],
               "author": {
                 "@type": "Person",
-                "name": "{{ page.author }}"
+                {% assign author = site.authors | where: 'short_name', page.author | first %}"name": "{{ author.name }}"
               },
               "publisher": {
                 "@type": "Organization",
@@ -57,8 +57,7 @@
                 }
               },
               "datePublished": "{{ page.date | date: "%F %T %z" }}" {% if page.updated %},
-              "dateModified": "{{ page.updated | date: "%F %T %z" }}"
-              {% endif %}
+              "dateModified": "{{ page.updated | date: "%F %T %z" }}"{% endif %}
             }
           ]
         }
