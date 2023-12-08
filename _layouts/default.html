@@ -127,7 +127,9 @@
             <div id="posts" class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                {% if page.url == "/" %} <!-- script is included only if it is on the homepage -->
                <!-- Below is a script that will get the quote displayed on the page at the current moment and allow it to be shared on various platforms (depending on the device's sharing capabilities) when the link is clicked -->
-               <script src="/assets/js/quote-share.js"></script>
+
+               <!-- Commenting out below code to make way for the Christmas sharing your light feature -->
+               <!-- <script src="/assets/js/quote-share.js"></script> -->
                {% endif %}
                {{content}}
             </div>
