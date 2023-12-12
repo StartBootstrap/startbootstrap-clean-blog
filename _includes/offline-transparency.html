@@ -1,5 +1,4 @@
 <script>
-    // Check if the article is cached or not (replace 'article-id' with the actual identifier or logic)
     function isArticleCached(articleId) {
         // Check if the article is stored in localStorage
         return localStorage.getItem(articleId) !== null;
@@ -11,7 +10,6 @@
 
     // Function to update article transparency based on caching status
     function updateArticleTransparency() {
-        // Replace 'article-id' with the actual identifier or logic you use to identify articles
         var articleId = '{{ post.id }}';
         var articleContainers = document.querySelectorAll('.post-preview');
 
