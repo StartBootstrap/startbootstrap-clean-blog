@@ -5,7 +5,7 @@ title: Sharing His Love
 
 <!-- Automatically outputs the 5 latest posts -->
 {% for post in site.posts limit:5 %}
-<div class="post-preview">
+<div class="post-preview" id="{{ post.name }}">
     <a href="{{ post.url }}">
         <img src="/assets/images/headers/{{ post.image }}.webp" class="post-preview-image" width="300px" height="200px">
         <h2 class="post-title">
