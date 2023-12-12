@@ -5,16 +5,17 @@
         return cachedArticles[articleId] === true;
     }
 
-    // Add event listener to check offline status and update article transparency
-    window.addEventListener('offline', updateArticleTransparency);
-    window.addEventListener('online', updateArticleTransparency);
-
     // Function to update article transparency based on caching status
     function updateArticleTransparency() {
-        var articleId = '{{ post.id }}';
         var articleContainers = document.querySelectorAll('.post-preview');
 
         articleContainers.forEach(function (articleContainer) {
+            // Find the articleId for each specific article
+            var articleId = articleContainer.querySelector('a').getAttribute('href');
+
+            // Remove leading '/'
+            articleId = articleId.replace(/^\//, '');
+
             if (!isArticleCached(articleId) && navigator.onLine) {
                 articleContainer.classList.add('offline');
             } else {
@@ -22,6 +23,10 @@
             }
         });
     }
+
+    // Add event listener to check offline status and update article transparency
+    window.addEventListener('offline', updateArticleTransparency);
+    window.addEventListener('online', updateArticleTransparency);
 
     // Initial check when the page loads
     window.addEventListener('DOMContentLoaded', updateArticleTransparency);
