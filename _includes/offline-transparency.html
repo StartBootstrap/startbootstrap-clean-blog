@@ -17,9 +17,9 @@
             articleId = articleId.replace(/^\//, '');
 
             if (!isArticleCached(articleId) && navigator.onLine) {
-                articleContainer.classList.add('offline');
-            } else {
                 articleContainer.classList.remove('offline');
+            } else {
+                articleContainer.classList.add('offline');
             }
         });
     }
