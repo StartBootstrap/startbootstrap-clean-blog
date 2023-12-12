@@ -1,0 +1,29 @@
+<script>
+    // Check if the article is cached or not (replace 'article-id' with the actual identifier or logic)
+    function isArticleCached(articleId) {
+        // Your caching logic here
+        // Return true if article is cached, false otherwise
+    }
+
+    // Add event listener to check offline status and update article transparency
+    window.addEventListener('offline', updateArticleTransparency);
+    window.addEventListener('online', updateArticleTransparency);
+
+    // Function to update article transparency based on caching status
+    function updateArticleTransparency() {
+        // Replace 'article-id' with the actual identifier or logic you use to identify articles
+        var articleId = 'article-id';
+        var articleContainers = document.querySelectorAll('.post-preview');
+
+        articleContainers.forEach(function (articleContainer) {
+            if (!isArticleCached(articleId) && navigator.onLine) {
+                articleContainer.classList.add('offline');
+            } else {
+                articleContainer.classList.remove('offline');
+            }
+        });
+    }
+
+    // Initial check when the page loads
+    window.addEventListener('DOMContentLoaded', updateArticleTransparency);
+</script>
