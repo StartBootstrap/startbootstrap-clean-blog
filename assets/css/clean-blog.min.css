@@ -331,6 +331,11 @@ header.intro-header {
   text-align: center
 }
 
+/* Styling for if the article is not cached on the device and therefore not available offline */
+.post-preview.offline {
+  opacity: 50%;
+}
+
 .post-preview>a>.post-title {
   font-size: 30px;
   margin-top: 30px;
