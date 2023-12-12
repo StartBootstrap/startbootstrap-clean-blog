@@ -1,7 +1,8 @@
 <script>
     function isArticleCached(articleId) {
-        // Check if the article is stored in localStorage
-        return localStorage.getItem(articleId) !== null;
+        // Check if the article is marked as cached in localStorage
+        const cachedArticles = JSON.parse(localStorage.getItem('cachedArticles')) || {};
+        return cachedArticles[articleId] === true;
     }
 
     // Add event listener to check offline status and update article transparency
