@@ -13,5 +13,5 @@ date: 2023-12-16 12:00
 
 - So we can have this special Christmas season in the year
 - So I have a family I can be with forever
-- So I can repent & be forgiven & improve my self each day.
+- So I can repent (change for the better) & be forgiven & improve my self each day.
 
