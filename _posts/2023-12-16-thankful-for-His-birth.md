@@ -1,6 +1,6 @@
 ---
 title: Thankful for His Birth
-subtitle: #
+subtitle: 3 reasons I'm thankful for the Savior's birth and an invitation for you
 image: His-birth
 image_contributor: #
 contributor_link: #
