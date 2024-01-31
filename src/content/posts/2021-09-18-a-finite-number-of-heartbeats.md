@@ -4,6 +4,6 @@ description: ''
 author: Start Bootstrap
 featured_image: /assets/img/post-bg.jpg
 date: 2021-09-18
-draft: true
+draft: false
 page_type: post
 ---
